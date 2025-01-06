@@ -3,38 +3,39 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Exemple avec JSON</title>
+    <title>Exemple avec données JSON intégrées</title>
 </head>
 <body>
     <h1>Mes données JSON</h1>
     <div id="data-container"></div>
 
     <script>
-        // URL du fichier JSON
-        const jsonUrl = 'https://seb19861986.github.io/competences_locales/competences_data.json';
-
-        // Utiliser fetch pour récupérer le fichier JSON
-        fetch(jsonUrl)
-            .then(response => {
-                if (!response.ok) {
-                    throw new Error('Échec du chargement du fichier JSON');
+        // Les données JSON intégrées directement dans le script
+        const data = {
+            "competences": [
+                {
+                    "nom": "Compétence 1",
+                    "description": "Description de la compétence 1"
+                },
+                {
+                    "nom": "Compétence 2",
+                    "description": "Description de la compétence 2"
+                },
+                {
+                    "nom": "Compétence 3",
+                    "description": "Description de la compétence 3"
                 }
-                return response.json();
-            })
-            .then(data => {
-                // Manipulation et affichage des données dans la page HTML
-                const container = document.getElementById('data-container');
-                // Par exemple, on affiche les compétences
-                let content = '<ul>';
-                data.competences.forEach(comp => {
-                    content += `<li><strong>${comp.nom}</strong>: ${comp.description}</li>`;
-                });
-                content += '</ul>';
-                container.innerHTML = content;
-            })
-            .catch(error => {
-                console.error('Erreur lors du chargement du fichier JSON:', error);
-            });
+            ]
+        };
+
+        // Afficher les données dans la page HTML
+        const container = document.getElementById('data-container');
+        let content = '<ul>';
+        data.competences.forEach(comp => {
+            content += `<li><strong>${comp.nom}</strong>: ${comp.description}</li>`;
+        });
+        content += '</ul>';
+        container.innerHTML = content;
     </script>
 </body>
 </html>
