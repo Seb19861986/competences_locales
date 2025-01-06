@@ -62,14 +62,14 @@
 
                 // Fonction de recherche
                 document.getElementById('search-bar').addEventListener('input', function(e) {
-                    const query = e.target.value.toLowerCase();
-                    const filteredData = data.filter(item => 
-                        item.EntiteFocus.toLowerCase().includes(query) ||
-                        item.IndexObjet.toLowerCase().includes(query) ||
-                        item.OrganeCompetent.toLowerCase().includes(query)
-                    );
-                    displayResults(filteredData);
-                });
+    const query = e.target.value.toLowerCase();
+    const filteredData = data.filter(item => 
+        (item.EntiteFocus && item.EntiteFocus.toLowerCase().includes(query)) ||
+        (item.IndexObjet && item.IndexObjet.toLowerCase().includes(query)) ||
+        (item.OrganeCompetent && item.OrganeCompetent.toLowerCase().includes(query))
+    );
+    displayResults(filteredData);
+});
             })
             .catch(error => console.error('Erreur lors du chargement des données JSON:', error));
 
