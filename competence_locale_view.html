@@ -3,39 +3,89 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Exemple avec données JSON intégrées</title>
+    <title>Recherche des compétences des pouvoirs locaux</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        input {
+            margin: 10px 0;
+            padding: 10px;
+            width: 100%;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 10px;
+            text-align: left;
+        }
+        th {
+            background-color: #f4f4f4;
+        }
+    </style>
 </head>
 <body>
-    <h1>Mes données JSON</h1>
-    <div id="data-container"></div>
+    <h1>Recherche des compétences des pouvoirs locaux</h1>
+    
+    <!-- Barre de recherche -->
+    <input type="text" id="search-bar" placeholder="Tapez votre recherche..." />
+
+    <!-- Tableau des résultats -->
+    <table>
+        <thead>
+            <tr>
+                <th>Entité en focus</th>
+                <th>Index (Objet)</th>
+                <th>Organe compétent</th>
+            </tr>
+        </thead>
+        <tbody id="results-table">
+            <!-- Résultats générés ici -->
+        </tbody>
+    </table>
 
     <script>
-        // Les données JSON intégrées directement dans le script
-        const data = {
-            "competences": [
-                {
-                    "nom": "Compétence 1",
-                    "description": "Description de la compétence 1"
-                },
-                {
-                    "nom": "Compétence 2",
-                    "description": "Description de la compétence 2"
-                },
-                {
-                    "nom": "Compétence 3",
-                    "description": "Description de la compétence 3"
-                }
-            ]
-        };
+        // URL du fichier JSON
+        const jsonUrl = 'https://USERNAME.github.io/REPOSITORY/competences_data.json';
 
-        // Afficher les données dans la page HTML
-        const container = document.getElementById('data-container');
-        let content = '<ul>';
-        data.competences.forEach(comp => {
-            content += `<li><strong>${comp.nom}</strong>: ${comp.description}</li>`;
-        });
-        content += '</ul>';
-        container.innerHTML = content;
+        // Charger les données JSON
+        fetch(jsonUrl)
+            .then(response => response.json())
+            .then(data => {
+                // Affichage initial
+                displayResults(data);
+
+                // Fonction de recherche
+                document.getElementById('search-bar').addEventListener('input', function(e) {
+                    const query = e.target.value.toLowerCase();
+                    const filteredData = data.filter(item => 
+                        item.EntiteFocus.toLowerCase().includes(query) ||
+                        item.IndexObjet.toLowerCase().includes(query) ||
+                        item.OrganeCompetent.toLowerCase().includes(query)
+                    );
+                    displayResults(filteredData);
+                });
+            })
+            .catch(error => console.error('Erreur lors du chargement des données JSON:', error));
+
+        // Fonction pour afficher les résultats
+        function displayResults(data) {
+            const tableBody = document.getElementById('results-table');
+            tableBody.innerHTML = ""; // Réinitialiser les résultats
+            data.forEach(item => {
+                const row = `<tr>
+                    <td>${item.EntiteFocus}</td>
+                    <td>${item.IndexObjet}</td>
+                    <td>${item.OrganeCompetent}</td>
+                </tr>`;
+                tableBody.innerHTML += row;
+            });
+        }
     </script>
 </body>
 </html>
