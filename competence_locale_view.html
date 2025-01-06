@@ -3,103 +3,38 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tool de Recherche des Compétences</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 20px;
-        }
-        .filter-container {
-            margin-bottom: 20px;
-        }
-        .results {
-            margin-top: 20px;
-            border-collapse: collapse;
-            width: 100%;
-        }
-        .results th, .results td {
-            border: 1px solid #ccc;
-            padding: 10px;
-            text-align: left;
-        }
-        .results th {
-            background-color: #f4f4f4;
-        }
-    </style>
+    <title>Exemple avec JSON</title>
 </head>
 <body>
-    <h1>Recherche des Compétences et Responsabilités</h1>
-
-    <div class="filter-container">
-        <label for="filter-key">Critère :</label>
-        <select id="filter-key">
-            <option value="Organe compétent (sujet)">Organe compétent</option>
-            <option value="Entité(s) en focus (contexte)">Contexte</option>
-            <option value="Index (objet)">Objet</option>
-        </select>
-
-        <label for="filter-value">Valeur :</label>
-        <input type="text" id="filter-value" placeholder="Entrez un mot clé">
-
-        <button onclick="filterData()">Rechercher</button>
-    </div>
-
-    <table class="results" id="results-table">
-        <thead>
-            <tr>
-                <th>Compétence / Responsabilité</th>
-                <th>Contexte</th>
-                <th>Objet</th>
-                <th>Organe compétent</th>
-            </tr>
-        </thead>
-        <tbody>
-            <!-- Les résultats apparaîtront ici -->
-        </tbody>
-    </table>
+    <h1>Mes données JSON</h1>
+    <div id="data-container"></div>
 
     <script>
-        let data = [];
+        // URL du fichier JSON
+        const jsonUrl = 'https://seb19861986.github.io/competences_locales/competences_data.json';
 
-        // Charger les données JSON
-        fetch('https://Seb19861986.github.io/Competences_locales/competences_data.json')
-')
-            .then(response => response.json())
-            .then(json => {
-                data = json;
-                displayResults(data);
+        // Utiliser fetch pour récupérer le fichier JSON
+        fetch(jsonUrl)
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error('Échec du chargement du fichier JSON');
+                }
+                return response.json();
             })
-            .catch(error => console.error('Erreur lors du chargement des données :', error));
-
-        // Filtrer les données
-        function filterData() {
-            const key = document.getElementById('filter-key').value;
-            const value = document.getElementById('filter-value').value.toLowerCase();
-
-            const filtered = data.filter(item =>
-                item[key] && item[key].toLowerCase().includes(value)
-            );
-
-            displayResults(filtered);
-        }
-
-        // Afficher les resultats dans le tableau
-        function displayResults(results) {
-            const tableBody = document.getElementById('results-table').querySelector('tbody');
-            tableBody.innerHTML = '';
-
-            results.forEach(row => {
-                const tr = document.createElement('tr');
-
-                Object.values(row).forEach(cell => {
-                    const td = document.createElement('td');
-                    td.textContent = cell || '';
-                    tr.appendChild(td);
+            .then(data => {
+                // Manipulation et affichage des données dans la page HTML
+                const container = document.getElementById('data-container');
+                // Par exemple, on affiche les compétences
+                let content = '<ul>';
+                data.competences.forEach(comp => {
+                    content += `<li><strong>${comp.nom}</strong>: ${comp.description}</li>`;
                 });
-
-                tableBody.appendChild(tr);
+                content += '</ul>';
+                container.innerHTML = content;
+            })
+            .catch(error => {
+                console.error('Erreur lors du chargement du fichier JSON:', error);
             });
-        }
     </script>
 </body>
 </html>
