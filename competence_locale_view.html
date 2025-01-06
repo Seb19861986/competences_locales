@@ -50,28 +50,43 @@
     </table>
 
     <script>
-        // URL du fichier JSON
- const jsonUrl = 'https://seb19861986.github.io/competences_locales/DEF_sheet.json';
+        // Données JSON intégrées directement
+        const data = [
+            {
+                "EntiteFocus": "commune",
+                "IndexObjet": "biens communaux",
+                "OrganeCompetent": "conseil communal"
+            },
+            {
+                "EntiteFocus": "commune",
+                "IndexObjet": "élections",
+                "OrganeCompetent": "assemblée des électeurs de la commune"
+            },
+            {
+                "EntiteFocus": "commune",
+                "IndexObjet": "élections / mandat politique",
+                "OrganeCompetent": "candidat élu"
+            },
+            {
+                "EntiteFocus": "commune",
+                "IndexObjet": "élections / mandat politique",
+                "OrganeCompetent": "directeur général"
+            }
+        ];
 
-        // Charger les données JSON
-        fetch(jsonUrl)
-            .then(response => response.json())
-            .then(data => {
-                // Affichage initial
-                displayResults(data);
+        // Affichage initial
+        displayResults(data);
 
-                // Fonction de recherche
-                document.getElementById('search-bar').addEventListener('input', function(e) {
-    const query = e.target.value.toLowerCase();
-    const filteredData = data.filter(item => 
-        (item.EntiteFocus && item.EntiteFocus.toLowerCase().includes(query)) ||
-        (item.IndexObjet && item.IndexObjet.toLowerCase().includes(query)) ||
-        (item.OrganeCompetent && item.OrganeCompetent.toLowerCase().includes(query))
-    );
-    displayResults(filteredData);
-});
-            })
-            .catch(error => console.error('Erreur lors du chargement des données JSON:', error));
+        // Fonction de recherche
+        document.getElementById('search-bar').addEventListener('input', function(e) {
+            const query = e.target.value.toLowerCase();
+            const filteredData = data.filter(item => 
+                (item.EntiteFocus && item.EntiteFocus.toLowerCase().includes(query)) ||
+                (item.IndexObjet && item.IndexObjet.toLowerCase().includes(query)) ||
+                (item.OrganeCompetent && item.OrganeCompetent.toLowerCase().includes(query))
+            );
+            displayResults(filteredData);
+        });
 
         // Fonction pour afficher les résultats
         function displayResults(data) {
