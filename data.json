@@ -1,0 +1,26 @@
+[
+    {
+        "N°": 1,
+        "Competence": "Partage des biens communaux entre les habitants en cas de séparation d'une commune (et les dettes et archives)",
+        "BaseLegale": "art. 28 R12 xxxx LO",
+        "EntiteFocus": ["commune"],
+        "IndexObjet": ["biens communaux"],
+        "OrganeCompetent": ["conseil communal"],
+        "Commentaire": null,
+        "Delegation": null,
+        "BaseDelegation": null,
+        "LienConnect": "https://myportal.vandenbroeleconnect.be/contenu/livres/detail/73184593456836264/le-vade-mecum-de-la-commune-au-travers-du-cdld#73186792480091832"
+    },
+    {
+        "N°": 107,
+        "Competence": "Concertation avant la rédaction des statuts du personnel",
+        "BaseLegale": "art. L1124-4, § 6, al. 1er CDLD",
+        "EntiteFocus": ["commune"],
+        "IndexObjet": ["personnel", "statut général du personnel"],
+        "OrganeCompetent": ["comité de direction"],
+        "Commentaire": null,
+        "Delegation": null,
+        "BaseDelegation": null,
+        "LienConnect": "https://myportal.vandenbroeleconnect.be/contenu/livres/detail/73184593456836264/le-vade-mecum-de-la-commune-au-travers-du-cdld#73186792480091836"
+    }
+]
