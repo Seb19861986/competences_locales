@@ -1,0 +1,2214 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Recherche des compétences</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.4.0/jspdf.umd.min.js"></script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background: url('https://raw.githubusercontent.com/Seb19861986/competences_locales/main/dgconnect-seo.png') no-repeat center center fixed;
+            background-size: cover;
+            background-color: rgba(255, 255, 255, 0.4);
+            background-blend-mode: lighten;
+        }
+        .header-content {
+            background-color: white;
+            border-radius: 10px;
+            padding: 20px;
+            margin: 100px auto;
+            max-width: 60%;
+            text-align: center;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        .header-content h1 {
+            margin: 0 0 10px 0;
+            font-size: 24px;
+            color: #C7352C;
+            text-align: center;
+        }
+        .header-content p {
+            margin: 0;
+            font-size: 16px;
+            color: #333;
+            font-style: italic;
+            font-weight: bold;
+            text-align: center;
+        }
+        .search-container {
+            display: flex;
+            gap: 20px;
+            max-width: 80%;
+            margin: 20px auto;
+            flex-direction: column;
+        }
+        .search-box {
+            background-color: white;
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            padding: 40px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            margin-bottom: 20px;
+            width: 33%;
+            margin: 20px auto;
+        }
+        .search-box h2 {
+            margin-bottom: 20px;
+            font-size: 18px;
+            color: #C7352C;
+        }
+        select, input[type="text"], button {
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 20px;
+            font-size: 16px;
+            width: 100%;
+            margin-bottom: 10px;
+        }
+        .filter-box {
+            background-color: white;
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            padding: 20px;
+            margin: 20px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            flex: 1;
+            max-height: fit-content;
+        }
+        .filter-box h3 {
+            font-size: 18px;
+            color: #C7352C;
+        }
+        .dropdown {
+            position: relative;
+            margin-bottom: 15px;
+        }
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: #fff;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            width: 200px;
+            max-height: 150px;
+            overflow-y: auto;
+            z-index: 1;
+            padding: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: max-height 0.3s ease, padding 0.3s ease;
+        }
+        .dropdown:focus-within .dropdown-content {
+            display: block;
+            max-height: 150px;
+            padding: 10px;
+        }
+        button {
+            font-size: 16px; /* Taille du texte */
+            padding: 5px 10px; /* Espacement interne */
+            border-radius: 5px; /* Coins arrondis */
+            background-color: #C7352C; /* Couleur de fond */
+            width: auto; /* Ajuste la largeur en fonction du contenu */
+            max-width: 200px; /* Limite la largeur maximale si nécessaire */
+            margin: 0 auto; /* Centre le bouton horizontalement si besoin */
+            color: #fff; /* Couleur du texte */
+            border: none; /* Supprime les bordures */
+            cursor: pointer; /* Change le curseur au survol */
+}
+        button:hover {
+            background-color: #a82a24;
+        }
+        .apply-filters {
+           background-color: #163E67;
+            color: #fff;
+            font-size: 14px;
+            margin-top: 10px;
+            padding: 5px 15px;
+            border-radius: 10px;
+        }
+        .reset-filters {
+            background-color: #163E67;
+            color: #fff;
+            font-size: 14px;
+            margin-top: 10px;
+            padding: 5px 15px;
+            border-radius: 10px;
+        }
+        .applied-filters {
+            margin-top: 10px;
+            font-size: 12px;
+            color: #333;
+            background-color: #f9f9f9;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+        .applied-filters span {
+            background-color: #163E67;
+            color: #fff;
+            padding: 5px 10px;
+            border-radius: 15px;
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
+            margin-right: 5px;
+        }
+        .applied-filters span button {
+            background: transparent;
+            border: none;
+            color: #fff;
+            font-size: 12px;
+            cursor: pointer;
+        }
+        .results {
+            flex: 3;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            display: none;
+        }
+        .result-card {
+            margin-bottom: 20px;
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            padding: 20px;
+            background-color: #f9f9f9;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        .result-card h3 {
+            color: #163E67;
+        }
+        .flex-row {
+            display: flex;
+            flex-direction: row;
+            gap: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="header-content">
+        <h1>Compétences et responsabilités des pouvoirs locaux</h1>
+        <p>Cet outil se veut être un inventaire des compétences légales sur base du Code de la démocratie locale et de la décentralisation (CDLD), la Loi du 8 juillet 1976 organique des centres publics d’action sociale (LO) et la Nouvelle Loi communale du 24 juin 1988 (NLC).</p>
+    </div>
+
+    <div class="search-box">
+        <h2>Inventaire des compétences</h2>
+        <select id="criteria">
+            <option value="Competence">Texte juridique</option>
+            <option value="OrganeCompetent">Organe compétent</option>
+        </select>
+        <input type="text" id="search-bar" placeholder="Tapez votre recherche...">
+        <button onclick="searchResults()">Rechercher</button>
+    </div>
+
+    <div class="flex-row">
+        <div class="filter-box" id="filter-section" style="display: none;">
+            <h3>Filtres</h3>
+            <div class="dropdown">
+                <button>Base Légale</button>
+                <div class="dropdown-content">
+                    <label><input type="checkbox" value="CDLD" class="filter" data-field="BaseLegale"> CDLD</label>
+                    <label><input type="checkbox" value="Loi organique" class="filter" data-field="BaseLegale"> Loi organique</label>
+                    <label><input type="checkbox" value="Nouvelle Loi communale" class="filter" data-field="BaseLegale"> Nouvelle Loi communale</label>
+                </div>
+            </div>
+            <div class="dropdown">
+                <button>Entité Focus</button>
+                <div class="dropdown-content">
+                    <label><input type="checkbox" value="commune" class="filter" data-field="EntiteFocus"> Commune</label>
+                    <label><input type="checkbox" value="CPAS" class="filter" data-field="EntiteFocus"> CPAS</label>
+                </div>
+            </div>
+            <div class="dropdown">
+                <button>Index Objet</button>
+                <div class="dropdown-content">
+                    <label><input type="checkbox" value="élections" class="filter" data-field="IndexObjet"> Élections</label>
+                    <label><input type="checkbox" value="budget" class="filter" data-field="IndexObjet"> Budget</label>
+                </div>
+            </div>
+            <div class="dropdown">
+                <button>Organe Compétent</button>
+                <div class="dropdown-content">
+                    <label><input type="checkbox" value="conseil communal" class="filter" data-field="OrganeCompetent"> Conseil Communal</label>
+                    <label><input type="checkbox" value="collège communal" class="filter" data-field="OrganeCompetent"> Collège Communal</label>
+                </div>
+            </div>
+            <button class="apply-filters" onclick="applyFilters()">Appliquer les filtres</button>
+            <button class="reset-filters" onclick="resetFilters()">Réinitialiser les filtres</button>
+            <div id="applied-filters" class="applied-filters" style="display: none;"></div>
+        </div>
+
+        <div class="results" id="results">
+            <!-- Les résultats de recherche seront affichés ici -->
+        </div>
+    </div>
+
+    <script>
+        const data = [
+            {
+                "N°": 1,
+                "Competence": "Partage des biens communaux entre les habitants en cas de séparation d'une commune (et les dettes et archives)",
+                "BaseLegale": "art. 28 R12 xxxx LO",
+                "EntiteFocus": ["commune"],
+                "IndexObjet": ["biens communaux"],
+                "OrganeCompetent": ["conseil communal"],
+                "Commentaire": null,
+                "Delegation": null,
+                "BaseDelegation": null,
+                "LienConnect": "https://myportal.vandenbroeleconnect.be/contenu/livres/detail/73184593456836264/le-vade-mecum-de-la-commune-au-travers-du-cdld#73186792480091832"
+            },
+            {
+                "N°": 107,
+                "Competence": "Concertation avant la rédaction des statuts du personnel",
+                "BaseLegale": "art. L1124-4, § 6, al. 1er CDLD",
+                "EntiteFocus": ["commune"],
+                "IndexObjet": ["personnel", "statut général du personnel"],
+                "OrganeCompetent": ["comité de direction"],
+                "Commentaire": null,
+                "Delegation": null,
+                "BaseDelegation": null,
+                "LienConnect": "https://myportal.vandenbroeleconnect.be/contenu/livres/detail/73184593456836264/le-vade-mecum-de-la-commune-au-travers-du-cdld#73186792480091836"
+            },
+    {
+        "N°": 14,
+        "Competence": "Établissement (annuel) d'un projet de rapport sur l'ensemble des synergies existantes et à développer entre la commune et le centre public d'action sociale",
+        "BaseLegale": "art. L1122-11, al. 3 CDLD",
+        "EntiteFocus": [
+            "commune ",
+            " CPAS"
+        ],
+        "IndexObjet": [
+            "synergies commune-CPAS"
+        ],
+        "OrganeCompetent": [
+            "directeur général ",
+            " directeur général (CPAS) "
+        ],
+        "Commentaire": null,
+        "Delegation": null,
+        "BaseDelegation": null,
+        "LienConnect": "https://myportal.vandenbroeleconnect.be/contenu/livres/detail/73184593456836264/le-vade-mecum-de-la-commune-au-travers-du-cdld#73186792480091835"
+    },
+    {
+        "N°": 15,
+        "Competence": "Avis sur le projet de rapport sur l'ensemble des synergies existantes et à développer entre la commune et le centre public d'action sociale, établi par le directeur général de la commune et celui du CPAS conjointement ",
+        "BaseLegale": "art. L1122-11, al. 4 CDLD",
+        "EntiteFocus": [
+            "commune ",
+            " CPAS"
+        ],
+        "IndexObjet": [
+            "synergies commune-CPAS"
+        ],
+        "OrganeCompetent": [
+            "comité de direction ",
+            " comité de direction (CPAS) "
+        ],
+        "Commentaire": null,
+        "Delegation": null,
+        "BaseDelegation": null,
+        "LienConnect": "https://myportal.vandenbroeleconnect.be/contenu/livres/detail/73184593456836264/le-vade-mecum-de-la-commune-au-travers-du-cdld#73186792480091836"
+    },
+    {
+        "N°": 16,
+        "Competence": "Faculté de modification du projet de rapport sur l'ensemble des synergies existantes et à développer entre la commune et le centre public d'action sociale, établi par le directeur général de la commune et celui du CPAS conjointement ",
+        "BaseLegale": "art. L1122-11, al. 5 CDLD",
+        "EntiteFocus": [
+            "commune ",
+            " CPAS"
+        ],
+        "IndexObjet": [
+            "synergies commune-CPAS"
+        ],
+        "OrganeCompetent": [
+            "comité de concertation ",
+            " conseil communal ",
+            " conseil de l'action sociale"
+        ],
+        "Commentaire": null,
+        "Delegation": null,
+        "BaseDelegation": null,
+        "LienConnect": "https://myportal.vandenbroeleconnect.be/contenu/livres/detail/73184593456836264/le-vade-mecum-de-la-commune-au-travers-du-cdld#73186792480091839"
+    },
+    {
+        "N°": 17,
+        "Competence": "Adoption du rapport sur l'ensemble des synergies existantes et à développer entre la commune et le centre public d'action sociale, établi, comme projet, par le directeur général de la commune et celui du CPAS conjointement ",
+        "BaseLegale": "art. L1122-11, al. 5 CDLD",
+        "EntiteFocus": [
+            "commune ",
+            " CPAS"
+        ],
+        "IndexObjet": [
+            "synergies commune-CPAS"
+        ],
+        "OrganeCompetent": [
+            "conseil communal ",
+            " conseil de l'action sociale"
+        ],
+        "Commentaire": null,
+        "Delegation": null,
+        "BaseDelegation": null,
+        "LienConnect": "https://myportal.vandenbroeleconnect.be/contenu/livres/detail/73184593456836264/le-vade-mecum-de-la-commune-au-travers-du-cdld#73186792480091832"
+    },
+    {
+        "N°": 18,
+        "Competence": "Convocation du conseil communal",
+        "BaseLegale": "art. L1122-12, al. 1er CDLD",
+        "EntiteFocus": [
+            "commune"
+        ],
+        "IndexObjet": [
+            "conseil communal ",
+            " convocation"
+        ],
+        "OrganeCompetent": [
+            "collège communal"
+        ],
+        "Commentaire": null,
+        "Delegation": null,
+        "BaseDelegation": null,
+        "LienConnect": "https://myportal.vandenbroeleconnect.be/contenu/livres/detail/73184593456836264/le-vade-mecum-de-la-commune-au-travers-du-cdld#73186792480091835"
+    },
+    {
+        "N°": 19,
+        "Competence": "Mise à disposition de chaque membre du conseil communal une adresse de courrier électronique personnelle",
+        "BaseLegale": "art. L1122-13, §1er, al. 4 CDLD",
+        "EntiteFocus": [
+            "commune"
+        ],
+        "IndexObjet": [
+            "conseil communal ",
+            " courrier électronique"
+        ],
+        "OrganeCompetent": [
+            "collège communal"
+        ],
+        "Commentaire": null,
+        "Delegation": null,
+        "BaseDelegation": null,
+        "LienConnect": "https://myportal.vandenbroeleconnect.be/contenu/livres/detail/73184593456836264/le-vade-mecum-de-la-commune-au-travers-du-cdld#73186792480091836"
+    },
+    {
+        "N°": 20,
+        "Competence": "Fournir aux conseillers communaux des explications techniques nécessaires à la compréhension des dossiers présentés au conseil communal",
+        "BaseLegale": "art. L1122-13, §2, al. 2 CDLD",
+        "EntiteFocus": [
+            "commune"
+        ],
+        "IndexObjet": [
+            "conseil communal ",
+            " explications techniques"
+        ],
+        "OrganeCompetent": [
+            "directeur général ",
+            " directeur financier"
+        ],
+        "Commentaire": null,
+        "Delegation": "\"ou le fonctionnaire désigné par lui\"\n\"ou le fonctionnaire désigné par lui\"",
+        "BaseDelegation": "art. L1122-13, §2 CDLD",
+        "LienConnect": "https://myportal.vandenbroeleconnect.be/contenu/livres/detail/73184593456836264/le-vade-mecum-de-la-commune-au-travers-du-cdld#73186792480091839"
+    },
+    {
+        "N°": 21,
+        "Competence": "Décision quant à la recevabilité d'une interpellation proposée par les habitants de la commune à l'adresse du collège communal à l'occasion d'une séance publique du conseil communal",
+        "BaseLegale": "art. L1122-14, §3, al. 1er CDLD",
+        "EntiteFocus": [
+            "commune"
+        ],
+        "IndexObjet": [
+            "conseil communal ",
+            " interpellation proposée par les habitants"
+        ],
+        "OrganeCompetent": [
+            "collège communal"
+        ],
+        "Commentaire": null,
+        "Delegation": null,
+        "BaseDelegation": null,
+        "LienConnect": "https://myportal.vandenbroeleconnect.be/contenu/livres/detail/73184593456836264/le-vade-mecum-de-la-commune-au-travers-du-cdld#73186792480091832"
+    },
+    {
+        "N°": 22,
+        "Competence": "Présidence du conseil communal",
+        "BaseLegale": "art. L1122-15, al. 1er CDLD",
+        "EntiteFocus": [
+            "commune"
+        ],
+        "IndexObjet": [
+            "conseil communal ",
+            " présidence"
+        ],
+        "OrganeCompetent": [
+            "bourgmestre (ou son remplaçant)"
+        ],
+        "Commentaire": null,
+        "Delegation": "\"possibilité de désigner un président d'assemblée\"",
+        "BaseDelegation": "art. L1122-15 CDLD; art. L1122-34,§3 CDLD",
+        "LienConnect": "https://myportal.vandenbroeleconnect.be/contenu/livres/detail/73184593456836264/le-vade-mecum-de-la-commune-au-travers-du-cdld#73186792480091835"
+    },
+    {
+        "N°": 23,
+        "Competence": "Présidence du conseil communal avant l'adoption par le conseil du pacte de majorité",
+        "BaseLegale": "art. L1122-15, al. 2 CDLD",
+        "EntiteFocus": [
+            "commune"
+        ],
+        "IndexObjet": [
+            "conseil communal ",
+            " présidence"
+        ],
+        "OrganeCompetent": [
+            "le conseiller qui, à la fin de la législature précédente, exerçait la fonction de bourgmestre, ou, à défaut une fonction d'échevin, et dont le rang était le plus élevé ou, à défaut, une fonction de conseiller dans l'ordre de leur ancienneté au conseil"
+        ],
+        "Commentaire": null,
+        "Delegation": null,
+        "BaseDelegation": null,
+        "LienConnect": "https://myportal.vandenbroeleconnect.be/contenu/livres/detail/73184593456836264/le-vade-mecum-de-la-commune-au-travers-du-cdld#73186792480091836"
+    },
+    {
+        "N°": 24,
+        "Competence": "Décision d'une séance non publique du conseil communal",
+        "BaseLegale": "art. L1122-20, al. 2 CDLD",
+        "EntiteFocus": [
+            "commune"
+        ],
+        "IndexObjet": [
+            "conseil communal ",
+            " séance non publique"
+        ],
+        "OrganeCompetent": [
+            "conseil communal"
+        ],
+        "Commentaire": null,
+        "Delegation": null,
+        "BaseDelegation": null,
+        "LienConnect": "https://myportal.vandenbroeleconnect.be/contenu/livres/detail/73184593456836264/le-vade-mecum-de-la-commune-au-travers-du-cdld#73186792480091839"
+    },
+    {
+        "N°": 25,
+        "Competence": "Prononciation du huis clos pour traiter une question de personnes en séance du conseil communal",
+        "BaseLegale": "art. L1122-21, al. 1er CDLD",
+        "EntiteFocus": [
+            "commune"
+        ],
+        "IndexObjet": [
+            "conseil communal ",
+            " huis clos"
+        ],
+        "OrganeCompetent": [
+            "président du conseil communal"
+        ],
+        "Commentaire": null,
+        "Delegation": null,
+        "BaseDelegation": null,
+        "LienConnect": "https://myportal.vandenbroeleconnect.be/contenu/livres/detail/73184593456836264/le-vade-mecum-de-la-commune-au-travers-du-cdld#73186792480091832"
+    },
+    {
+        "N°": 26,
+        "Competence": "Transmission à chaque conseiller communal d'un exemplaire du budget, d’une modification budgétaire ou des comptes (au plus tard sept jours francs avant la séance au cours de laquelle le conseil communal est appelé à délibérer)",
+        "BaseLegale": "art. L1122-23, §1er, al. 1er CDLD",
+        "EntiteFocus": [
+            "commune"
+        ],
+        "IndexObjet": [
+            "budget ",
+            " modification budgétaire ",
+            " compte annuel"
+        ],
+        "OrganeCompetent": [
+            "collège communal"
+        ],
+        "Commentaire": null,
+        "Delegation": null,
+        "BaseDelegation": null,
+        "LienConnect": "https://myportal.vandenbroeleconnect.be/contenu/livres/detail/73184593456836264/le-vade-mecum-de-la-commune-au-travers-du-cdld#73186792480091835"
+    },
+    {
+        "N°": 27,
+        "Competence": "Communication aux organisations syndicales représentatives du budget, des modifications budgétaires et du compte annuel adoptés par le conseil communal",
+        "BaseLegale": "art. L1122-23, §2, al. 1er CDLD",
+        "EntiteFocus": [
+            "commune"
+        ],
+        "IndexObjet": [
+            "budget ",
+            " modification budgétaire ",
+            " compte annuel"
+        ],
+        "OrganeCompetent": [
+            "collège communal"
+        ],
+        "Commentaire": null,
+        "Delegation": null,
+        "BaseDelegation": null,
+        "LienConnect": "https://myportal.vandenbroeleconnect.be/contenu/livres/detail/73184593456836264/le-vade-mecum-de-la-commune-au-travers-du-cdld#73186792480091836"
+    },
+    {
+        "N°": 28,
+        "Competence": "Transmission, sans délai, aux conseillers communaux, des points urgents complémentaires de l'ordre du jour du conseil communal aux membres du conseil",
+        "BaseLegale": "art. L1122-24, al. 3 CDLD",
+        "EntiteFocus": [
+            "commune"
+        ],
+        "IndexObjet": [
+            "conseil communal ",
+            " points urgents complémentaires"
+        ],
+        "OrganeCompetent": [
+            "bourgmestre (ou son remplaçant)"
+        ],
+        "Commentaire": null,
+        "Delegation": null,
+        "BaseDelegation": null,
+        "LienConnect": "https://myportal.vandenbroeleconnect.be/contenu/livres/detail/73184593456836264/le-vade-mecum-de-la-commune-au-travers-du-cdld#73186792480091839"
+    },
+    {
+        "N°": 29,
+        "Competence": "Police de l'assemblée (du conseil communal) et possibilité de dresser procès-verbal à charge d'un contrevenant",
+        "BaseLegale": "art. L1122-25, al. 1er CDLD",
+        "EntiteFocus": [
+            "commune"
+        ],
+        "IndexObjet": [
+            "conseil communal ",
+            " police de l'assemblée"
+        ],
+        "OrganeCompetent": [
+            "président du conseil communal"
+        ],
+        "Commentaire": null,
+        "Delegation": null,
+        "BaseDelegation": null,
+        "LienConnect": "https://myportal.vandenbroeleconnect.be/contenu/livres/detail/73184593456836264/le-vade-mecum-de-la-commune-au-travers-du-cdld#73186792480091832"
+    },
+    {
+        "N°": 30,
+        "Competence": "Vote du budget",
+        "BaseLegale": "art. L1122-26, §2, al. 1er CDLD",
+        "EntiteFocus": [
+            "commune"
+        ],
+        "IndexObjet": [
+            "budget"
+        ],
+        "OrganeCompetent": [
+            "conseil communal"
+        ],
+        "Commentaire": null,
+        "Delegation": null,
+        "BaseDelegation": null,
+        "LienConnect": "https://myportal.vandenbroeleconnect.be/contenu/livres/detail/73184593456836264/le-vade-mecum-de-la-commune-au-travers-du-cdld#73186792480091835"
+    },
+    {
+        "N°": 31,
+        "Competence": "Vote du compte annuel",
+        "BaseLegale": "art. L1122-26, §2, al. 1er CDLD",
+        "EntiteFocus": [
+            "commune"
+        ],
+        "IndexObjet": [
+            "compte annuel"
+        ],
+        "OrganeCompetent": [
+            "conseil communal"
+        ],
+        "Commentaire": null,
+        "Delegation": null,
+        "BaseDelegation": null,
+        "LienConnect": "https://myportal.vandenbroeleconnect.be/contenu/livres/detail/73184593456836264/le-vade-mecum-de-la-commune-au-travers-du-cdld#73186792480091836"
+    },
+    {
+        "N°": 32,
+        "Competence": "Décision de tenir secrètes pendant un temps déterminé les résolutions prises à huis clos",
+        "BaseLegale": "art. L1122-29, al. 2 CDLD",
+        "EntiteFocus": [
+            "commune"
+        ],
+        "IndexObjet": [
+            "conseil communal ",
+            " huis clos"
+        ],
+        "OrganeCompetent": [
+            "conseil communal"
+        ],
+        "Commentaire": null,
+        "Delegation": null,
+        "BaseDelegation": null,
+        "LienConnect": "https://myportal.vandenbroeleconnect.be/contenu/livres/detail/73184593456836264/le-vade-mecum-de-la-commune-au-travers-du-cdld#73186792480091839"
+    },
+    {
+        "N°": 33,
+        "Competence": "Régler tout ce qui est d'intérêt communal",
+        "BaseLegale": "art. L1122-30, al. 1er CDLD",
+        "EntiteFocus": [
+            "commune"
+        ],
+        "IndexObjet": [
+            "intérêt communal"
+        ],
+        "OrganeCompetent": [
+            "conseil communal"
+        ],
+        "Commentaire": "C'est la codification de l'art. 117 NLC.",
+        "Delegation": null,
+        "BaseDelegation": null,
+        "LienConnect": "https://myportal.vandenbroeleconnect.be/contenu/livres/detail/73184593456836264/le-vade-mecum-de-la-commune-au-travers-du-cdld#73186792480091832"
+    },
+    {
+        "N°": 34,
+        "Competence": "Délibérer sur les objets soumis pour l'autorité supérieure",
+        "BaseLegale": "art. L1122-30, al. 1er CDLD",
+        "EntiteFocus": [
+            "commune"
+        ],
+        "IndexObjet": [
+            "objets soumis par l'autorité supérieure"
+        ],
+        "OrganeCompetent": [
+            "conseil communal"
+        ],
+        "Commentaire": null,
+        "Delegation": null,
+        "BaseDelegation": null,
+        "LienConnect": "https://myportal.vandenbroeleconnect.be/contenu/livres/detail/73184593456836264/le-vade-mecum-de-la-commune-au-travers-du-cdld#73186792480091835"
+    },
+    {
+        "N°": 35,
+        "Competence": "Faire les règlements communaux",
+        "BaseLegale": "art. L1122-32, al. 1er CDLD",
+        "EntiteFocus": [
+            "commune"
+        ],
+        "IndexObjet": [
+            "règlements"
+        ],
+        "OrganeCompetent": [
+            "conseil communal"
+        ],
+        "Commentaire": "Voir aussi l'art. 119 NLC. Les ordonnances de police temporaires relatives à la circulation routière sont dévolues au collège communal (voir l'art. 130bis NLC).",
+        "Delegation": null,
+        "BaseDelegation": null,
+        "LienConnect": "https://myportal.vandenbroeleconnect.be/contenu/livres/detail/73184593456836264/le-vade-mecum-de-la-commune-au-travers-du-cdld#73186792480091836"
+    },
+    {
+        "N°": 36,
+        "Competence": "Expédition des règlements contenant des mesures de police comportant une peine de police ou une sanction administrative au greffe du tribunal de première instance et à celui du tribunal de police où elles seront inscrites sur un registre à ce destiné.",
+        "BaseLegale": "art. L1122-32, al. 3 CDLD",
+        "EntiteFocus": [
+            "commune"
+        ],
+        "IndexObjet": [
+            "règlements"
+        ],
+        "OrganeCompetent": [
+            "conseil communal"
+        ],
+        "Commentaire": null,
+        "Delegation": null,
+        "BaseDelegation": null,
+        "LienConnect": "https://myportal.vandenbroeleconnect.be/contenu/livres/detail/73184593456836264/le-vade-mecum-de-la-commune-au-travers-du-cdld#73186792480091839"
+    },
+    {
+        "N°": 37,
+        "Competence": "Déterminer les peines contre les infractions aux règlements communaux",
+        "BaseLegale": "art. L1122-33, §1er, al. 1er CDLD",
+        "EntiteFocus": [
+            "commune"
+        ],
+        "IndexObjet": [
+            "règlements ",
+            " amendes pénales"
+        ],
+        "OrganeCompetent": [
+            "conseil communal"
+        ],
+        "Commentaire": null,
+        "Delegation": null,
+        "BaseDelegation": null,
+        "LienConnect": "https://myportal.vandenbroeleconnect.be/contenu/livres/detail/73184593456836264/le-vade-mecum-de-la-commune-au-travers-du-cdld#73186792480091832"
+    },
+    {
+        "N°": 38,
+        "Competence": "Prévoir des sanctions administratives",
+        "BaseLegale": "art. L1122-33, §2, al. 1er CDLD",
+        "EntiteFocus": [
+            "commune"
+        ],
+        "IndexObjet": [
+            "règlements ",
+            " sanctions administratives"
+        ],
+        "OrganeCompetent": [
+            "conseil communal"
+        ],
+        "Commentaire": "Pour l'exécution, voir art. L1123-23 CDLD",
+        "Delegation": null,
+        "BaseDelegation": null,
+        "LienConnect": "https://myportal.vandenbroeleconnect.be/contenu/livres/detail/73184593456836264/le-vade-mecum-de-la-commune-au-travers-du-cdld#73186792480091835"
+    },
+    {
+        "N°": 39,
+        "Competence": "Constatation d'infractions aux règlements communaux",
+        "BaseLegale": "art. L1122-33, §6, al. 1er CDLD",
+        "EntiteFocus": [
+            "commune"
+        ],
+        "IndexObjet": [
+            "règlements ",
+            " sanctions administratives ",
+            " amendes pénales"
+        ],
+        "OrganeCompetent": [
+            "fonctionnaire de police ",
+            " agent auxiliaire de police"
+        ],
+        "Commentaire": null,
+        "Delegation": null,
+        "BaseDelegation": null,
+        "LienConnect": "https://myportal.vandenbroeleconnect.be/contenu/livres/detail/73184593456836264/le-vade-mecum-de-la-commune-au-travers-du-cdld#73186792480091836"
+    },
+    {
+        "N°": 40,
+        "Competence": "Création de commissions qui ont pour mission de préparer les discussions lors des séances du conseil communal",
+        "BaseLegale": "art. L1122-34, §1er, al. 1er CDLD",
+        "EntiteFocus": [
+            "commune"
+        ],
+        "IndexObjet": [
+            "conseil communal ",
+            " commissions"
+        ],
+        "OrganeCompetent": [
+            "conseil communal"
+        ],
+        "Commentaire": "C'est la codification de l'art. 120, §1er NLC.",
+        "Delegation": null,
+        "BaseDelegation": null,
+        "LienConnect": "https://myportal.vandenbroeleconnect.be/contenu/livres/detail/73184593456836264/le-vade-mecum-de-la-commune-au-travers-du-cdld#73186792480091839"
+    },
+    {
+        "N°": 41,
+        "Competence": "Nommer les membres des commissions qui concernent l'administration de la commune ainsi que les représentants du conseil communal dans les intercommunales et dans les autres personnes morales dont la commune est membre",
+        "BaseLegale": "art. L1122-34, §2, al. 1er CDLD",
+        "EntiteFocus": [
+            "commune"
+        ],
+        "IndexObjet": [
+            "conseil communal ",
+            " commissions"
+        ],
+        "OrganeCompetent": [
+            "conseil communal"
+        ],
+        "Commentaire": "C'est la codification de l'art. 120, §1er NLC.",
+        "Delegation": null,
+        "BaseDelegation": null,
+        "LienConnect": "https://myportal.vandenbroeleconnect.be/contenu/livres/detail/73184593456836264/le-vade-mecum-de-la-commune-au-travers-du-cdld#73186792480091832"
+    },
+    {
+        "N°": 42,
+        "Competence": "Élire un président d'assemblée parmi les conseillers communaux",
+        "BaseLegale": "art. L1122-34, §3, al. 1er CDLD",
+        "EntiteFocus": [
+            "commune"
+        ],
+        "IndexObjet": [
+            "conseil communal ",
+            " présidence"
+        ],
+        "OrganeCompetent": [
+            "conseil communal"
+        ],
+        "Commentaire": null,
+        "Delegation": null,
+        "BaseDelegation": null,
+        "LienConnect": "https://myportal.vandenbroeleconnect.be/contenu/livres/detail/73184593456836264/le-vade-mecum-de-la-commune-au-travers-du-cdld#73186792480091835"
+    },
+    {
+        "N°": 43,
+        "Competence": "Instituer des conseils consultatifs",
+        "BaseLegale": "art. L1122-35, al. 1er CDLD",
+        "EntiteFocus": [
+            "commune"
+        ],
+        "IndexObjet": [
+            "conseils consultatifs"
+        ],
+        "OrganeCompetent": [
+            "conseil communal"
+        ],
+        "Commentaire": "C'est la codification de l'art. 120bis, al. 1er NLC.",
+        "Delegation": null,
+        "BaseDelegation": null,
+        "LienConnect": "https://myportal.vandenbroeleconnect.be/contenu/livres/detail/73184593456836264/le-vade-mecum-de-la-commune-au-travers-du-cdld#73186792480091836"
+    },
+    {
+        "N°": 44,
+        "Competence": "Présentation du rapport sur les conseils consultatifs",
+        "BaseLegale": "art. L1122-35, al. 5 CDLD",
+        "EntiteFocus": [
+            "commune"
+        ],
+        "IndexObjet": [
+            "conseils consultatifs"
+        ],
+        "OrganeCompetent": [
+            "collège communal"
+        ],
+        "Commentaire": "C'est la codification de l'art. 120bis, al. 7 NLC.",
+        "Delegation": null,
+        "BaseDelegation": null,
+        "LienConnect": "https://myportal.vandenbroeleconnect.be/contenu/livres/detail/73184593456836264/le-vade-mecum-de-la-commune-au-travers-du-cdld#73186792480091839"
+    },
+    {
+        "N°": 45,
+        "Competence": "Administration des bois et forêts de la commune",
+        "BaseLegale": "art. L1122-36, al. 1er CDLD",
+        "EntiteFocus": [
+            "commune"
+        ],
+        "IndexObjet": [
+            "biens communaux ",
+            " bois et forêts"
+        ],
+        "OrganeCompetent": [
+            "conseil communal"
+        ],
+        "Commentaire": null,
+        "Delegation": null,
+        "BaseDelegation": null,
+        "LienConnect": "https://myportal.vandenbroeleconnect.be/contenu/livres/detail/73184593456836264/le-vade-mecum-de-la-commune-au-travers-du-cdld#73186792480091832"
+    },
+    {
+        "N°": 46,
+        "Competence": "Octroyer des subventions",
+        "BaseLegale": "art. L1122-37, §1er, al. 1er CDLD",
+        "EntiteFocus": [
+            "commune"
+        ],
+        "IndexObjet": [
+            "subventions"
+        ],
+        "OrganeCompetent": [
+            "conseil communal"
+        ],
+        "Commentaire": null,
+        "Delegation": "collège communal (délégation partielle!)",
+        "BaseDelegation": "art. L1122-37, §1 CDLD",
+        "LienConnect": "https://myportal.vandenbroeleconnect.be/contenu/livres/detail/73184593456836264/le-vade-mecum-de-la-commune-au-travers-du-cdld#73186792480091835"
+    },
+    {
+        "N°": 47,
+        "Competence": "Rapport sur les subventions octroyées sur base de l'art. L1122-37 CDLD et sur le contrôle de l'utilisation des subsides en vertu de l'art. L3331-7 CDLD",
+        "BaseLegale": "art. L1122-37, §2, al. 1er CDLD",
+        "EntiteFocus": [
+            "commune"
+        ],
+        "IndexObjet": [
+            "subventions"
+        ],
+        "OrganeCompetent": [
+            "collège communal"
+        ],
+        "Commentaire": null,
+        "Delegation": null,
+        "BaseDelegation": null,
+        "LienConnect": "https://myportal.vandenbroeleconnect.be/contenu/livres/detail/73184593456836264/le-vade-mecum-de-la-commune-au-travers-du-cdld#73186792480091836"
+    },
+    {
+        "N°": 48,
+        "Competence": "Adoption du pacte de majorité ",
+        "BaseLegale": "art. L1123-1, §3, al. 1er CDLD",
+        "EntiteFocus": [
+            "commune"
+        ],
+        "IndexObjet": [
+            "élections ",
+            " pacte de majorité"
+        ],
+        "OrganeCompetent": [
+            "conseil communal"
+        ],
+        "Commentaire": null,
+        "Delegation": null,
+        "BaseDelegation": null,
+        "LienConnect": "https://myportal.vandenbroeleconnect.be/contenu/livres/detail/73184593456836264/le-vade-mecum-de-la-commune-au-travers-du-cdld#73186792480091839"
+    },
+    {
+        "N°": 49,
+        "Competence": "Adoption d'un avenant au pacte majorité afin de pourvoir au remplacement définitif d'un membre du collège au cours de la législature",
+        "BaseLegale": "art. L1123-2, al. 1er CDLD",
+        "EntiteFocus": [
+            "commune"
+        ],
+        "IndexObjet": [
+            "élections ",
+            " pacte de majorité"
+        ],
+        "OrganeCompetent": [
+            "conseil communal"
+        ],
+        "Commentaire": null,
+        "Delegation": null,
+        "BaseDelegation": null,
+        "LienConnect": "https://myportal.vandenbroeleconnect.be/contenu/livres/detail/73184593456836264/le-vade-mecum-de-la-commune-au-travers-du-cdld#73186792480091832"
+    },
+    {
+        "N°": 50,
+        "Competence": "Adoption d'un avenant au pacte majorité afin de désigner, au cours de la législature, le président du conseil de l'action sociale si la législation qui lui est applicable prévoit sa présence au sein du collège communal",
+        "BaseLegale": "art. L1123-2, al. 1er CDLD",
+        "EntiteFocus": [
+            "commune"
+        ],
+        "IndexObjet": [
+            "élections ",
+            " pacte de majorité"
+        ],
+        "OrganeCompetent": [
+            "conseil communal"
+        ],
+        "Commentaire": null,
+        "Delegation": null,
+        "BaseDelegation": null,
+        "LienConnect": "https://myportal.vandenbroeleconnect.be/contenu/livres/detail/73184593456836264/le-vade-mecum-de-la-commune-au-travers-du-cdld#73186792480091835"
+    },
+    {
+        "N°": 51,
+        "Competence": "Réduction du nombre d'échevins au sein du collège communal (d'une unité)",
+        "BaseLegale": "art. L1123-8, §1er, al. 3 CDLD",
+        "EntiteFocus": [
+            "commune"
+        ],
+        "IndexObjet": [
+            "collège communal ",
+            " nombre d'échevins"
+        ],
+        "OrganeCompetent": [
+            "conseil communal"
+        ],
+        "Commentaire": null,
+        "Delegation": null,
+        "BaseDelegation": null,
+        "LienConnect": "https://myportal.vandenbroeleconnect.be/contenu/livres/detail/73184593456836264/le-vade-mecum-de-la-commune-au-travers-du-cdld#73186792480091836"
+    },
+    {
+        "N°": 52,
+        "Competence": "Désignation d'un(e) remplaçant(e) pour l'échevin absent ou empêché",
+        "BaseLegale": "art. L1123-10, §2, al. 1er CDLD",
+        "EntiteFocus": [
+            "commune"
+        ],
+        "IndexObjet": [
+            "collège communal ",
+            " remplacement d'un échevin absent ou empêché"
+        ],
+        "OrganeCompetent": [
+            "conseil communal"
+        ],
+        "Commentaire": null,
+        "Delegation": null,
+        "BaseDelegation": null,
+        "LienConnect": "https://myportal.vandenbroeleconnect.be/contenu/livres/detail/73184593456836264/le-vade-mecum-de-la-commune-au-travers-du-cdld#73186792480091839"
+    },
+    {
+        "N°": 53,
+        "Competence": "Adoption d'une motion de méfiance à l'égard du collège ou de l'un ou de plusieurs de ses membres",
+        "BaseLegale": "art. L1123-14, §1er, al. 2 CDLD",
+        "EntiteFocus": [
+            "commune"
+        ],
+        "IndexObjet": [
+            "motion de méfiance"
+        ],
+        "OrganeCompetent": [
+            "conseil communal"
+        ],
+        "Commentaire": null,
+        "Delegation": null,
+        "BaseDelegation": null,
+        "LienConnect": "https://myportal.vandenbroeleconnect.be/contenu/livres/detail/73184593456836264/le-vade-mecum-de-la-commune-au-travers-du-cdld#73186792480091832"
+    },
+    {
+        "N°": 54,
+        "Competence": "Présidence (de droit) du collège communal",
+        "BaseLegale": "art. L1123-19, al. 1er CDLD",
+        "EntiteFocus": [
+            "commune"
+        ],
+        "IndexObjet": [
+            "présidence du collège communal"
+        ],
+        "OrganeCompetent": [
+            "bourgmestre"
+        ],
+        "Commentaire": null,
+        "Delegation": null,
+        "BaseDelegation": null,
+        "LienConnect": "https://myportal.vandenbroeleconnect.be/contenu/livres/detail/73184593456836264/le-vade-mecum-de-la-commune-au-travers-du-cdld#73186792480091835"
+    },
+    {
+        "N°": 55,
+        "Competence": "Détermination du jour et de l'heure des réunions d'urgence du collège communal",
+        "BaseLegale": "art. L1123-21, al. 2 CDLD",
+        "EntiteFocus": [
+            "commune"
+        ],
+        "IndexObjet": [
+            "collège communal ",
+            " réunion"
+        ],
+        "OrganeCompetent": [
+            "bourgmestre"
+        ],
+        "Commentaire": "Sinon: on suit le règlement (ROI).",
+        "Delegation": null,
+        "BaseDelegation": null,
+        "LienConnect": "https://myportal.vandenbroeleconnect.be/contenu/livres/detail/73184593456836264/le-vade-mecum-de-la-commune-au-travers-du-cdld#73186792480091836"
+    },
+    {
+        "N°": 56,
+        "Competence": "L’exécution des lois, des décrets, des règlements et arrêtés de l’Etat, des Région et Communautés, du conseil provincial et du collège provincial, lorsqu’elle est spécialement confiée au collège communal",
+        "BaseLegale": "art. L1123-23, al. 1er, 1° CDLD",
+        "EntiteFocus": [
+            "commune"
+        ],
+        "IndexObjet": [
+            "exécution des lois et décrets"
+        ],
+        "OrganeCompetent": [
+            "collège communal"
+        ],
+        "Commentaire": null,
+        "Delegation": null,
+        "BaseDelegation": null,
+        "LienConnect": "https://myportal.vandenbroeleconnect.be/contenu/livres/detail/73184593456836264/le-vade-mecum-de-la-commune-au-travers-du-cdld#73186792480091839"
+    },
+    {
+        "N°": 57,
+        "Competence": "La publication et de l’exécution des résolutions du conseil communal",
+        "BaseLegale": "art. L1123-23, al. 1er, 2° CDLD",
+        "EntiteFocus": [
+            "commune"
+        ],
+        "IndexObjet": [
+            "exécution des décisions du conseil communal"
+        ],
+        "OrganeCompetent": [
+            "collège communal"
+        ],
+        "Commentaire": null,
+        "Delegation": null,
+        "BaseDelegation": null,
+        "LienConnect": "https://myportal.vandenbroeleconnect.be/contenu/livres/detail/73184593456836264/le-vade-mecum-de-la-commune-au-travers-du-cdld#73186792480091832"
+    },
+    {
+        "N°": 58,
+        "Competence": "L’administration des établissements communaux",
+        "BaseLegale": "art. L1123-23, al. 1er, 3° CDLD",
+        "EntiteFocus": [
+            "commune"
+        ],
+        "IndexObjet": [
+            "administration des établissements communaux"
+        ],
+        "OrganeCompetent": [
+            "collège communal"
+        ],
+        "Commentaire": null,
+        "Delegation": null,
+        "BaseDelegation": null,
+        "LienConnect": "https://myportal.vandenbroeleconnect.be/contenu/livres/detail/73184593456836264/le-vade-mecum-de-la-commune-au-travers-du-cdld#73186792480091835"
+    },
+    {
+        "N°": 59,
+        "Competence": "La gestion des revenus, de l’ordonnancement des dépenses de la commune et de la surveillance de la comptabilité",
+        "BaseLegale": "art. L1123-23, al. 1er, 4° CDLD",
+        "EntiteFocus": [
+            "commune"
+        ],
+        "IndexObjet": [
+            "finances ",
+            " revenus ",
+            " dépenses ",
+            " comptabilité"
+        ],
+        "OrganeCompetent": [
+            "collège communal"
+        ],
+        "Commentaire": null,
+        "Delegation": null,
+        "BaseDelegation": null,
+        "LienConnect": "https://myportal.vandenbroeleconnect.be/contenu/livres/detail/73184593456836264/le-vade-mecum-de-la-commune-au-travers-du-cdld#73186792480091836"
+    },
+    {
+        "N°": 60,
+        "Competence": "La direction des travaux communaux",
+        "BaseLegale": "art. L1123-23, al. 1er, 5° CDLD",
+        "EntiteFocus": [
+            "commune"
+        ],
+        "IndexObjet": [
+            "travaux communaux"
+        ],
+        "OrganeCompetent": [
+            "collège communal"
+        ],
+        "Commentaire": null,
+        "Delegation": null,
+        "BaseDelegation": null,
+        "LienConnect": "https://myportal.vandenbroeleconnect.be/contenu/livres/detail/73184593456836264/le-vade-mecum-de-la-commune-au-travers-du-cdld#73186792480091839"
+    },
+    {
+        "N°": 61,
+        "Competence": "Les alignements de la voirie en se conformant, lorsqu’il en existe, aux plans généraux adoptés par l’autorité supérieure et sauf recours à cette autorité et aux tribunaux, s’il y a lieu, par les personnes qui se croiraient lésées par les décisions de l’autorité communale",
+        "BaseLegale": "art. L1123-23, al. 1er, 6° CDLD",
+        "EntiteFocus": [
+            "commune"
+        ],
+        "IndexObjet": [
+            "voirie"
+        ],
+        "OrganeCompetent": [
+            "collège communal"
+        ],
+        "Commentaire": null,
+        "Delegation": null,
+        "BaseDelegation": null,
+        "LienConnect": "https://myportal.vandenbroeleconnect.be/contenu/livres/detail/73184593456836264/le-vade-mecum-de-la-commune-au-travers-du-cdld#73186792480091832"
+    },
+    {
+        "N°": 62,
+        "Competence": "Les actions judiciaires de la commune, soit en demandant, soit en défendant",
+        "BaseLegale": "art. L1123-23, al. 1er, 7° CDLD",
+        "EntiteFocus": [
+            "commune"
+        ],
+        "IndexObjet": [
+            "actions judiciaires ",
+            " justice"
+        ],
+        "OrganeCompetent": [
+            "collège communal"
+        ],
+        "Commentaire": null,
+        "Delegation": null,
+        "BaseDelegation": null,
+        "LienConnect": "https://myportal.vandenbroeleconnect.be/contenu/livres/detail/73184593456836264/le-vade-mecum-de-la-commune-au-travers-du-cdld#73186792480091835"
+    },
+    {
+        "N°": 63,
+        "Competence": "L’administration des propriétés de la commune, ainsi que de la conservation de ses droits",
+        "BaseLegale": "art. L1123-23, al. 1er, 8° CDLD",
+        "EntiteFocus": [
+            "commune"
+        ],
+        "IndexObjet": [
+            "biens communaux "
+        ],
+        "OrganeCompetent": [
+            "collège communal"
+        ],
+        "Commentaire": null,
+        "Delegation": null,
+        "BaseDelegation": null,
+        "LienConnect": "https://myportal.vandenbroeleconnect.be/contenu/livres/detail/73184593456836264/le-vade-mecum-de-la-commune-au-travers-du-cdld#73186792480091836"
+    },
+    {
+        "N°": 64,
+        "Competence": "La surveillance des employés salariés par la commune autres que les membres du corps de police locale",
+        "BaseLegale": "art. L1123-23, al. 1er, 9° CDLD",
+        "EntiteFocus": [
+            "commune"
+        ],
+        "IndexObjet": [
+            "personnel ",
+            " surveillance"
+        ],
+        "OrganeCompetent": [
+            "collège communal"
+        ],
+        "Commentaire": null,
+        "Delegation": null,
+        "BaseDelegation": null,
+        "LienConnect": "https://myportal.vandenbroeleconnect.be/contenu/livres/detail/73184593456836264/le-vade-mecum-de-la-commune-au-travers-du-cdld#73186792480091839"
+    },
+    {
+        "N°": 65,
+        "Competence": "Faire entretenir les chemins vicinaux et les cours d’eau, conformément aux dispositions législatives et aux règlements de l’autorité provinciale",
+        "BaseLegale": "art. L1123-23, al. 1er, 10° CDLD",
+        "EntiteFocus": [
+            "commune"
+        ],
+        "IndexObjet": [
+            "chemins vicinaux ",
+            " cours d'eau "
+        ],
+        "OrganeCompetent": [
+            "collège communal"
+        ],
+        "Commentaire": null,
+        "Delegation": null,
+        "BaseDelegation": null,
+        "LienConnect": "https://myportal.vandenbroeleconnect.be/contenu/livres/detail/73184593456836264/le-vade-mecum-de-la-commune-au-travers-du-cdld#73186792480091832"
+    },
+    {
+        "N°": 66,
+        "Competence": "L’imposition de la suspension administrative d'une autorisation ou permission délivrée par la commune, son retrait ou la fermeture administrative d'un établissement (voir l’article L1122-33, §2)",
+        "BaseLegale": "art. L1123-23, al. 1er, 11° CDLD",
+        "EntiteFocus": [
+            "commune"
+        ],
+        "IndexObjet": [
+            "sanctions administratives"
+        ],
+        "OrganeCompetent": [
+            "collège communal"
+        ],
+        "Commentaire": "Pour les sanctions administratives: voir l'art. L1122-33, §2 CDLD (conseil communal).",
+        "Delegation": null,
+        "BaseDelegation": null,
+        "LienConnect": "https://myportal.vandenbroeleconnect.be/contenu/livres/detail/73184593456836264/le-vade-mecum-de-la-commune-au-travers-du-cdld#73186792480091835"
+    },
+    {
+        "N°": 67,
+        "Competence": "Décider de porter la candidature de la commune aux appels à projet, d'assurer le respect des conditions de recevabilité et d'éligibilité et d'en faire le suivi",
+        "BaseLegale": "art. L1123-23, al. 1er, 12° CDLD",
+        "EntiteFocus": [
+            "commune"
+        ],
+        "IndexObjet": [
+            "appels à projet (candidature)"
+        ],
+        "OrganeCompetent": [
+            "collège communal"
+        ],
+        "Commentaire": null,
+        "Delegation": null,
+        "BaseDelegation": null,
+        "LienConnect": "https://myportal.vandenbroeleconnect.be/contenu/livres/detail/73184593456836264/le-vade-mecum-de-la-commune-au-travers-du-cdld#73186792480091836"
+    },
+    {
+        "N°": 68,
+        "Competence": "Établissement d'une caisse d'épargne",
+        "BaseLegale": "art. L1123-24, al. 1er CDLD",
+        "EntiteFocus": [
+            "commune"
+        ],
+        "IndexObjet": [
+            "finances ",
+            " caisse d'épargne"
+        ],
+        "OrganeCompetent": [
+            "collège communal"
+        ],
+        "Commentaire": null,
+        "Delegation": null,
+        "BaseDelegation": null,
+        "LienConnect": "https://myportal.vandenbroeleconnect.be/contenu/livres/detail/73184593456836264/le-vade-mecum-de-la-commune-au-travers-du-cdld#73186792480091839"
+    },
+    {
+        "N°": 69,
+        "Competence": "Délivrance d'extraits ou copies d'actes autres que des actes de l'état civil",
+        "BaseLegale": "art. L1123-25, al. 1er, 1° CDLD",
+        "EntiteFocus": [
+            "commune"
+        ],
+        "IndexObjet": [
+            "extraits ou copies d'actes"
+        ],
+        "OrganeCompetent": [
+            "bourgmestre ",
+            " officier de l'état civil"
+        ],
+        "Commentaire": null,
+        "Delegation": "agents de l'AC",
+        "BaseDelegation": "art. L1123-25, al. 1er, 1°",
+        "LienConnect": "https://myportal.vandenbroeleconnect.be/contenu/livres/detail/73184593456836264/le-vade-mecum-de-la-commune-au-travers-du-cdld#73186792480091832"
+    },
+    {
+        "N°": 70,
+        "Competence": "Légalisation de signatures",
+        "BaseLegale": "art. L1123-25, al. 1er, 2° CDLD",
+        "EntiteFocus": [
+            "commune"
+        ],
+        "IndexObjet": [
+            "légalisation de signatures"
+        ],
+        "OrganeCompetent": [
+            "bourgmestre ",
+            " officier de l'état civil"
+        ],
+        "Commentaire": null,
+        "Delegation": "agents de l'AC",
+        "BaseDelegation": "art. L1123-25, al. 1er, 2°",
+        "LienConnect": "https://myportal.vandenbroeleconnect.be/contenu/livres/detail/73184593456836264/le-vade-mecum-de-la-commune-au-travers-du-cdld#73186792480091835"
+    },
+    {
+        "N°": 71,
+        "Competence": "Certification conforme de copies de documents",
+        "BaseLegale": "art. L1123-25, al. 1er, 3° CDLD",
+        "EntiteFocus": [
+            "commune"
+        ],
+        "IndexObjet": [
+            "extraits ou copies d'actes ",
+            " certification conforme de documents"
+        ],
+        "OrganeCompetent": [
+            "bourgmestre ",
+            " officier de l'état civil"
+        ],
+        "Commentaire": null,
+        "Delegation": "agents de l'AC",
+        "BaseDelegation": "art. L1123-25, al. 1er, 3°",
+        "LienConnect": "https://myportal.vandenbroeleconnect.be/contenu/livres/detail/73184593456836264/le-vade-mecum-de-la-commune-au-travers-du-cdld#73186792480091836"
+    },
+    {
+        "N°": 72,
+        "Competence": "Surveillance des monts-de-piété",
+        "BaseLegale": "art. L1123-26, al. 1er CDLD",
+        "EntiteFocus": [
+            "commune"
+        ],
+        "IndexObjet": [
+            "monts-de-piété"
+        ],
+        "OrganeCompetent": [
+            "collège communal"
+        ],
+        "Commentaire": null,
+        "Delegation": null,
+        "BaseDelegation": null,
+        "LienConnect": "https://myportal.vandenbroeleconnect.be/contenu/livres/detail/73184593456836264/le-vade-mecum-de-la-commune-au-travers-du-cdld#73186792480091839"
+    },
+    {
+        "N°": 73,
+        "Competence": "Soumission au conseil communal d'une déclaration de politique communale couvrant la durée du mandat du collège",
+        "BaseLegale": "art. L1123-27, §1er, al. 1er CDLD",
+        "EntiteFocus": [
+            "commune"
+        ],
+        "IndexObjet": [
+            "déclaration de politique communale"
+        ],
+        "OrganeCompetent": [
+            "collège communal"
+        ],
+        "Commentaire": null,
+        "Delegation": null,
+        "BaseDelegation": null,
+        "LienConnect": "https://myportal.vandenbroeleconnect.be/contenu/livres/detail/73184593456836264/le-vade-mecum-de-la-commune-au-travers-du-cdld#73186792480091832"
+    },
+    {
+        "N°": 74,
+        "Competence": "Adoption de la déclaration de politique communale couvrant la durée du mandat du collège",
+        "BaseLegale": "art. L1123-27, §1er, al. 2 CDLD",
+        "EntiteFocus": [
+            "commune"
+        ],
+        "IndexObjet": [
+            "déclaration de politique communale"
+        ],
+        "OrganeCompetent": [
+            "collège communal"
+        ],
+        "Commentaire": null,
+        "Delegation": null,
+        "BaseDelegation": null,
+        "LienConnect": "https://myportal.vandenbroeleconnect.be/contenu/livres/detail/73184593456836264/le-vade-mecum-de-la-commune-au-travers-du-cdld#73186792480091835"
+    },
+    {
+        "N°": 75,
+        "Competence": "Présentation du programme stratégique transversal au conseil communal",
+        "BaseLegale": "art. L1123-27, §2, al. 1er CDLD",
+        "EntiteFocus": [
+            "commune"
+        ],
+        "IndexObjet": [
+            "programme stratégique transversal"
+        ],
+        "OrganeCompetent": [
+            "collège communal"
+        ],
+        "Commentaire": null,
+        "Delegation": null,
+        "BaseDelegation": null,
+        "LienConnect": "https://myportal.vandenbroeleconnect.be/contenu/livres/detail/73184593456836264/le-vade-mecum-de-la-commune-au-travers-du-cdld#73186792480091836"
+    },
+    {
+        "N°": 76,
+        "Competence": "Évaluation du programme stratégique transversal à mi-législature",
+        "BaseLegale": "art. L1123-27, §2, al. 4 CDLD",
+        "EntiteFocus": [
+            "commune"
+        ],
+        "IndexObjet": [
+            "programme stratégique transversal"
+        ],
+        "OrganeCompetent": [
+            "collège communal"
+        ],
+        "Commentaire": null,
+        "Delegation": null,
+        "BaseDelegation": null,
+        "LienConnect": "https://myportal.vandenbroeleconnect.be/contenu/livres/detail/73184593456836264/le-vade-mecum-de-la-commune-au-travers-du-cdld#73186792480091839"
+    },
+    {
+        "N°": 77,
+        "Competence": "Constitution d'un rapport d'exécution pour la dernière évaluation du programme stratégique transversal",
+        "BaseLegale": "art. L1123-27 §2, al. 4 CDLD",
+        "EntiteFocus": [
+            "commune"
+        ],
+        "IndexObjet": [
+            "programme stratégique transversal"
+        ],
+        "OrganeCompetent": [
+            "comité de direction"
+        ],
+        "Commentaire": null,
+        "Delegation": null,
+        "BaseDelegation": null,
+        "LienConnect": "https://myportal.vandenbroeleconnect.be/contenu/livres/detail/73184593456836264/le-vade-mecum-de-la-commune-au-travers-du-cdld#73186792480091832"
+    },
+    {
+        "N°": 78,
+        "Competence": "Publication du programme stratégique transversal ",
+        "BaseLegale": "art. L1123-27, §1er, al. 3 et §2, al. 6 CDLD, juncto art. L1133-1 CDLD",
+        "EntiteFocus": [
+            "commune"
+        ],
+        "IndexObjet": [
+            "programme stratégique transversal"
+        ],
+        "OrganeCompetent": [
+            "conseil communal"
+        ],
+        "Commentaire": null,
+        "Delegation": null,
+        "BaseDelegation": null,
+        "LienConnect": "https://myportal.vandenbroeleconnect.be/contenu/livres/detail/73184593456836264/le-vade-mecum-de-la-commune-au-travers-du-cdld#73186792480091835"
+    },
+    {
+        "N°": 79,
+        "Competence": "Veiller à la garde des archives et des titres",
+        "BaseLegale": "art. L1123-28, al. 1er CDLD",
+        "EntiteFocus": [
+            "commune"
+        ],
+        "IndexObjet": [
+            "archives ",
+            " titres"
+        ],
+        "OrganeCompetent": [
+            "collège communal"
+        ],
+        "Commentaire": null,
+        "Delegation": null,
+        "BaseDelegation": null,
+        "LienConnect": "https://myportal.vandenbroeleconnect.be/contenu/livres/detail/73184593456836264/le-vade-mecum-de-la-commune-au-travers-du-cdld#73186792480091836"
+    },
+    {
+        "N°": 80,
+        "Competence": "Exécution des lois, des décrets, des règlements et arrêtés de l’Etat, des Région et Communautés, du conseil provincial et du collège provincial, à moins qu’elle ne soit formellement attribuée au collège communal ou au conseil communal",
+        "BaseLegale": "art. L1123-29, al. 1er CDLD",
+        "EntiteFocus": [
+            "commune"
+        ],
+        "IndexObjet": [
+            "compétence globale"
+        ],
+        "OrganeCompetent": [
+            "bourgmestre"
+        ],
+        "Commentaire": null,
+        "Delegation": null,
+        "BaseDelegation": null,
+        "LienConnect": "https://myportal.vandenbroeleconnect.be/contenu/livres/detail/73184593456836264/le-vade-mecum-de-la-commune-au-travers-du-cdld#73186792480091839"
+    },
+    {
+        "N°": 81,
+        "Competence": "Droit de réquisition de tout immeuble abandonné depuis plus de six mois",
+        "BaseLegale": "art. L1123-30, al. 1er CDLD",
+        "EntiteFocus": [
+            "commune"
+        ],
+        "IndexObjet": [
+            "immeuble abandonné"
+        ],
+        "OrganeCompetent": [
+            "bourgmestre"
+        ],
+        "Commentaire": "Voir aussi l'art. 134bis NLC. C'est sur requête motivée du président du conseil de l'action sociale. ",
+        "Delegation": null,
+        "BaseDelegation": null,
+        "LienConnect": "https://myportal.vandenbroeleconnect.be/contenu/livres/detail/73184593456836264/le-vade-mecum-de-la-commune-au-travers-du-cdld#73186792480091832"
+    },
+    {
+        "N°": 82,
+        "Competence": "Faire la requête motivée pour la réquisition, par le bourgmestre, d'un immeuble abandonné depuis plus de six mois",
+        "BaseLegale": "art. L1123-30, al. 1er CDLD",
+        "EntiteFocus": [
+            "commune"
+        ],
+        "IndexObjet": [
+            "immeuble abandonné"
+        ],
+        "OrganeCompetent": [
+            "président du conseil de l'action sociale"
+        ],
+        "Commentaire": null,
+        "Delegation": null,
+        "BaseDelegation": null,
+        "LienConnect": "https://myportal.vandenbroeleconnect.be/contenu/livres/detail/73184593456836264/le-vade-mecum-de-la-commune-au-travers-du-cdld#73186792480091835"
+    },
+    {
+        "N°": 83,
+        "Competence": "Régler la composition et financement des secrétariats assistant les membres du collège communal ainsi que le mode de recrutement, le statut administratif, la rémunération et les indemnités éventuelles des collaborateurs des secrétariats",
+        "BaseLegale": "art. L1123-31, al. 1er CDLD",
+        "EntiteFocus": [
+            "commune"
+        ],
+        "IndexObjet": [
+            "collège communal ",
+            " secrétariats"
+        ],
+        "OrganeCompetent": [
+            "conseil communal"
+        ],
+        "Commentaire": null,
+        "Delegation": null,
+        "BaseDelegation": null,
+        "LienConnect": "https://myportal.vandenbroeleconnect.be/contenu/livres/detail/73184593456836264/le-vade-mecum-de-la-commune-au-travers-du-cdld#73186792480091836"
+    },
+    {
+        "N°": 84,
+        "Competence": "Nommer le directeur général",
+        "BaseLegale": "art. L1124-2, §1, al. 1er CDLD",
+        "EntiteFocus": [
+            "commune"
+        ],
+        "IndexObjet": [
+            "directeur général ",
+            " nomination"
+        ],
+        "OrganeCompetent": [
+            "conseil communal"
+        ],
+        "Commentaire": null,
+        "Delegation": null,
+        "BaseDelegation": null,
+        "LienConnect": "https://myportal.vandenbroeleconnect.be/contenu/livres/detail/73184593456836264/le-vade-mecum-de-la-commune-au-travers-du-cdld#73186792480091839"
+    },
+    {
+        "N°": 85,
+        "Competence": "Fixation du statut administratif du directeur général par réglement",
+        "BaseLegale": "art. L1124-2, §2, al. 1er CDLD",
+        "EntiteFocus": [
+            "commune"
+        ],
+        "IndexObjet": [
+            "personnel ",
+            " directeur général ",
+            " statut administratif ",
+            " statut général du personnel"
+        ],
+        "OrganeCompetent": [
+            "conseil communal"
+        ],
+        "Commentaire": null,
+        "Delegation": null,
+        "BaseDelegation": null,
+        "LienConnect": "https://myportal.vandenbroeleconnect.be/contenu/livres/detail/73184593456836264/le-vade-mecum-de-la-commune-au-travers-du-cdld#73186792480091832"
+    },
+    {
+        "N°": 86,
+        "Competence": "Nommer à l'emploi du directeur général le directeur général adjoint",
+        "BaseLegale": "art. L1124-2, §2, al. 2 CDLD",
+        "EntiteFocus": [
+            "commune"
+        ],
+        "IndexObjet": [
+            "directeur général ",
+            " nomination"
+        ],
+        "OrganeCompetent": [
+            "conseil communal"
+        ],
+        "Commentaire": null,
+        "Delegation": null,
+        "BaseDelegation": null,
+        "LienConnect": "https://myportal.vandenbroeleconnect.be/contenu/livres/detail/73184593456836264/le-vade-mecum-de-la-commune-au-travers-du-cdld#73186792480091835"
+    },
+    {
+        "N°": 87,
+        "Competence": "Préparation des dossiers qui sont soumis au conseil communal ou au collège communal",
+        "BaseLegale": "art. L1124-4, §1er, al. 1er CDLD",
+        "EntiteFocus": [
+            "commune"
+        ],
+        "IndexObjet": [
+            "conseil communal ",
+            " collège communal ",
+            " préparation des dossiers soumis"
+        ],
+        "OrganeCompetent": [
+            "directeur général"
+        ],
+        "Commentaire": null,
+        "Delegation": null,
+        "BaseDelegation": null,
+        "LienConnect": "https://myportal.vandenbroeleconnect.be/contenu/livres/detail/73184593456836264/le-vade-mecum-de-la-commune-au-travers-du-cdld#73186792480091836"
+    },
+    {
+        "N°": 88,
+        "Competence": "Mise en oeuvre du programme stratégique transversal",
+        "BaseLegale": "art. L1124-4, §1er, al. 2 CDLD",
+        "EntiteFocus": [
+            "commune"
+        ],
+        "IndexObjet": [
+            "programme stratégique transversal"
+        ],
+        "OrganeCompetent": [
+            "directeur général"
+        ],
+        "Commentaire": null,
+        "Delegation": null,
+        "BaseDelegation": null,
+        "LienConnect": "https://myportal.vandenbroeleconnect.be/contenu/livres/detail/73184593456836264/le-vade-mecum-de-la-commune-au-travers-du-cdld#73186792480091839"
+    },
+    {
+        "N°": 855,
+        "Competence": "Arrêter des règlements communaux complémentaires de la loi du 21 août 1948 supprimant la réglementation officielle de la prostitution, pour assurer la moralité ou la tranquillité publique",
+        "BaseLegale": "art. 121, al. 1er NLC",
+        "EntiteFocus": [
+            "commune"
+        ],
+        "IndexObjet": [
+            "règlements", "prostitution"
+        ],
+        "OrganeCompetent": [
+            "conseil communal"
+        ],
+        "Commentaire": "Voir aussi art. L1122-32, al. 1er CDLD.",
+        "Delegation": null,
+        "BaseDelegation": null,
+        "LienConnect": "https://myportal.vandenbroeleconnect.be/contenu/livres/detail/73184593456836264/le-vade-mecum-de-la-commune-au-travers-du-cdld#73186792480091832"
+    },
+    {
+        "N°": 90,
+        "Competence": "Effectuer le contrôle sur le directeur général lorsqu'il dirige et coordonne les services communaux",
+        "BaseLegale": "art. L1124-4, §2, al. 1er CDLD",
+        "EntiteFocus": [
+            "commune"
+        ],
+        "IndexObjet": [
+            "services communaux"
+        ],
+        "OrganeCompetent": [
+            "collège communal"
+        ],
+        "Commentaire": null,
+        "Delegation": null,
+        "BaseDelegation": null,
+        "LienConnect": "https://myportal.vandenbroeleconnect.be/contenu/livres/detail/73184593456836264/le-vade-mecum-de-la-commune-au-travers-du-cdld#73186792480091835"
+    },
+    {
+        "N°": 91,
+        "Competence": "Chef du personnel et du directeur général adjoint",
+        "BaseLegale": "art. L1124-4, §2, al. 1er CDLD",
+        "EntiteFocus": [
+            "commune"
+        ],
+        "IndexObjet": [
+            "personnel ",
+            " directeur général adjoint"
+        ],
+        "OrganeCompetent": [
+            "directeur général"
+        ],
+        "Commentaire": null,
+        "Delegation": null,
+        "BaseDelegation": null,
+        "LienConnect": "https://myportal.vandenbroeleconnect.be/contenu/livres/detail/73184593456836264/le-vade-mecum-de-la-commune-au-travers-du-cdld#73186792480091836"
+    },
+    {
+        "N°": 92,
+        "Competence": "Mise en oeuvre et évaluation de la politique de gestion des ressources humaines",
+        "BaseLegale": "art. L1124-4, §2, al. 2 CDLD",
+        "EntiteFocus": [
+            "commune"
+        ],
+        "IndexObjet": [
+            "personnel"
+        ],
+        "OrganeCompetent": [
+            "directeur général"
+        ],
+        "Commentaire": null,
+        "Delegation": null,
+        "BaseDelegation": null,
+        "LienConnect": "https://myportal.vandenbroeleconnect.be/contenu/livres/detail/73184593456836264/le-vade-mecum-de-la-commune-au-travers-du-cdld#73186792480091839"
+    },
+    {
+        "N°": 93,
+        "Competence": "Arrêter le projet d'évaluation de chaque membre du personnel et sa transmission à l'intéressé et au collège",
+        "BaseLegale": "art. L1124-4, § 2, al. 2 CDLD",
+        "EntiteFocus": [
+            "commune"
+        ],
+        "IndexObjet": [
+            "personnel ",
+            " évaluation"
+        ],
+        "OrganeCompetent": [
+            "directeur général"
+        ],
+        "Commentaire": null,
+        "Delegation": null,
+        "BaseDelegation": null,
+        "LienConnect": "https://myportal.vandenbroeleconnect.be/contenu/livres/detail/73184593456836264/le-vade-mecum-de-la-commune-au-travers-du-cdld#73186792480091832"
+    },
+    {
+        "N°": 94,
+        "Competence": "Participation avec voix délibérative au jury d'examen constitué lors du recrutement ou de l'engagement des membres du personnel",
+        "BaseLegale": "art. L1124-4, § 2, al. 3 CDLD",
+        "EntiteFocus": [
+            "commune"
+        ],
+        "IndexObjet": [
+            "personnel ",
+            " jury d'examen"
+        ],
+        "OrganeCompetent": [
+            "directeur général"
+        ],
+        "Commentaire": null,
+        "Delegation": "le directeur général, ou son délégué de niveau supérieur à celui de l'agent à recruter ou à engager",
+        "BaseDelegation": "art. L1124-4, § 2, al. 3 CDLD",
+        "LienConnect": "https://myportal.vandenbroeleconnect.be/contenu/livres/detail/73184593456836264/le-vade-mecum-de-la-commune-au-travers-du-cdld#73186792480091835"
+    },
+    {
+        "N°": 95,
+        "Competence": "Présidence du comité de direction",
+        "BaseLegale": "art. L1124-4, § 3, al. 1er CDLD",
+        "EntiteFocus": [
+            "commune"
+        ],
+        "IndexObjet": [
+            "comité de direction"
+        ],
+        "OrganeCompetent": [
+            "directeur général"
+        ],
+        "Commentaire": null,
+        "Delegation": null,
+        "BaseDelegation": null,
+        "LienConnect": "https://myportal.vandenbroeleconnect.be/contenu/livres/detail/73184593456836264/le-vade-mecum-de-la-commune-au-travers-du-cdld#73186792480091836"
+    },
+    {
+        "N°": 96,
+        "Competence": "La mise sur pied et du suivi du système de contrôle interne du fonctionnement des services communaux",
+        "BaseLegale": "art. 27, §1er, al. 2 LO",
+        "EntiteFocus": [
+            "commune"
+        ],
+        "IndexObjet": [
+            "système de contrôle interne"
+        ],
+        "OrganeCompetent": [
+            "directeur général"
+        ],
+        "Commentaire": null,
+        "Delegation": null,
+        "BaseDelegation": null,
+        "LienConnect": "https://myportal.vandenbroeleconnect.be/contenu/livres/detail/73184593456836264/le-vade-mecum-de-la-commune-au-travers-du-cdld#73186792480091839"
+    },
+    {
+        "N°": 97,
+        "Competence": "Approbation du cadre général du système de contrôle interne",
+        "BaseLegale": "art. L1124-4, § 4, al. 3 CDLD",
+        "EntiteFocus": [
+            "commune"
+        ],
+        "IndexObjet": [
+            "système de contrôle interne"
+        ],
+        "OrganeCompetent": [
+            "conseil communal"
+        ],
+        "Commentaire": null,
+        "Delegation": null,
+        "BaseDelegation": null,
+        "LienConnect": "https://myportal.vandenbroeleconnect.be/contenu/livres/detail/73184593456836264/le-vade-mecum-de-la-commune-au-travers-du-cdld#73186792480091832"
+    },
+    {
+        "N°": 98,
+        "Competence": "Rédaction des procès-verbaux des séances du conseil (et la transcription)",
+        "BaseLegale": "art. L1124-4, § 5, al. 1er CDLD",
+        "EntiteFocus": [
+            "commune"
+        ],
+        "IndexObjet": [
+            "conseil communal ",
+            " procès-verbaux"
+        ],
+        "OrganeCompetent": [
+            "directeur général"
+        ],
+        "Commentaire": null,
+        "Delegation": null,
+        "BaseDelegation": null,
+        "LienConnect": "https://myportal.vandenbroeleconnect.be/contenu/livres/detail/73184593456836264/le-vade-mecum-de-la-commune-au-travers-du-cdld#73186792480091835"
+    },
+    {
+        "N°": 99,
+        "Competence": "Adoption des procès-verbaux des séances du conseil",
+        "BaseLegale": "art. 27, §1er, al. 2 LO",
+        "EntiteFocus": [
+            "commune"
+        ],
+        "IndexObjet": [
+            "conseil communal ",
+            " procès-verbaux"
+        ],
+        "OrganeCompetent": [
+            "conseil communal"
+        ],
+        "Commentaire": null,
+        "Delegation": null,
+        "BaseDelegation": null,
+        "LienConnect": "https://myportal.vandenbroeleconnect.be/contenu/livres/detail/73184593456836264/le-vade-mecum-de-la-commune-au-travers-du-cdld#73186792480091836"
+    },
+    {
+        "N°": 100,
+        "Competence": "Signer les procès-verbaux transcrits du conseil",
+        "BaseLegale": "art. L1124-4, § 5, al. 1er CDLD",
+        "EntiteFocus": [
+            "commune"
+        ],
+        "IndexObjet": [
+            "conseil communal ",
+            " procès-verbaux"
+        ],
+        "OrganeCompetent": [
+            "directeur général ",
+            " bourgmestre"
+        ],
+        "Commentaire": null,
+        "Delegation": null,
+        "BaseDelegation": null,
+        "LienConnect": "https://myportal.vandenbroeleconnect.be/contenu/livres/detail/73184593456836264/le-vade-mecum-de-la-commune-au-travers-du-cdld#73186792480091839"
+    },
+    {
+        "N°": 101,
+        "Competence": "Donner des conseils juridiques et administratifs au conseil communal et au collège communal.",
+        "BaseLegale": "art. L1124-4, § 5, al. 2 CDLD",
+        "EntiteFocus": [
+            "commune"
+        ],
+        "IndexObjet": [
+            "conseil communal ",
+            " collège communal ",
+            " conseils juridiques et administratifs"
+        ],
+        "OrganeCompetent": [
+            "directeur général"
+        ],
+        "Commentaire": null,
+        "Delegation": null,
+        "BaseDelegation": null,
+        "LienConnect": "https://myportal.vandenbroeleconnect.be/contenu/livres/detail/73184593456836264/le-vade-mecum-de-la-commune-au-travers-du-cdld#73186792480091832"
+    },
+    {
+        "N°": 102,
+        "Competence": "Rédaction de l'organigramme, après concertation avec le comité de direction",
+        "BaseLegale": "art. L1124-4, § 6, al. 1er CDLD",
+        "EntiteFocus": [
+            "commune"
+        ],
+        "IndexObjet": [
+            "organigramme"
+        ],
+        "OrganeCompetent": [
+            "directeur général"
+        ],
+        "Commentaire": null,
+        "Delegation": null,
+        "BaseDelegation": null,
+        "LienConnect": "https://myportal.vandenbroeleconnect.be/contenu/livres/detail/73184593456836264/le-vade-mecum-de-la-commune-au-travers-du-cdld#73186792480091835"
+    },
+    {
+        "N°": 103,
+        "Competence": "Rédaction du cadre organique, après concertation avec le comité de direction",
+        "BaseLegale": "art. L1124-4, § 6, al. 1er CDLD",
+        "EntiteFocus": [
+            "commune"
+        ],
+        "IndexObjet": [
+            "cadre organique"
+        ],
+        "OrganeCompetent": [
+            "directeur général"
+        ],
+        "Commentaire": null,
+        "Delegation": null,
+        "BaseDelegation": null,
+        "LienConnect": "https://myportal.vandenbroeleconnect.be/contenu/livres/detail/73184593456836264/le-vade-mecum-de-la-commune-au-travers-du-cdld#73186792480091836"
+    },
+    {
+        "N°": 104,
+        "Competence": "Rédaction des statuts du personnel, après concertation avec le comité de direction",
+        "BaseLegale": "art. L1124-4, § 6, al. 1er CDLD",
+        "EntiteFocus": [
+            "commune"
+        ],
+        "IndexObjet": [
+            "personnel ",
+            " statut général du personnel"
+        ],
+        "OrganeCompetent": [
+            "directeur général"
+        ],
+        "Commentaire": null,
+        "Delegation": null,
+        "BaseDelegation": null,
+        "LienConnect": "https://myportal.vandenbroeleconnect.be/contenu/livres/detail/73184593456836264/le-vade-mecum-de-la-commune-au-travers-du-cdld#73186792480091839"
+    },
+    {
+        "N°": 105,
+        "Competence": "Concertation avant la rédaction de l'organigramme",
+        "BaseLegale": "art. 27, §1er, al. 2 LO",
+        "EntiteFocus": [
+            "commune"
+        ],
+        "IndexObjet": [
+            "organigramme"
+        ],
+        "OrganeCompetent": [
+            "comité de direction"
+        ],
+        "Commentaire": null,
+        "Delegation": null,
+        "BaseDelegation": null,
+        "LienConnect": "https://myportal.vandenbroeleconnect.be/contenu/livres/detail/73184593456836264/le-vade-mecum-de-la-commune-au-travers-du-cdld#73186792480091832"
+    },
+    {
+        "N°": 106,
+        "Competence": "Concertation avant la rédaction du cadre organique",
+        "BaseLegale": "art. 27, §1er, al. 2 LO",
+        "EntiteFocus": [
+            "commune"
+        ],
+        "IndexObjet": [
+            "cadre organique"
+        ],
+        "OrganeCompetent": [
+            "comité de direction"
+        ],
+        "Commentaire": null,
+        "Delegation": null,
+        "BaseDelegation": null,
+        "LienConnect": "https://myportal.vandenbroeleconnect.be/contenu/livres/detail/73184593456836264/le-vade-mecum-de-la-commune-au-travers-du-cdld#73186792480091835"
+    }
+        ];
+
+        let currentPage = 1;
+        const itemsPerPage = 10;
+
+        function searchResults() {
+            // Exemple de logique de recherche
+    console.log("Recherche lancée");
+            const criteria = document.getElementById('criteria').value;
+            const query = document.getElementById('search-bar').value.toLowerCase();
+            const resultsContainer = document.getElementById('results');
+            const filterSection = document.getElementById('filter-section');
+            resultsContainer.innerHTML = '';
+
+            const filteredResults = data.filter(item =>
+                Array.isArray(item[criteria])
+                    ? item[criteria].some(value => value.toLowerCase().includes(query))
+                    : item[criteria]?.toLowerCase().includes(query)
+            );
+
+            if (filteredResults.length === 0) {
+                resultsContainer.innerHTML = '<p>Aucun résultat trouvé.</p>';
+                filterSection.style.display = 'none';
+                return;
+            }
+
+            filterSection.style.display = 'block';
+            displayResults(filteredResults);
+        }
+
+        function displayResults(filteredResults) {
+            const resultsContainer = document.getElementById('results');
+            const totalPages = Math.ceil(filteredResults.length / itemsPerPage);
+
+            const startIndex = (currentPage - 1) * itemsPerPage;
+            const endIndex = startIndex + itemsPerPage;
+            const paginatedResults = filteredResults.slice(startIndex, endIndex);
+
+            paginatedResults.forEach(item => {
+                const card = document.createElement('div');
+                card.className = 'result-card';
+                card.innerHTML = `
+                    <div>
+                        <h3>${item.Competence || 'Na'}</h3>
+                        <p><strong>Base Légale :</strong> ${item.BaseLegale || 'Na'}</p>
+                        <p><strong>Entité(s) :</strong> ${item.EntiteFocus.join(', ') || 'Na'}</p>
+                        <p><strong>Index :</strong> ${item.IndexObjet.join(', ') || 'Na'}</p>
+                        <p><strong>Organe(s) compétent(s) :</strong> ${item.OrganeCompetent.join(', ') || 'Na'}</p>
+                        <p><strong>Commentaire(s) :</strong> ${item.Commentaire || 'Na'}</p>
+                        <p><strong>Délégation :</strong> ${item.Delegation || 'Na'}</p>
+                        <p><strong>Base de la délégation :</strong> ${item.BaseDelegation || 'Na'}</p>
+                    </div>
+                    <a href="${item.LienConnect}" target="_blank" title="Voir le texte juridique">
+                        <img src="https://raw.githubusercontent.com/Seb19861986/competences_locales/main/VB%20-%20Icoon.png" alt="Lien" style="width: 28px; height: 28px;">
+                    </a>
+                `;
+                resultsContainer.appendChild(card);
+            });
+
+            displayPagination(totalPages);
+            resultsContainer.style.display = 'block';
+        }
+
+function displayPagination(totalPages) {
+            const paginationContainer = document.querySelector('.pagination');
+            if (paginationContainer) {
+                paginationContainer.remove();
+            }
+
+            const newPaginationContainer = document.createElement('div');
+            newPaginationContainer.className = 'pagination';
+            newPaginationContainer.innerHTML = `
+                <button onclick="changePage(-1)" ${currentPage === 1 ? 'disabled' : ''}>Précédent</button>
+                <span>Page ${currentPage} sur ${totalPages}</span>
+                <button onclick="changePage(1)" ${currentPage === totalPages ? 'disabled' : ''}>Suivant</button>
+            `;
+            document.getElementById('results').appendChild(newPaginationContainer);
+        }
+
+        function changePage(direction) {
+            currentPage += direction;
+            searchResults();
+        }
+        function exportAllPDF() {
+            const { jsPDF } = window.jspdf;
+            const doc = new jsPDF();
+            const resultsContainer = document.getElementById('results');
+            let y = 20;
+
+            doc.setFontSize(10);
+
+            Array.from(resultsContainer.children).forEach((resultCard) => {
+                const text = resultCard.textContent.trim();
+                const lines = doc.splitTextToSize(text, 180);
+                doc.rect(10, y - 10, 190, lines.length * 10 + 10);
+
+                lines.forEach((line) => {
+                    doc.text(line, 15, y);
+                    y += 10;
+                    if (y > 280) {
+                        doc.addPage();
+                        y = 20;
+                    }
+                });
+
+                y += 10;
+            });
+
+            doc.save('results.pdf');
+        }
+
+function applyFilters() {
+    const selectedFilters = {};
+    document.querySelectorAll('.filter:checked').forEach(input => {
+        const field = input.getAttribute('data-field');
+        if (!selectedFilters[field]) {
+            selectedFilters[field] = [];
+        }
+        selectedFilters[field].push(input.value);
+    });
+
+    // Filtrage dynamique incluant toutes les valeurs contenant "LO" pour "Loi organique" "NLC" et "CDLD"
+    const filteredResults = data.filter(item => {
+        return Object.keys(selectedFilters).every(field => {
+            if (!selectedFilters[field].length) return true;
+
+            if (field === "BaseLegale") {
+                // Vérifie si "Loi organique" est sélectionné
+                if (selectedFilters[field].includes("Loi organique")) {
+                    return item[field]?.toLowerCase().includes("lo");
+                }
+                // Vérifie si "CDLD" est sélectionné
+                if (selectedFilters[field].includes("CDLD")) {
+                    return item[field]?.toLowerCase().includes("cdld");
+                }
+                // Vérifie si "Nouvelle Loi communale" est sélectionné
+                if (selectedFilters[field].includes("Nouvelle Loi communale")) {
+                    return item[field]?.toLowerCase().includes("nlc");
+                }
+            }
+
+            if (Array.isArray(item[field])) {
+                return item[field].some(value => selectedFilters[field].includes(value));
+            }
+            return selectedFilters[field].includes(item[field]);
+        });
+    });
+
+    // Réinitialiser les résultats avant d'ajouter les nouveaux
+    const resultsContainer = document.getElementById('results');
+    resultsContainer.innerHTML = ''; // Vider le conteneur des résultats
+
+    displayAppliedFilters(selectedFilters);
+    displayResults(filteredResults);
+}
+                function displayAppliedFilters(filters) {
+            const appliedFiltersContainer = document.getElementById('applied-filters');
+            appliedFiltersContainer.innerHTML = '';
+
+            Object.keys(filters).forEach(field => {
+                filters[field].forEach(value => {
+                    const filterTag = document.createElement('span');
+                    filterTag.innerHTML = `
+                        ${value} <button onclick="removeFilter('${field}', '${value}')">×</button>
+                    `;
+                    appliedFiltersContainer.appendChild(filterTag);
+                });
+            });
+
+            appliedFiltersContainer.style.display = 'block';
+        }
+
+        function removeFilter(field, value) {
+            const filters = document.querySelectorAll(`.filter[data-field="${field}"][value="${value}"]`);
+            filters.forEach(filter => filter.checked = false);
+
+            applyFilters();
+        }
+
+        function resetFilters() {
+            document.querySelectorAll('.filter').forEach(filter => filter.checked = false);
+
+            const appliedFiltersContainer = document.getElementById('applied-filters');
+            appliedFiltersContainer.innerHTML = '';
+            appliedFiltersContainer.style.display = 'none';
+
+            searchResults();
+        }
+    </script>
+</body>
+</html>
