@@ -1,26 +1,4397 @@
 [
     {
-        "N°": 1,
-        "Competence": "Partage des biens communaux entre les habitants en cas de séparation d'une commune (et les dettes et archives)",
-        "BaseLegale": "art. 28 R12 xxxx LO",
-        "EntiteFocus": ["commune"],
-        "IndexObjet": ["biens communaux"],
-        "OrganeCompetent": ["conseil communal"],
-        "Commentaire": null,
-        "Delegation": null,
-        "BaseDelegation": null,
-        "LienConnect": "https://myportal.vandenbroeleconnect.be/contenu/livres/detail/73184593456836264/le-vade-mecum-de-la-commune-au-travers-du-cdld#73186792480091832"
+        "EntiteFocus": "commune",
+        "IndexObjet": "biens communaux",
+        "OrganeCompetent": "conseil communal"
     },
     {
-        "N°": 107,
-        "Competence": "Concertation avant la rédaction des statuts du personnel",
-        "BaseLegale": "art. L1124-4, § 6, al. 1er CDLD",
-        "EntiteFocus": ["commune"],
-        "IndexObjet": ["personnel", "statut général du personnel"],
-        "OrganeCompetent": ["comité de direction"],
-        "Commentaire": null,
-        "Delegation": null,
-        "BaseDelegation": null,
-        "LienConnect": "https://myportal.vandenbroeleconnect.be/contenu/livres/detail/73184593456836264/le-vade-mecum-de-la-commune-au-travers-du-cdld#73186792480091836"
+        "EntiteFocus": "commune",
+        "IndexObjet": "élections",
+        "OrganeCompetent": "assemblée des électeurs de la commune"
+    },
+    {
+        "EntiteFocus": "commune",
+        "IndexObjet": "élections / mandat politique",
+        "OrganeCompetent": "candidat élu"
+    },
+    {
+        "EntiteFocus": "commune",
+        "IndexObjet": "élections / mandat politique",
+        "OrganeCompetent": "directeur général"
+    },
+    {
+        "EntiteFocus": "commune",
+        "IndexObjet": "élections / mandat politique",
+        "OrganeCompetent": "directeur général"
+    },
+    {
+        "EntiteFocus": "commune",
+        "IndexObjet": "élections / éligibilité",
+        "OrganeCompetent": "collège communal"
+    },
+    {
+        "EntiteFocus": "commune",
+        "IndexObjet": "élections / éligibilité",
+        "OrganeCompetent": "conseil communal"
+    },
+    {
+        "EntiteFocus": "commune",
+        "IndexObjet": "élections / éligibilité",
+        "OrganeCompetent": "collège communal"
+    },
+    {
+        "EntiteFocus": "commune",
+        "IndexObjet": "élections / éligibilité",
+        "OrganeCompetent": "conseil communal"
+    },
+    {
+        "EntiteFocus": "commune",
+        "IndexObjet": "mandat politique / congé",
+        "OrganeCompetent": "conseil communal"
+    },
+    {
+        "EntiteFocus": "commune",
+        "IndexObjet": "mandat politique / rémunération / jeton de présence",
+        "OrganeCompetent": "conseil communal"
+    },
+    {
+        "EntiteFocus": "commune",
+        "IndexObjet": "mandat politique / démission",
+        "OrganeCompetent": "conseil communal"
+    },
+    {
+        "EntiteFocus": "commune",
+        "IndexObjet": "conseil communal / règlement d'ordre intérieur",
+        "OrganeCompetent": "conseil communal"
+    },
+    {
+        "EntiteFocus": "commune / CPAS",
+        "IndexObjet": "synergies commune-CPAS",
+        "OrganeCompetent": "directeur général / directeur général (CPAS) "
+    },
+    {
+        "EntiteFocus": "commune / CPAS",
+        "IndexObjet": "synergies commune-CPAS",
+        "OrganeCompetent": "comité de direction / comité de direction (CPAS) "
+    },
+    {
+        "EntiteFocus": "commune / CPAS",
+        "IndexObjet": "synergies commune-CPAS",
+        "OrganeCompetent": "comité de concertation / conseil communal / conseil de l'action sociale"
+    },
+    {
+        "EntiteFocus": "commune / CPAS",
+        "IndexObjet": "synergies commune-CPAS",
+        "OrganeCompetent": "conseil communal / conseil de l'action sociale"
+    },
+    {
+        "EntiteFocus": "commune",
+        "IndexObjet": "conseil communal / convocation",
+        "OrganeCompetent": "collège communal"
+    },
+    {
+        "EntiteFocus": "commune",
+        "IndexObjet": "conseil communal / courrier électronique",
+        "OrganeCompetent": "collège communal"
+    },
+    {
+        "EntiteFocus": "commune",
+        "IndexObjet": "conseil communal / explications techniques",
+        "OrganeCompetent": "directeur général / directeur financier"
+    },
+    {
+        "EntiteFocus": "commune",
+        "IndexObjet": "conseil communal / interpellation proposée par les habitants",
+        "OrganeCompetent": "collège communal"
+    },
+    {
+        "EntiteFocus": "commune",
+        "IndexObjet": "conseil communal / présidence",
+        "OrganeCompetent": "bourgmestre (ou son remplaçant)"
+    },
+    {
+        "EntiteFocus": "commune",
+        "IndexObjet": "conseil communal / présidence",
+        "OrganeCompetent": "le conseiller qui, à la fin de la législature précédente, exerçait la fonction de bourgmestre, ou, à défaut une fonction d'échevin, et dont le rang était le plus élevé ou, à défaut, une fonction de conseiller dans l'ordre de leur ancienneté au conseil"
+    },
+    {
+        "EntiteFocus": "commune",
+        "IndexObjet": "conseil communal / séance non publique",
+        "OrganeCompetent": "conseil communal"
+    },
+    {
+        "EntiteFocus": "commune",
+        "IndexObjet": "conseil communal / huis clos",
+        "OrganeCompetent": "président du conseil communal"
+    },
+    {
+        "EntiteFocus": "commune",
+        "IndexObjet": "budget / modification budgétaire / compte annuel",
+        "OrganeCompetent": "collège communal"
+    },
+    {
+        "EntiteFocus": "commune",
+        "IndexObjet": "budget / modification budgétaire / compte annuel",
+        "OrganeCompetent": "collège communal"
+    },
+    {
+        "EntiteFocus": "commune",
+        "IndexObjet": "conseil communal / points urgents complémentaires",
+        "OrganeCompetent": "bourgmestre (ou son remplaçant)"
+    },
+    {
+        "EntiteFocus": "commune",
+        "IndexObjet": "conseil communal / police de l'assemblée",
+        "OrganeCompetent": "président du conseil communal"
+    },
+    {
+        "EntiteFocus": "commune",
+        "IndexObjet": "budget",
+        "OrganeCompetent": "conseil communal"
+    },
+    {
+        "EntiteFocus": "commune",
+        "IndexObjet": "compte annuel",
+        "OrganeCompetent": "conseil communal"
+    },
+    {
+        "EntiteFocus": "commune",
+        "IndexObjet": "conseil communal / huis clos",
+        "OrganeCompetent": "conseil communal"
+    },
+    {
+        "EntiteFocus": "commune",
+        "IndexObjet": "intérêt communal",
+        "OrganeCompetent": "conseil communal"
+    },
+    {
+        "EntiteFocus": "commune",
+        "IndexObjet": "objets soumis par l'autorité supérieure",
+        "OrganeCompetent": "conseil communal"
+    },
+    {
+        "EntiteFocus": "commune",
+        "IndexObjet": "règlements",
+        "OrganeCompetent": "conseil communal"
+    },
+    {
+        "EntiteFocus": "commune",
+        "IndexObjet": "règlements",
+        "OrganeCompetent": "conseil communal"
+    },
+    {
+        "EntiteFocus": "commune",
+        "IndexObjet": "règlements / amendes pénales",
+        "OrganeCompetent": "conseil communal"
+    },
+    {
+        "EntiteFocus": "commune",
+        "IndexObjet": "règlements / sanctions administratives",
+        "OrganeCompetent": "conseil communal"
+    },
+    {
+        "EntiteFocus": "commune",
+        "IndexObjet": "règlements / sanctions administratives / amendes pénales",
+        "OrganeCompetent": "fonctionnaire de police / agent auxiliaire de police"
+    },
+    {
+        "EntiteFocus": "commune",
+        "IndexObjet": "conseil communal / commissions",
+        "OrganeCompetent": "conseil communal"
+    },
+    {
+        "EntiteFocus": "commune",
+        "IndexObjet": "conseil communal / commissions",
+        "OrganeCompetent": "conseil communal"
+    },
+    {
+        "EntiteFocus": "commune",
+        "IndexObjet": "conseil communal / présidence",
+        "OrganeCompetent": "conseil communal"
+    },
+    {
+        "EntiteFocus": "commune",
+        "IndexObjet": "conseils consultatifs",
+        "OrganeCompetent": "conseil communal"
+    },
+    {
+        "EntiteFocus": "commune",
+        "IndexObjet": "conseils consultatifs",
+        "OrganeCompetent": "collège communal"
+    },
+    {
+        "EntiteFocus": "commune",
+        "IndexObjet": "biens communaux / bois et forêts",
+        "OrganeCompetent": "conseil communal"
+    },
+    {
+        "EntiteFocus": "commune",
+        "IndexObjet": "subventions",
+        "OrganeCompetent": "conseil communal"
+    },
+    {
+        "EntiteFocus": "commune",
+        "IndexObjet": "subventions",
+        "OrganeCompetent": "collège communal"
+    },
+    {
+        "EntiteFocus": "commune",
+        "IndexObjet": "élections / pacte de majorité",
+        "OrganeCompetent": "conseil communal"
+    },
+    {
+        "EntiteFocus": "commune",
+        "IndexObjet": "élections / pacte de majorité",
+        "OrganeCompetent": "conseil communal"
+    },
+    {
+        "EntiteFocus": "commune",
+        "IndexObjet": "élections / pacte de majorité",
+        "OrganeCompetent": "conseil communal"
+    },
+    {
+        "EntiteFocus": "commune",
+        "IndexObjet": "collège communal / nombre d'échevins",
+        "OrganeCompetent": "conseil communal"
+    },
+    {
+        "EntiteFocus": "commune",
+        "IndexObjet": "collège communal / remplacement d'un échevin absent ou empêché",
+        "OrganeCompetent": "conseil communal"
+    },
+    {
+        "EntiteFocus": "commune",
+        "IndexObjet": "motion de méfiance",
+        "OrganeCompetent": "conseil communal"
+    },
+    {
+        "EntiteFocus": "commune",
+        "IndexObjet": "présidence du collège communal",
+        "OrganeCompetent": "bourgmestre"
+    },
+    {
+        "EntiteFocus": "commune",
+        "IndexObjet": "collège communal / réunion",
+        "OrganeCompetent": "bourgmestre"
+    },
+    {
+        "EntiteFocus": "commune",
+        "IndexObjet": "exécution des lois et décrets",
+        "OrganeCompetent": "collège communal"
+    },
+    {
+        "EntiteFocus": "commune",
+        "IndexObjet": "exécution des décisions du conseil communal",
+        "OrganeCompetent": "collège communal"
+    },
+    {
+        "EntiteFocus": "commune",
+        "IndexObjet": "administration des établissements communaux",
+        "OrganeCompetent": "collège communal"
+    },
+    {
+        "EntiteFocus": "commune",
+        "IndexObjet": "finances / revenus / dépenses / comptabilité",
+        "OrganeCompetent": "collège communal"
+    },
+    {
+        "EntiteFocus": "commune",
+        "IndexObjet": "travaux communaux",
+        "OrganeCompetent": "collège communal"
+    },
+    {
+        "EntiteFocus": "commune",
+        "IndexObjet": "voirie",
+        "OrganeCompetent": "collège communal"
+    },
+    {
+        "EntiteFocus": "commune",
+        "IndexObjet": "actions judiciaires / justice",
+        "OrganeCompetent": "collège communal"
+    },
+    {
+        "EntiteFocus": "commune",
+        "IndexObjet": "biens communaux ",
+        "OrganeCompetent": "collège communal"
+    },
+    {
+        "EntiteFocus": "commune",
+        "IndexObjet": "personnel / surveillance",
+        "OrganeCompetent": "collège communal"
+    },
+    {
+        "EntiteFocus": "commune",
+        "IndexObjet": "chemins vicinaux / cours d'eau ",
+        "OrganeCompetent": "collège communal"
+    },
+    {
+        "EntiteFocus": "commune",
+        "IndexObjet": "sanctions administratives",
+        "OrganeCompetent": "collège communal"
+    },
+    {
+        "EntiteFocus": "commune",
+        "IndexObjet": "appels à projet (candidature)",
+        "OrganeCompetent": "collège communal"
+    },
+    {
+        "EntiteFocus": "commune",
+        "IndexObjet": "finances / caisse d'épargne",
+        "OrganeCompetent": "collège communal"
+    },
+    {
+        "EntiteFocus": "commune",
+        "IndexObjet": "extraits ou copies d'actes",
+        "OrganeCompetent": "bourgmestre / officier de l'état civil"
+    },
+    {
+        "EntiteFocus": "commune",
+        "IndexObjet": "légalisation de signatures",
+        "OrganeCompetent": "bourgmestre / officier de l'état civil"
+    },
+    {
+        "EntiteFocus": "commune",
+        "IndexObjet": "extraits ou copies d'actes / certification conforme de documents",
+        "OrganeCompetent": "bourgmestre / officier de l'état civil"
+    },
+    {
+        "EntiteFocus": "commune",
+        "IndexObjet": "monts-de-piété",
+        "OrganeCompetent": "collège communal"
+    },
+    {
+        "EntiteFocus": "commune",
+        "IndexObjet": "déclaration de politique communale",
+        "OrganeCompetent": "collège communal"
+    },
+    {
+        "EntiteFocus": "commune",
+        "IndexObjet": "déclaration de politique communale",
+        "OrganeCompetent": "collège communal"
+    },
+    {
+        "EntiteFocus": "commune",
+        "IndexObjet": "programme stratégique transversal",
+        "OrganeCompetent": "collège communal"
+    },
+    {
+        "EntiteFocus": "commune",
+        "IndexObjet": "programme stratégique transversal",
+        "OrganeCompetent": "collège communal"
+    },
+    {
+        "EntiteFocus": "commune",
+        "IndexObjet": "programme stratégique transversal",
+        "OrganeCompetent": "comité de direction"
+    },
+    {
+        "EntiteFocus": "commune",
+        "IndexObjet": "programme stratégique transversal",
+        "OrganeCompetent": "conseil communal"
+    },
+    {
+        "EntiteFocus": "commune",
+        "IndexObjet": "archives / titres",
+        "OrganeCompetent": "collège communal"
+    },
+    {
+        "EntiteFocus": "commune",
+        "IndexObjet": "compétence globale",
+        "OrganeCompetent": "bourgmestre"
+    },
+    {
+        "EntiteFocus": "commune",
+        "IndexObjet": "immeuble abandonné",
+        "OrganeCompetent": "bourgmestre"
+    },
+    {
+        "EntiteFocus": "commune",
+        "IndexObjet": "immeuble abandonné",
+        "OrganeCompetent": "président du conseil de l'action sociale"
+    },
+    {
+        "EntiteFocus": "commune",
+        "IndexObjet": "collège communal / secrétariats",
+        "OrganeCompetent": "conseil communal"
+    },
+    {
+        "EntiteFocus": "commune",
+        "IndexObjet": "directeur général / nomination",
+        "OrganeCompetent": "conseil communal"
+    },
+    {
+        "EntiteFocus": "commune",
+        "IndexObjet": "personnel / directeur général / statut administratif / statut général du personnel",
+        "OrganeCompetent": "conseil communal"
+    },
+    {
+        "EntiteFocus": "commune",
+        "IndexObjet": "directeur général / nomination",
+        "OrganeCompetent": "conseil communal"
+    },
+    {
+        "EntiteFocus": "commune",
+        "IndexObjet": "conseil communal / collège communal / préparation des dossiers soumis",
+        "OrganeCompetent": "directeur général"
+    },
+    {
+        "EntiteFocus": "commune",
+        "IndexObjet": "programme stratégique transversal",
+        "OrganeCompetent": "directeur général"
+    },
+    {
+        "EntiteFocus": "commune",
+        "IndexObjet": "services communaux",
+        "OrganeCompetent": "directeur général"
+    },
+    {
+        "EntiteFocus": "commune",
+        "IndexObjet": "services communaux",
+        "OrganeCompetent": "collège communal"
+    },
+    {
+        "EntiteFocus": "commune",
+        "IndexObjet": "personnel / directeur général adjoint",
+        "OrganeCompetent": "directeur général"
+    },
+    {
+        "EntiteFocus": "commune",
+        "IndexObjet": "personnel",
+        "OrganeCompetent": "directeur général"
+    },
+    {
+        "EntiteFocus": "commune",
+        "IndexObjet": "personnel / évaluation",
+        "OrganeCompetent": "directeur général"
+    },
+    {
+        "EntiteFocus": "commune",
+        "IndexObjet": "personnel / jury d'examen",
+        "OrganeCompetent": "directeur général"
+    },
+    {
+        "EntiteFocus": "commune",
+        "IndexObjet": "comité de direction",
+        "OrganeCompetent": "directeur général"
+    },
+    {
+        "EntiteFocus": "commune",
+        "IndexObjet": "système de contrôle interne",
+        "OrganeCompetent": "directeur général"
+    },
+    {
+        "EntiteFocus": "commune",
+        "IndexObjet": "système de contrôle interne",
+        "OrganeCompetent": "conseil communal"
+    },
+    {
+        "EntiteFocus": "commune",
+        "IndexObjet": "conseil communal / procès-verbaux",
+        "OrganeCompetent": "directeur général"
+    },
+    {
+        "EntiteFocus": "commune",
+        "IndexObjet": "conseil communal / procès-verbaux",
+        "OrganeCompetent": "conseil communal"
+    },
+    {
+        "EntiteFocus": "commune",
+        "IndexObjet": "conseil communal / procès-verbaux",
+        "OrganeCompetent": "directeur général / bourgmestre"
+    },
+    {
+        "EntiteFocus": "commune",
+        "IndexObjet": "conseil communal / collège communal / conseils juridiques et administratifs",
+        "OrganeCompetent": "directeur général"
+    },
+    {
+        "EntiteFocus": "commune",
+        "IndexObjet": "organigramme",
+        "OrganeCompetent": "directeur général"
+    },
+    {
+        "EntiteFocus": "commune",
+        "IndexObjet": "cadre organique",
+        "OrganeCompetent": "directeur général"
+    },
+    {
+        "EntiteFocus": "commune",
+        "IndexObjet": "personnel / statut général du personnel",
+        "OrganeCompetent": "directeur général"
+    },
+    {
+        "EntiteFocus": "commune",
+        "IndexObjet": "organigramme",
+        "OrganeCompetent": "comité de direction"
+    },
+    {
+        "EntiteFocus": "commune",
+        "IndexObjet": "cadre organique",
+        "OrganeCompetent": "comité de direction"
+    },
+    {
+        "EntiteFocus": "commune",
+        "IndexObjet": "personnel / statut général du personnel",
+        "OrganeCompetent": "comité de direction"
+    },
+    {
+        "EntiteFocus": "commune",
+        "IndexObjet": "directeur général / cumul des activités professionnelles",
+        "OrganeCompetent": "conseil communal"
+    },
+    {
+        "EntiteFocus": "commune",
+        "IndexObjet": "personnel / traitements",
+        "OrganeCompetent": "conseil communal"
+    },
+    {
+        "EntiteFocus": "commune",
+        "IndexObjet": "directeur général adjoint",
+        "OrganeCompetent": "conseil communal"
+    },
+    {
+        "EntiteFocus": "commune / CPAS",
+        "IndexObjet": "directeur général adjoint",
+        "OrganeCompetent": "conseil communal / conseil de l'action sociale"
+    },
+    {
+        "EntiteFocus": "commune",
+        "IndexObjet": "directeur général adjoint / nomination",
+        "OrganeCompetent": "conseil communal"
+    },
+    {
+        "EntiteFocus": "commune",
+        "IndexObjet": "personnel / directeur général adjoint / statut administratif / statut général du personnel",
+        "OrganeCompetent": "conseil communal"
+    },
+    {
+        "EntiteFocus": "commune",
+        "IndexObjet": "directeur général / aide",
+        "OrganeCompetent": "directeur général adjoint"
+    },
+    {
+        "EntiteFocus": "commune",
+        "IndexObjet": "directeur général / absence",
+        "OrganeCompetent": "directeur général adjoint"
+    },
+    {
+        "EntiteFocus": "commune",
+        "IndexObjet": "personnel / traitements",
+        "OrganeCompetent": "conseil communal"
+    },
+    {
+        "EntiteFocus": "commune",
+        "IndexObjet": "directeur général / absence / directeur général faisant fonction",
+        "OrganeCompetent": "collège communal"
+    },
+    {
+        "EntiteFocus": "commune",
+        "IndexObjet": "directeur financier",
+        "OrganeCompetent": "conseil communal"
+    },
+    {
+        "EntiteFocus": "commune / CPAS",
+        "IndexObjet": "directeur financier",
+        "OrganeCompetent": "conseil de l'action sociale"
+    },
+    {
+        "EntiteFocus": "commune / CPAS",
+        "IndexObjet": "directeur financier",
+        "OrganeCompetent": "conseil communal / conseil de l'action sociale"
+    },
+    {
+        "EntiteFocus": "commune",
+        "IndexObjet": "directeur financier / nomination",
+        "OrganeCompetent": "conseil communal"
+    },
+    {
+        "EntiteFocus": "commune",
+        "IndexObjet": "directeur financier",
+        "OrganeCompetent": "collège communal"
+    },
+    {
+        "EntiteFocus": "commune",
+        "IndexObjet": "personnel / directeur financier / statut administratif / statut général du personnel",
+        "OrganeCompetent": "conseil communal"
+    },
+    {
+        "EntiteFocus": "commune",
+        "IndexObjet": "directeur financier / absence / directeur financier faisant fonction",
+        "OrganeCompetent": "directeur financier"
+    },
+    {
+        "EntiteFocus": "commune",
+        "IndexObjet": "directeur financier / absence / directeur financier faisant fonction",
+        "OrganeCompetent": "directeur financier"
+    },
+    {
+        "EntiteFocus": "commune",
+        "IndexObjet": "directeur financier / absence / directeur financier faisant fonction",
+        "OrganeCompetent": "directeur financier faisant fonction"
+    },
+    {
+        "EntiteFocus": "commune",
+        "IndexObjet": "receveur régional / concours",
+        "OrganeCompetent": "collège des gouverneurs wallons"
+    },
+    {
+        "EntiteFocus": "commune",
+        "IndexObjet": "receveur régional / vacance",
+        "OrganeCompetent": "Gouverneur"
+    },
+    {
+        "EntiteFocus": "commune",
+        "IndexObjet": "receveur régional / nomination",
+        "OrganeCompetent": "Gouverneur"
+    },
+    {
+        "EntiteFocus": "commune",
+        "IndexObjet": "receveur régional",
+        "OrganeCompetent": "Gouverneur"
+    },
+    {
+        "EntiteFocus": "commune",
+        "IndexObjet": "receveur régional / désignation",
+        "OrganeCompetent": "Gouverneur"
+    },
+    {
+        "EntiteFocus": "commune",
+        "IndexObjet": "receveur régional / décharge",
+        "OrganeCompetent": "collège des gouverneurs wallons"
+    },
+    {
+        "EntiteFocus": "commune",
+        "IndexObjet": "receveur régional faisant fonction",
+        "OrganeCompetent": "Gouverneur"
+    },
+    {
+        "EntiteFocus": "commune",
+        "IndexObjet": "directeur financier",
+        "OrganeCompetent": "directeur financier"
+    },
+    {
+        "EntiteFocus": "commune",
+        "IndexObjet": "personnel / traitements",
+        "OrganeCompetent": "conseil communal"
+    },
+    {
+        "EntiteFocus": "commune",
+        "IndexObjet": "directeur financier / cumul des activités professionnelles",
+        "OrganeCompetent": "conseil communal"
+    },
+    {
+        "EntiteFocus": "commune",
+        "IndexObjet": "receveur régional",
+        "OrganeCompetent": "Gouverneur"
+    },
+    {
+        "EntiteFocus": "commune",
+        "IndexObjet": "finances / comptabilité / recettes",
+        "OrganeCompetent": "directeur financier"
+    },
+    {
+        "EntiteFocus": "commune",
+        "IndexObjet": "finances / comptabilité / dépenses ordonnancées / mandats de paiement",
+        "OrganeCompetent": "directeur financier"
+    },
+    {
+        "EntiteFocus": "commune",
+        "IndexObjet": "avis de légalité",
+        "OrganeCompetent": "directeur financier"
+    },
+    {
+        "EntiteFocus": "commune",
+        "IndexObjet": "avis de légalité / donations / legs",
+        "OrganeCompetent": "directeur financier"
+    },
+    {
+        "EntiteFocus": "commune",
+        "IndexObjet": "avis de légalité",
+        "OrganeCompetent": "directeur financier"
+    },
+    {
+        "EntiteFocus": "commune",
+        "IndexObjet": "programme stratégique transversal",
+        "OrganeCompetent": "directeur financier"
+    },
+    {
+        "EntiteFocus": "commune",
+        "IndexObjet": "finances / comptabilité / dépenses ordonnancées",
+        "OrganeCompetent": "receveur régional des contributions directes"
+    },
+    {
+        "EntiteFocus": "commune",
+        "IndexObjet": "avis de légalité",
+        "OrganeCompetent": "directeur financier"
+    },
+    {
+        "EntiteFocus": "commune",
+        "IndexObjet": "avis de légalité / CPAS / zone de police / établissements chargés de la gestion du temporel des cultes / régies ordinaires ou autonomes / associations de droit ou de fait",
+        "OrganeCompetent": "directeur financier"
+    },
+    {
+        "EntiteFocus": "commune",
+        "IndexObjet": "avis de légalité / rapport sur l'exécution de la mission de remise d'avis",
+        "OrganeCompetent": "directeur financier"
+    },
+    {
+        "EntiteFocus": "commune",
+        "IndexObjet": "conseil communal / collège communal / dossiers soumis / accès ",
+        "OrganeCompetent": "collège communal"
+    },
+    {
+        "EntiteFocus": "commune",
+        "IndexObjet": "finances / comptabilité / encaisse",
+        "OrganeCompetent": "collège communal ou celui de ses membres qu'il désigne à cette fin"
+    },
+    {
+        "EntiteFocus": "commune",
+        "IndexObjet": "finances / comptabilité / encaisse",
+        "OrganeCompetent": "directeur financier / membres du collège communal impliqués"
+    },
+    {
+        "EntiteFocus": "commune",
+        "IndexObjet": "finances / comptabilité / encaisse",
+        "OrganeCompetent": "collège communal"
+    },
+    {
+        "EntiteFocus": "commune",
+        "IndexObjet": "finances / comptabilité / encaisse / vol / perte",
+        "OrganeCompetent": "directeur financier"
+    },
+    {
+        "EntiteFocus": "commune",
+        "IndexObjet": "finances / comptabilité / encaisse / vol / perte",
+        "OrganeCompetent": "collège communal"
+    },
+    {
+        "EntiteFocus": "commune",
+        "IndexObjet": "finances / comptabilité / encaisse / vol / perte",
+        "OrganeCompetent": "conseil communal"
+    },
+    {
+        "EntiteFocus": "commune",
+        "IndexObjet": "finances / comptabilité / recouvrement",
+        "OrganeCompetent": "directeur financier / receveur régional de la commune du contribuable"
+    },
+    {
+        "EntiteFocus": "commune",
+        "IndexObjet": "finances / comptabilité / recettes / agents spéciaux",
+        "OrganeCompetent": "conseil communal"
+    },
+    {
+        "EntiteFocus": "commune",
+        "IndexObjet": "finances / comptabilité / recettes / dépenses",
+        "OrganeCompetent": "conseil communal"
+    },
+    {
+        "EntiteFocus": "commune",
+        "IndexObjet": "finances / comptabilité / directeur financier / compte de fin de gestion",
+        "OrganeCompetent": "directeur financier / receveur régional"
+    },
+    {
+        "EntiteFocus": "commune",
+        "IndexObjet": "finances / comptabilité / directeur financier / compte de fin de gestion",
+        "OrganeCompetent": "collège communal"
+    },
+    {
+        "EntiteFocus": "commune",
+        "IndexObjet": "finances / comptabilité / directeur financier / compte de fin de gestion",
+        "OrganeCompetent": "conseil communal"
+    },
+    {
+        "EntiteFocus": "commune",
+        "IndexObjet": "finances / comptabilité / directeur financier / compte de fin de gestion",
+        "OrganeCompetent": "Gouverneur"
+    },
+    {
+        "EntiteFocus": "commune",
+        "IndexObjet": "finances / comptabilité / encaisse",
+        "OrganeCompetent": "Gouverneur"
+    },
+    {
+        "EntiteFocus": "commune",
+        "IndexObjet": "finances / comptabilité / encaisse",
+        "OrganeCompetent": "Gouverneur"
+    },
+    {
+        "EntiteFocus": "commune",
+        "IndexObjet": "finances / comptabilité / encaisse",
+        "OrganeCompetent": "Gouverneur / le receveur régional"
+    },
+    {
+        "EntiteFocus": "commune",
+        "IndexObjet": "finances / comptabilité / encaisse",
+        "OrganeCompetent": "Gouverneur"
+    },
+    {
+        "EntiteFocus": "commune",
+        "IndexObjet": "finances / comptabilité / encaisse / vol / perte",
+        "OrganeCompetent": "Gouverneur"
+    },
+    {
+        "EntiteFocus": "commune",
+        "IndexObjet": "directeur général / évaluation",
+        "OrganeCompetent": "collège communal"
+    },
+    {
+        "EntiteFocus": "commune",
+        "IndexObjet": "directeur genéral adjoint / évaluation",
+        "OrganeCompetent": "collège communal"
+    },
+    {
+        "EntiteFocus": "commune",
+        "IndexObjet": "directeur financier / évaluation",
+        "OrganeCompetent": "collège communal"
+    },
+    {
+        "EntiteFocus": "commune",
+        "IndexObjet": "directeur général / évaluation / plan de planification",
+        "OrganeCompetent": "collège communal"
+    },
+    {
+        "EntiteFocus": "commune",
+        "IndexObjet": "directeur général adjoint / évaluation / plan de planification",
+        "OrganeCompetent": "collège communal"
+    },
+    {
+        "EntiteFocus": "commune",
+        "IndexObjet": "directeur financier / évaluation / plan de planification",
+        "OrganeCompetent": "collège communal"
+    },
+    {
+        "EntiteFocus": "commune",
+        "IndexObjet": "directeur général / inaptitude professionnelle",
+        "OrganeCompetent": "conseil communal"
+    },
+    {
+        "EntiteFocus": "commune",
+        "IndexObjet": "directeur général adjoint / inaptitude professionnelle",
+        "OrganeCompetent": "conseil communal"
+    },
+    {
+        "EntiteFocus": "commune",
+        "IndexObjet": "directeur financier / inaptitude professionnelle",
+        "OrganeCompetent": "conseil communal"
+    },
+    {
+        "EntiteFocus": "commune",
+        "IndexObjet": "cumul / bourgmestre / échevin / membre du conseil communal / directeur général / directeur financier / receveur régional",
+        "OrganeCompetent": "Gouverneur"
+    },
+    {
+        "EntiteFocus": "commune",
+        "IndexObjet": "élections / mandat politique / incompatibilité",
+        "OrganeCompetent": "collège communal"
+    },
+    {
+        "EntiteFocus": "commune",
+        "IndexObjet": "collège comunal / procès-verbaux",
+        "OrganeCompetent": "directeur général"
+    },
+    {
+        "EntiteFocus": "commune",
+        "IndexObjet": "règlements / ordonnances / publications / actes / correspondance / signatures",
+        "OrganeCompetent": "bourgmestre"
+    },
+    {
+        "EntiteFocus": "commune",
+        "IndexObjet": "règlements / ordonnances / publications / actes / correspondance / signatures / contreseing",
+        "OrganeCompetent": "directeur général"
+    },
+    {
+        "EntiteFocus": "commune",
+        "IndexObjet": "règlements / ordonnances / publications / actes / correspondance / signatures / contreseing",
+        "OrganeCompetent": "collège communal"
+    },
+    {
+        "EntiteFocus": "commune",
+        "IndexObjet": "actes / correspondance / finances / signatures",
+        "OrganeCompetent": "directeur financier"
+    },
+    {
+        "EntiteFocus": "commune",
+        "IndexObjet": "actes / correspondance / finances / signatures",
+        "OrganeCompetent": "collège communal"
+    },
+    {
+        "EntiteFocus": "commune",
+        "IndexObjet": "règlements / ordonnances / publications / acte authentique / correspondance / signatures / contreseing",
+        "OrganeCompetent": "collège communal"
+    },
+    {
+        "EntiteFocus": "commune",
+        "IndexObjet": "acte authentique / correspondance / finances / signatures",
+        "OrganeCompetent": "collège communal"
+    },
+    {
+        "EntiteFocus": "commune",
+        "IndexObjet": "règlements / ordonnances / publication",
+        "OrganeCompetent": "conseil communal"
+    },
+    {
+        "EntiteFocus": "commune",
+        "IndexObjet": "consultation populaire",
+        "OrganeCompetent": "conseil communal"
+    },
+    {
+        "EntiteFocus": "commune",
+        "IndexObjet": "consultation populaire",
+        "OrganeCompetent": "conseil communal"
+    },
+    {
+        "EntiteFocus": "commune",
+        "IndexObjet": "consultation populaire",
+        "OrganeCompetent": "collège communal"
+    },
+    {
+        "EntiteFocus": "commune",
+        "IndexObjet": "consultation populaire",
+        "OrganeCompetent": "collège communal"
+    },
+    {
+        "EntiteFocus": "commune",
+        "IndexObjet": "consultation populaire",
+        "OrganeCompetent": "conseil communal"
+    },
+    {
+        "EntiteFocus": "commune",
+        "IndexObjet": "consultation populaire",
+        "OrganeCompetent": "collège communal"
+    },
+    {
+        "EntiteFocus": "commune",
+        "IndexObjet": "consultation populaire",
+        "OrganeCompetent": "administration communale"
+    },
+    {
+        "EntiteFocus": "commune",
+        "IndexObjet": "organigramme",
+        "OrganeCompetent": "collège communal"
+    },
+    {
+        "EntiteFocus": "commune",
+        "IndexObjet": "comité de direction",
+        "OrganeCompetent": "directeur général"
+    },
+    {
+        "EntiteFocus": "commune",
+        "IndexObjet": "budget / modification budgétaire / avant-projet",
+        "OrganeCompetent": "comité de direction"
+    },
+    {
+        "EntiteFocus": "commune",
+        "IndexObjet": "programme stratégique transversal",
+        "OrganeCompetent": "comité de direction"
+    },
+    {
+        "EntiteFocus": "commune",
+        "IndexObjet": "programme stratégique transversal",
+        "OrganeCompetent": "comité de direction"
+    },
+    {
+        "EntiteFocus": "commune",
+        "IndexObjet": "personnel / description de fonction",
+        "OrganeCompetent": "directeur général"
+    },
+    {
+        "EntiteFocus": "commune",
+        "IndexObjet": "personnel / description de fonction",
+        "OrganeCompetent": "comité de direction"
+    },
+    {
+        "EntiteFocus": "commune",
+        "IndexObjet": "personnel / plan de formation",
+        "OrganeCompetent": "collège communal"
+    },
+    {
+        "EntiteFocus": "commune",
+        "IndexObjet": "personnel / plan de formation",
+        "OrganeCompetent": "directeur général"
+    },
+    {
+        "EntiteFocus": "commune",
+        "IndexObjet": "personnel / plan de formation",
+        "OrganeCompetent": "comité de direction"
+    },
+    {
+        "EntiteFocus": "commune",
+        "IndexObjet": "personnel / plan de formation",
+        "OrganeCompetent": "collège communal"
+    },
+    {
+        "EntiteFocus": "commune",
+        "IndexObjet": "personnel / cadre",
+        "OrganeCompetent": "conseil communal"
+    },
+    {
+        "EntiteFocus": "commune",
+        "IndexObjet": "personnel / statut général du personnel",
+        "OrganeCompetent": "conseil communal"
+    },
+    {
+        "EntiteFocus": "commune",
+        "IndexObjet": "personnel / statut général du personnel",
+        "OrganeCompetent": "collège communal"
+    },
+    {
+        "EntiteFocus": "commune",
+        "IndexObjet": "personnel / statutaires",
+        "OrganeCompetent": "conseil communal"
+    },
+    {
+        "EntiteFocus": "commune",
+        "IndexObjet": "personnel / contractuels",
+        "OrganeCompetent": "conseil communal"
+    },
+    {
+        "EntiteFocus": "commune",
+        "IndexObjet": "personnel / contractuels",
+        "OrganeCompetent": "conseil communal"
+    },
+    {
+        "EntiteFocus": "commune",
+        "IndexObjet": "régime de mobilité",
+        "OrganeCompetent": "conseil communal"
+    },
+    {
+        "EntiteFocus": "commune",
+        "IndexObjet": "personnel / mise à disposition de personnel statutaire",
+        "OrganeCompetent": "conseil communal"
+    },
+    {
+        "EntiteFocus": "commune",
+        "IndexObjet": "personnel / pension / maintien en activité de personnel statutaire",
+        "OrganeCompetent": "conseil communal"
+    },
+    {
+        "EntiteFocus": "commune",
+        "IndexObjet": "personnel / interdiction de commerce ou d'emploi incompatible",
+        "OrganeCompetent": "conseil communal"
+    },
+    {
+        "EntiteFocus": "commune",
+        "IndexObjet": "personnel / sanctions disciplinaires",
+        "OrganeCompetent": "conseil communal"
+    },
+    {
+        "EntiteFocus": "commune",
+        "IndexObjet": "personnel / sanctions disciplinaires",
+        "OrganeCompetent": "directeur général"
+    },
+    {
+        "EntiteFocus": "commune",
+        "IndexObjet": "personnel / sanctions disciplinaires",
+        "OrganeCompetent": "collège communal"
+    },
+    {
+        "EntiteFocus": "commune",
+        "IndexObjet": "personnel / sanctions disciplinaires",
+        "OrganeCompetent": "directeur général"
+    },
+    {
+        "EntiteFocus": "commune",
+        "IndexObjet": "personnel / sanctions disciplinaires",
+        "OrganeCompetent": "directeur général"
+    },
+    {
+        "EntiteFocus": "commune",
+        "IndexObjet": "personnel / sanctions disciplinaires",
+        "OrganeCompetent": "collège communal"
+    },
+    {
+        "EntiteFocus": "commune",
+        "IndexObjet": "personnel / sanctions disciplinaires",
+        "OrganeCompetent": "autorité disciplinaire"
+    },
+    {
+        "EntiteFocus": "commune",
+        "IndexObjet": "personnel / sanctions disciplinaires",
+        "OrganeCompetent": "autorité disciplinaire"
+    },
+    {
+        "EntiteFocus": "commune",
+        "IndexObjet": "personnel / sanctions disciplinaires",
+        "OrganeCompetent": "autorité disciplinaire"
+    },
+    {
+        "EntiteFocus": "commune",
+        "IndexObjet": "personnel / sanctions disciplinaires",
+        "OrganeCompetent": "autorité disciplinaire"
+    },
+    {
+        "EntiteFocus": "commune",
+        "IndexObjet": "personnel / sanctions disciplinaires / suspension préventive",
+        "OrganeCompetent": "autorité disciplinaire"
+    },
+    {
+        "EntiteFocus": "commune",
+        "IndexObjet": "personnel / sanctions disciplinaires / suspension préventive",
+        "OrganeCompetent": "collège communal / conseil communal"
+    },
+    {
+        "EntiteFocus": "commune",
+        "IndexObjet": "personnel / état civil",
+        "OrganeCompetent": "bourgmestre / échevin chargé de remplir les fonctions d'officier de l'état civil"
+    },
+    {
+        "EntiteFocus": "commune",
+        "IndexObjet": "personnel / état civil",
+        "OrganeCompetent": "conseil communal"
+    },
+    {
+        "EntiteFocus": "commune",
+        "IndexObjet": "personnel / état civil",
+        "OrganeCompetent": "conseil communal"
+    },
+    {
+        "EntiteFocus": "commune / intercommunale",
+        "IndexObjet": "personnel / police judiciaire",
+        "OrganeCompetent": "conseil communal"
+    },
+    {
+        "EntiteFocus": "commune",
+        "IndexObjet": "personnel / démission d'office / inaptitude profesionnelle",
+        "OrganeCompetent": "conseil communal"
+    },
+    {
+        "EntiteFocus": "commune",
+        "IndexObjet": "personnel / démission d'office / inaptitude profesionnelle",
+        "OrganeCompetent": "conseil communal"
+    },
+    {
+        "EntiteFocus": "commune",
+        "IndexObjet": "personnel / démission d'office / inaptitude profesionnelle",
+        "OrganeCompetent": "conseil communal"
+    },
+    {
+        "EntiteFocus": "commune",
+        "IndexObjet": "personnel / démission d'office / inaptitude profesionnelle",
+        "OrganeCompetent": "conseil communal"
+    },
+    {
+        "EntiteFocus": "commune",
+        "IndexObjet": "référent intégrité",
+        "OrganeCompetent": "collège communal"
+    },
+    {
+        "EntiteFocus": "commune",
+        "IndexObjet": "référent intégrité",
+        "OrganeCompetent": "directeur général adjoint / directeur général"
+    },
+    {
+        "EntiteFocus": "commune",
+        "IndexObjet": "référent intégrité",
+        "OrganeCompetent": "référent intégrité"
+    },
+    {
+        "EntiteFocus": "commune",
+        "IndexObjet": "référent intégrité",
+        "OrganeCompetent": "référent intégrité"
+    },
+    {
+        "EntiteFocus": "commune",
+        "IndexObjet": "référent intégrité",
+        "OrganeCompetent": "référent intégrité"
+    },
+    {
+        "EntiteFocus": "commune",
+        "IndexObjet": "référent intégrité",
+        "OrganeCompetent": "référent intégrité"
+    },
+    {
+        "EntiteFocus": "commune",
+        "IndexObjet": "référent intégrité",
+        "OrganeCompetent": "référent intégrité"
+    },
+    {
+        "EntiteFocus": "commune",
+        "IndexObjet": "référent intégrité / directeur général",
+        "OrganeCompetent": "référent intégrité"
+    },
+    {
+        "EntiteFocus": "commune",
+        "IndexObjet": "référent intégrité / directeur général",
+        "OrganeCompetent": "collège communal"
+    },
+    {
+        "EntiteFocus": "commune",
+        "IndexObjet": "référent intégrité",
+        "OrganeCompetent": "référent intégrité"
+    },
+    {
+        "EntiteFocus": "commune",
+        "IndexObjet": "référent intégrité",
+        "OrganeCompetent": "référent intégrité"
+    },
+    {
+        "EntiteFocus": "commune",
+        "IndexObjet": "référent intégrité",
+        "OrganeCompetent": "référent intégrité"
+    },
+    {
+        "EntiteFocus": "commune",
+        "IndexObjet": "donations / legs / acte authentique",
+        "OrganeCompetent": "conseil communal"
+    },
+    {
+        "EntiteFocus": "commune",
+        "IndexObjet": "donations / legs / biens meubles corporels",
+        "OrganeCompetent": "bourgmestre"
+    },
+    {
+        "EntiteFocus": "commune",
+        "IndexObjet": "contrats / opérations immobilières",
+        "OrganeCompetent": "conseil communal"
+    },
+    {
+        "EntiteFocus": "commune",
+        "IndexObjet": "contrats / opérations immobilières",
+        "OrganeCompetent": "collège communal"
+    },
+    {
+        "EntiteFocus": "commune",
+        "IndexObjet": "contrats / opérations immobilières / négociations",
+        "OrganeCompetent": "collège communal"
+    },
+    {
+        "EntiteFocus": "commune",
+        "IndexObjet": "contrats / opérations immobilières",
+        "OrganeCompetent": "collège communal"
+    },
+    {
+        "EntiteFocus": "commune",
+        "IndexObjet": "contrats / vente / mise à disposition / biens meubles corporels",
+        "OrganeCompetent": "conseil communal"
+    },
+    {
+        "EntiteFocus": "commune",
+        "IndexObjet": "contrats / vente / mise à disposition / biens meubles corporels",
+        "OrganeCompetent": "collège communal"
+    },
+    {
+        "EntiteFocus": "commune",
+        "IndexObjet": "contrats / vente / mise à disposition / biens meubles corporels / négociations",
+        "OrganeCompetent": "collège communal"
+    },
+    {
+        "EntiteFocus": "commune",
+        "IndexObjet": "contrats / vente / mise à disposition / biens meubles corporels",
+        "OrganeCompetent": "collège communal"
+    },
+    {
+        "EntiteFocus": "commune",
+        "IndexObjet": "marchés publics",
+        "OrganeCompetent": "conseil communal"
+    },
+    {
+        "EntiteFocus": "commune",
+        "IndexObjet": "marchés publics",
+        "OrganeCompetent": "collège communal"
+    },
+    {
+        "EntiteFocus": "commune",
+        "IndexObjet": "marchés publics",
+        "OrganeCompetent": "collège communal"
+    },
+    {
+        "EntiteFocus": "commune",
+        "IndexObjet": "marchés publics / accords-cadres conclus",
+        "OrganeCompetent": "collège communal"
+    },
+    {
+        "EntiteFocus": "commune",
+        "IndexObjet": "marchés publics / négociations",
+        "OrganeCompetent": "collège communal"
+    },
+    {
+        "EntiteFocus": "commune",
+        "IndexObjet": "marchés publics / accords-cadres conclus",
+        "OrganeCompetent": "directeur général / directeur général adjoint / le fonctionnaire délégué"
+    },
+    {
+        "EntiteFocus": "commune",
+        "IndexObjet": "marchés publics / marché conjoint",
+        "OrganeCompetent": "conseil communal"
+    },
+    {
+        "EntiteFocus": "commune",
+        "IndexObjet": "marchés publics / marché conjoint",
+        "OrganeCompetent": "collège communal"
+    },
+    {
+        "EntiteFocus": "commune",
+        "IndexObjet": "marchés publics / marché conjoint",
+        "OrganeCompetent": "directeur général / directeur général adjoint / le fonctionnaire délégué"
+    },
+    {
+        "EntiteFocus": "commune",
+        "IndexObjet": "marchés publics / centrale d'achat",
+        "OrganeCompetent": "conseil communal"
+    },
+    {
+        "EntiteFocus": "commune",
+        "IndexObjet": "marchés publics / centrale d'achat",
+        "OrganeCompetent": "conseil communal"
+    },
+    {
+        "EntiteFocus": "commune",
+        "IndexObjet": "marchés publics / centrale d'achat",
+        "OrganeCompetent": "collège communal"
+    },
+    {
+        "EntiteFocus": "commune",
+        "IndexObjet": "marchés publics / centrale d'achat",
+        "OrganeCompetent": "collège communal"
+    },
+    {
+        "EntiteFocus": "commune",
+        "IndexObjet": "marchés publics / centrale d'achat",
+        "OrganeCompetent": "collège communal"
+    },
+    {
+        "EntiteFocus": "commune",
+        "IndexObjet": "marchés publics / centrale d'achat",
+        "OrganeCompetent": "directeur général / directeur général adjoint / le fonctionnaire délégué"
+    },
+    {
+        "EntiteFocus": "commune",
+        "IndexObjet": "marchés publics / concession",
+        "OrganeCompetent": "conseil communal"
+    },
+    {
+        "EntiteFocus": "commune",
+        "IndexObjet": "marchés publics / concession",
+        "OrganeCompetent": "collège communal"
+    },
+    {
+        "EntiteFocus": "commune",
+        "IndexObjet": "marchés publics / concession",
+        "OrganeCompetent": "collège communal"
+    },
+    {
+        "EntiteFocus": "commune",
+        "IndexObjet": "marchés publics / concession",
+        "OrganeCompetent": "collège communal"
+    },
+    {
+        "EntiteFocus": "commune",
+        "IndexObjet": "marchés publics / concession",
+        "OrganeCompetent": "collège communal"
+    },
+    {
+        "EntiteFocus": "commune",
+        "IndexObjet": "voirie",
+        "OrganeCompetent": "conseil communal"
+    },
+    {
+        "EntiteFocus": "commune",
+        "IndexObjet": "voirie",
+        "OrganeCompetent": "conseil communal"
+    },
+    {
+        "EntiteFocus": "commune / régie communale autonome",
+        "IndexObjet": "régies communales autonomes",
+        "OrganeCompetent": "conseil communal"
+    },
+    {
+        "EntiteFocus": "commune / régie communale autonome",
+        "IndexObjet": "régies communales autonomes",
+        "OrganeCompetent": "conseil d'administration (régie communale autonome)"
+    },
+    {
+        "EntiteFocus": "commune / régie communale autonome",
+        "IndexObjet": "régies communales autonomes",
+        "OrganeCompetent": "conseil d'administration (régie communale autonome)"
+    },
+    {
+        "EntiteFocus": "commune / régie communale autonome",
+        "IndexObjet": "régies communales autonomes",
+        "OrganeCompetent": "conseil communal"
+    },
+    {
+        "EntiteFocus": "commune / régie communale autonome",
+        "IndexObjet": "régies communales autonomes",
+        "OrganeCompetent": "conseil d'administration (régie communale autonome)"
+    },
+    {
+        "EntiteFocus": "commune / régie communale autonome",
+        "IndexObjet": "régies communales autonomes",
+        "OrganeCompetent": "bureau exécutif (régie communale autonome)"
+    },
+    {
+        "EntiteFocus": "commune / régie communale autonome",
+        "IndexObjet": "régies communales autonomes",
+        "OrganeCompetent": "conseil communal"
+    },
+    {
+        "EntiteFocus": "commune / régie communale autonome",
+        "IndexObjet": "régies communales autonomes",
+        "OrganeCompetent": "conseil d'administration (régie communale autonome)"
+    },
+    {
+        "EntiteFocus": "commune / régie communale autonome",
+        "IndexObjet": "régies communales autonomes",
+        "OrganeCompetent": "conseil communal"
+    },
+    {
+        "EntiteFocus": "commune",
+        "IndexObjet": "funérailles et sépultures",
+        "OrganeCompetent": "bourgmestre"
+    },
+    {
+        "EntiteFocus": "commune",
+        "IndexObjet": "funérailles et sépultures",
+        "OrganeCompetent": "bourgmestre (ou son délégué)"
+    },
+    {
+        "EntiteFocus": "commune",
+        "IndexObjet": "funérailles et sépultures",
+        "OrganeCompetent": "conseil communal / organe compétent de l'intercommunale / organe compétent de la régie communale autonome"
+    },
+    {
+        "EntiteFocus": "commune",
+        "IndexObjet": "funérailles et sépultures",
+        "OrganeCompetent": "conseil communal / organe compétent de l'intercommunale / organe compétent de la régie communale autonome"
+    },
+    {
+        "EntiteFocus": "commune",
+        "IndexObjet": "funérailles et sépultures",
+        "OrganeCompetent": "Conseil communal / organe compétent de l'intercommunale / organe compétent de la régie communale autonome"
+    },
+    {
+        "EntiteFocus": "commune",
+        "IndexObjet": "funérailles et sépultures",
+        "OrganeCompetent": "bourgmestre ou son délégué / l’organe compétent de la régie communale autonome / organe compétent de l’intercommunale "
+    },
+    {
+        "EntiteFocus": "commune",
+        "IndexObjet": "funérailles et sépultures",
+        "OrganeCompetent": "conseil communal / organe compétent de l'intercommunale / organe compétent de la régie communale autonome"
+    },
+    {
+        "EntiteFocus": "commune",
+        "IndexObjet": "funérailles et sépultures",
+        "OrganeCompetent": "conseil communal / organe compétent de l'intercommunale / organe compétent de la régie communale autonome"
+    },
+    {
+        "EntiteFocus": "commune",
+        "IndexObjet": "funérailles et sépultures",
+        "OrganeCompetent": "conseil communal / organe compétent de l'intercommunale / organe compétent de la régie communale autonome"
+    },
+    {
+        "EntiteFocus": "commune",
+        "IndexObjet": "funérailles et sépultures",
+        "OrganeCompetent": "conseil communal / organe compétent de l'intercommunale / organe compétent de la régie communale autonome"
+    },
+    {
+        "EntiteFocus": "commune",
+        "IndexObjet": "funérailles et sépultures",
+        "OrganeCompetent": "officier de l'état civil"
+    },
+    {
+        "EntiteFocus": "commune",
+        "IndexObjet": "funérailles et sépultures",
+        "OrganeCompetent": "bourgmestre"
+    },
+    {
+        "EntiteFocus": "commune",
+        "IndexObjet": "funérailles et sépultures",
+        "OrganeCompetent": "conseil communal / organe compétent de l'intercommunale / organe compétent de la régie communale autonome"
+    },
+    {
+        "EntiteFocus": "commune",
+        "IndexObjet": "funérailles et sépultures",
+        "OrganeCompetent": "officier de l'état civil"
+    },
+    {
+        "EntiteFocus": "commune",
+        "IndexObjet": "funérailles et sépultures",
+        "OrganeCompetent": "conseil communal / organe compétent de l'intercommunale / organe compétent de la régie communale autonome"
+    },
+    {
+        "EntiteFocus": "commune",
+        "IndexObjet": "funérailles et sépultures",
+        "OrganeCompetent": "collège communal / organe compétent de l'intercommunale / organe compétent de la régie communale autonome"
+    },
+    {
+        "EntiteFocus": "commune",
+        "IndexObjet": "funérailles et sépultures",
+        "OrganeCompetent": "collège communal / organe compétent de l'intercommunale / organe compétent de la régie communale autonome"
+    },
+    {
+        "EntiteFocus": "commune",
+        "IndexObjet": "funérailles et sépultures",
+        "OrganeCompetent": "collège communal / organe compétent de l'intercommunale / organe compétent de la régie communale autonome"
+    },
+    {
+        "EntiteFocus": "commune",
+        "IndexObjet": "funérailles et sépultures",
+        "OrganeCompetent": "conseil communal"
+    },
+    {
+        "EntiteFocus": "commune",
+        "IndexObjet": "monts-de-piété",
+        "OrganeCompetent": "conseil communal"
+    },
+    {
+        "EntiteFocus": "commune",
+        "IndexObjet": "monts-de-piété",
+        "OrganeCompetent": "conseil communal"
+    },
+    {
+        "EntiteFocus": "commune",
+        "IndexObjet": "monts-de-piété",
+        "OrganeCompetent": "bourgmestre"
+    },
+    {
+        "EntiteFocus": "commune / ASBL communale",
+        "IndexObjet": "ASBL communale / évaluation",
+        "OrganeCompetent": "collège communal"
+    },
+    {
+        "EntiteFocus": "commune / ASBL communale",
+        "IndexObjet": "ASBL communale / mandat politique / représentants communaux",
+        "OrganeCompetent": "conseil communal"
+    },
+    {
+        "EntiteFocus": "commune / ASBL communale",
+        "IndexObjet": "ASBL communale / mandat politique",
+        "OrganeCompetent": "conseil communal"
+    },
+    {
+        "EntiteFocus": "commune / ASBL communale",
+        "IndexObjet": "ASBL communale / mandat politique",
+        "OrganeCompetent": "collège communal"
+    },
+    {
+        "EntiteFocus": "commune",
+        "IndexObjet": "bourgmestre / échevin / action en dommages et intérêts",
+        "OrganeCompetent": "bourgmestre / échevin"
+    },
+    {
+        "EntiteFocus": "commune",
+        "IndexObjet": "actions judiciaires / justice",
+        "OrganeCompetent": "collège communal"
+    },
+    {
+        "EntiteFocus": "commune",
+        "IndexObjet": "actions judiciaires / justice",
+        "OrganeCompetent": "conseil communal"
+    },
+    {
+        "EntiteFocus": "commune",
+        "IndexObjet": "actions judiciaires / justice",
+        "OrganeCompetent": "collège communal / conseil communal"
+    },
+    {
+        "EntiteFocus": "commune",
+        "IndexObjet": "actions judiciaires / justice",
+        "OrganeCompetent": "habitants"
+    },
+    {
+        "EntiteFocus": "commune",
+        "IndexObjet": "finances / dépense (facultative)",
+        "OrganeCompetent": "conseil communal"
+    },
+    {
+        "EntiteFocus": "commune",
+        "IndexObjet": "finances / dépense / avis défavorable",
+        "OrganeCompetent": "collège communal"
+    },
+    {
+        "EntiteFocus": "commune",
+        "IndexObjet": "finances / dépense / avis défavorable",
+        "OrganeCompetent": "conseil communal"
+    },
+    {
+        "EntiteFocus": "commune",
+        "IndexObjet": "finances / dépense / transfert à l'exercice suivant",
+        "OrganeCompetent": "collège communal"
+    },
+    {
+        "EntiteFocus": "commune",
+        "IndexObjet": "finances / dépense / circonstances impérieuses et imprévues",
+        "OrganeCompetent": "conseil communal"
+    },
+    {
+        "EntiteFocus": "commune",
+        "IndexObjet": "finances / dépense / préjudice en cas de retard",
+        "OrganeCompetent": "collège communal"
+    },
+    {
+        "EntiteFocus": "commune",
+        "IndexObjet": "finances / comptabilité / dépense / mandats",
+        "OrganeCompetent": "bourgmestre / directeur général"
+    },
+    {
+        "EntiteFocus": "commune",
+        "IndexObjet": "compte budgétaire",
+        "OrganeCompetent": "collège communal"
+    },
+    {
+        "EntiteFocus": "commune",
+        "IndexObjet": "comptes",
+        "OrganeCompetent": "conseil communal"
+    },
+    {
+        "EntiteFocus": "commune",
+        "IndexObjet": "budget",
+        "OrganeCompetent": "collège communal"
+    },
+    {
+        "EntiteFocus": "commune",
+        "IndexObjet": "budget",
+        "OrganeCompetent": "conseil communal"
+    },
+    {
+        "EntiteFocus": "commune",
+        "IndexObjet": "budget / modifications budgétaire / comptes annuels / affiches",
+        "OrganeCompetent": "collège communal"
+    },
+    {
+        "EntiteFocus": "commune",
+        "IndexObjet": "budget / dépenses",
+        "OrganeCompetent": "conseil communal"
+    },
+    {
+        "EntiteFocus": "commune",
+        "IndexObjet": "budget / dépenses obligatoires",
+        "OrganeCompetent": "collège provincial"
+    },
+    {
+        "EntiteFocus": "commune",
+        "IndexObjet": "budget / comités de quartier / associations citoyennes / budget participatif",
+        "OrganeCompetent": "conseil communal"
+    },
+    {
+        "EntiteFocus": "commune",
+        "IndexObjet": "budget / recettes",
+        "OrganeCompetent": "conseil communal"
+    },
+    {
+        "EntiteFocus": "commune / intercommunale",
+        "IndexObjet": "intercommunale / participation au capital",
+        "OrganeCompetent": "conseil d'administration (de l'intercommunale)"
+    },
+    {
+        "EntiteFocus": "commune / intercommunale",
+        "IndexObjet": "intercommunale / participation au capital",
+        "OrganeCompetent": "conseil d'administration (de l'intercommunale)"
+    },
+    {
+        "EntiteFocus": "commune / intercommunale",
+        "IndexObjet": "intercommunale / avis",
+        "OrganeCompetent": "comité de gestion (intercommunale)"
+    },
+    {
+        "EntiteFocus": "commune / intercommunale",
+        "IndexObjet": "intercommunale / finances",
+        "OrganeCompetent": "comité de gestion (intercommunale)"
+    },
+    {
+        "EntiteFocus": "commune / association de projet",
+        "IndexObjet": "assocation de projet / constitution",
+        "OrganeCompetent": "conseil communal"
+    },
+    {
+        "EntiteFocus": "commune / association de projet",
+        "IndexObjet": "association de projet / acte authentique",
+        "OrganeCompetent": "bourgmestre / notaire"
+    },
+    {
+        "EntiteFocus": "commune / association de projet",
+        "IndexObjet": "association de projet",
+        "OrganeCompetent": "collège communal"
+    },
+    {
+        "EntiteFocus": "commune / association de projet",
+        "IndexObjet": "association de projet / personnel",
+        "OrganeCompetent": "comité de gestion (association de projet)"
+    },
+    {
+        "EntiteFocus": "commune / association de projet",
+        "IndexObjet": "association de projet / gestion journalière",
+        "OrganeCompetent": "comité de gestion (association de projet)"
+    },
+    {
+        "EntiteFocus": "commune / association de projet",
+        "IndexObjet": "association de projet / comptes annuels",
+        "OrganeCompetent": "comité de gestion (association de projet)"
+    },
+    {
+        "EntiteFocus": "commune / association de projet",
+        "IndexObjet": "association de projet / comptes annuels",
+        "OrganeCompetent": "associés (association de projet)"
+    },
+    {
+        "EntiteFocus": "commune / association de projet",
+        "IndexObjet": "association de projet / règlement d'ordre intérieur",
+        "OrganeCompetent": "comité de gestion (association de projet)"
+    },
+    {
+        "EntiteFocus": "commune / intercommunale",
+        "IndexObjet": "intercommunale / branche d'activités",
+        "OrganeCompetent": "assemblée générale (de l'intercommunale)"
+    },
+    {
+        "EntiteFocus": "commune / intercommunale",
+        "IndexObjet": "intercommunale / délégués communaux",
+        "OrganeCompetent": "conseil communal / conseil provincial / conseil de l'action sociale"
+    },
+    {
+        "EntiteFocus": "commune / intercommunale",
+        "IndexObjet": "intercommunale / ordre du jour ",
+        "OrganeCompetent": "conseil communal / conseil provincial / conseil de l'action sociale"
+    },
+    {
+        "EntiteFocus": "intercommunale",
+        "IndexObjet": "comptes annuels",
+        "OrganeCompetent": "fonctionnaire dirigeant / directeur financier (de l'intercommunale)"
+    },
+    {
+        "EntiteFocus": "intercommunale",
+        "IndexObjet": "bilan",
+        "OrganeCompetent": "assemblée générale (de l'intercommunale)"
+    },
+    {
+        "EntiteFocus": "intercommunale",
+        "IndexObjet": "plan stratégique",
+        "OrganeCompetent": "conseil d'administration (de l'intercommunale)"
+    },
+    {
+        "EntiteFocus": "intercommunale",
+        "IndexObjet": "plan stratégique",
+        "OrganeCompetent": "conseil d'administration (de l'intercommunale)"
+    },
+    {
+        "EntiteFocus": "intercommunale",
+        "IndexObjet": "comptes annuels",
+        "OrganeCompetent": "assemblée générale (de l'intercommunale)"
+    },
+    {
+        "EntiteFocus": "intercommunale",
+        "IndexObjet": "plan stratégique",
+        "OrganeCompetent": "assemblée générale (de l'intercommunale)"
+    },
+    {
+        "EntiteFocus": "intercommunale",
+        "IndexObjet": "plan stratégique",
+        "OrganeCompetent": "assemblée générale (de l'intercommunale)"
+    },
+    {
+        "EntiteFocus": "intercommunale",
+        "IndexObjet": "administrateurs / collège de l'intercommunale",
+        "OrganeCompetent": "assemblée générale (de l'intercommunale)"
+    },
+    {
+        "EntiteFocus": "intercommunale",
+        "IndexObjet": "administrateurs / comité d'audit / rémunération / jeton de présence",
+        "OrganeCompetent": "assemblée générale (de l'intercommunale)"
+    },
+    {
+        "EntiteFocus": "intercommunale",
+        "IndexObjet": "administrateurs / comité d'audit / rémunération / jeton de présence",
+        "OrganeCompetent": "collège (de l'intercommunale)/ comité de rémunération (de l'intercommunale)"
+    },
+    {
+        "EntiteFocus": "intercommunale",
+        "IndexObjet": "liquidateurs",
+        "OrganeCompetent": "assemblée générale (de l'intercommunale)"
+    },
+    {
+        "EntiteFocus": "intercommunale",
+        "IndexObjet": "associés",
+        "OrganeCompetent": "assemblée générale (de l'intercommunale)"
+    },
+    {
+        "EntiteFocus": "intercommunale",
+        "IndexObjet": "statut (modifications)",
+        "OrganeCompetent": "assemblée générale (de l'intercommunale)"
+    },
+    {
+        "EntiteFocus": "intercommunale",
+        "IndexObjet": "intercommunale / règlement d'ordre intérieur",
+        "OrganeCompetent": "assemblée générale (de l'intercommunale)"
+    },
+    {
+        "EntiteFocus": "intercommunale",
+        "IndexObjet": "intercommunale / règlement d'ordre intérieur / déontologie",
+        "OrganeCompetent": "assemblée générale (de l'intercommunale)"
+    },
+    {
+        "EntiteFocus": "intercommunale",
+        "IndexObjet": "modalités de consultation et de visite",
+        "OrganeCompetent": "assemblée générale (de l'intercommunale)"
+    },
+    {
+        "EntiteFocus": "intercommunale",
+        "IndexObjet": "conseil d'administration",
+        "OrganeCompetent": "assemblée générale (de l'intercommunale)"
+    },
+    {
+        "EntiteFocus": "intercommunale",
+        "IndexObjet": "administrateurs",
+        "OrganeCompetent": "assemblée générale (de l'intercommunale)"
+    },
+    {
+        "EntiteFocus": "intercommunale",
+        "IndexObjet": "administrateurs / comptes annuels / inventaire",
+        "OrganeCompetent": "administrateurs (de l'intercommunale)"
+    },
+    {
+        "EntiteFocus": "intercommunale",
+        "IndexObjet": "administrateurs / plan stratégique",
+        "OrganeCompetent": "administrateurs (de l'intercommunale)"
+    },
+    {
+        "EntiteFocus": "intercommunale",
+        "IndexObjet": "administrateurs / prises de participation",
+        "OrganeCompetent": "administrateurs (de l'intercommunale)"
+    },
+    {
+        "EntiteFocus": "intercommunale",
+        "IndexObjet": "nominations",
+        "OrganeCompetent": "administrateurs (de l'intercommunale)"
+    },
+    {
+        "EntiteFocus": "intercommunale",
+        "IndexObjet": "rapport de gestion",
+        "OrganeCompetent": "conseil d'administration (de l'intercommunale)"
+    },
+    {
+        "EntiteFocus": "intercommunale",
+        "IndexObjet": "plan stratégique / comptes annuels, rapport de gestion des administrateurs",
+        "OrganeCompetent": "conseil d'administration (de l'intercommunale)"
+    },
+    {
+        "EntiteFocus": "intercommunale",
+        "IndexObjet": "plan stratégique / comptes annuels / rapport de gestion des administrateurs",
+        "OrganeCompetent": "conseil d'administration (de l'intercommunale)"
+    },
+    {
+        "EntiteFocus": "intercommunale",
+        "IndexObjet": "comité de rémunération",
+        "OrganeCompetent": "conseil d'administration (de l'intercommunale)"
+    },
+    {
+        "EntiteFocus": "intercommunale",
+        "IndexObjet": "comité de rémunération",
+        "OrganeCompetent": "comité de rémunération (de l'intercommunale)"
+    },
+    {
+        "EntiteFocus": "intercommunale",
+        "IndexObjet": "comité de rémunération",
+        "OrganeCompetent": "comité de rémunération (de l'intercommunale)"
+    },
+    {
+        "EntiteFocus": "intercommunale",
+        "IndexObjet": "comité de rémunération",
+        "OrganeCompetent": "comité de rémunération (de l'intercommunale)"
+    },
+    {
+        "EntiteFocus": "intercommunale",
+        "IndexObjet": "comité de rémunération",
+        "OrganeCompetent": "comité de rémunération (de l'intercommunale)"
+    },
+    {
+        "EntiteFocus": "intercommunale",
+        "IndexObjet": "comité de rémunération",
+        "OrganeCompetent": "conseil d'administration (de l'intercommunale)"
+    },
+    {
+        "EntiteFocus": "intercommunale",
+        "IndexObjet": "gestion journalière",
+        "OrganeCompetent": "conseil d'administration (de l'intercommunale)"
+    },
+    {
+        "EntiteFocus": "intercommunale",
+        "IndexObjet": "compétences globales",
+        "OrganeCompetent": "conseil d'administration (de l'intercommunale)"
+    },
+    {
+        "EntiteFocus": "intercommunale",
+        "IndexObjet": "intercommunale / règlement d'ordre intérieur",
+        "OrganeCompetent": "organe restreint de gestion de l'intercommunale"
+    },
+    {
+        "EntiteFocus": "intercommunale",
+        "IndexObjet": "contrôle interne",
+        "OrganeCompetent": "conseil d'administration (de l'intercommunale)"
+    },
+    {
+        "EntiteFocus": "intercommunale",
+        "IndexObjet": "comptes / collège des contrôleurs aux comptes",
+        "OrganeCompetent": "assemblée générale (de l'intercommunale)"
+    },
+    {
+        "EntiteFocus": "intercommunale",
+        "IndexObjet": "comptes / collège des contrôleurs aux comptes",
+        "OrganeCompetent": "assemblée générale (de l'intercommunale)"
+    },
+    {
+        "EntiteFocus": "intercommunale",
+        "IndexObjet": "comité d'audit",
+        "OrganeCompetent": "conseil d'administration (de l'intercommunale)"
+    },
+    {
+        "EntiteFocus": "intercommunale",
+        "IndexObjet": "référent intégrité",
+        "OrganeCompetent": "fonction dirigeante locale (de l'intercommunale)"
+    },
+    {
+        "EntiteFocus": "intercommunale",
+        "IndexObjet": "organigramme",
+        "OrganeCompetent": "conseil d'administration (de l'intercommunale)"
+    },
+    {
+        "EntiteFocus": "intercommunale",
+        "IndexObjet": "personnel / description de fonction",
+        "OrganeCompetent": "fonction dirigeante locale (de l'intercommunale)"
+    },
+    {
+        "EntiteFocus": "intercommunale",
+        "IndexObjet": "personnel / plan de formation",
+        "OrganeCompetent": "conseil d'administration (de l'intercommunale)"
+    },
+    {
+        "EntiteFocus": "intercommunale",
+        "IndexObjet": "personnel / plan de formation",
+        "OrganeCompetent": "fonction dirigeante locale (de l'intercommunale)"
+    },
+    {
+        "EntiteFocus": "intercommunale",
+        "IndexObjet": "personnel / plan de formation",
+        "OrganeCompetent": "conseil d'administration (de l'intercommunale)"
+    },
+    {
+        "EntiteFocus": "intercommunale",
+        "IndexObjet": "personnel / statut général du personnel",
+        "OrganeCompetent": "conseil d'administration (de l'intercommunale)"
+    },
+    {
+        "EntiteFocus": "intercommunale",
+        "IndexObjet": "personnel",
+        "OrganeCompetent": "conseil d'administration (de l'intercommunale)"
+    },
+    {
+        "EntiteFocus": "intercommunale",
+        "IndexObjet": "personnel statutaire",
+        "OrganeCompetent": "conseil d'administration (de l'intercommunale)"
+    },
+    {
+        "EntiteFocus": "intercommunale",
+        "IndexObjet": "personnel / contractuels",
+        "OrganeCompetent": "conseil d'administration (de l'intercommunale)"
+    },
+    {
+        "EntiteFocus": "intercommunale",
+        "IndexObjet": "personnel / contractuels",
+        "OrganeCompetent": "conseil d'administration (de l'intercommunale)"
+    },
+    {
+        "EntiteFocus": "intercommunale",
+        "IndexObjet": "personnel / commission de sélection",
+        "OrganeCompetent": "fonction dirigeante locale (de l'intercommunale)"
+    },
+    {
+        "EntiteFocus": "intercommunale",
+        "IndexObjet": "personnel / mise à disposition de personnel statutaire",
+        "OrganeCompetent": "conseil d'administration (de l'intercommunale)"
+    },
+    {
+        "EntiteFocus": "intercommunale",
+        "IndexObjet": "personnel / pension / maintien en activité de personnel statutaire",
+        "OrganeCompetent": "conseil d'administration (de l'intercommunale)"
+    },
+    {
+        "EntiteFocus": "intercommunale",
+        "IndexObjet": "administrateur",
+        "OrganeCompetent": "assemblée générale (de l'intercommunale)"
+    },
+    {
+        "EntiteFocus": "intercommunale",
+        "IndexObjet": "administrateur",
+        "OrganeCompetent": "conseil d'administration (de l'intercommunale)"
+    },
+    {
+        "EntiteFocus": "intercommunale",
+        "IndexObjet": "comité de gestion",
+        "OrganeCompetent": "\"tout associé public\""
+    },
+    {
+        "EntiteFocus": "intercommunale",
+        "IndexObjet": "jeton / rémunération / avantages en nature",
+        "OrganeCompetent": "assemblée générale (de l'intercommunale)"
+    },
+    {
+        "EntiteFocus": "intercommunale",
+        "IndexObjet": "avis projets de décision / prises de participation / cessions de branches d'activités / rémunération",
+        "OrganeCompetent": "conseil d'administration (de l'intercommunale)"
+    },
+    {
+        "EntiteFocus": "intercommunale",
+        "IndexObjet": "information et coordination",
+        "OrganeCompetent": "conseil d'administration (de l'intercommunale)"
+    },
+    {
+        "EntiteFocus": "intercommunale",
+        "IndexObjet": "publicité",
+        "OrganeCompetent": "conseil d'administration (de l'intercommunale)"
+    },
+    {
+        "EntiteFocus": "commune / cultes reconnus",
+        "IndexObjet": "décisions ayant un coût financier non encore reprises dans le budget / cultes reconnus (fabriques d'église)",
+        "OrganeCompetent": "collège communal"
+    },
+    {
+        "EntiteFocus": "commune / cultes reconnus",
+        "IndexObjet": "décisions ayant un coût financier non encore reprises dans le budget / cultes reconnus (fabriques d'église)",
+        "OrganeCompetent": "collège communal"
+    },
+    {
+        "EntiteFocus": "commune / cultes reconnus",
+        "IndexObjet": "comptes / budgets / modifications budgétaires / cultes reconnus (fabriques d'église)",
+        "OrganeCompetent": "conseil communal"
+    },
+    {
+        "EntiteFocus": "commune / cultes reconnus",
+        "IndexObjet": "comptes / budgets / modifications budgétaires / cultes reconnus (fabriques d'église)",
+        "OrganeCompetent": "conseil communal"
+    },
+    {
+        "EntiteFocus": "commune",
+        "IndexObjet": "information / fonctionnement / publicité / autorités administratives dépendant de la commune",
+        "OrganeCompetent": "conseil communal"
+    },
+    {
+        "EntiteFocus": "commune",
+        "IndexObjet": "publicité / rétribution",
+        "OrganeCompetent": "conseil communal"
+    },
+    {
+        "EntiteFocus": "commune / CPAS",
+        "IndexObjet": "publicité / bulletin d'information communal (et de CPAS)",
+        "OrganeCompetent": "conseil communal"
+    },
+    {
+        "EntiteFocus": "commune / CPAS",
+        "IndexObjet": "publicité / bulletin d'information communal (et de CPAS)",
+        "OrganeCompetent": "conseil de l'action sociale"
+    },
+    {
+        "EntiteFocus": "commune",
+        "IndexObjet": "publicité",
+        "OrganeCompetent": "collège communal / directeur général"
+    },
+    {
+        "EntiteFocus": "commune",
+        "IndexObjet": "plan de gestion communal",
+        "OrganeCompetent": "conseil communal"
+    },
+    {
+        "EntiteFocus": "commune",
+        "IndexObjet": "taxes communales",
+        "OrganeCompetent": "collège communal"
+    },
+    {
+        "EntiteFocus": "commune",
+        "IndexObjet": "taxes communales",
+        "OrganeCompetent": "collège communal"
+    },
+    {
+        "EntiteFocus": "commune",
+        "IndexObjet": "taxes communales",
+        "OrganeCompetent": "collège communal"
+    },
+    {
+        "EntiteFocus": "commune",
+        "IndexObjet": "taxes communales",
+        "OrganeCompetent": "collège communal"
+    },
+    {
+        "EntiteFocus": "commune",
+        "IndexObjet": "perspective de développement urbain",
+        "OrganeCompetent": "collège communal"
+    },
+    {
+        "EntiteFocus": "commune",
+        "IndexObjet": "perspective de développement urbain",
+        "OrganeCompetent": "collège communal"
+    },
+    {
+        "EntiteFocus": "commune",
+        "IndexObjet": "perspective de développement urbain",
+        "OrganeCompetent": "directeur financier"
+    },
+    {
+        "EntiteFocus": "commune",
+        "IndexObjet": "perspective de développement urbain",
+        "OrganeCompetent": "collège communal"
+    },
+    {
+        "EntiteFocus": "commune",
+        "IndexObjet": "perspective de développement urbain / acte authentique",
+        "OrganeCompetent": "collège communal"
+    },
+    {
+        "EntiteFocus": "commune",
+        "IndexObjet": "perspective de développement urbain / acte authentique",
+        "OrganeCompetent": "directeur financier"
+    },
+    {
+        "EntiteFocus": "commune",
+        "IndexObjet": "perspective de développement urbain",
+        "OrganeCompetent": "collège communal"
+    },
+    {
+        "EntiteFocus": "commune",
+        "IndexObjet": "perspective de développement urbain",
+        "OrganeCompetent": "collège communal"
+    },
+    {
+        "EntiteFocus": "commune",
+        "IndexObjet": "perspective de développement urbain",
+        "OrganeCompetent": "collège communal"
+    },
+    {
+        "EntiteFocus": "commune",
+        "IndexObjet": "registre des électeurs",
+        "OrganeCompetent": "collège communal"
+    },
+    {
+        "EntiteFocus": "commune",
+        "IndexObjet": "registre des électeurs",
+        "OrganeCompetent": "collège communal"
+    },
+    {
+        "EntiteFocus": "commune",
+        "IndexObjet": "registre des électeurs",
+        "OrganeCompetent": "collège communal"
+    },
+    {
+        "EntiteFocus": "commune",
+        "IndexObjet": "registre des électeurs",
+        "OrganeCompetent": "collège communal"
+    },
+    {
+        "EntiteFocus": "commune",
+        "IndexObjet": "registre des électeurs",
+        "OrganeCompetent": "collège communal"
+    },
+    {
+        "EntiteFocus": "commune",
+        "IndexObjet": "registre des électeurs",
+        "OrganeCompetent": "bourgmestre"
+    },
+    {
+        "EntiteFocus": "commune",
+        "IndexObjet": "répartition des électeurs / cantons électoraux",
+        "OrganeCompetent": "collège communal"
+    },
+    {
+        "EntiteFocus": "commune",
+        "IndexObjet": "registre des électeurs par section de vote / registre de scrutin",
+        "OrganeCompetent": "collège communal"
+    },
+    {
+        "EntiteFocus": "commune",
+        "IndexObjet": "registre des électeurs par section de vote / registre de scrutin",
+        "OrganeCompetent": "collège communal"
+    },
+    {
+        "EntiteFocus": "commune",
+        "IndexObjet": "registre de scrutin",
+        "OrganeCompetent": "collège communal"
+    },
+    {
+        "EntiteFocus": "commune",
+        "IndexObjet": "électeurs / convocation",
+        "OrganeCompetent": "collège communal"
+    },
+    {
+        "EntiteFocus": "commune",
+        "IndexObjet": "bureau de circonscription",
+        "OrganeCompetent": "collège communal"
+    },
+    {
+        "EntiteFocus": "commune",
+        "IndexObjet": "bureau électoral / indemnité",
+        "OrganeCompetent": "collège communal"
+    },
+    {
+        "EntiteFocus": "commune",
+        "IndexObjet": "bureau de dépouillement / bureau de vote ",
+        "OrganeCompetent": "collège communal"
+    },
+    {
+        "EntiteFocus": "commune",
+        "IndexObjet": "bureau de dépouillement / locaux",
+        "OrganeCompetent": "collège communal / gouverneur"
+    },
+    {
+        "EntiteFocus": "commune",
+        "IndexObjet": "affiches électorales / emplacements / listes",
+        "OrganeCompetent": "conseil communal"
+    },
+    {
+        "EntiteFocus": "commune",
+        "IndexObjet": "affiches électorales / emplacements / listes",
+        "OrganeCompetent": "conseil communal"
+    },
+    {
+        "EntiteFocus": "commune",
+        "IndexObjet": "électeurs / certificat d'impossibilité de se présenter au bureau de vote",
+        "OrganeCompetent": "bourgmestre"
+    },
+    {
+        "EntiteFocus": "commune",
+        "IndexObjet": "électeurs / procuration",
+        "OrganeCompetent": "bourgmestre"
+    },
+    {
+        "EntiteFocus": "commune",
+        "IndexObjet": "bureau de vote / transmission des documents",
+        "OrganeCompetent": "collège communal"
+    },
+    {
+        "EntiteFocus": "commune",
+        "IndexObjet": "bureau de vote / installations",
+        "OrganeCompetent": "collège communal"
+    },
+    {
+        "EntiteFocus": "commune",
+        "IndexObjet": "électeurs / registre de scrutin",
+        "OrganeCompetent": "collège communal"
+    },
+    {
+        "EntiteFocus": "commune",
+        "IndexObjet": "bureau de dépouillement / transmission des documents",
+        "OrganeCompetent": "collège communal"
+    },
+    {
+        "EntiteFocus": "commune",
+        "IndexObjet": "registre des électeurs / annulation de l'élection",
+        "OrganeCompetent": "collège communal"
+    },
+    {
+        "EntiteFocus": "commune",
+        "IndexObjet": "scrutin / transmission",
+        "OrganeCompetent": "collège communal"
+    },
+    {
+        "EntiteFocus": "commune",
+        "IndexObjet": "scrutin / transmission",
+        "OrganeCompetent": "collège communal"
+    },
+    {
+        "EntiteFocus": "commune",
+        "IndexObjet": "scrutin / transmission / conservation",
+        "OrganeCompetent": "collège communal"
+    },
+    {
+        "EntiteFocus": "commune / province / CPAS / intercommunale / régie communale autonome / régie provinciale autonome / association chapitre XII / société de logement / personne morale ou association de fait associant une ou plusieurs de ces entités",
+        "IndexObjet": "déclaration de mandats",
+        "OrganeCompetent": "mandataire / fonction dirigeante locale"
+    },
+    {
+        "EntiteFocus": "commune",
+        "IndexObjet": "informateur institutionnel",
+        "OrganeCompetent": "directeur général"
+    },
+    {
+        "EntiteFocus": "CPAS",
+        "IndexObjet": "informateur institutionnel",
+        "OrganeCompetent": "directeur général"
+    },
+    {
+        "EntiteFocus": "intercommunale",
+        "IndexObjet": "informateur institutionnel",
+        "OrganeCompetent": "fonction dirigeante locale"
+    },
+    {
+        "EntiteFocus": "intercommunale / société à participation publique locale significative / association chapitre XII / société de logement / ASBL communale / régie communale autonome / association de projet / autre organisme supralocal",
+        "IndexObjet": "rapport de rémunération",
+        "OrganeCompetent": "principal organe de gestion"
+    },
+    {
+        "EntiteFocus": "commune",
+        "IndexObjet": "rapport de rémunération",
+        "OrganeCompetent": "conseil communal"
+    },
+    {
+        "EntiteFocus": "CPAS",
+        "IndexObjet": "rapport de rémunération",
+        "OrganeCompetent": "conseil de l'action sociale"
+    },
+    {
+        "EntiteFocus": "commune / CPAS",
+        "IndexObjet": "rapport de rémunération",
+        "OrganeCompetent": "conseil communal"
+    },
+    {
+        "EntiteFocus": "commune / CPAS / association de projet / association chapitre XII / société de logement de service public / régie communale autonome",
+        "IndexObjet": NaN,
+        "OrganeCompetent": "président du conseil communal / président du conseil de l'action sociale / président du principal organe de gestion"
+    },
+    {
+        "EntiteFocus": "commune / ASBL communale / régie communale autonome / association de projet / société de logement",
+        "IndexObjet": "rapport / activités / compétences de conseiller",
+        "OrganeCompetent": "conseiller communal (désigné par la commune pour la représenter)"
+    },
+    {
+        "EntiteFocus": "commune / ASBL communale / régie communale autonome / association de projet / société de logement",
+        "IndexObjet": "rapport / activités / compétences de conseiller",
+        "OrganeCompetent": "conseil communal"
+    },
+    {
+        "EntiteFocus": "commune / ASBL communale / régie communale autonome / association de projet / société de logement",
+        "IndexObjet": "rapport / exercice du droit de consultation / budget / comptes annuels / délibérations",
+        "OrganeCompetent": "conseiller communal (désigné par la commune pour la représenter)"
+    },
+    {
+        "EntiteFocus": "commune / ASBL communale / régie communale autonome / association de projet / société de logement",
+        "IndexObjet": "rapport / exercice du droit de consultation / budget / comptes annuels / délibérations",
+        "OrganeCompetent": "conseil communal"
+    },
+    {
+        "EntiteFocus": "CPAS / commune",
+        "IndexObjet": "élections / installation / conseil de l'action sociale",
+        "OrganeCompetent": "bourgmestre / directeur général / le ou les déposants"
+    },
+    {
+        "EntiteFocus": "CPAS / commune",
+        "IndexObjet": "élections / installation / conseil de l'action sociale",
+        "OrganeCompetent": "président du conseil communal"
+    },
+    {
+        "EntiteFocus": "CPAS / commune",
+        "IndexObjet": "élections / installation / conseil de l'action sociale",
+        "OrganeCompetent": "conseil communal"
+    },
+    {
+        "EntiteFocus": "CPAS / commune",
+        "IndexObjet": "élections / installation / conseil de l'action sociale",
+        "OrganeCompetent": "président du conseil communal"
+    },
+    {
+        "EntiteFocus": "CPAS / commune",
+        "IndexObjet": "élections / installation / conseil de l'action sociale",
+        "OrganeCompetent": "conseil communal / centre public d'action sociale / membres dont l'élection a été annulée / tiers intéressés"
+    },
+    {
+        "EntiteFocus": "CPAS / commune",
+        "IndexObjet": "élections / installation / conseil de l'action sociale / éligibilité",
+        "OrganeCompetent": "collège communal"
+    },
+    {
+        "EntiteFocus": "CPAS / commune",
+        "IndexObjet": "élections / installation / conseil de l'action sociale / éligibilité",
+        "OrganeCompetent": "conseil communal"
+    },
+    {
+        "EntiteFocus": "CPAS / commune",
+        "IndexObjet": "élections / installation / conseil de l'action sociale / incompatibilité",
+        "OrganeCompetent": "collège communal"
+    },
+    {
+        "EntiteFocus": "CPAS / commune",
+        "IndexObjet": "élections / installation / conseil de l'action sociale / incompatibilité",
+        "OrganeCompetent": "collège communal"
+    },
+    {
+        "EntiteFocus": "CPAS / commune",
+        "IndexObjet": "conseil de l'action sociale / démission",
+        "OrganeCompetent": "conseil communal"
+    },
+    {
+        "EntiteFocus": "CPAS / commune",
+        "IndexObjet": "conseil de l'action sociale / révocation / suspension / négligence grave / inconduite notoire",
+        "OrganeCompetent": "conseil de l'action sociale / conseil communal / gouverneur / collège provincial / d'office"
+    },
+    {
+        "EntiteFocus": "CPAS / commune",
+        "IndexObjet": "conseil de l'action sociale / révocation / suspension / négligence grave / inconduite notoire",
+        "OrganeCompetent": "conseil de l'action sociale"
+    },
+    {
+        "EntiteFocus": "CPAS / commune",
+        "IndexObjet": "conseil de l'action sociale / révocation / suspension / négligence grave / inconduite notoire",
+        "OrganeCompetent": "conseil de l'action sociale / conseil communal / l'intéressé"
+    },
+    {
+        "EntiteFocus": "CPAS",
+        "IndexObjet": "compétences globales",
+        "OrganeCompetent": "conseil de l'action sociale"
+    },
+    {
+        "EntiteFocus": "CPAS / commune",
+        "IndexObjet": "conseil de l'action sociale / présidence",
+        "OrganeCompetent": "bourgmestre"
+    },
+    {
+        "EntiteFocus": "CPAS / commune",
+        "IndexObjet": "synergies commune-CPAS / comité de concertation / règlement d'ordre intérieur",
+        "OrganeCompetent": "conseil de l'action sociale / conseil communal"
+    },
+    {
+        "EntiteFocus": "CPAS / commune",
+        "IndexObjet": "synergies commune-CPAS / comité de concertation / secrétariat",
+        "OrganeCompetent": "directeur général (CPAS) / directeur général (commune)"
+    },
+    {
+        "EntiteFocus": "CPAS / commune",
+        "IndexObjet": "synergies commune-CPAS / comité de concertation",
+        "OrganeCompetent": "directeur financier (CPAS)"
+    },
+    {
+        "EntiteFocus": "CPAS / commune",
+        "IndexObjet": "synergies commune-CPAS / conventions",
+        "OrganeCompetent": "conseil de l'action sociale / conseil communal"
+    },
+    {
+        "EntiteFocus": "CPAS / commune",
+        "IndexObjet": "synergies commune-CPAS / rapport annuel",
+        "OrganeCompetent": "directeur général (CPAS) / directeur général (commune)"
+    },
+    {
+        "EntiteFocus": "CPAS / commune",
+        "IndexObjet": "synergies commune-CPAS / rapport annuel",
+        "OrganeCompetent": "directeur général adjoint"
+    },
+    {
+        "EntiteFocus": "CPAS / commune",
+        "IndexObjet": "synergies commune-CPAS / rapport annuel",
+        "OrganeCompetent": "comité de direction (commune) / comité de direction (CPAS)"
+    },
+    {
+        "EntiteFocus": "CPAS / commune",
+        "IndexObjet": "synergies commune-CPAS / rapport annuel",
+        "OrganeCompetent": "conseil de l'action sociale / conseil communal"
+    },
+    {
+        "EntiteFocus": "CPAS",
+        "IndexObjet": "bureau permanent / constitution",
+        "OrganeCompetent": "conseil de l'action sociale"
+    },
+    {
+        "EntiteFocus": "CPAS",
+        "IndexObjet": "comités spéciaux / constitution",
+        "OrganeCompetent": "conseil de l'action sociale"
+    },
+    {
+        "EntiteFocus": "CPAS",
+        "IndexObjet": "bureau permanent / présidence",
+        "OrganeCompetent": "président du conseil de l'action sociale"
+    },
+    {
+        "EntiteFocus": "CPAS",
+        "IndexObjet": "comités spéciaux / présidence",
+        "OrganeCompetent": "président du conseil de l'action sociale"
+    },
+    {
+        "EntiteFocus": "CPAS",
+        "IndexObjet": "bureau permanent / vice-président",
+        "OrganeCompetent": "bureau permanent"
+    },
+    {
+        "EntiteFocus": "CPAS",
+        "IndexObjet": "comités spéciaux / vice-président",
+        "OrganeCompetent": "comités spéciaux"
+    },
+    {
+        "EntiteFocus": "CPAS",
+        "IndexObjet": "déclaration de politique sociale",
+        "OrganeCompetent": "conseil de l'action sociale"
+    },
+    {
+        "EntiteFocus": "CPAS",
+        "IndexObjet": "programme stratégique transversal",
+        "OrganeCompetent": "conseil de l'action sociale"
+    },
+    {
+        "EntiteFocus": "CPAS",
+        "IndexObjet": "programme stratégique transversal",
+        "OrganeCompetent": "conseil de l'action sociale / administration"
+    },
+    {
+        "EntiteFocus": "CPAS",
+        "IndexObjet": "programme stratégique transversal",
+        "OrganeCompetent": "conseil de l'action sociale / administration"
+    },
+    {
+        "EntiteFocus": "CPAS",
+        "IndexObjet": "rapport d'exécution",
+        "OrganeCompetent": "comité de direction (CPAS)"
+    },
+    {
+        "EntiteFocus": "CPAS",
+        "IndexObjet": "rapport d'exécution",
+        "OrganeCompetent": "conseil de l'action sociale"
+    },
+    {
+        "EntiteFocus": "CPAS",
+        "IndexObjet": "évaluation",
+        "OrganeCompetent": "comité de direction (CPAS)"
+    },
+    {
+        "EntiteFocus": "CPAS",
+        "IndexObjet": "programme stratégique transversal",
+        "OrganeCompetent": "conseil de l'action sociale"
+    },
+    {
+        "EntiteFocus": "CPAS",
+        "IndexObjet": "activités",
+        "OrganeCompetent": "président du conseil de l'action sociale"
+    },
+    {
+        "EntiteFocus": "CPAS",
+        "IndexObjet": "conseil de l'action sociale / bureau permanent / comités spéciaux / instruction des affaires",
+        "OrganeCompetent": "président du conseil de l'action sociale"
+    },
+    {
+        "EntiteFocus": "CPAS",
+        "IndexObjet": "conseil de l'action sociale / bureau permanent / comités spéciaux / convocation",
+        "OrganeCompetent": "président du conseil de l'action sociale"
+    },
+    {
+        "EntiteFocus": "CPAS",
+        "IndexObjet": "conseil de l'action sociale / bureau permanent / comités spéciaux / exécution des décisions",
+        "OrganeCompetent": "président du conseil de l'action sociale"
+    },
+    {
+        "EntiteFocus": "CPAS",
+        "IndexObjet": "actions judiciaires / justice",
+        "OrganeCompetent": "président du conseil de l'action sociale"
+    },
+    {
+        "EntiteFocus": "CPAS",
+        "IndexObjet": "aide sociale / aide urgente",
+        "OrganeCompetent": "président du conseil de l'action sociale"
+    },
+    {
+        "EntiteFocus": "CPAS",
+        "IndexObjet": "conseil de l'action sociale / bureau permanent / comités spéciaux / délibérations / signatures / contreseing",
+        "OrganeCompetent": "président du conseil de l'action sociale / directeur général (CPAS)"
+    },
+    {
+        "EntiteFocus": "CPAS",
+        "IndexObjet": "signatures / contreseing / délégation / directeur général",
+        "OrganeCompetent": "conseil de l'action sociale / bureau permanent"
+    },
+    {
+        "EntiteFocus": "CPAS",
+        "IndexObjet": "signatures / contreseing / délégation / acte authentique / directeur général / directeur financier",
+        "OrganeCompetent": "conseil de l'action sociale"
+    },
+    {
+        "EntiteFocus": "CPAS",
+        "IndexObjet": "signatures / contreseing / délégation / directeur financier",
+        "OrganeCompetent": "bureau permanent"
+    },
+    {
+        "EntiteFocus": "CPAS",
+        "IndexObjet": "aide sociale / aide urgente",
+        "OrganeCompetent": "président du conseil de l'action sociale"
+    },
+    {
+        "EntiteFocus": "CPAS",
+        "IndexObjet": "conseil de l'action sociale / endroit de la réunion",
+        "OrganeCompetent": "conseil de l'action sociale"
+    },
+    {
+        "EntiteFocus": "CPAS",
+        "IndexObjet": "conseil de l'action sociale / courrier électronique",
+        "OrganeCompetent": "bureau permanent"
+    },
+    {
+        "EntiteFocus": "CPAS",
+        "IndexObjet": "conseil de l'action sociale / explications techniques",
+        "OrganeCompetent": "directeur général (CPAS) / directeur financier (CPAS)"
+    },
+    {
+        "EntiteFocus": "CPAS",
+        "IndexObjet": "conseil de l'action sociale / explications techniques",
+        "OrganeCompetent": "directeur général (CPAS) / directeur financier (CPAS)"
+    },
+    {
+        "EntiteFocus": "CPAS",
+        "IndexObjet": "bureau permanent / comités spéciaux / explications techniques",
+        "OrganeCompetent": "directeur général (CPAS) / directeur financier (CPAS)"
+    },
+    {
+        "EntiteFocus": "CPAS",
+        "IndexObjet": "bureau permanent / comités spéciaux / explications techniques",
+        "OrganeCompetent": "directeur général (CPAS) / directeur financier (CPAS)"
+    },
+    {
+        "EntiteFocus": "CPAS / association chapitre XII",
+        "IndexObjet": "assemblée générale / association chapitre XII / délibérations",
+        "OrganeCompetent": "conseil de l'action sociale"
+    },
+    {
+        "EntiteFocus": "CPAS",
+        "IndexObjet": "budget",
+        "OrganeCompetent": "conseil de l'action sociale"
+    },
+    {
+        "EntiteFocus": "CPAS",
+        "IndexObjet": "comptes annuels",
+        "OrganeCompetent": "conseil de l'action sociale"
+    },
+    {
+        "EntiteFocus": "CPAS",
+        "IndexObjet": "budget / comptes annuels",
+        "OrganeCompetent": "membres du conseil de l'action sociale"
+    },
+    {
+        "EntiteFocus": "CPAS",
+        "IndexObjet": "élections / mandat politique",
+        "OrganeCompetent": "conseil de l'action sociale"
+    },
+    {
+        "EntiteFocus": "CPAS",
+        "IndexObjet": "élections / mandat politique",
+        "OrganeCompetent": "président du conseil de l'action sociale"
+    },
+    {
+        "EntiteFocus": "CPAS",
+        "IndexObjet": "conseil de l'action sociale / report de délibération",
+        "OrganeCompetent": "bourgmestre"
+    },
+    {
+        "EntiteFocus": "CPAS",
+        "IndexObjet": "conseil de l'action sociale / procès-verbal",
+        "OrganeCompetent": "président du conseil de l'action sociale / directeur général (CPAS)"
+    },
+    {
+        "EntiteFocus": "CPAS",
+        "IndexObjet": "bureau permanent / comités spéciaux / procès-verbal",
+        "OrganeCompetent": "président du conseil de l'action sociale / directeur général (CPAS)"
+    },
+    {
+        "EntiteFocus": "CPAS",
+        "IndexObjet": "conseil de l'action sociale / jeton de présence / rémunération",
+        "OrganeCompetent": "conseil de l'action sociale"
+    },
+    {
+        "EntiteFocus": "CPAS",
+        "IndexObjet": "conseil de l'action sociale / bureau permanent / comités spéciaux / services et établissements du centre public d'action sociale / règlement d'ordre intérieur",
+        "OrganeCompetent": "conseil de l'action sociale"
+    },
+    {
+        "EntiteFocus": "CPAS / hôpital qui dépend du CPAS",
+        "IndexObjet": "règlement d'ordre intérieur",
+        "OrganeCompetent": "comité de gestion (de l'hôpital)"
+    },
+    {
+        "EntiteFocus": "CPAS / hôpital qui dépend du CPAS",
+        "IndexObjet": "règlement d'ordre intérieur",
+        "OrganeCompetent": "conseil de l'action sociale"
+    },
+    {
+        "EntiteFocus": "CPAS",
+        "IndexObjet": "directeur financier / directeur général / statut administratif / statut général du personnel",
+        "OrganeCompetent": "conseil de l'action sociale"
+    },
+    {
+        "EntiteFocus": "CPAS",
+        "IndexObjet": "directeur financier / directeur général / directeur général adjoint / évaluation",
+        "OrganeCompetent": "bureau permanent"
+    },
+    {
+        "EntiteFocus": "CPAS",
+        "IndexObjet": "directeur financier / directeur général / directeur général adjoint / rapport de planification",
+        "OrganeCompetent": "bureau permanent"
+    },
+    {
+        "EntiteFocus": "CPAS",
+        "IndexObjet": "directeur général adjoint / nomination",
+        "OrganeCompetent": "conseil de l'action sociale"
+    },
+    {
+        "EntiteFocus": "CPAS",
+        "IndexObjet": "directeur général adjoint",
+        "OrganeCompetent": "conseil de l'action sociale"
+    },
+    {
+        "EntiteFocus": "CPAS / commune",
+        "IndexObjet": "directeur général adjoint / répartition",
+        "OrganeCompetent": "conseil communal / conseil de l'action sociale"
+    },
+    {
+        "EntiteFocus": "CPAS",
+        "IndexObjet": "directeur général",
+        "OrganeCompetent": "directeur général adjoint (CPAS)"
+    },
+    {
+        "EntiteFocus": "CPAS",
+        "IndexObjet": "directeur général",
+        "OrganeCompetent": "directeur général adjoint (CPAS)"
+    },
+    {
+        "EntiteFocus": "CPAS",
+        "IndexObjet": "directeur général adjoint / statut pécuniaire / statut général du personnel / traitement",
+        "OrganeCompetent": "conseil de l'action sociale"
+    },
+    {
+        "EntiteFocus": "CPAS / commune",
+        "IndexObjet": "directeur financier / répartition",
+        "OrganeCompetent": "conseil communal / conseil de l'action sociale"
+    },
+    {
+        "EntiteFocus": "CPAS",
+        "IndexObjet": "organigramme",
+        "OrganeCompetent": "bureau permanent"
+    },
+    {
+        "EntiteFocus": "CPAS",
+        "IndexObjet": "comité de direction",
+        "OrganeCompetent": "directeur général (commune)"
+    },
+    {
+        "EntiteFocus": "CPAS",
+        "IndexObjet": "comité de direction",
+        "OrganeCompetent": "comité de direction (CPAS)"
+    },
+    {
+        "EntiteFocus": "CPAS",
+        "IndexObjet": "budget / modifications budgétaires / concertation",
+        "OrganeCompetent": "comité de direction (CPAS)"
+    },
+    {
+        "EntiteFocus": "CPAS / commune",
+        "IndexObjet": "Réunions conjointes / comité de direction",
+        "OrganeCompetent": "comité de direction (CPAS) / comité de direction (commune)"
+    },
+    {
+        "EntiteFocus": "CPAS",
+        "IndexObjet": "programme stratégique transversal / conseil au conseil de l'action sociale",
+        "OrganeCompetent": "comité de direction (CPAS)"
+    },
+    {
+        "EntiteFocus": "CPAS",
+        "IndexObjet": "programme stratégique transversal / mise en oeuvre",
+        "OrganeCompetent": "comité de direction (CPAS)"
+    },
+    {
+        "EntiteFocus": "CPAS",
+        "IndexObjet": "personnel / description de fonction",
+        "OrganeCompetent": "directeur général (CPAS)"
+    },
+    {
+        "EntiteFocus": "CPAS",
+        "IndexObjet": "personnel / description de fonction",
+        "OrganeCompetent": "comité de direction (CPAS)"
+    },
+    {
+        "EntiteFocus": "CPAS",
+        "IndexObjet": "personnel / plan de formation",
+        "OrganeCompetent": "bureau permanent"
+    },
+    {
+        "EntiteFocus": "CPAS",
+        "IndexObjet": "personnel / plan de formation",
+        "OrganeCompetent": "bureau permanent"
+    },
+    {
+        "EntiteFocus": "CPAS",
+        "IndexObjet": "personnel / cadre du personnel",
+        "OrganeCompetent": "conseil de l'action sociale"
+    },
+    {
+        "EntiteFocus": "CPAS / hôpital qui dépend du CPAS",
+        "IndexObjet": "personnel / statut général du personnel",
+        "OrganeCompetent": "conseil de l'action sociale"
+    },
+    {
+        "EntiteFocus": "CPAS",
+        "IndexObjet": "personnel / statutaires",
+        "OrganeCompetent": "conseil de l'action sociale"
+    },
+    {
+        "EntiteFocus": "CPAS",
+        "IndexObjet": "personnel / contractuels",
+        "OrganeCompetent": "conseil de l'action sociale"
+    },
+    {
+        "EntiteFocus": "CPAS",
+        "IndexObjet": "personnel / contractuels",
+        "OrganeCompetent": "conseil de l'action sociale"
+    },
+    {
+        "EntiteFocus": "CPAS",
+        "IndexObjet": "personnel / commission de sélection",
+        "OrganeCompetent": "bureau permanent"
+    },
+    {
+        "EntiteFocus": "CPAS / commune",
+        "IndexObjet": "personnel / mise à disposition",
+        "OrganeCompetent": "conseil de l'action sociale"
+    },
+    {
+        "EntiteFocus": "CPAS",
+        "IndexObjet": "personnel / mise à disposition de personnel statutaire",
+        "OrganeCompetent": "conseil de l'action sociale"
+    },
+    {
+        "EntiteFocus": "CPAS",
+        "IndexObjet": "personnel / pension / maintien en activité de personnel statutaire",
+        "OrganeCompetent": "conseil de l'action sociale"
+    },
+    {
+        "EntiteFocus": "CPAS",
+        "IndexObjet": "conseil de l'action sociale / réunions",
+        "OrganeCompetent": "directeur général (CPAS)"
+    },
+    {
+        "EntiteFocus": "CPAS",
+        "IndexObjet": "conseil de l'action sociale / bureau permanent / conseils juridiques et administratifs",
+        "OrganeCompetent": "directeur général (CPAS)"
+    },
+    {
+        "EntiteFocus": "CPAS",
+        "IndexObjet": "instruction des affaires / direction",
+        "OrganeCompetent": "directeur général (CPAS)"
+    },
+    {
+        "EntiteFocus": "CPAS",
+        "IndexObjet": "personnel / chef du personnel / évaluation de la politique de gestion des ressources humaines",
+        "OrganeCompetent": "directeur général (CPAS)"
+    },
+    {
+        "EntiteFocus": "CPAS",
+        "IndexObjet": "directeur général / contrôle",
+        "OrganeCompetent": "président du conseil de l'action sociale"
+    },
+    {
+        "EntiteFocus": "CPAS",
+        "IndexObjet": "archives",
+        "OrganeCompetent": "directeur général (CPAS)"
+    },
+    {
+        "EntiteFocus": "CPAS",
+        "IndexObjet": "programme stratégique transversal",
+        "OrganeCompetent": "directeur général (CPAS)"
+    },
+    {
+        "EntiteFocus": "CPAS",
+        "IndexObjet": "finances / comptabilité / mandats ordonnancés / mandats de paiement / états de recouvrement",
+        "OrganeCompetent": "directeur général (CPAS) / président du conseil de l'action sociale"
+    },
+    {
+        "EntiteFocus": "CPAS",
+        "IndexObjet": "comptabilité / prise de connaissance",
+        "OrganeCompetent": "directeur général (CPAS)"
+    },
+    {
+        "EntiteFocus": "CPAS",
+        "IndexObjet": "directeur général / copie des documents transmis aux organes",
+        "OrganeCompetent": "directeur financier (CPAS)"
+    },
+    {
+        "EntiteFocus": "CPAS",
+        "IndexObjet": "personnel / sanctions disciplinaires / avertissement / réprimande",
+        "OrganeCompetent": "directeur général (CPAS)"
+    },
+    {
+        "EntiteFocus": "CPAS",
+        "IndexObjet": "personnel / sanctions disciplinaires",
+        "OrganeCompetent": "directeur général (CPAS)"
+    },
+    {
+        "EntiteFocus": "CPAS",
+        "IndexObjet": "personnel / sanctions disciplinaires",
+        "OrganeCompetent": "bureau permanent"
+    },
+    {
+        "EntiteFocus": "CPAS",
+        "IndexObjet": "directeur général / absence / directeur général faisant fonction",
+        "OrganeCompetent": "bureau permanent"
+    },
+    {
+        "EntiteFocus": "CPAS",
+        "IndexObjet": "personnel / jury d'examen",
+        "OrganeCompetent": "directeur général (CPAS)"
+    },
+    {
+        "EntiteFocus": "CPAS",
+        "IndexObjet": "comité de direction",
+        "OrganeCompetent": "directeur général (CPAS)"
+    },
+    {
+        "EntiteFocus": "CPAS",
+        "IndexObjet": "contrôle interne",
+        "OrganeCompetent": "directeur général (CPAS)"
+    },
+    {
+        "EntiteFocus": "CPAS",
+        "IndexObjet": "contrôle interne",
+        "OrganeCompetent": "conseil de l'action sociale"
+    },
+    {
+        "EntiteFocus": "CPAS",
+        "IndexObjet": "organigramme",
+        "OrganeCompetent": "directeur général (CPAS)"
+    },
+    {
+        "EntiteFocus": "CPAS",
+        "IndexObjet": "cadre organique",
+        "OrganeCompetent": "directeur général (CPAS)"
+    },
+    {
+        "EntiteFocus": "CPAS",
+        "IndexObjet": "personnel / statut général du personnel",
+        "OrganeCompetent": "directeur général (CPAS)"
+    },
+    {
+        "EntiteFocus": "CPAS",
+        "IndexObjet": "organigramme",
+        "OrganeCompetent": "directeur général (CPAS) / comité de direction (CPAS)"
+    },
+    {
+        "EntiteFocus": "CPAS",
+        "IndexObjet": "organigramme",
+        "OrganeCompetent": "directeur général (CPAS) / comité de direction (CPAS)"
+    },
+    {
+        "EntiteFocus": "CPAS",
+        "IndexObjet": "personnel / statut général du personnel",
+        "OrganeCompetent": "directeur général (CPAS) / comité de direction (CPAS)"
+    },
+    {
+        "EntiteFocus": "CPAS",
+        "IndexObjet": "comptabilité / comptes annuels",
+        "OrganeCompetent": "directeur financier (CPAS)"
+    },
+    {
+        "EntiteFocus": "CPAS",
+        "IndexObjet": "directeur financier",
+        "OrganeCompetent": "bureau permanent"
+    },
+    {
+        "EntiteFocus": "CPAS",
+        "IndexObjet": "conseiller financier / conseiller budgétaire",
+        "OrganeCompetent": "directeur financier (CPAS)"
+    },
+    {
+        "EntiteFocus": "CPAS",
+        "IndexObjet": "finances / comptabilité / recettes",
+        "OrganeCompetent": "directeur financier (CPAS)"
+    },
+    {
+        "EntiteFocus": "CPAS",
+        "IndexObjet": "finances / comptabilité / dépenses / mandats de paiement",
+        "OrganeCompetent": "directeur financier (CPAS)"
+    },
+    {
+        "EntiteFocus": "CPAS",
+        "IndexObjet": "finances / comptabilité / prescription / déchéances",
+        "OrganeCompetent": "directeur financier (CPAS)"
+    },
+    {
+        "EntiteFocus": "CPAS",
+        "IndexObjet": "finances / comptabilité / saisies / titres",
+        "OrganeCompetent": "directeur financier (CPAS)"
+    },
+    {
+        "EntiteFocus": "CPAS",
+        "IndexObjet": "finances / baux / retards de paiement / droits",
+        "OrganeCompetent": "directeur financier (CPAS)"
+    },
+    {
+        "EntiteFocus": "CPAS",
+        "IndexObjet": "avis de légalité",
+        "OrganeCompetent": "directeur financier (CPAS)"
+    },
+    {
+        "EntiteFocus": "CPAS",
+        "IndexObjet": "avis de légalité / donations / legs",
+        "OrganeCompetent": "directeur financier (CPAS)"
+    },
+    {
+        "EntiteFocus": "CPAS",
+        "IndexObjet": "avis de légalité",
+        "OrganeCompetent": "directeur financier (CPAS)"
+    },
+    {
+        "EntiteFocus": "CPAS",
+        "IndexObjet": "ressources",
+        "OrganeCompetent": "directeur financier (CPAS)"
+    },
+    {
+        "EntiteFocus": "CPAS",
+        "IndexObjet": "finances / comptabilité / actifs",
+        "OrganeCompetent": "directeur financier (CPAS)"
+    },
+    {
+        "EntiteFocus": "CPAS",
+        "IndexObjet": "directeur général / informations fiables",
+        "OrganeCompetent": "directeur financier (CPAS)"
+    },
+    {
+        "EntiteFocus": "CPAS",
+        "IndexObjet": "programme stratégique transversal",
+        "OrganeCompetent": "directeur financier (CPAS)"
+    },
+    {
+        "EntiteFocus": "CPAS",
+        "IndexObjet": "directeur financier / accès aux dossiers / avis de légalité",
+        "OrganeCompetent": "bureau permanent"
+    },
+    {
+        "EntiteFocus": "CPAS",
+        "IndexObjet": "avis de légalité",
+        "OrganeCompetent": "directeur financier (CPAS)"
+    },
+    {
+        "EntiteFocus": "CPAS",
+        "IndexObjet": "avis de légalité / d'initiative",
+        "OrganeCompetent": "directeur financier (CPAS)"
+    },
+    {
+        "EntiteFocus": "CPAS",
+        "IndexObjet": "avis de légalité / rapport sur l'exécution de la mission de remise d'avis",
+        "OrganeCompetent": "directeur financier (CPAS)"
+    },
+    {
+        "EntiteFocus": "CPAS",
+        "IndexObjet": "avis de légalité / rapport sur l'exécution de la mission de remise d'avis",
+        "OrganeCompetent": "directeur financier (CPAS)"
+    },
+    {
+        "EntiteFocus": "CPAS",
+        "IndexObjet": "directeur financier / absence / directeur financier faisant fonction",
+        "OrganeCompetent": "directeur financier (CPAS)"
+    },
+    {
+        "EntiteFocus": "CPAS",
+        "IndexObjet": "directeur financier / absence / directeur financier faisant fonction",
+        "OrganeCompetent": "bureau permanent"
+    },
+    {
+        "EntiteFocus": "CPAS",
+        "IndexObjet": "directeur financier / absence / directeur financier faisant fonction",
+        "OrganeCompetent": "directeur financier faisant fonction (CPAS)"
+    },
+    {
+        "EntiteFocus": "CPAS",
+        "IndexObjet": "finances / comptabilité / compte de fin de gestion / encaisse",
+        "OrganeCompetent": "directeur financier (CPAS)"
+    },
+    {
+        "EntiteFocus": "CPAS",
+        "IndexObjet": "finances / comptabilité / dépenses / paiement / recettes",
+        "OrganeCompetent": "conseil de l'action sociale"
+    },
+    {
+        "EntiteFocus": "CPAS",
+        "IndexObjet": "finances / comptabilité / compte de fin de gestion",
+        "OrganeCompetent": "directeur financier (CPAS) / directeur financier faisant fonction (CPAS) / agent spécial (CPAS)"
+    },
+    {
+        "EntiteFocus": "CPAS",
+        "IndexObjet": "finances / comptabilité / compte de fin de gestion",
+        "OrganeCompetent": "conseil de l'action sociale"
+    },
+    {
+        "EntiteFocus": "CPAS",
+        "IndexObjet": "aide sociale",
+        "OrganeCompetent": "travailleur social"
+    },
+    {
+        "EntiteFocus": "CPAS",
+        "IndexObjet": "travailleur social / tâches",
+        "OrganeCompetent": "directeur général (CPAS)"
+    },
+    {
+        "EntiteFocus": "CPAS",
+        "IndexObjet": "aide sociale",
+        "OrganeCompetent": "conseil de l'action sociale / bureau permanent / comité spécial du service social"
+    },
+    {
+        "EntiteFocus": "CPAS",
+        "IndexObjet": "aide sociale",
+        "OrganeCompetent": "responsable du service social"
+    },
+    {
+        "EntiteFocus": "CPAS",
+        "IndexObjet": "art de guérir / médecins",
+        "OrganeCompetent": "conseil de l'action sociale"
+    },
+    {
+        "EntiteFocus": "CPAS",
+        "IndexObjet": "personnel / cumul des activités professionnelles / occupation",
+        "OrganeCompetent": "conseil de l'action sociale"
+    },
+    {
+        "EntiteFocus": "CPAS",
+        "IndexObjet": "personnel / directeur général / directeur financier / directeur général adjoint / cumul des fonctions",
+        "OrganeCompetent": "conseil de l'action sociale"
+    },
+    {
+        "EntiteFocus": "CPAS",
+        "IndexObjet": "personnel / sanctions disciplinaires",
+        "OrganeCompetent": "conseil de l'action sociale"
+    },
+    {
+        "EntiteFocus": "CPAS",
+        "IndexObjet": "personnel / sanctions disciplinaires",
+        "OrganeCompetent": "directeur général (CPAS)"
+    },
+    {
+        "EntiteFocus": "CPAS",
+        "IndexObjet": "personnel / sanctions disciplinaires / avertissement / réprimande / retenue de traitement / suspension",
+        "OrganeCompetent": "bureau permanent"
+    },
+    {
+        "EntiteFocus": "CPAS",
+        "IndexObjet": "personnel / sanctions disciplinaires / avertissement / réprimande / retenue de traitement / suspension",
+        "OrganeCompetent": "directeur général (CPAS)"
+    },
+    {
+        "EntiteFocus": "CPAS",
+        "IndexObjet": "personnel / sanctions disciplinaires / avertissement / réprimande",
+        "OrganeCompetent": "directeur général (CPAS)"
+    },
+    {
+        "EntiteFocus": "CPAS",
+        "IndexObjet": "personnel / sanctions disciplinaires / avertissement / réprimande",
+        "OrganeCompetent": "bureau permanent"
+    },
+    {
+        "EntiteFocus": "CPAS",
+        "IndexObjet": "personnel / sanctions disciplinaires",
+        "OrganeCompetent": "autorité disciplinaire"
+    },
+    {
+        "EntiteFocus": "CPAS",
+        "IndexObjet": "personnel / sanctions disciplinaires",
+        "OrganeCompetent": "autorité disciplinaire"
+    },
+    {
+        "EntiteFocus": "CPAS",
+        "IndexObjet": "personnel / sanctions disciplinaires",
+        "OrganeCompetent": "autorité disciplinaire"
+    },
+    {
+        "EntiteFocus": "CPAS",
+        "IndexObjet": "personnel / sanctions disciplinaires / suspension / rétrogradation",
+        "OrganeCompetent": "autorité disciplinaire"
+    },
+    {
+        "EntiteFocus": "CPAS",
+        "IndexObjet": "personnel / sanctions disciplinaires / suspension préventive",
+        "OrganeCompetent": "autorité disciplinaire"
+    },
+    {
+        "EntiteFocus": "CPAS",
+        "IndexObjet": "personnel / sanctions disciplinaires / directeur général / directeur général adjoint / directeur financier / comptable spécial / suspension préventive",
+        "OrganeCompetent": "bureau permanent / conseil de l'action sociale"
+    },
+    {
+        "EntiteFocus": "CPAS",
+        "IndexObjet": "personnel / démission d'office / inaptitude profesionnelle",
+        "OrganeCompetent": "conseil de l'action sociale"
+    },
+    {
+        "EntiteFocus": "CPAS",
+        "IndexObjet": "personnel / indemnité de départ",
+        "OrganeCompetent": "conseil de l'action sociale"
+    },
+    {
+        "EntiteFocus": "CPAS",
+        "IndexObjet": "personnel / démission d'office / inaptitude profesionnelle",
+        "OrganeCompetent": "conseil de l'action sociale"
+    },
+    {
+        "EntiteFocus": "CPAS",
+        "IndexObjet": "aide sociale / incompétence",
+        "OrganeCompetent": "président du conseil de l'action sociale"
+    },
+    {
+        "EntiteFocus": "CPAS",
+        "IndexObjet": "finances / comptabilité / valeurs / règlement d'ordre intérieur",
+        "OrganeCompetent": "conseil de l'action sociale"
+    },
+    {
+        "EntiteFocus": "CPAS",
+        "IndexObjet": "finances / comptabilité / valeurs",
+        "OrganeCompetent": "directeur financier (CPAS) / receveur régional"
+    },
+    {
+        "EntiteFocus": "CPAS",
+        "IndexObjet": "finances / comptabilité / valeurs",
+        "OrganeCompetent": "directeur financier (CPAS) / receveur régional"
+    },
+    {
+        "EntiteFocus": "CPAS",
+        "IndexObjet": "finances / comptabilité / valeurs",
+        "OrganeCompetent": "directeur général (CPAS)"
+    },
+    {
+        "EntiteFocus": "CPAS",
+        "IndexObjet": "mineurs confiés au centre public d'action sociale / biens",
+        "OrganeCompetent": "directeur financier (CPAS) / receveur régional"
+    },
+    {
+        "EntiteFocus": "CPAS",
+        "IndexObjet": "contrats / opérations immobilières",
+        "OrganeCompetent": "conseil de l'action sociale"
+    },
+    {
+        "EntiteFocus": "CPAS",
+        "IndexObjet": "contrats / opérations immobilières",
+        "OrganeCompetent": "bureau permanent"
+    },
+    {
+        "EntiteFocus": "CPAS",
+        "IndexObjet": "contrats / opérations immobilières / négociations",
+        "OrganeCompetent": "bureau permanent"
+    },
+    {
+        "EntiteFocus": "CPAS",
+        "IndexObjet": "contrats / opérations immobilières",
+        "OrganeCompetent": "bureau permanent"
+    },
+    {
+        "EntiteFocus": "CPAS",
+        "IndexObjet": "contrats / vente / mise à disposition / biens meubles corporels",
+        "OrganeCompetent": "conseil de l'action sociale"
+    },
+    {
+        "EntiteFocus": "CPAS",
+        "IndexObjet": "contrats / vente / mise à disposition / biens meubles corporels",
+        "OrganeCompetent": "bureau permanent"
+    },
+    {
+        "EntiteFocus": "CPAS",
+        "IndexObjet": "contrats / vente / mise à disposition / biens meubles corporels / négociations",
+        "OrganeCompetent": "bureau permanent"
+    },
+    {
+        "EntiteFocus": "CPAS",
+        "IndexObjet": "contrats / vente / mise à disposition / biens meubles corporels",
+        "OrganeCompetent": "bureau permanent"
+    },
+    {
+        "EntiteFocus": "CPAS",
+        "IndexObjet": "donations / legs / acte authentique",
+        "OrganeCompetent": "conseil de l'action sociale"
+    },
+    {
+        "EntiteFocus": "CPAS",
+        "IndexObjet": "donations / legs / acte authentique",
+        "OrganeCompetent": "président du conseil de l'action sociale"
+    },
+    {
+        "EntiteFocus": "CPAS",
+        "IndexObjet": "marchés publics",
+        "OrganeCompetent": "conseil de l'action sociale"
+    },
+    {
+        "EntiteFocus": "CPAS",
+        "IndexObjet": "marchés publics",
+        "OrganeCompetent": "conseil de l'action sociale"
+    },
+    {
+        "EntiteFocus": "CPAS",
+        "IndexObjet": "marchés publics",
+        "OrganeCompetent": "conseil de l'action sociale"
+    },
+    {
+        "EntiteFocus": "CPAS",
+        "IndexObjet": "marchés publics / accords-cadres conclus",
+        "OrganeCompetent": "conseil de l'action sociale"
+    },
+    {
+        "EntiteFocus": "CPAS",
+        "IndexObjet": "marchés publics",
+        "OrganeCompetent": "conseil de l'action sociale"
+    },
+    {
+        "EntiteFocus": "CPAS",
+        "IndexObjet": "marchés publics / négociations",
+        "OrganeCompetent": "conseil de l'action sociale"
+    },
+    {
+        "EntiteFocus": "CPAS",
+        "IndexObjet": "marchés publics",
+        "OrganeCompetent": "bureau permanent"
+    },
+    {
+        "EntiteFocus": "CPAS",
+        "IndexObjet": "marchés publics / marché conjoint",
+        "OrganeCompetent": "conseil de l'action sociale"
+    },
+    {
+        "EntiteFocus": "CPAS",
+        "IndexObjet": "marchés publics / marché conjoint",
+        "OrganeCompetent": "conseil de l'action sociale"
+    },
+    {
+        "EntiteFocus": "CPAS",
+        "IndexObjet": "marchés publics / marché conjoint",
+        "OrganeCompetent": "conseil de l'action sociale"
+    },
+    {
+        "EntiteFocus": "CPAS",
+        "IndexObjet": "marchés publics / marché conjoint",
+        "OrganeCompetent": "bureau permanent"
+    },
+    {
+        "EntiteFocus": "CPAS",
+        "IndexObjet": "marchés publics / marché conjoint",
+        "OrganeCompetent": "conseil de l'action sociale"
+    },
+    {
+        "EntiteFocus": "CPAS",
+        "IndexObjet": "marchés publics / centrale d'achat",
+        "OrganeCompetent": "conseil de l'action sociale"
+    },
+    {
+        "EntiteFocus": "CPAS",
+        "IndexObjet": "marchés publics / centrale d'achat",
+        "OrganeCompetent": "conseil de l'action sociale"
+    },
+    {
+        "EntiteFocus": "CPAS",
+        "IndexObjet": "marchés publics / centrale d'achat",
+        "OrganeCompetent": "bureau permanent"
+    },
+    {
+        "EntiteFocus": "CPAS",
+        "IndexObjet": "marchés publics / centrale d'achat",
+        "OrganeCompetent": "conseil de l'action sociale"
+    },
+    {
+        "EntiteFocus": "CPAS",
+        "IndexObjet": "marchés publics / centrale d'achat",
+        "OrganeCompetent": "conseil de l'action sociale"
+    },
+    {
+        "EntiteFocus": "CPAS",
+        "IndexObjet": "marchés publics / concession",
+        "OrganeCompetent": "conseil de l'action sociale"
+    },
+    {
+        "EntiteFocus": "CPAS",
+        "IndexObjet": "marchés publics / concession",
+        "OrganeCompetent": "conseil de l'action sociale"
+    },
+    {
+        "EntiteFocus": "CPAS",
+        "IndexObjet": "marchés publics / concession",
+        "OrganeCompetent": "conseil de l'action sociale"
+    },
+    {
+        "EntiteFocus": "CPAS",
+        "IndexObjet": "marchés publics / concession",
+        "OrganeCompetent": "conseil de l'action sociale"
+    },
+    {
+        "EntiteFocus": "CPAS",
+        "IndexObjet": "marchés publics / concession",
+        "OrganeCompetent": "conseil de l'action sociale"
+    },
+    {
+        "EntiteFocus": "CPAS",
+        "IndexObjet": "marchés publics / concession",
+        "OrganeCompetent": "bureau permanent"
+    },
+    {
+        "EntiteFocus": "CPAS",
+        "IndexObjet": "finances / comptabilité / droits à recettes / ordonnancer les dépenses",
+        "OrganeCompetent": "conseil de l'action sociale"
+    },
+    {
+        "EntiteFocus": "CPAS",
+        "IndexObjet": "aide sociale / aide urgente / dépenses ",
+        "OrganeCompetent": "conseil de l'action sociale"
+    },
+    {
+        "EntiteFocus": "CPAS",
+        "IndexObjet": "budget",
+        "OrganeCompetent": "bureau permanent"
+    },
+    {
+        "EntiteFocus": "CPAS",
+        "IndexObjet": "budget",
+        "OrganeCompetent": "conseil de l'action sociale"
+    },
+    {
+        "EntiteFocus": "CPAS / hôpital qui dépend du CPAS",
+        "IndexObjet": "budget",
+        "OrganeCompetent": "conseil de l'action sociale"
+    },
+    {
+        "EntiteFocus": "CPAS / hôpital qui dépend du CPAS",
+        "IndexObjet": "budget",
+        "OrganeCompetent": "comité de gestion (de l'hôpital)"
+    },
+    {
+        "EntiteFocus": "CPAS",
+        "IndexObjet": "modification budgétaire",
+        "OrganeCompetent": "conseil de l'action sociale"
+    },
+    {
+        "EntiteFocus": "CPAS",
+        "IndexObjet": "finances / comptabilité / dépense / urgence / préjudice évident",
+        "OrganeCompetent": "conseil de l'action sociale"
+    },
+    {
+        "EntiteFocus": "CPAS",
+        "IndexObjet": "compte budgétaire",
+        "OrganeCompetent": "bureau permanent"
+    },
+    {
+        "EntiteFocus": "CPAS",
+        "IndexObjet": "comptes annuels",
+        "OrganeCompetent": "conseil de l'action sociale"
+    },
+    {
+        "EntiteFocus": "CPAS / hôpital qui dépend du CPAS",
+        "IndexObjet": "comptes annuels",
+        "OrganeCompetent": "conseil de l'action sociale"
+    },
+    {
+        "EntiteFocus": "CPAS",
+        "IndexObjet": "comptes annuels",
+        "OrganeCompetent": "président du conseil de l'action sociale"
+    },
+    {
+        "EntiteFocus": "CPAS",
+        "IndexObjet": "budget / modifications budgétaires",
+        "OrganeCompetent": "bureau permanent"
+    },
+    {
+        "EntiteFocus": "CPAS",
+        "IndexObjet": "budget / modifications budgétaires / comptes annuels",
+        "OrganeCompetent": "président du conseil de l'action sociale"
+    },
+    {
+        "EntiteFocus": "CPAS",
+        "IndexObjet": "ajustementes internes",
+        "OrganeCompetent": "conseil de l'action sociale"
+    },
+    {
+        "EntiteFocus": "CPAS",
+        "IndexObjet": "finances / comptabilité / comptes annuels / dette de clôture",
+        "OrganeCompetent": "conseil de l'action sociale"
+    },
+    {
+        "EntiteFocus": "CPAS",
+        "IndexObjet": "finances / comptabilité / dépense / avis défavorable",
+        "OrganeCompetent": "conseil de l'action sociale"
+    },
+    {
+        "EntiteFocus": "CPAS",
+        "IndexObjet": "finances / comptabilité / dépenses ordonnancées",
+        "OrganeCompetent": "membres du conseil de l'action sociale"
+    },
+    {
+        "EntiteFocus": "CPAS",
+        "IndexObjet": "finances / comptabilité / encaisse",
+        "OrganeCompetent": "conseil de l'action sociale"
+    },
+    {
+        "EntiteFocus": "CPAS",
+        "IndexObjet": "finances / comptabilité / encaisse",
+        "OrganeCompetent": "conseil de l'action sociale"
+    },
+    {
+        "EntiteFocus": "CPAS",
+        "IndexObjet": "finances / comptabilité / encaisse",
+        "OrganeCompetent": "directeur financier (CPAS) / receveur régional / conseil de l'action sociale"
+    },
+    {
+        "EntiteFocus": "CPAS",
+        "IndexObjet": "finances / comptabilité / encaisse / vol / perte",
+        "OrganeCompetent": "directeur financier (CPAS) / receveur régional"
+    },
+    {
+        "EntiteFocus": "CPAS",
+        "IndexObjet": "finances / comptabilité / encaisse / vol / perte",
+        "OrganeCompetent": "conseil de l'action sociale"
+    },
+    {
+        "EntiteFocus": "CPAS",
+        "IndexObjet": "finances / comptabilité / encaisse / vol / perte",
+        "OrganeCompetent": "directeur financier (CPAS) / receveur régional"
+    },
+    {
+        "EntiteFocus": "CPAS / hôpital qui dépend du CPAS",
+        "IndexObjet": "gestion",
+        "OrganeCompetent": "comité de gestion (de l'hôpital)"
+    },
+    {
+        "EntiteFocus": "CPAS / hôpital qui dépend du CPAS",
+        "IndexObjet": "comité de gestion",
+        "OrganeCompetent": "président du conseil de l'action sociale"
+    },
+    {
+        "EntiteFocus": "CPAS / hôpital qui dépend du CPAS",
+        "IndexObjet": "comité de gestion",
+        "OrganeCompetent": "directeur général (CPAS) / bourgmestre"
+    },
+    {
+        "EntiteFocus": "CPAS / hôpital qui dépend du CPAS",
+        "IndexObjet": "comité de gestion",
+        "OrganeCompetent": "collège communal"
+    },
+    {
+        "EntiteFocus": "CPAS / hôpital qui dépend du CPAS",
+        "IndexObjet": "comité de gestion",
+        "OrganeCompetent": "comité de gestion (de l'hôpital)"
+    },
+    {
+        "EntiteFocus": "CPAS / hôpital qui dépend du CPAS",
+        "IndexObjet": "comité de gestion",
+        "OrganeCompetent": "conseil de l'action sociale"
+    },
+    {
+        "EntiteFocus": "CPAS / hôpital qui dépend du CPAS",
+        "IndexObjet": "compétences globales",
+        "OrganeCompetent": "comité de gestion (de l'hôpital)"
+    },
+    {
+        "EntiteFocus": "CPAS / hôpital qui dépend du CPAS",
+        "IndexObjet": "budget / modifications budgétaires",
+        "OrganeCompetent": "conseil de l'action sociale"
+    },
+    {
+        "EntiteFocus": "CPAS / hôpital qui dépend du CPAS",
+        "IndexObjet": "comptes",
+        "OrganeCompetent": "conseil de l'action sociale"
+    },
+    {
+        "EntiteFocus": "CPAS / hôpital qui dépend du CPAS",
+        "IndexObjet": "plan de gestion",
+        "OrganeCompetent": "conseil de l'action sociale"
+    },
+    {
+        "EntiteFocus": "CPAS / hôpital qui dépend du CPAS",
+        "IndexObjet": "personnel / cadre / statut administratif / statut pécuniaire / statut général du personnel",
+        "OrganeCompetent": "conseil de l'action sociale"
+    },
+    {
+        "EntiteFocus": "CPAS / hôpital qui dépend du CPAS",
+        "IndexObjet": "personnel / règlement de travail",
+        "OrganeCompetent": "conseil de l'action sociale"
+    },
+    {
+        "EntiteFocus": "CPAS / hôpital qui dépend du CPAS",
+        "IndexObjet": "personnel / nomination / promotion / sanctions disciplinaires / mise en disponibilité",
+        "OrganeCompetent": "conseil de l'action sociale"
+    },
+    {
+        "EntiteFocus": "CPAS / hôpital qui dépend du CPAS",
+        "IndexObjet": "rapports juridiques / médecins",
+        "OrganeCompetent": "conseil de l'action sociale"
+    },
+    {
+        "EntiteFocus": "CPAS / hôpital qui dépend du CPAS",
+        "IndexObjet": "personnel / comité de gestion",
+        "OrganeCompetent": "conseil de l'action sociale"
+    },
+    {
+        "EntiteFocus": "CPAS / hôpital qui dépend du CPAS",
+        "IndexObjet": "association chapitre XII / adhésion",
+        "OrganeCompetent": "conseil de l'action sociale"
+    },
+    {
+        "EntiteFocus": "CPAS / hôpital qui dépend du CPAS",
+        "IndexObjet": "services",
+        "OrganeCompetent": "conseil de l'action sociale"
+    },
+    {
+        "EntiteFocus": "CPAS / hôpital qui dépend du CPAS",
+        "IndexObjet": "biens immobiliers",
+        "OrganeCompetent": "conseil de l'action sociale"
+    },
+    {
+        "EntiteFocus": "CPAS / hôpital qui dépend du CPAS",
+        "IndexObjet": "actions judiciaires / justice",
+        "OrganeCompetent": "conseil de l'action sociale"
+    },
+    {
+        "EntiteFocus": "CPAS / hôpital qui dépend du CPAS",
+        "IndexObjet": "expropriations",
+        "OrganeCompetent": "conseil de l'action sociale"
+    },
+    {
+        "EntiteFocus": "CPAS / hôpital qui dépend du CPAS",
+        "IndexObjet": "donations / legs",
+        "OrganeCompetent": "conseil de l'action sociale"
+    },
+    {
+        "EntiteFocus": "CPAS / hôpital qui dépend du CPAS",
+        "IndexObjet": "associations sans but lucratif / adhésion",
+        "OrganeCompetent": "conseil de l'action sociale"
+    },
+    {
+        "EntiteFocus": "CPAS / hôpital qui dépend du CPAS",
+        "IndexObjet": "cession directe / cession indirecte",
+        "OrganeCompetent": "conseil de l'action sociale"
+    },
+    {
+        "EntiteFocus": "CPAS / hôpital qui dépend du CPAS",
+        "IndexObjet": "directeur financier spécial",
+        "OrganeCompetent": "conseil de l'action sociale"
+    },
+    {
+        "EntiteFocus": "CPAS / hôpital qui dépend du CPAS",
+        "IndexObjet": "gestion / avis",
+        "OrganeCompetent": "comité de gestion (de l'hôpital)"
+    },
+    {
+        "EntiteFocus": "CPAS / hôpital qui dépend du CPAS",
+        "IndexObjet": "substitution / conseil de l'action sociale",
+        "OrganeCompetent": "comité de gestion (de l'hôpital)"
+    },
+    {
+        "EntiteFocus": "CPAS / hôpital qui dépend du CPAS",
+        "IndexObjet": "personnel / directeur / instruction des affaires / gestion journalière / archives",
+        "OrganeCompetent": "comité de gestion (de l'hôpital)"
+    },
+    {
+        "EntiteFocus": "CPAS / hôpital qui dépend du CPAS",
+        "IndexObjet": "personnel / directeur / instruction des affaires / gestion journalière / archives",
+        "OrganeCompetent": "directeur (de l'hôpital)"
+    },
+    {
+        "EntiteFocus": "CPAS / hôpital qui dépend du CPAS",
+        "IndexObjet": "personnel / chef du personnel",
+        "OrganeCompetent": "directeur (de l'hôpital)"
+    },
+    {
+        "EntiteFocus": "CPAS / hôpital qui dépend du CPAS",
+        "IndexObjet": "comité de gestion / procès-verbaux",
+        "OrganeCompetent": "directeur (de l'hôpital)"
+    },
+    {
+        "EntiteFocus": "CPAS / hôpital qui dépend du CPAS",
+        "IndexObjet": "comité de gestion / délibérations / procès-verbaux / signatures",
+        "OrganeCompetent": "directeur (de l'hôpital) / président du conseil de l'action sociale"
+    },
+    {
+        "EntiteFocus": "CPAS / hôpital qui dépend du CPAS",
+        "IndexObjet": "finances / comptabilité / mandats ordonnancés / mandats de paiement / états de recouvrement",
+        "OrganeCompetent": "directeur (de l'hôpital)"
+    },
+    {
+        "EntiteFocus": "CPAS / hôpital qui dépend du CPAS",
+        "IndexObjet": "finances / comptabilité / mandats ordonnancés / états de recouvrement",
+        "OrganeCompetent": "directeur (de l'hôpital) / président du conseil de l'action sociale"
+    },
+    {
+        "EntiteFocus": "CPAS / hôpital qui dépend du CPAS",
+        "IndexObjet": "budget",
+        "OrganeCompetent": "directeur (de l'hôpital)"
+    },
+    {
+        "EntiteFocus": "CPAS / hôpital qui dépend du CPAS",
+        "IndexObjet": "directeur / signature / délégation",
+        "OrganeCompetent": "comité de gestion (de l'hôpital)"
+    },
+    {
+        "EntiteFocus": "CPAS / hôpital qui dépend du CPAS",
+        "IndexObjet": "trésorier",
+        "OrganeCompetent": "directeur financier (CPAS)"
+    },
+    {
+        "EntiteFocus": "CPAS / hôpital qui dépend du CPAS",
+        "IndexObjet": "trésorier",
+        "OrganeCompetent": "comité de gestion (de l'hôpital)"
+    },
+    {
+        "EntiteFocus": "CPAS / hôpital qui dépend du CPAS",
+        "IndexObjet": "finances / comptabilité / recettes / dépenses",
+        "OrganeCompetent": "trésorier (de l'hôpital)"
+    },
+    {
+        "EntiteFocus": "CPAS / hôpital qui dépend du CPAS",
+        "IndexObjet": "trésorier / absence / directeur faisant fonction",
+        "OrganeCompetent": "trésorier (de l'hôpital)"
+    },
+    {
+        "EntiteFocus": "CPAS / hôpital qui dépend du CPAS",
+        "IndexObjet": "trésorier / absence / directeur faisant fonction",
+        "OrganeCompetent": "bureau permanent"
+    },
+    {
+        "EntiteFocus": "CPAS / hôpital qui dépend du CPAS",
+        "IndexObjet": "trésorier / absence / directeur faisant fonction",
+        "OrganeCompetent": "directeur financier faisant fonction (CPAS)"
+    },
+    {
+        "EntiteFocus": "CPAS / hôpital qui dépend du CPAS",
+        "IndexObjet": "finances / comptabilité / compte de fin de gestion",
+        "OrganeCompetent": "trésorier (de l'hôpital)"
+    },
+    {
+        "EntiteFocus": "CPAS / hôpital qui dépend du CPAS",
+        "IndexObjet": "finances / comptabilité / compte de fin de gestion",
+        "OrganeCompetent": "trésorier (de l'hôpital) / directeur financier faisant fonction (CPAS / de l'hôpital) / agent spécial (CPAS / de l'hôpital)"
+    },
+    {
+        "EntiteFocus": "CPAS / hôpital qui dépend du CPAS",
+        "IndexObjet": "finances / comptabilité / compte de fin de gestion",
+        "OrganeCompetent": "conseil de l'action sociale"
+    },
+    {
+        "EntiteFocus": "CPAS / hôpital qui dépend du CPAS",
+        "IndexObjet": "finances / comptabilité / encaisse",
+        "OrganeCompetent": "conseil de l'action sociale"
+    },
+    {
+        "EntiteFocus": "CPAS / hôpital qui dépend du CPAS",
+        "IndexObjet": "finances / comptabilité / encaisse",
+        "OrganeCompetent": "conseil de l'action sociale"
+    },
+    {
+        "EntiteFocus": "CPAS / hôpital qui dépend du CPAS",
+        "IndexObjet": "finances / comptabilité / encaisse",
+        "OrganeCompetent": "directeur financier (CPAS) / receveur régional / conseil de l'action sociale"
+    },
+    {
+        "EntiteFocus": "CPAS / hôpital qui dépend du CPAS",
+        "IndexObjet": "finances / comptabilité / encaisse / vol / perte",
+        "OrganeCompetent": "trésorier (de l'hôpital)"
+    },
+    {
+        "EntiteFocus": "CPAS / hôpital qui dépend du CPAS",
+        "IndexObjet": "finances / comptabilité / encaisse / vol / perte",
+        "OrganeCompetent": "conseil de l'action sociale"
+    },
+    {
+        "EntiteFocus": "CPAS / hôpital qui dépend du CPAS",
+        "IndexObjet": "finances / comptabilité / encaisse / vol / perte",
+        "OrganeCompetent": "trésorier (de l'hôpital)"
+    },
+    {
+        "EntiteFocus": "CPAS / hôpital qui dépend du CPAS",
+        "IndexObjet": "actions judiciaires / justice",
+        "OrganeCompetent": "trésorier (de l'hôpital)"
+    },
+    {
+        "EntiteFocus": "CPAS / hôpital qui dépend du CPAS",
+        "IndexObjet": "gestion / service résidentiel",
+        "OrganeCompetent": "comité de gestion (de l'hôpital)"
+    },
+    {
+        "EntiteFocus": "CPAS / hôpital qui dépend du CPAS",
+        "IndexObjet": "contrat de gestion",
+        "OrganeCompetent": "comité de gestion (de l'hôpital)"
+    },
+    {
+        "EntiteFocus": "CPAS / hôpital qui dépend du CPAS",
+        "IndexObjet": "plan de gestion / budget",
+        "OrganeCompetent": "conseil de l'action sociale"
+    },
+    {
+        "EntiteFocus": "CPAS / hôpital qui dépend du CPAS",
+        "IndexObjet": "plan de gestion / budget",
+        "OrganeCompetent": "conseil communal"
+    },
+    {
+        "EntiteFocus": "CPAS / hôpital qui dépend du CPAS",
+        "IndexObjet": "plan de gestion / budget",
+        "OrganeCompetent": "comité de gestion (de l'hôpital)"
+    },
+    {
+        "EntiteFocus": "CPAS / hôpital qui dépend du CPAS",
+        "IndexObjet": "plan de gestion / budget",
+        "OrganeCompetent": "conseil communal"
+    },
+    {
+        "EntiteFocus": "CPAS / ASBL auxquelles participe le CPAS",
+        "IndexObjet": "informateur institutionnel",
+        "OrganeCompetent": "directeur général (CPAS)"
+    },
+    {
+        "EntiteFocus": "CPAS / association chapitre XII",
+        "IndexObjet": "informateur institutionnel",
+        "OrganeCompetent": "fonction dirigeante locale"
+    },
+    {
+        "EntiteFocus": "CPAS / association chapitre XII",
+        "IndexObjet": "rapport de rémunération",
+        "OrganeCompetent": "principal organe de gestion de l'association"
+    },
+    {
+        "EntiteFocus": "CPAS / association chapitre XII",
+        "IndexObjet": "rapport de rémunération",
+        "OrganeCompetent": "principal organe de gestion de l'association"
+    },
+    {
+        "EntiteFocus": "CPAS / association chapitre XII",
+        "IndexObjet": "rapport de rémunération",
+        "OrganeCompetent": "assemblée générale de l'association"
+    },
+    {
+        "EntiteFocus": "CPAS / association chapitre XII",
+        "IndexObjet": "rapport de rémunération",
+        "OrganeCompetent": "président du conseil de l'action sociale / président / président du conseil d'administration de l'association / président du principal organe de gestion de l'association"
+    },
+    {
+        "EntiteFocus": "CPAS / tout organisme supralocal autre que l'association chapitre XII",
+        "IndexObjet": "rapport de rémunération",
+        "OrganeCompetent": "fonction dirigeante locale / président du principal organe de gestion"
+    },
+    {
+        "EntiteFocus": "CPAS / association chapitre XII / autre organisme supralocal",
+        "IndexObjet": "rapport d'activités",
+        "OrganeCompetent": "conseiller de l'action sociale"
+    },
+    {
+        "EntiteFocus": "CPAS / association chapitre XII / autre organisme supralocal",
+        "IndexObjet": "rapport d'activités",
+        "OrganeCompetent": "conseil de l'action sociale"
+    },
+    {
+        "EntiteFocus": "CPAS / association chapitre XII / autre organisme supralocal",
+        "IndexObjet": "rapport / exercice du droit de consultation / budget / comptes annuels / délibérations",
+        "OrganeCompetent": "conseiller de l'action sociale"
+    },
+    {
+        "EntiteFocus": "CPAS / association chapitre XII / autre organisme supralocal",
+        "IndexObjet": "rapport / exercice du droit de consultation / budget / comptes annuels / délibérations",
+        "OrganeCompetent": "conseil de l'action sociale"
+    },
+    {
+        "EntiteFocus": "commune / province / CPAS / intercommunale / régie communale autonome / régie provinciale autonome / association chapitre XII / société de logement / personne morale ou association de fait associant une ou plusieurs de ces entités",
+        "IndexObjet": "mandat politique dérivé / révocation / suspension / négligence grave / inconduite notoire",
+        "OrganeCompetent": "organe de gestion "
+    },
+    {
+        "EntiteFocus": "CPAS",
+        "IndexObjet": "aide sociale / hypothèque légale",
+        "OrganeCompetent": "directeur financier (CPAS) / receveur régional"
+    },
+    {
+        "EntiteFocus": "CPAS",
+        "IndexObjet": "aide sociale / hypothèque légale",
+        "OrganeCompetent": "conseil de l'action sociale"
+    },
+    {
+        "EntiteFocus": "CPAS / commune",
+        "IndexObjet": "contrôle / surveillance",
+        "OrganeCompetent": "collège communal"
+    },
+    {
+        "EntiteFocus": "CPAS / commune",
+        "IndexObjet": "décisions du centre public d'action sociale",
+        "OrganeCompetent": "collège communal"
+    },
+    {
+        "EntiteFocus": "CPAS / commune",
+        "IndexObjet": "décisions du centre public d'action sociale",
+        "OrganeCompetent": "collège communal"
+    },
+    {
+        "EntiteFocus": "CPAS / commune",
+        "IndexObjet": "budget",
+        "OrganeCompetent": "conseil communal"
+    },
+    {
+        "EntiteFocus": "CPAS / commune",
+        "IndexObjet": "budget",
+        "OrganeCompetent": "président du conseil de l'action sociale"
+    },
+    {
+        "EntiteFocus": "CPAS / commune",
+        "IndexObjet": "modification budgétaire",
+        "OrganeCompetent": "conseil communal"
+    },
+    {
+        "EntiteFocus": "CPAS / commune",
+        "IndexObjet": "modification budgétaire",
+        "OrganeCompetent": "président du conseil de l'action sociale"
+    },
+    {
+        "EntiteFocus": "CPAS / commune",
+        "IndexObjet": "budget / mise en demeure",
+        "OrganeCompetent": "collège communal"
+    },
+    {
+        "EntiteFocus": "CPAS / commune",
+        "IndexObjet": "budget / substitution",
+        "OrganeCompetent": "conseil communal"
+    },
+    {
+        "EntiteFocus": "CPAS / commune",
+        "IndexObjet": "comptes annuels",
+        "OrganeCompetent": "conseil communal"
+    },
+    {
+        "EntiteFocus": "CPAS / commune",
+        "IndexObjet": "comptes annuels",
+        "OrganeCompetent": "conseil communal"
+    },
+    {
+        "EntiteFocus": "CPAS / commune",
+        "IndexObjet": "personnel / statut général du personnel",
+        "OrganeCompetent": "conseil communal"
+    },
+    {
+        "EntiteFocus": "CPAS / commune / intercommunale / association de projet / association chapitre XII / association de droit public / association de droit privé / société de droit public / société de droit privé",
+        "IndexObjet": "actes / prise de participation",
+        "OrganeCompetent": "conseil communal"
+    },
+    {
+        "EntiteFocus": "CPAS",
+        "IndexObjet": "actions judiciaires / justice",
+        "OrganeCompetent": "directeur financier (CPAS)"
+    },
+    {
+        "EntiteFocus": "CPAS",
+        "IndexObjet": "actions judiciaires / justice",
+        "OrganeCompetent": "bureau permanent"
+    },
+    {
+        "EntiteFocus": "CPAS",
+        "IndexObjet": "actions judiciaires / justice",
+        "OrganeCompetent": "conseil de l'action sociale"
+    },
+    {
+        "EntiteFocus": "CPAS",
+        "IndexObjet": "actions judiciaires / justice",
+        "OrganeCompetent": "bureau permanent"
+    },
+    {
+        "EntiteFocus": "CPAS / association chapitre XII",
+        "IndexObjet": "représentation",
+        "OrganeCompetent": "conseil de l'action sociale"
+    },
+    {
+        "EntiteFocus": "commune / association chapitre XII",
+        "IndexObjet": "représentation",
+        "OrganeCompetent": "conseil communal"
+    },
+    {
+        "EntiteFocus": "association chapitre XII",
+        "IndexObjet": "comité d'audit",
+        "OrganeCompetent": "conseil d'administration (l'association chapitre XII)"
+    },
+    {
+        "EntiteFocus": "association chapitre XII",
+        "IndexObjet": "comité d'audit",
+        "OrganeCompetent": "conseil d'administration (l'association chapitre XII)"
+    },
+    {
+        "EntiteFocus": "association chapitre XII",
+        "IndexObjet": "gestion journalière",
+        "OrganeCompetent": "conseil d'administration (l'association chapitre XII)"
+    },
+    {
+        "EntiteFocus": "association chapitre XII",
+        "IndexObjet": "organigramme",
+        "OrganeCompetent": "conseil d'administration (l'association chapitre XII)"
+    },
+    {
+        "EntiteFocus": "association chapitre XII",
+        "IndexObjet": "comité de direction",
+        "OrganeCompetent": "fonction dirigeante locale (l'association chapitre XII)"
+    },
+    {
+        "EntiteFocus": "association chapitre XII",
+        "IndexObjet": "comité de direction",
+        "OrganeCompetent": "fonction dirigeante locale (l'association chapitre XII)"
+    },
+    {
+        "EntiteFocus": "association chapitre XII",
+        "IndexObjet": "comité de direction",
+        "OrganeCompetent": "comité de direction (l'association chapitre XII)"
+    },
+    {
+        "EntiteFocus": "association chapitre XII",
+        "IndexObjet": "personnel / description de fonction",
+        "OrganeCompetent": "fonction dirigeante locale (l'association chapitre XII)"
+    },
+    {
+        "EntiteFocus": "association chapitre XII",
+        "IndexObjet": "personnel / description de fonction",
+        "OrganeCompetent": "comité de direction (l'association chapitre XII)"
+    },
+    {
+        "EntiteFocus": "association chapitre XII",
+        "IndexObjet": "personnel / plan de formation",
+        "OrganeCompetent": "conseil d'administration (l'association chapitre XII)"
+    },
+    {
+        "EntiteFocus": "association chapitre XII",
+        "IndexObjet": "personnel / plan de formation",
+        "OrganeCompetent": "fonction dirigeante locale (l'association chapitre XII)"
+    },
+    {
+        "EntiteFocus": "association chapitre XII",
+        "IndexObjet": "personnel / plan de formation",
+        "OrganeCompetent": "conseil d'administration (l'association chapitre XII)"
+    },
+    {
+        "EntiteFocus": "association chapitre XII",
+        "IndexObjet": "personnel / statut général du personnel",
+        "OrganeCompetent": "conseil d'administration (l'association chapitre XII)"
+    },
+    {
+        "EntiteFocus": "association chapitre XII",
+        "IndexObjet": "personnel",
+        "OrganeCompetent": "conseil d'administration (l'association chapitre XII)"
+    },
+    {
+        "EntiteFocus": "association chapitre XII",
+        "IndexObjet": "personnel statutaire",
+        "OrganeCompetent": "conseil d'administration (l'association chapitre XII)"
+    },
+    {
+        "EntiteFocus": "association chapitre XII",
+        "IndexObjet": "personnel / contractuels",
+        "OrganeCompetent": "conseil d'administration (l'association chapitre XII)"
+    },
+    {
+        "EntiteFocus": "association chapitre XII",
+        "IndexObjet": "personnel / contractuels",
+        "OrganeCompetent": "conseil d'administration (l'association chapitre XII)"
+    },
+    {
+        "EntiteFocus": "association chapitre XII",
+        "IndexObjet": "personnel / commission de sélection",
+        "OrganeCompetent": "fonction dirigeante locale (l'association chapitre XII)"
+    },
+    {
+        "EntiteFocus": "association chapitre XII",
+        "IndexObjet": "personnel / inaptitude professionnelle",
+        "OrganeCompetent": "conseil d'administration (l'association chapitre XII)"
+    },
+    {
+        "EntiteFocus": "association chapitre XII",
+        "IndexObjet": "personnel / inaptitude professionnelle",
+        "OrganeCompetent": "conseil d'administration (l'association chapitre XII)"
+    },
+    {
+        "EntiteFocus": "association chapitre XII",
+        "IndexObjet": "personnel / inaptitude professionnelle",
+        "OrganeCompetent": "conseil d'administration (l'association chapitre XII)"
+    },
+    {
+        "EntiteFocus": "association chapitre XII",
+        "IndexObjet": "personnel / mise à disposition de personnel statutaire",
+        "OrganeCompetent": "conseil d'administration (l'association chapitre XII)"
+    },
+    {
+        "EntiteFocus": "association chapitre XII",
+        "IndexObjet": "personnel / pension / maintien en activité de personnel statutaire",
+        "OrganeCompetent": "conseil d'administration (l'association chapitre XII)"
+    },
+    {
+        "EntiteFocus": "association chapitre XII",
+        "IndexObjet": "compte annuel ",
+        "OrganeCompetent": "conseil d'administration (l'association chapitre XII)"
+    },
+    {
+        "EntiteFocus": "CPAS",
+        "IndexObjet": "référent intégrité",
+        "OrganeCompetent": "conseil de l'action sociale"
+    },
+    {
+        "EntiteFocus": "CPAS",
+        "IndexObjet": "référent intégrité",
+        "OrganeCompetent": "directeur général adjoint / directeur général"
+    },
+    {
+        "EntiteFocus": "CPAS",
+        "IndexObjet": "référent intégrité",
+        "OrganeCompetent": "référent intégrité (CPAS)"
+    },
+    {
+        "EntiteFocus": "CPAS",
+        "IndexObjet": "référent intégrité",
+        "OrganeCompetent": "référent intégrité (CPAS)"
+    },
+    {
+        "EntiteFocus": "CPAS",
+        "IndexObjet": "référent intégrité",
+        "OrganeCompetent": "référent intégrité (CPAS)"
+    },
+    {
+        "EntiteFocus": "CPAS",
+        "IndexObjet": "référent intégrité",
+        "OrganeCompetent": "référent intégrité (CPAS)"
+    },
+    {
+        "EntiteFocus": "CPAS",
+        "IndexObjet": "référent intégrité",
+        "OrganeCompetent": "référent intégrité (CPAS)"
+    },
+    {
+        "EntiteFocus": "CPAS",
+        "IndexObjet": "référent intégrité / directeur général",
+        "OrganeCompetent": "référent intégrité (CPAS)"
+    },
+    {
+        "EntiteFocus": "CPAS",
+        "IndexObjet": "référent intégrité / directeur général",
+        "OrganeCompetent": "conseil de l'action sociale"
+    },
+    {
+        "EntiteFocus": "CPAS",
+        "IndexObjet": "référent intégrité",
+        "OrganeCompetent": "référent intégrité (CPAS)"
+    },
+    {
+        "EntiteFocus": "CPAS",
+        "IndexObjet": "référent intégrité",
+        "OrganeCompetent": "référent intégrité (CPAS)"
+    },
+    {
+        "EntiteFocus": "CPAS",
+        "IndexObjet": "référent intégrité",
+        "OrganeCompetent": "référent intégrité (CPAS)"
+    },
+    {
+        "EntiteFocus": "association chapitre XII",
+        "IndexObjet": "référent intégrité",
+        "OrganeCompetent": "conseil d'administration (l'association chapitre XII)"
+    },
+    {
+        "EntiteFocus": "association chapitre XII",
+        "IndexObjet": "référent intégrité",
+        "OrganeCompetent": "fonction dirigeante locale (association chapitre XII)"
+    },
+    {
+        "EntiteFocus": "association chapitre XII",
+        "IndexObjet": "référent intégrité",
+        "OrganeCompetent": "référent intégrité (association chapitre XII)"
+    },
+    {
+        "EntiteFocus": "association chapitre XII",
+        "IndexObjet": "référent intégrité",
+        "OrganeCompetent": "référent intégrité (association chapitre XII)"
+    },
+    {
+        "EntiteFocus": "association chapitre XII",
+        "IndexObjet": "référent intégrité",
+        "OrganeCompetent": "référent intégrité (association chapitre XII)"
+    },
+    {
+        "EntiteFocus": "association chapitre XII",
+        "IndexObjet": "référent intégrité",
+        "OrganeCompetent": "référent intégrité (association chapitre XII)"
+    },
+    {
+        "EntiteFocus": "association chapitre XII",
+        "IndexObjet": "référent intégrité",
+        "OrganeCompetent": "référent intégrité (association chapitre XII)"
+    },
+    {
+        "EntiteFocus": "association chapitre XII",
+        "IndexObjet": "référent intégrité / fonction dirigeante locale",
+        "OrganeCompetent": "référent intégrité (association chapitre XII)"
+    },
+    {
+        "EntiteFocus": "association chapitre XII",
+        "IndexObjet": "référent intégrité / fonction dirigeante locale",
+        "OrganeCompetent": "conseil d'administration (l'association chapitre XII)"
+    },
+    {
+        "EntiteFocus": "association chapitre XII",
+        "IndexObjet": "référent intégrité",
+        "OrganeCompetent": "référent intégrité (association chapitre XII)"
+    },
+    {
+        "EntiteFocus": "association chapitre XII",
+        "IndexObjet": "référent intégrité",
+        "OrganeCompetent": "référent intégrité (association chapitre XII)"
+    },
+    {
+        "EntiteFocus": "association chapitre XII",
+        "IndexObjet": "référent intégrité",
+        "OrganeCompetent": "référent intégrité (association chapitre XII)"
+    },
+    {
+        "EntiteFocus": "commune",
+        "IndexObjet": "règlements / ordonnances de police",
+        "OrganeCompetent": "conseil communal"
+    },
+    {
+        "EntiteFocus": "commune",
+        "IndexObjet": "sanctions administratives communales",
+        "OrganeCompetent": "conseil communal"
+    },
+    {
+        "EntiteFocus": "commune",
+        "IndexObjet": "ordonnance de police communale / criminalité déstabilisante",
+        "OrganeCompetent": "conseil communal"
+    },
+    {
+        "EntiteFocus": "commune",
+        "IndexObjet": "enquête d'intégrité / criminalité déstabilisante",
+        "OrganeCompetent": "bourgmestre"
+    },
+    {
+        "EntiteFocus": "commune",
+        "IndexObjet": "enquête d'intégrité / criminalité déstabilisante / concertation",
+        "OrganeCompetent": "bourgmestre"
+    },
+    {
+        "EntiteFocus": "commune",
+        "IndexObjet": "enquête d'intégrité / criminalité déstabilisante / permis",
+        "OrganeCompetent": "collège communal"
+    },
+    {
+        "EntiteFocus": "commune",
+        "IndexObjet": "enquête d'intégrité / criminalité déstabilisante / permis",
+        "OrganeCompetent": "bourgmestre"
+    },
+    {
+        "EntiteFocus": "commune",
+        "IndexObjet": "enquête d'intégrité / criminalité déstabilisante / permis",
+        "OrganeCompetent": "collège communal"
+    },
+    {
+        "EntiteFocus": "commune",
+        "IndexObjet": "enquête d'intégrité / criminalité déstabilisante / fermeture",
+        "OrganeCompetent": "collège communal"
+    },
+    {
+        "EntiteFocus": "commune",
+        "IndexObjet": "enquête d'intégrité / criminalité déstabilisante / fermeture",
+        "OrganeCompetent": "bourgmestre"
+    },
+    {
+        "EntiteFocus": "commune",
+        "IndexObjet": "enquête d'intégrité / criminalité déstabilisante / protocole d'accord",
+        "OrganeCompetent": "collège communal"
+    },
+    {
+        "EntiteFocus": "commune",
+        "IndexObjet": "enquête d'intégrité / criminalité déstabilisante / protocole d'accord",
+        "OrganeCompetent": "conseil communal"
+    },
+    {
+        "EntiteFocus": "commune",
+        "IndexObjet": "règlements / prostitution",
+        "OrganeCompetent": "conseil communal"
+    },
+    {
+        "EntiteFocus": "commune",
+        "IndexObjet": "ordre public / insensés et furieux laissés en liberté",
+        "OrganeCompetent": "collège communal"
+    },
+    {
+        "EntiteFocus": "commune",
+        "IndexObjet": "ordre public / police des spectacles / règlements",
+        "OrganeCompetent": "collège communal"
+    },
+    {
+        "EntiteFocus": "commune",
+        "IndexObjet": "ordre public / police des spectacles / règlements",
+        "OrganeCompetent": "collège communal"
+    },
+    {
+        "EntiteFocus": "commune",
+        "IndexObjet": "ordre public / police des spectacles / règlements",
+        "OrganeCompetent": "collège communal"
+    },
+    {
+        "EntiteFocus": "commune",
+        "IndexObjet": "ordonnance de police communale / circulation routière",
+        "OrganeCompetent": "collège communal"
+    },
+    {
+        "EntiteFocus": "commune",
+        "IndexObjet": "police administrative / approche administrative communale",
+        "OrganeCompetent": "bourgmestre"
+    },
+    {
+        "EntiteFocus": "commune",
+        "IndexObjet": "police administrative / approche administrative communale",
+        "OrganeCompetent": "bourgmestre"
+    },
+    {
+        "EntiteFocus": "commune",
+        "IndexObjet": "police administrative / sécurité civile",
+        "OrganeCompetent": "bourgmestre"
+    },
+    {
+        "EntiteFocus": "commune",
+        "IndexObjet": "police administrative / fermeture",
+        "OrganeCompetent": "bourgmestre"
+    },
+    {
+        "EntiteFocus": "commune",
+        "IndexObjet": "police administrative / astreinte",
+        "OrganeCompetent": "bourgmestre"
+    },
+    {
+        "EntiteFocus": "commune",
+        "IndexObjet": "ordonnance de police ",
+        "OrganeCompetent": "bourgmestre"
+    },
+    {
+        "EntiteFocus": "commune",
+        "IndexObjet": "fermeture / suspension / établissement / permission",
+        "OrganeCompetent": "bourgmestre"
+    },
+    {
+        "EntiteFocus": "commune",
+        "IndexObjet": "fermeture / suspension / établissement / permission",
+        "OrganeCompetent": "collège communal"
+    },
+    {
+        "EntiteFocus": "commune",
+        "IndexObjet": "ordre public / fermeture / établissement accessible au pubic",
+        "OrganeCompetent": "bourgmestre"
+    },
+    {
+        "EntiteFocus": "commune",
+        "IndexObjet": "ordre public / fermeture / établissement accessible au pubic",
+        "OrganeCompetent": "collège communal"
+    },
+    {
+        "EntiteFocus": "commune",
+        "IndexObjet": "traite des êtres humains / trafic des êtres humains / fermeture",
+        "OrganeCompetent": "bourgmestre"
+    },
+    {
+        "EntiteFocus": "commune",
+        "IndexObjet": "traite des êtres humains / trafic des êtres humains / fermeture",
+        "OrganeCompetent": "collège communal"
+    },
+    {
+        "EntiteFocus": "commune",
+        "IndexObjet": "ordre public / interdiction de lieu",
+        "OrganeCompetent": "bourgmestre"
+    },
+    {
+        "EntiteFocus": "commune",
+        "IndexObjet": "ordre public / interdiction de lieu",
+        "OrganeCompetent": "collège communal"
+    },
+    {
+        "EntiteFocus": "commune",
+        "IndexObjet": "infractions terroristes / fermeture",
+        "OrganeCompetent": "bourgmestre"
+    },
+    {
+        "EntiteFocus": "commune",
+        "IndexObjet": "infractions terroristes / fermeture",
+        "OrganeCompetent": "collège communal"
+    },
+    {
+        "EntiteFocus": "commune",
+        "IndexObjet": "personnel / mise à disposition / contractuels",
+        "OrganeCompetent": "conseil communal"
+    },
+    {
+        "EntiteFocus": "commune",
+        "IndexObjet": "personnel enseignant",
+        "OrganeCompetent": "conseil communal"
+    },
+    {
+        "EntiteFocus": "commune",
+        "IndexObjet": "personnel enseignant",
+        "OrganeCompetent": "conseil communal"
     }
 ]
