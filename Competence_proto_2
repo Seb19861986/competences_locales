@@ -730,83 +730,21 @@
 
     <script>
         // Données JSON intégrées directement
-        const data = [
-{
-        "N°": 6,
-        "Competence": "Notification au conseil communal et à l'intéressé de l'impossibilité pour un élu de prêter serment au cas où il ne remplit plus les conditions d'éligibilité au jour de son installation",
-        "BaseLegale": "art. L1122-5, §1er, al. 2 CDLD",
-        "EntiteFocus": [
-            "commune"
-        ],
-        "IndexObjet": [
-            "élections ",
-            " éligibilité"
-        ],
-        "OrganeCompetent": [
-            "collège communal"
-        ],
-        "Commentaire": null,
-        "Delegation": null,
-        "BaseDelegation": null,
-        "LienConnect": "https://myportal.vandenbroeleconnect.be/contenu/livres/detail/73184593456836264/le-vade-mecum-de-la-commune-au-travers-du-cdld#73186792480091835"
-    },
-    {
-        "N°": 7,
-        "Competence": "Prise d'acte de la non-éligibilité d'un élu au jour de son installation et remplacement du membre concerné",
-        "BaseLegale": "art. L1122-5, §1er, al. 2 CDLD",
-        "EntiteFocus": [
-            "commune"
-        ],
-        "IndexObjet": [
-            "élections ",
-            " éligibilité"
-        ],
-        "OrganeCompetent": [
-            "conseil communal"
-        ],
-        "Commentaire": null,
-        "Delegation": null,
-        "BaseDelegation": null,
-        "LienConnect": "https://myportal.vandenbroeleconnect.be/contenu/livres/detail/73184593456836264/le-vade-mecum-de-la-commune-au-travers-du-cdld#73186792480091836"
-    },
-    {
-        "N°": 8,
-        "Competence": "Notification au conseil communal et à l'intéressé de l'impossibilité pour un élu de continuer ses fonctions au cas où il ne remplit plus les conditions d'éligibilité",
-        "BaseLegale": "art. L1122-5, §2, al. 2 CDLD",
-        "EntiteFocus": [
-            "commune"
-        ],
-        "IndexObjet": [
-            "élections ",
-            " éligibilité"
-        ],
-        "OrganeCompetent": [
-            "collège communal"
-        ],
-        "Commentaire": null,
-        "Delegation": null,
-        "BaseDelegation": null,
-        "LienConnect": "https://myportal.vandenbroeleconnect.be/contenu/livres/detail/73184593456836264/le-vade-mecum-de-la-commune-au-travers-du-cdld#73186792480091839"
-    },
-    {
-        "N°": 9,
-        "Competence": "Prise d'acte du fait qu'un élu en fonction ne remplit plus les conditions d'éligibilité, constat de la déchéance de plein droit et remplacement du membre concerné",
-        "BaseLegale": "art. L1122-5, §2, al. 2 CDLD",
-        "EntiteFocus": [
-            "commune"
-        ],
-        "IndexObjet": [
-            "élections ",
-            " éligibilité"
-        ],
-        "OrganeCompetent": [
-            "conseil communal"
-        ],
-        "Commentaire": null,
-        "Delegation": null,
-        "BaseDelegation": null,
-            }
-        ];
+               let data = []; // Variable globale pour stocker les données
+
+        // Charger les données depuis le fichier JSON
+        fetch('data.json')
+            .then(response => response.json())
+            .then(jsonData => {
+                data = jsonData; // Stocker les données dans la variable globale
+                displayResults(data); // Afficher les données initialement
+            })
+            .catch(error => {
+                console.error("Erreur lors du chargement des données :", error);
+            });
+
+        let currentPage = 1;
+        const itemsPerPage = 25;
  let selectedFilters = {}; // Stocke les filtres appliqués de manière globale
 function toggleDropdown(button) {
     const filterGroup = button.parentElement;
