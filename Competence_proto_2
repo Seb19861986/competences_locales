@@ -1,0 +1,1071 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Recherche des compétences</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.4.0/jspdf.umd.min.js"></script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background: url('https://raw.githubusercontent.com/Seb19861986/competences_locales/main/dgconnect-seo.png') no-repeat center center fixed;
+            background-size: cover;
+            background-color: rgba(255, 255, 255, 0.4);
+            background-blend-mode: lighten;
+        }
+        .header-content {
+            background-color: white;
+            border-radius: 10px;
+            padding: 20px;
+            margin: 100px auto;
+            max-width: 60%;
+            text-align: center;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        .header-content h1 {
+            margin: 0 0 10px 0;
+            font-size: 24px;
+            color: #C7352C;
+        }
+        .header-content p {
+            margin: 0;
+            font-size: 16px;
+            color: #333;
+            font-style: italic;
+            font-weight: bold;
+        }
+    .search-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto;
+            max-width: 800px;
+    }
+        .search-simple input {
+            width: 50px;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+        .search-advanced {
+            margin-top: 10px;
+            display: none;
+        }
+        .form-group {
+            margin-bottom: 15px;
+        }
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+        .form-group .dropdown {
+            position: relative;
+            display: inline-block;
+            width: 100%;
+        }
+        .form-group .dropdown button {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            background-color: white;
+            cursor: pointer;
+            text-align: left;
+        }
+        .form-group .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: white;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            width: 100%;
+            z-index: 1;
+            max-height: 150px;
+            overflow-y: auto;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        .main-container {
+    display: flex;
+    flex-direction: row;
+    margin: 20px auto;
+    max-width: 1200px;
+}
+
+.filter-column {
+    width: 25%;
+    background-color: #f9f9f9;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    padding: 15px;
+    margin-right: 20px;
+    margin-top: 20px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.filter-column h3 {
+    font-size: 18px;
+    margin-bottom: 15px;
+    color: #C7352C;
+}
+
+.filter-group {
+    margin-bottom: 15px;
+}
+
+.filter-button {
+    width: 100%;
+    padding: 10px;
+    background-color: #C7352C;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 14px;
+    cursor: pointer;
+    text-align: left;
+    position: relative;
+}
+ /* Bouton "Appliquer les filtres" */
+.apply-filters-button {
+    background-color: #4CAF50; /* Vert */
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    font-size: 14px;
+    cursor: pointer;
+    text-align: center;
+    transition: background-color 0.3s ease;
+}
+.apply-filters-button:hover {
+    background-color: #45a049; /* Vert plus foncé au survol */
+}
+
+/* Bouton "Réinitialiser les filtres" */
+.reset-filters-button {
+    background-color: #f44336; /* Rouge */
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    font-size: 14px;
+    cursor: pointer;
+    text-align: center;
+    transition: background-color 0.3s ease;
+}
+/* Ajout d'une ombre */
+.apply-filters-button,
+.reset-filters-button {
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Réduction de l'ombre au clic */
+.apply-filters-button:active,
+.reset-filters-button:active {
+    box-shadow: 0 2px 3px rgba(0, 0, 0, 0.2);
+    transform: translateY(2px); /* Animation de clic */
+}
+
+.reset-filters-button:hover {
+    background-color: #d32f2f; /* Rouge plus foncé au survol */
+}
+.filter-button:hover {
+    background-color: #a82a24;
+}
+
+.dropdown-content {
+    display: none;
+    margin-top: 5px;
+    background-color: white;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    padding: 10px;
+    max-height: 200px;
+    overflow-y: auto;
+    z-index: 10;
+    position: relative;
+}
+
+.filter-group .dropdown-content {
+    display: none; /* Masque les options par défaut */
+}
+
+.filter-group.active .dropdown-content {
+    display: block; /* Affiche les options quand la classe "active" est ajoutée */
+}
+
+.dropdown-content label {
+    display: flex;
+    align-items: center;
+    margin: 5px 0;
+}
+
+
+        .form-group .dropdown-content label {
+            display: block;
+            padding: 10px;
+            cursor: pointer;
+        }
+        .form-group .dropdown-content label:hover {
+            background-color: #f0f0f0;
+        }
+        .form-group .dropdown:hover .dropdown-content {
+            display: block;
+        }
+        select, input[type="text"], button {
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 20px;
+            font-size: 16px;
+            width: 100%;
+            margin-bottom: 10px;
+        }
+        .filter-box {
+            background-color: white;
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            padding: 20px;
+            margin: 20px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            flex: 1;
+            max-height: fit-content;
+        }
+        .filter-box h3 {
+            font-size: 18px;
+            color: #C7352C;
+        }
+        .dropdown {
+            position: relative;
+            margin-bottom: 15px;
+        }
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: #fff;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            width: 200px;
+            max-height: 150px;
+            overflow-y: auto;
+            z-index: 1;
+            padding: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: max-height 0.3s ease, padding 0.3s ease;
+        }
+        .dropdown:focus-within .dropdown-content {
+            display: block;
+            max-height: 150px;
+            padding: 10px;
+        }
+        button {
+            font-size: 16px; /* Taille du texte */
+            padding: 5px 10px; /* Espacement interne */
+            border-radius: 5px; /* Coins arrondis */
+            background-color: #C7352C; /* Couleur de fond */
+            width: auto; /* Ajuste la largeur en fonction du contenu */
+            max-width: 200px; /* Limite la largeur maximale si nécessaire */
+            margin: 0 auto; /* Centre le bouton horizontalement si besoin */
+            color: #fff; /* Couleur du texte */
+            border: none; /* Supprime les bordures */
+            cursor: pointer; /* Change le curseur au survol */
+}
+        button:hover {
+            background-color: #a82a24;
+        }
+        .apply-filters {
+           background-color: #163E67;
+            color: #fff;
+            font-size: 14px;
+            margin-top: 10px;
+            padding: 5px 15px;
+            border-radius: 10px;
+        }
+        .reset-filters {
+            background-color: #163E67;
+            color: #fff;
+            font-size: 14px;
+            margin-top: 10px;
+            padding: 5px 15px;
+            border-radius: 10px;
+        }
+.applied-filters {
+    margin-bottom: 15px; /* Espace entre les filtres appliqués et les résultats */
+    font-size: 14px; /* Taille du texte */
+    color: #333;
+    background-color: #f9f9f9;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+.applied-filters span {
+    background-color: #163E67; /* Couleur bleu foncé */
+    color: #fff;
+    padding: 5px 10px;
+    border-radius: 15px;
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    margin-right: 5px;
+}
+.applied-filters span button {
+    background: transparent;
+    border: none;
+    color: #fff;
+    font-size: 12px;
+    cursor: pointer;
+}
+
+        .result-card {
+            margin-bottom: 20px;
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            padding: 20px;
+            background-color: #f9f9f9;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        .result-card h3 {
+            color: #163E67;
+        }
+        .flex-row {
+            display: flex;
+            flex-direction: row;
+            gap: 20px;
+        }
+        .toggle-advanced {
+            margin-top: 10px;
+            cursor: pointer;
+            text-align: left;
+            color: #C7352C;
+            font-weight: bold;
+        }
+            .dropdown-content label {
+        display: flex; /* Aligner les cases et le texte sur une seule ligne */
+        align-items: center; /* Centrer verticalement */
+        margin: 0; /* Supprimer les marges */
+        padding: 2px 5px; /* Réduire l'espacement interne */
+        line-height: 1.2; /* Réduire l'interligne */
+    }
+    .dropdown-content input[type="checkbox"] {
+        margin-right: 5px; /* Ajouter un petit espacement à droite de la case à cocher */
+    }
+    .dropdown-search {
+        margin-bottom: 10px;
+
+    }
+    .dropdown-search input {
+        width: 100%;
+        padding: 5px;
+        margin-bottom: 5px;
+        border: 1px solid #ddd;
+        border-radius: 5px;
+    }
+        /* Style spécifique pour la box de recherche simple */
+    .search-simple {
+    width: 50%; /* Ajuste la largeur à 50% */
+    margin: 0 auto; /* Centre le bloc horizontalement */
+    background-color: #f9f9f9;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    padding: 20px;
+    margin-bottom: 20px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    text-align: center; /* Centre le texte à l'intérieur */
+}
+
+    .search-simple h2 {
+            font-size: 18px;
+            color: #C7352C;
+            margin-bottom: 15px;
+    }
+
+    .search-simple input[type="text"] {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 14px;
+            margin-bottom: 10px;
+    }
+
+    .search-simple button {
+            background-color: #C7352C;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            padding: 10px 20px;
+            font-size: 14px;
+            cursor: pointer;
+    }
+
+    .search-simple button:hover {
+            background-color: #a82a24;
+    }
+
+    .search-simple .toggle-advanced {
+            background-color: #C7352C;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            padding: 10px 20px;
+            display: inline-block;
+            font-size: 14px;
+            cursor: pointer;
+            text-decoration: underline;
+            margin-top: 10px;
+    }
+
+    .search-simple .toggle-advanced:hover {
+            color: #0056b3;
+    }
+        .search-advanced {
+            background-color: #f9f9f9;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            padding: 20px;
+            margin-bottom: 20px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+
+    .search-advanced h2 {
+            font-size: 18px;
+            color: #C7352C;
+            margin-bottom: 15px;
+    }
+
+    .search-advanced .form-group {
+            margin-bottom: 15px;
+    }
+
+    .search-advanced .form-group label {
+            font-size: 14px;
+            font-weight: bold;
+            display: block;
+            margin-bottom: 5px;
+    }
+
+    .search-advanced .dropdown {
+            position: relative;
+    }
+
+    .search-advanced .dropdown button {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            background-color: #fff;
+            text-align: left;
+            cursor: pointer;
+    }
+
+    .search-advanced .dropdown-content {
+            position: absolute;
+            background-color: #fff;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            max-height: 200px;
+            overflow-y: auto;
+            width: 100%;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            display: none;
+            z-index: 10;
+    }
+
+    .search-advanced .dropdown-content .dropdown-search input {
+            width: calc(100% - 10px);
+            margin: 5px;
+            padding: 5px;
+            border: 1px solid #ccc;
+            border-radius: 3px;
+    }
+
+    .search-advanced .dropdown-content label {
+            display: flex;
+            align-items: center;
+            margin: 0;
+            padding: 5px;
+            line-height: 1.2;
+    }
+
+    .search-advanced .dropdown-content input[type="checkbox"] {
+            margin-right: 5px;
+    }
+
+    .search-advanced button {
+            background-color: #C7352C;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            padding: 10px 20px;
+            font-size: 14px;
+            cursor: pointer;
+    }
+
+    .search-advanced button:hover {
+            background-color: #a82a24;
+    }
+    /* Style spécifique pour les blocs de résultats */
+    .results {
+            display: none;
+            flex: 2;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            margin: 20px auto;
+            max-width: 800px;
+            background-color: white;
+            border-radius: 5px;
+            margin-right: 20px;
+            padding: 20px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+
+    .result-item {
+            width: 97%;
+            background-color: #f9f9f9;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            padding: 15px;
+            margin-bottom: 10px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            font-size: 14px; /* Réduction de la taille de police */
+            color: #333;
+    }
+
+    .result-item h3 {
+            font-size: 16px;
+            margin-bottom: 10px;
+    }
+
+    .result-item .competence {
+            color: #163E67; /* Bleu */
+    }
+
+    .result-item .base-legale {
+            color: #C7352C; /* Rouge */
+            text-decoration: none;
+    }
+    .result-item .organe-competent {
+            background-color: #0056b363; /* Couleur de surlignage */
+            padding: 2px 4px;
+            border-radius: 3px;
+    }
+
+    .result-item .base-legale:hover {
+            text-decoration: underline;
+    }
+
+    .result-item p {
+            margin: 5px 0;
+            line-height: 1.4;
+    }
+
+    .filters {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            margin: 20px auto;
+            max-width: 800px;
+            background-color: #f9f9f9;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            padding: 20px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+    .filters h3 {
+            font-size: 16px;
+            margin-bottom: 15px;
+            color: #C7352C;
+    }
+    #filter-column {
+    display: none; /* Masque les filtres au chargement de la page */
+}
+    </style>
+</head>
+<body>
+    <div class="header-content">
+        <h1>Recherche des compétences et responsabilités</h1>
+        <p>Utilisez les options de recherche pour affiner vos résultats.</p>
+    </div>
+
+    <div class="search-simple">
+    <h2>Recherche Simple</h2>
+    <input type="text" id="simple-search" placeholder="Rechercher par mots-clés (Compétence, Base Légale, Entité Focus)">
+    <button onclick="executeSimpleSearch()">Rechercher</button>
+    <div class="toggle-advanced" onclick="toggleAdvancedSearch()">Recherche Avancée ▼</div>
+</div>
+
+<div class="search-advanced">
+    <h2>Recherche par critères</h2>
+
+    <div class="form-group">
+        <label>Entité</label>
+        <div class="dropdown">
+            <button>Choisissez...</button>
+            <div class="dropdown-content">
+                <div class="dropdown-search">
+                    <input type="text" placeholder="Rechercher..." onkeyup="filterDropdown(this)">
+                </div>
+                <label><input type="checkbox" value="ASBL communale"> Commune</label>
+                <label><input type="checkbox" value="Association de droit privé"> Province</label>
+                <label><input type="checkbox" value="association de droit public"> Région</label>
+                <label><input type="checkbox" value="Association de projet"> Association de projet</label>
+                <label><input type="checkbox" value="Autre organisme supralocal"> Autre organisme supralocal</label>
+                <label><input type="checkbox" value="Commune"> Commune</label>
+                <label><input type="checkbox" value="cultes reconnus"> Cultes reconnus</label>
+                <label><input type="checkbox" value="Hôpital qui dépend du CPAS"> Hôpital (attaché au CPAS)</label>
+                <label><input type="checkbox" value="intercommunale"> Intercommunale</label>
+                <label><input type="checkbox" value="personne morale ou association de fait associant une ou plusieurs de ces entités"> Personne morale ou association de fait associant une ou plusieurs de ces entités</label>
+                <label><input type="checkbox" value="province"> Province</label>
+                <label><input type="checkbox" value="régie communale autonome"> Régie communale autonome</label>
+                <label><input type="checkbox" value="régie provinciale autonome"> Régie provinciale autonome</label>
+                <label><input type="checkbox" value="société de droit privé"> Société de droit privé</label>
+                <label><input type="checkbox" value="société de droit public"> Société de droit public</label>
+                <label><input type="checkbox" value="société de logement"> Société de logement</label>
+                <label><input type="checkbox" value="société de logement de service public"> Société de logement de service public</label>
+                <label><input type="checkbox" value="société à participation publique locale significative"> Société à participation publique locale significative</label>
+                <label><input type="checkbox" value="tout organisme supralocal autre que l'association chapitre XII"> Tout organisme supralocal autre que l'association chapitre XII</label>
+            </div>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label>Organe Compétent</label>
+        <div class="dropdown">
+            <button>Choisissez...</button>
+            <div class="dropdown-content">
+                <div class="dropdown-search">
+                    <input type="text" placeholder="Rechercher..." onkeyup="filterDropdown(this)">
+                </div>
+                <label><input type="checkbox" value="Assemblée des électeurs de la commune"> Assemblée des électeurs de la commune</label>
+                <label><input type="checkbox" value="Bourgmestre"> Bourgmestre</label>
+                <label><input type="checkbox" value="Bourgmestre / Directeur général"> Bourgmestre / Directeur général</label>
+                <label><input type="checkbox" value="Bourgmestre (ou son remplaçant)"> Bourgmestre (ou son remplaçant)</label>
+                <label><input type="checkbox" value="Bureau exécutif (régie communale autonome)"> Bureau exécutif (régie communale autonome)</label>
+                <label><input type="checkbox" value="Comité de concertation"> Comité de concertation</label>
+                <label><input type="checkbox" value="Comité de direction"> Comité de direction</label>
+                <label><input type="checkbox" value="Comité de direction (association de projet)"> Comité de direction (association de projet)</label>
+                <label><input type="checkbox" value="Comité de direction (CPAS)"> Comité de direction (CPAS)</label>
+                <label><input type="checkbox" value="Comité de gestion (de l'hôpital)"> Comité de gestion (de l'hôpital)</label>
+                <label><input type="checkbox" value="Comité de rémunération (de l'intercommunale)"> Comité de rémunération (de l'intercommunale)</label>
+                <label><input type="checkbox" value="Collège communal"> Collège communal</label>
+                <label><input type="checkbox" value="Collège communal / Conseil communal"> Collège communal / Conseil communal</label>
+                <label><input type="checkbox" value="Collège provincial"> Collège provincial</label>
+                <label><input type="checkbox" value="Conseil communal"> Conseil communal</label>
+                <label><input type="checkbox" value="Conseil communal / Conseil de l'action sociale"> Conseil communal / Conseil de l'action sociale</label>
+                <label><input type="checkbox" value="Conseil communal / Conseil provincial"> Conseil communal / Conseil provincial</label>
+                <label><input type="checkbox" value="Conseil d'administration (de l'intercommunale)"> Conseil d'administration (de l'intercommunale)</label>
+                <label><input type="checkbox" value="Conseil d'administration (régie communale autonome)"> Conseil d'administration (régie communale autonome)</label>
+                <label><input type="checkbox" value="Directeur financier"> Directeur financier</label>
+                <label><input type="checkbox" value="Directeur financier (CPAS)"> Directeur financier (CPAS)</label>
+                <label><input type="checkbox" value="Directeur général"> Directeur général</label>
+                <label><input type="checkbox" value="Directeur général (CPAS)"> Directeur général (CPAS)</label>
+                <label><input type="checkbox" value="Fonction dirigeante locale"> Fonction dirigeante locale</label>
+                <label><input type="checkbox" value="Fonctionnaire de police"> Fonctionnaire de police</label>
+                <label><input type="checkbox" value="Gouverneur"> Gouverneur</label>
+                <label><input type="checkbox" value="Président du conseil communal"> Président du conseil communal</label>
+                <label><input type="checkbox" value="Président du conseil de l'action sociale"> Président du conseil de l'action sociale</label>
+                <label><input type="checkbox" value="Référent intégrité"> Référent intégrité</label>
+            </div>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label>Index Objet</label>
+        <div class="dropdown">
+            <button>Choisissez...</button>
+            <div class="dropdown-content">
+                <div class="dropdown-search">
+                    <input type="text" placeholder="Rechercher..." onkeyup="filterDropdown(this)">
+                </div>
+                <label><input type="checkbox" value="élections"> Élections</label>
+                <label><input type="checkbox" value="budget"> Budget</label>
+            </div>
+        </div>
+    </div>
+
+    <button onclick="executeAdvancedSearch()">Rechercher</button>
+</div>
+<div id="applied-filters" class="applied-filters" style="display:none;"></div>
+<div class="main-container">
+<div id="filter-column" class="filter-column">
+        <h3>Filtres</h3>
+        <div class="filter-group">
+            <button class="filter-button" onclick="toggleDropdown(this)">Base Légale</button>
+            <div class="dropdown-content">
+                <label><input type="checkbox" class="filter" data-field="BaseLegale" value="CDLD"> CDLD</label>
+                <label><input type="checkbox" class="filter" data-field="BaseLegale" value="Loi organique"> Loi organique</label>
+                <label><input type="checkbox" class="filter" data-field="BaseLegale" value="Nouvelle Loi communale"> Nouvelle Loi communale</label>
+            </div>
+        </div>
+        <div class="filter-group">
+            <button class="filter-button" onclick="toggleDropdown(this)">Index</button>
+            <div class="dropdown-content">
+                <label><input type="checkbox" class="filter" data-field="IndexObjet" value="élections"> Élections</label>
+                <label><input type="checkbox" class="filter" data-field="IndexObjet" value="budget"> Budget</label>
+            </div>
+        </div>
+        <div class="filter-group">
+            <button class="filter-button" onclick="toggleDropdown(this)">Organe compétent</button>
+            <div class="dropdown-content">
+                <label><input type="checkbox" class="filter" data-field="OrganeCompetent" value="collège communal"> Collège communal</label>
+                <label><input type="checkbox" class="filter" data-field="OrganeCompetent" value="conseil communal"> Conseil communal</label>
+            </div>
+        </div>
+        <button class="apply-filters-button" onclick="applyFilters()">Appliquer les filtres</button>
+        <button class="reset-filters-button" onclick="resetFilters()">Réinitialiser les filtres</button>
+    </div>
+<div id="results" class="results" style="display:none;"></div>
+    <div id="results" class="results"></div>
+</div>
+
+
+    <script>
+        // Données JSON intégrées directement
+        const data = [
+{
+        "N°": 6,
+        "Competence": "Notification au conseil communal et à l'intéressé de l'impossibilité pour un élu de prêter serment au cas où il ne remplit plus les conditions d'éligibilité au jour de son installation",
+        "BaseLegale": "art. L1122-5, §1er, al. 2 CDLD",
+        "EntiteFocus": [
+            "commune"
+        ],
+        "IndexObjet": [
+            "élections ",
+            " éligibilité"
+        ],
+        "OrganeCompetent": [
+            "collège communal"
+        ],
+        "Commentaire": null,
+        "Delegation": null,
+        "BaseDelegation": null,
+        "LienConnect": "https://myportal.vandenbroeleconnect.be/contenu/livres/detail/73184593456836264/le-vade-mecum-de-la-commune-au-travers-du-cdld#73186792480091835"
+    },
+    {
+        "N°": 7,
+        "Competence": "Prise d'acte de la non-éligibilité d'un élu au jour de son installation et remplacement du membre concerné",
+        "BaseLegale": "art. L1122-5, §1er, al. 2 CDLD",
+        "EntiteFocus": [
+            "commune"
+        ],
+        "IndexObjet": [
+            "élections ",
+            " éligibilité"
+        ],
+        "OrganeCompetent": [
+            "conseil communal"
+        ],
+        "Commentaire": null,
+        "Delegation": null,
+        "BaseDelegation": null,
+        "LienConnect": "https://myportal.vandenbroeleconnect.be/contenu/livres/detail/73184593456836264/le-vade-mecum-de-la-commune-au-travers-du-cdld#73186792480091836"
+    },
+    {
+        "N°": 8,
+        "Competence": "Notification au conseil communal et à l'intéressé de l'impossibilité pour un élu de continuer ses fonctions au cas où il ne remplit plus les conditions d'éligibilité",
+        "BaseLegale": "art. L1122-5, §2, al. 2 CDLD",
+        "EntiteFocus": [
+            "commune"
+        ],
+        "IndexObjet": [
+            "élections ",
+            " éligibilité"
+        ],
+        "OrganeCompetent": [
+            "collège communal"
+        ],
+        "Commentaire": null,
+        "Delegation": null,
+        "BaseDelegation": null,
+        "LienConnect": "https://myportal.vandenbroeleconnect.be/contenu/livres/detail/73184593456836264/le-vade-mecum-de-la-commune-au-travers-du-cdld#73186792480091839"
+    },
+    {
+        "N°": 9,
+        "Competence": "Prise d'acte du fait qu'un élu en fonction ne remplit plus les conditions d'éligibilité, constat de la déchéance de plein droit et remplacement du membre concerné",
+        "BaseLegale": "art. L1122-5, §2, al. 2 CDLD",
+        "EntiteFocus": [
+            "commune"
+        ],
+        "IndexObjet": [
+            "élections ",
+            " éligibilité"
+        ],
+        "OrganeCompetent": [
+            "conseil communal"
+        ],
+        "Commentaire": null,
+        "Delegation": null,
+        "BaseDelegation": null,
+            }
+        ];
+ let selectedFilters = {}; // Stocke les filtres appliqués de manière globale
+function toggleDropdown(button) {
+    const filterGroup = button.parentElement;
+    const isActive = filterGroup.classList.contains('active');
+
+    // Ferme tous les autres menus
+    document.querySelectorAll('.filter-group').forEach(group => {
+        group.classList.remove('active');
+    });
+
+    // Active/désactive le menu cliqué
+    if (!isActive) {
+        filterGroup.classList.add('active');
+    }
+}
+document.addEventListener('click', function(event) {
+    const isClickInside = event.target.closest('.filter-group');
+    if (!isClickInside) {
+        document.querySelectorAll('.filter-group').forEach(group => {
+            group.classList.remove('active');
+        });
+    }
+});
+function toggleAdvancedSearch() {
+    const advancedSearch = document.querySelector('.search-advanced');
+    const toggleButton = document.querySelector('.toggle-advanced');
+
+    if (advancedSearch) {
+        if (advancedSearch.style.display === 'none' || advancedSearch.style.display === '') {
+            advancedSearch.style.display = 'block'; // Afficher la recherche avancée
+            toggleButton.textContent = 'Recherche Avancée ▲'; // Modifier le texte du bouton
+        } else {
+            advancedSearch.style.display = 'none'; // Masquer la recherche avancée
+            toggleButton.textContent = 'Recherche Avancée ▼'; // Modifier le texte du bouton
+        }
+    } else {
+        console.error("L'élément .search-advanced est introuvable.");
+    }
+}
+function toggleFilterVisibility(show) {
+    const filterColumn = document.getElementById('filter-column');
+    if (show) {
+        filterColumn.style.display = 'block'; // Affiche les filtres
+    } else {
+        filterColumn.style.display = 'none'; // Masque les filtres
+    }
+}
+function executeSimpleSearch() {
+    const query = document.getElementById('simple-search').value.toLowerCase();
+    const results = data.filter(item => (
+        item.Competence.toLowerCase().includes(query) ||
+        item.BaseLegale.toLowerCase().includes(query) ||
+        item.EntiteFocus.some(focus => focus.toLowerCase().includes(query))
+    ));
+    toggleFilterVisibility(results.length > 0); // Contrôle la visibilité des filtres
+    displayResults(results);
+}
+
+function executeAdvancedSearch() {
+    const focus = Array.from(document.querySelectorAll('.dropdown-content input[type="checkbox"]:checked')).map(input => input.value);
+
+    const results = data.filter(item => (
+        (!focus.length || focus.some(f => item.EntiteFocus.includes(f)))
+    ));
+
+    toggleFilterVisibility(results.length > 0); // Contrôle la visibilité des filtres
+    displayResults(results);
+}
+
+function displayResults(results) {
+    const resultsContainer = document.getElementById('results');
+    const filterContainer = document.getElementById('filter-container');
+    resultsContainer.style.display = 'block';
+
+    if (results.length === 0) {
+    resultsContainer.innerHTML = '<p>Aucun résultat trouvé.</p>';
+    return;
+}
+
+    resultsContainer.innerHTML = results.map(item => `
+        <div class="result-item">
+            <h3>
+                <span class="competence">${item.Competence}</span> -
+                <a href="${item.LienConnect}" class="base-legale" target="_blank">${item.BaseLegale}</a>
+            </h3>
+            <p><strong>Entité Focus :</strong> ${item.EntiteFocus.join(', ')}</p>
+            <p><strong>Index Objet :</strong> ${item.IndexObjet ? item.IndexObjet.join(', ') : 'N/A'}</p>
+            <p><strong>Organe Compétent :</strong> <span class="organe-competent">${item.OrganeCompetent ? item.OrganeCompetent.join(', ') : 'N/A'}</span></p>
+            <p><strong>Commentaire(s) :</strong> ${item.Commentaire || 'N/A'}</p>
+            <p><strong>Délégation :</strong> ${item.Delegation || 'N/A'}</p>
+            <p><strong>Base légale (délégation) :</strong> ${item.BaseDelegation || 'N/A'}</p>
+        </div>
+    `).join('');
+
+    filterContainer.style.display = 'block'; // Afficher les filtres
+}
+              resultsContainer.appendChild(card);
+
+    displayPagination(totalPages);
+    resultsContainer.style.display = 'block';
+
+
+function displayPagination(totalPages) {
+            const paginationContainer = document.querySelector('.pagination');
+            if (paginationContainer) {
+                paginationContainer.remove();
+            }
+
+            const newPaginationContainer = document.createElement('div');
+            newPaginationContainer.className = 'pagination';
+            newPaginationContainer.innerHTML = `
+                <button onclick="changePage(-1)" ${currentPage === 1 ? 'disabled' : ''}>Précédent</button>
+                <span>Page ${currentPage} sur ${totalPages}</span>
+                <button onclick="changePage(1)" ${currentPage === totalPages ? 'disabled' : ''}>Suivant</button>
+            `;
+            document.getElementById('results').appendChild(newPaginationContainer);
+        }
+
+        function changePage(direction) {
+            currentPage += direction;
+            searchResults();
+        }
+        function exportAllPDF() {
+            const { jsPDF } = window.jspdf;
+            const doc = new jsPDF();
+            const resultsContainer = document.getElementById('results');
+            let y = 20;
+
+            doc.setFontSize(10);
+
+            Array.from(resultsContainer.children).forEach((resultCard) => {
+                const text = resultCard.textContent.trim();
+                const lines = doc.splitTextToSize(text, 180);
+                doc.rect(10, y - 10, 190, lines.length * 10 + 10);
+
+                lines.forEach((line) => {
+                    doc.text(line, 15, y);
+                    y += 10;
+                    if (y > 280) {
+                        doc.addPage();
+                        y = 20;
+                    }
+                });
+
+                y += 10;
+            });
+
+            doc.save('results.pdf');
+        }
+function applyFilters() {
+    const selectedFilters = {}; // Stocke les filtres sélectionnés
+
+    // Parcours des filtres sélectionnés
+    document.querySelectorAll('.filter:checked').forEach(input => {
+        const field = input.getAttribute('data-field');
+        if (!selectedFilters[field]) {
+            selectedFilters[field] = [];
+        }
+        selectedFilters[field].push(input.value.toLowerCase());
+    });
+
+    // Filtrage des résultats
+    const filteredResults = data.filter(item => {
+        // Vérifie que tous les filtres sont respectés
+        return Object.keys(selectedFilters).every(field => {
+            if (!selectedFilters[field].length) return true;
+
+            const fieldValue = item[field];
+            if (Array.isArray(fieldValue)) {
+                // Si le champ est un tableau, vérifie les correspondances
+                return selectedFilters[field].some(filterValue =>
+                    fieldValue.some(value => value.toLowerCase().includes(filterValue))
+                );
+            } else if (typeof fieldValue === 'string') {
+                // Si le champ est une chaîne, vérifie la correspondance
+                return selectedFilters[field].some(filterValue =>
+                    fieldValue.toLowerCase().includes(filterValue)
+                );
+            }
+
+            // Si le champ est vide ou d'un type inattendu
+            return false;
+        });
+    });
+
+    // Affiche les filtres appliqués
+    displayAppliedFilters(selectedFilters);
+
+    // Met à jour les résultats affichés
+    displayResults(filteredResults);
+}
+
+function displayAppliedFilters(filters) {
+    const appliedFiltersContainer = document.getElementById('applied-filters');
+    appliedFiltersContainer.innerHTML = ''; // Réinitialise le contenu
+
+    // Affiche chaque filtre appliqué sous forme de tag
+    Object.keys(filters).forEach(field => {
+        filters[field].forEach(value => {
+            const filterTag = document.createElement('span');
+            filterTag.innerHTML = `
+                ${value} <button onclick="removeFilter('${field}', '${value}')">×</button>
+            `;
+            appliedFiltersContainer.appendChild(filterTag);
+        });
+    });
+
+    appliedFiltersContainer.style.display = 'block'; // Assure l'affichage des filtres appliqués
+}
+function removeFilter(field, value) {
+    // Supprime le filtre du stockage global
+    if (selectedFilters[field]) {
+        selectedFilters[field] = selectedFilters[field].filter(filterValue => filterValue !== value);
+        if (selectedFilters[field].length === 0) {
+            delete selectedFilters[field];
+        }
+    }
+
+    // Décoche le filtre dans l'interface
+    document.querySelectorAll(`.filter[data-field="${field}"][value="${value}"]`).forEach(filter => {
+        filter.checked = false;
+    });
+
+    // Réapplique les filtres restants
+    applyFilters();
+}
+
+function resetFilters() {
+    // Réinitialise les filtres sélectionnés
+    selectedFilters = {};
+
+    // Décoche tous les filtres
+    document.querySelectorAll('.filter').forEach(filter => {
+        filter.checked = false;
+    });
+
+    // Efface les filtres appliqués
+    const appliedFiltersContainer = document.getElementById('applied-filters');
+    appliedFiltersContainer.innerHTML = '';
+    appliedFiltersContainer.style.display = 'none';
+
+    // Affiche les résultats initiaux
+    displayResults(data); // Réaffiche toutes les données
+}
+document.querySelectorAll('.filter-button').forEach(button => {
+        button.addEventListener('click', () => {
+            const dropdown = button.nextElementSibling;
+            dropdown.style.display = dropdown.style.display === 'block' ? 'none' : 'block';
+        });
+    });
+
+    // Optionnel : Fermez les menus déroulants en cliquant à l'extérieur
+    document.addEventListener('click', (event) => {
+        document.querySelectorAll('.dropdown-content').forEach(dropdown => {
+            if (!dropdown.contains(event.target) && !dropdown.previousElementSibling.contains(event.target)) {
+                dropdown.style.display = 'none';
+            }
+        });
+    });
+    </script>
+</body>
+</html>
