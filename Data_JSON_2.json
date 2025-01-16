@@ -397,7 +397,7 @@
         ],
         "OrganeCompetent": [
             "directeur général",
-            "directeur fi""cier"
+            "directeur financier"
         ],
         "Commentaire": "",
         "Delegation": "\"ou le fonctionnaire désigné par lui\"\n\"ou le fonctionnaire désigné par lui\"",
@@ -2320,14 +2320,14 @@
     },
     {
         "N°": 118,
-        "Competence": "Création de l'emploi de directeur fi""cier dans les communes de 10.000 habitants ou moins",
+        "Competence": "Création de l'emploi de directeur financier dans les communes de 10.000 habitants ou moins",
         "BaseLegale": "art. L1124-21, §1er, al. 1er, 2° CDLD",
         "EntiteFocus": [
             "commune"
         ],
         "Sujet": "Organe politique/mandats et présentation",
         "IndexObjet": [
-            "directeur fi""cier"
+            "directeur financier"
         ],
         "OrganeCompetent": [
             "conseil communal"
@@ -2339,7 +2339,7 @@
     },
     {
         "N°": 119,
-        "Competence": "Nommer directeur fi""cier du CPAS, le directeur fi""cier de la commune de 35.000 habitants ou moins",
+        "Competence": "Nommer directeur financier du CPAS, le directeur financier de la commune de 35.000 habitants ou moins",
         "BaseLegale": "art. L1124-21, §2, al. 1er CDLD; art. 43, §5, al. 1er LO",
         "EntiteFocus": [
             "commune",
@@ -2347,7 +2347,7 @@
         ],
         "Sujet": "Organe politique/mandats et présentation",
         "IndexObjet": [
-            "directeur fi""cier"
+            "directeur financier"
         ],
         "OrganeCompetent": [
             "conseil de l'action sociale"
@@ -2359,7 +2359,7 @@
     },
     {
         "N°": 120,
-        "Competence": "Déterminer de commun accord la répartition du temps de travail du directeur fi""cier pour la commune et le CPAS",
+        "Competence": "Déterminer de commun accord la répartition du temps de travail du directeur financier pour la commune et le CPAS",
         "BaseLegale": "art. L1124-21, §2, al. 2 CDLD; art. 43, § 5, al. 1er LO",
         "EntiteFocus": [
             "commune",
@@ -2367,7 +2367,7 @@
         ],
         "Sujet": "Organe politique/mandats et présentation",
         "IndexObjet": [
-            "directeur fi""cier"
+            "directeur financier"
         ],
         "OrganeCompetent": [
             "conseil communal",
@@ -2380,14 +2380,14 @@
     },
     {
         "N°": 121,
-        "Competence": "Nommer le directeur fi""cier",
+        "Competence": "Nommer le directeur financier",
         "BaseLegale": "art. L1124-22, §1er, al. 1er CDLD",
         "EntiteFocus": [
             "commune"
         ],
         "Sujet": "Organe politique/mandats et présentation",
         "IndexObjet": [
-            "directeur fi""cier",
+            "directeur financier",
             "nomination"
         ],
         "OrganeCompetent": [
@@ -2400,14 +2400,14 @@
     },
     {
         "N°": 122,
-        "Competence": "Exercer l'autorité sur le directeur fi""cier",
+        "Competence": "Exercer l'autorité sur le directeur financier",
         "BaseLegale": "art. L1124-22, §2, al. 1er CDLD",
         "EntiteFocus": [
             "commune"
         ],
         "Sujet": "Organe politique/mandats et présentation",
         "IndexObjet": [
-            "directeur fi""cier"
+            "directeur financier"
         ],
         "OrganeCompetent": [
             "collège communal"
@@ -2419,7 +2419,7 @@
     },
     {
         "N°": 123,
-        "Competence": "Fixation du statut administratif du directeur fi""cier (par règlement)",
+        "Competence": "Fixation du statut administratif du directeur financier (par règlement)",
         "BaseLegale": "art. L1124-22, §2, al. 2 CDLD",
         "EntiteFocus": [
             "commune"
@@ -2427,7 +2427,7 @@
         "Sujet": "Organe politique/mandats et présentation",
         "IndexObjet": [
             "personnel",
-            "directeur fi""cier",
+            "directeur financier",
             "statut administratif",
             "statut général du personnel"
         ],
@@ -2441,19 +2441,19 @@
     },
     {
         "N°": 124,
-        "Competence": "Désignation d'un directeur fi""cier faisant fonction pour une période de trente jour au plus (absence justifiée)",
+        "Competence": "Désignation d'un directeur financier faisant fonction pour une période de trente jour au plus (absence justifiée)",
         "BaseLegale": "art. L1124-22, §3, al. 1er CDLD",
         "EntiteFocus": [
             "commune"
         ],
         "Sujet": "Organe politique/mandats et présentation",
         "IndexObjet": [
-            "directeur fi""cier",
+            "directeur financier",
             "absence",
-            "directeur fi""cier faisant fonction"
+            "directeur financier faisant fonction"
         ],
         "OrganeCompetent": [
-            "directeur fi""cier"
+            "directeur financier"
         ],
         "Commentaire": "Voir aussi la compétence du collège: art. L1124-22, §3, al. 2 CDLD.",
         "Delegation": "",
@@ -2462,40 +2462,40 @@
     },
     {
         "N°": 125,
-        "Competence": "Désignation d'un directeur fi""cier faisant fonction (sauf de courte durée en cas d'absence justifiée)",
+        "Competence": "Désignation d'un directeur financier faisant fonction (sauf de courte durée en cas d'absence justifiée)",
         "BaseLegale": "art. L1124-22, §3, al. 2 CDLD",
         "EntiteFocus": [
             "commune"
         ],
         "Sujet": "Organe politique/mandats et présentation",
         "IndexObjet": [
-            "directeur fi""cier",
+            "directeur financier",
             "absence",
-            "directeur fi""cier faisant fonction"
+            "directeur financier faisant fonction"
         ],
         "OrganeCompetent": [
-            "directeur fi""cier"
+            "directeur financier"
         ],
-        "Commentaire": "Voir aussi la compétence du directeur fi""cier: art. L1124-22, §3, al. 1er CDLD.",
+        "Commentaire": "Voir aussi la compétence du directeur financier: art. L1124-22, §3, al. 1er CDLD.",
         "Delegation": "",
         "BaseDelegation": "",
         "LienConnect": "https://myportal.vandenbroeleconnect.be/contenu/livres/detail/73184593456836264/le-vade-mecum-de-la-commune-au-travers-du-cdld#73186792480091832"
     },
     {
         "N°": 126,
-        "Competence": "Exercer, dans son absence, toutes les attributions dévolues au directeur fi""cier",
+        "Competence": "Exercer, dans son absence, toutes les attributions dévolues au directeur financier",
         "BaseLegale": "art. L1124-22, §3, al. 5 CDLD",
         "EntiteFocus": [
             "commune"
         ],
         "Sujet": "Organe politique/mandats et présentation",
         "IndexObjet": [
-            "directeur fi""cier",
+            "directeur financier",
             "absence",
-            "directeur fi""cier faisant fonction"
+            "directeur financier faisant fonction"
         ],
         "OrganeCompetent": [
-            "directeur fi""cier faisant fonction"
+            "directeur financier faisant fonction"
         ],
         "Commentaire": "",
         "Delegation": "",
@@ -2642,17 +2642,17 @@
     },
     {
         "N°": 134,
-        "Competence": "Fonction de conseiller fi""cier et budgétaire de la commune",
+        "Competence": "Fonction de conseiller financier et budgétaire de la commune",
         "BaseLegale": "art. L1124-25, al. 1er CDLD",
         "EntiteFocus": [
             "commune"
         ],
         "Sujet": "Organe politique/mandats et présentation",
         "IndexObjet": [
-            "directeur fi""cier"
+            "directeur financier"
         ],
         "OrganeCompetent": [
-            "directeur fi""cier"
+            "directeur financier"
         ],
         "Commentaire": "",
         "Delegation": "",
@@ -2661,7 +2661,7 @@
     },
     {
         "N°": 135,
-        "Competence": "Fixer l'échelle barémique des traitements du directeur fi""cier",
+        "Competence": "Fixer l'échelle barémique des traitements du directeur financier",
         "BaseLegale": "art. L1124-35, al. 1er CDLD",
         "EntiteFocus": [
             "commune"
@@ -2681,14 +2681,14 @@
     },
     {
         "N°": 136,
-        "Competence": "Autorisation du cumul des activités professionnelles du directeur fi""cier",
+        "Competence": "Autorisation du cumul des activités professionnelles du directeur financier",
         "BaseLegale": "art. L1124-38, §1er, al. 2 CDLD",
         "EntiteFocus": [
             "commune"
         ],
         "Sujet": "Organe politique/mandats et présentation",
         "IndexObjet": [
-            "directeur fi""cier",
+            "directeur financier",
             "cumul des activités professionnelles"
         ],
         "OrganeCompetent": [
@@ -2732,7 +2732,7 @@
             "recettes"
         ],
         "OrganeCompetent": [
-            "directeur fi""cier"
+            "directeur financier"
         ],
         "Commentaire": "",
         "Delegation": "",
@@ -2754,7 +2754,7 @@
             "mandats de paiement"
         ],
         "OrganeCompetent": [
-            "directeur fi""cier"
+            "directeur financier"
         ],
         "Commentaire": "",
         "Delegation": "",
@@ -2773,7 +2773,7 @@
             "avis de légalité"
         ],
         "OrganeCompetent": [
-            "directeur fi""cier"
+            "directeur financier"
         ],
         "Commentaire": "",
         "Delegation": "",
@@ -2794,7 +2794,7 @@
             "legs"
         ],
         "OrganeCompetent": [
-            "directeur fi""cier"
+            "directeur financier"
         ],
         "Commentaire": "",
         "Delegation": "",
@@ -2813,7 +2813,7 @@
             "avis de légalité"
         ],
         "OrganeCompetent": [
-            "directeur fi""cier"
+            "directeur financier"
         ],
         "Commentaire": "",
         "Delegation": "",
@@ -2822,7 +2822,7 @@
     },
     {
         "N°": 143,
-        "Competence": "Effectuer le suivi fi""cier du programme stratégique transversal  ",
+        "Competence": "Effectuer le suivi financier du programme stratégique transversal  ",
         "BaseLegale": "art. L1124-40, §1er, al. 1er, 5° CDLD",
         "EntiteFocus": [
             "commune"
@@ -2832,7 +2832,7 @@
             "programme stratégique transversal"
         ],
         "OrganeCompetent": [
-            "directeur fi""cier"
+            "directeur financier"
         ],
         "Commentaire": "",
         "Delegation": "",
@@ -2841,7 +2841,7 @@
     },
     {
         "N°": 144,
-        "Competence": "Poursuivre, en cas de refus ou retard d'acquitter le montant des dépenses ordon""cées par le directeur fi""cier, le paiement",
+        "Competence": "Poursuivre, en cas de refus ou retard d'acquitter le montant des dépenses ordon""cées par le directeur financier, le paiement",
         "BaseLegale": "art. L1124-40, §1er, al. 4 CDLD",
         "EntiteFocus": [
             "commune"
@@ -2872,7 +2872,7 @@
             "avis de légalité"
         ],
         "OrganeCompetent": [
-            "directeur fi""cier"
+            "directeur financier"
         ],
         "Commentaire": "",
         "Delegation": "",
@@ -2896,7 +2896,7 @@
             "associations de droit ou de fait"
         ],
         "OrganeCompetent": [
-            "directeur fi""cier"
+            "directeur financier"
         ],
         "Commentaire": "",
         "Delegation": "",
@@ -2905,7 +2905,7 @@
     },
     {
         "N°": 147,
-        "Competence": "Faire rapport en toute indépendance au conseil communal au moins une fois par an sur l’exécution de la mission de remise d’avis du directeur fi""cier",
+        "Competence": "Faire rapport en toute indépendance au conseil communal au moins une fois par an sur l’exécution de la mission de remise d’avis du directeur financier",
         "BaseLegale": "art. L1124-40, §4, al. 1er CDLD",
         "EntiteFocus": [
             "commune"
@@ -2916,7 +2916,7 @@
             "rapport sur l'exécution de la mission de remise d'avis"
         ],
         "OrganeCompetent": [
-            "directeur fi""cier"
+            "directeur financier"
         ],
         "Commentaire": "",
         "Delegation": "",
@@ -2925,7 +2925,7 @@
     },
     {
         "N°": 148,
-        "Competence": "Garantir au directeur fi""cier un accès complet à tous les éléments des dossiers soumis au collège communal et au conseil communal",
+        "Competence": "Garantir au directeur financier un accès complet à tous les éléments des dossiers soumis au collège communal et au conseil communal",
         "BaseLegale": "art. L1124-40, §5, al. 1er CDLD",
         "EntiteFocus": [
             "commune"
@@ -2947,7 +2947,7 @@
     },
     {
         "N°": 149,
-        "Competence": "Vérification de l'encaisse du directeur fi""cier et établissement du procès-verbal de la vérification",
+        "Competence": "Vérification de l'encaisse du directeur financier et établissement du procès-verbal de la vérification",
         "BaseLegale": "art. L1124-42, §1er, al. 1er CDLD",
         "EntiteFocus": [
             "commune"
@@ -2968,7 +2968,7 @@
     },
     {
         "N°": 150,
-        "Competence": "Signer le procès-verbal de la vérification de l'encaisse du directeur fi""cier par le collège communal",
+        "Competence": "Signer le procès-verbal de la vérification de l'encaisse du directeur financier par le collège communal",
         "BaseLegale": "art. L1124-42, §1er, al. 1er CDLD",
         "EntiteFocus": [
             "commune"
@@ -2980,7 +2980,7 @@
             "encaisse"
         ],
         "OrganeCompetent": [
-            "directeur fi""cier",
+            "directeur financier",
             "membres du collège communal impliqués"
         ],
         "Commentaire": "",
@@ -2990,7 +2990,7 @@
     },
     {
         "N°": 151,
-        "Competence": "Communication au conseil communal du procès-verbal de la vérification de l'encaisse du directeur fi""cier par le collège communal",
+        "Competence": "Communication au conseil communal du procès-verbal de la vérification de l'encaisse du directeur financier par le collège communal",
         "BaseLegale": "art. L1124-42, §1er, al. 2 CDLD",
         "EntiteFocus": [
             "commune"
@@ -3025,7 +3025,7 @@
             "perte"
         ],
         "OrganeCompetent": [
-            "directeur fi""cier"
+            "directeur financier"
         ],
         "Commentaire": "",
         "Delegation": "",
@@ -3034,7 +3034,7 @@
     },
     {
         "N°": 153,
-        "Competence": "Inviter le directeur fi""cier à verser dans la caisse communale une somme équivalente au déficit de l'encaisse à la suite d'un vol ou d'une perte",
+        "Competence": "Inviter le directeur financier à verser dans la caisse communale une somme équivalente au déficit de l'encaisse à la suite d'un vol ou d'une perte",
         "BaseLegale": "art. L1124-42, §3, al. 1er CDLD",
         "EntiteFocus": [
             "commune"
@@ -3057,7 +3057,7 @@
     },
     {
         "N°": 154,
-        "Competence": "Décision établissant si et dans quelle mesure le directeur fi""cier doit être tenu pour responsable du vol ou de la perte (qui précède l'invitation à verser la somme équivalente)",
+        "Competence": "Décision établissant si et dans quelle mesure le directeur financier doit être tenu pour responsable du vol ou de la perte (qui précède l'invitation à verser la somme équivalente)",
         "BaseLegale": "art. L1124-42, §3, al. 1er CDLD",
         "EntiteFocus": [
             "commune"
@@ -3092,10 +3092,10 @@
             "recouvrement"
         ],
         "OrganeCompetent": [
-            "directeur fi""cier",
+            "directeur financier",
             "receveur régional de la commune du contribuable"
         ],
-        "Commentaire": "Le recouvrement se fait à la demande du directeur fi""cier ou du receveur régional de la commune initiale.",
+        "Commentaire": "Le recouvrement se fait à la demande du directeur financier ou du receveur régional de la commune initiale.",
         "Delegation": "",
         "BaseDelegation": "",
         "LienConnect": "https://myportal.vandenbroeleconnect.be/contenu/livres/detail/73184593456836264/le-vade-mecum-de-la-commune-au-travers-du-cdld#73186792480091836"
@@ -3155,11 +3155,11 @@
         "IndexObjet": [
             "fi""ces",
             "comptabilité",
-            "directeur fi""cier",
+            "directeur financier",
             "compte de fin de gestion"
         ],
         "OrganeCompetent": [
-            "directeur fi""cier",
+            "directeur financier",
             "receveur régional"
         ],
         "Commentaire": "Voir aussi les cas visés aux articles L1124-22, §3, alinéa 5, et L1124-24, alinéa 2, CDLD.",
@@ -3169,7 +3169,7 @@
     },
     {
         "N°": 159,
-        "Competence": "Soumission au conseil communal du compte de fin de gestion du directeur fi""cier",
+        "Competence": "Soumission au conseil communal du compte de fin de gestion du directeur financier",
         "BaseLegale": "art. L1124-45, §2, al. 1er CDLD",
         "EntiteFocus": [
             "commune"
@@ -3178,7 +3178,7 @@
         "IndexObjet": [
             "fi""ces",
             "comptabilité",
-            "directeur fi""cier",
+            "directeur financier",
             "compte de fin de gestion"
         ],
         "OrganeCompetent": [
@@ -3191,7 +3191,7 @@
     },
     {
         "N°": 160,
-        "Competence": "Arrêter le compte de fin de gestion du directeur fi""cier et déclarer le comptable quitte (ou fixer un débet)",
+        "Competence": "Arrêter le compte de fin de gestion du directeur financier et déclarer le comptable quitte (ou fixer un débet)",
         "BaseLegale": "art. L1124-45, §2, al. 1er CDLD",
         "EntiteFocus": [
             "commune"
@@ -3200,7 +3200,7 @@
         "IndexObjet": [
             "fi""ces",
             "comptabilité",
-            "directeur fi""cier",
+            "directeur financier",
             "compte de fin de gestion"
         ],
         "OrganeCompetent": [
@@ -3222,7 +3222,7 @@
         "IndexObjet": [
             "fi""ces",
             "comptabilité",
-            "directeur fi""cier",
+            "directeur financier",
             "compte de fin de gestion"
         ],
         "OrganeCompetent": [
@@ -3383,14 +3383,14 @@
     },
     {
         "N°": 169,
-        "Competence": "Évaluation du directeur fi""cier",
+        "Competence": "Évaluation du directeur financier",
         "BaseLegale": "art. L1124-50, al. 1er CDLD",
         "EntiteFocus": [
             "commune"
         ],
         "Sujet": "Organe politique/mandats et présentation",
         "IndexObjet": [
-            "directeur fi""cier",
+            "directeur financier",
             "évaluation"
         ],
         "OrganeCompetent": [
@@ -3445,14 +3445,14 @@
     },
     {
         "N°": 172,
-        "Competence": "Élaboration et adoption d'un rapport de planification détermi""t les objectifs que le directeur fi""cier doit atteindre",
+        "Competence": "Élaboration et adoption d'un rapport de planification détermi""t les objectifs que le directeur financier doit atteindre",
         "BaseLegale": "art. L1124-50, al. 3 CDLD",
         "EntiteFocus": [
             "commune"
         ],
         "Sujet": "Organe politique/mandats et présentation",
         "IndexObjet": [
-            "directeur fi""cier",
+            "directeur financier",
             "évaluation",
             "plan de planification"
         ],
@@ -3506,14 +3506,14 @@
     },
     {
         "N°": 175,
-        "Competence": "Notifier la proposition de licenciement du directeur fi""cier pour inaptitude professionnelle après deux évaluations défavorables successives",
+        "Competence": "Notifier la proposition de licenciement du directeur financier pour inaptitude professionnelle après deux évaluations défavorables successives",
         "BaseLegale": "art. L1124-50, al. 7 CDLD",
         "EntiteFocus": [
             "commune"
         ],
         "Sujet": "Organe politique/mandats et présentation",
         "IndexObjet": [
-            "directeur fi""cier",
+            "directeur financier",
             "inaptitude professionnelle"
         ],
         "OrganeCompetent": [
@@ -3526,7 +3526,7 @@
     },
     {
         "N°": 176,
-        "Competence": "Autorisation du cumul des fonctions de directeur général, directeur fi""cier et receveur régional d'une part et celles de bourgmestre, d'échevin et de membre du conseil communal, d'autre part",
+        "Competence": "Autorisation du cumul des fonctions de directeur général, directeur financier et receveur régional d'une part et celles de bourgmestre, d'échevin et de membre du conseil communal, d'autre part",
         "BaseLegale": "art. L1125-4, al. 3 CDLD",
         "EntiteFocus": [
             "commune"
@@ -3538,7 +3538,7 @@
             "échevin",
             "membre du conseil communal",
             "directeur général",
-            "directeur fi""cier",
+            "directeur financier",
             "receveur régional"
         ],
         "OrganeCompetent": [
@@ -3666,7 +3666,7 @@
     },
     {
         "N°": 182,
-        "Competence": "Signer les actes et la correspondance de la commune relevant des compétences légales propres au directeur fi""cier",
+        "Competence": "Signer les actes et la correspondance de la commune relevant des compétences légales propres au directeur financier",
         "BaseLegale": "art. L1132-6, al. 1er CDLD",
         "EntiteFocus": [
             "commune"
@@ -3679,7 +3679,7 @@
             "signatures"
         ],
         "OrganeCompetent": [
-            "directeur fi""cier"
+            "directeur financier"
         ],
         "Commentaire": "",
         "Delegation": "à un ou plusieurs fonctionnaires communaux, mais avec l'autorisation obligatoire du collège communal; pour les actes authentiques, la délégation est possible à un collaborateur d'une étude notariale, également avec l'autorisation obligatoire du collège communal",
@@ -3688,7 +3688,7 @@
     },
     {
         "N°": 183,
-        "Competence": "Autoriser le directeur fi""cier à déléguer la signature de certains documents à un ou plusieurs fonctionnaires communaux",
+        "Competence": "Autoriser le directeur financier à déléguer la signature de certains documents à un ou plusieurs fonctionnaires communaux",
         "BaseLegale": "art. L1132-7, al. 1er CDLD",
         "EntiteFocus": [
             "commune"
@@ -3735,7 +3735,7 @@
     },
     {
         "N°": 185,
-        "Competence": "Autoriser le directeur fi""cier à déléguer le contreseing ou la signature des actes authentiques à un collaborateur d'une étude notariale",
+        "Competence": "Autoriser le directeur financier à déléguer le contreseing ou la signature des actes authentiques à un collaborateur d'une étude notariale",
         "BaseLegale": "art. L1132-8, §2, al. 1er CDLD (actes authentiques)",
         "EntiteFocus": [
             "commune"
@@ -4341,7 +4341,7 @@
         "OrganeCompetent": [
             "conseil communal"
         ],
-        "Commentaire": "C'est sur rapport du directeur général, sauf pour le directeur général, le directeur général adjoint, le directeur fi""cier et le comptable spécial.",
+        "Commentaire": "C'est sur rapport du directeur général, sauf pour le directeur général, le directeur général adjoint, le directeur financier et le comptable spécial.",
         "Delegation": "",
         "BaseDelegation": "",
         "LienConnect": "https://myportal.vandenbroeleconnect.be/contenu/livres/detail/73184593456836264/le-vade-mecum-de-la-commune-au-travers-du-cdld#73186792480091836"
@@ -4361,7 +4361,7 @@
         "OrganeCompetent": [
             "directeur général"
         ],
-        "Commentaire": "Ce rapport n'est pas d'application s'il s'agit du directeur général, sauf pour le directeur général, le directeur général adjoint, le directeur fi""cier et le comptable spécial.",
+        "Commentaire": "Ce rapport n'est pas d'application s'il s'agit du directeur général, sauf pour le directeur général, le directeur général adjoint, le directeur financier et le comptable spécial.",
         "Delegation": "",
         "BaseDelegation": "",
         "LienConnect": "https://myportal.vandenbroeleconnect.be/contenu/livres/detail/73184593456836264/le-vade-mecum-de-la-commune-au-travers-du-cdld#73186792480091839"
@@ -4542,14 +4542,14 @@
         "OrganeCompetent": [
             "autorité disciplinaire"
         ],
-        "Commentaire": "Pour le directeur général, le directeur général adjoint, le directeur fi""cier et le comptable spécial, c'est le collège communal et le conseil communal qui sont compétents; voir aussi l'article L1215-23 CDLD pour une éventuelle retenue de traitement et privation des titres à l'avancement.",
+        "Commentaire": "Pour le directeur général, le directeur général adjoint, le directeur financier et le comptable spécial, c'est le collège communal et le conseil communal qui sont compétents; voir aussi l'article L1215-23 CDLD pour une éventuelle retenue de traitement et privation des titres à l'avancement.",
         "Delegation": "",
         "BaseDelegation": "",
         "LienConnect": "https://myportal.vandenbroeleconnect.be/contenu/livres/detail/73184593456836264/le-vade-mecum-de-la-commune-au-travers-du-cdld#73186792480091832"
     },
     {
         "N°": 226,
-        "Competence": "Infliger une suspension préventive à l'égard du directeur général, du directeur général adjoint, du directeur fi""cier et du comptable spécial",
+        "Competence": "Infliger une suspension préventive à l'égard du directeur général, du directeur général adjoint, du directeur financier et du comptable spécial",
         "BaseLegale": "art. L1215-21, al. 2 CDLD",
         "EntiteFocus": [
             "commune"
@@ -5004,7 +5004,7 @@
             "bourgmestre"
         ],
         "Commentaire": "C'est la version modifiée par l'art. 39 du Décret du 28 mars 2024. Cet article ne s'applique pas aux opérations portant à la fois sur l'attribution de contrats relatifs à des opérations immobilières ou à la vente ou à la mise à disposition de biens meubles corporels qui appartiennent à la commune et sur l'application d'un règlement-redevance (art. L1222-1quinquies, al. 1er CDLD). ",
-        "Delegation": "à un fonctionnaire, à l'exclusion du directeur fi""cier",
+        "Delegation": "à un fonctionnaire, à l'exclusion du directeur financier",
         "BaseDelegation": "art. L1221-2, al. 2 CDLD",
         "LienConnect": "https://myportal.vandenbroeleconnect.be/contenu/livres/detail/73184593456836264/le-vade-mecum-de-la-commune-au-travers-du-cdld#73186792480091839"
     },
@@ -5193,7 +5193,7 @@
             "conseil communal"
         ],
         "Commentaire": "",
-        "Delegation": "au collège communal / directeur général - directeur général adjoint - autre fonctionnaire, à l'exclusion du directeur fi""cier (remarque: art. L1222-4 § 2. En cas de délégation de compétences du conseil communal au directeur général, au directeur général adjoint ou à un autre fonctionnaire, conformément à l'article L1222-3, § 3, les compétences du collège communal visées au paragraphe 1 er sont exercées respectivement par le directeur général, le directeur général adjoint ou le fonctionnaire délégué. - décret du 6 octobre 2022, art. 2).)",
+        "Delegation": "au collège communal / directeur général - directeur général adjoint - autre fonctionnaire, à l'exclusion du directeur financier (remarque: art. L1222-4 § 2. En cas de délégation de compétences du conseil communal au directeur général, au directeur général adjoint ou à un autre fonctionnaire, conformément à l'article L1222-3, § 3, les compétences du collège communal visées au paragraphe 1 er sont exercées respectivement par le directeur général, le directeur général adjoint ou le fonctionnaire délégué. - décret du 6 octobre 2022, art. 2).)",
         "BaseDelegation": "art. L1222-3, §2, al. 1er CDLD (limitation: seuils; pour le budget extraordinaire); art. L1222-3, §3, al. 1er, pour le budget ordinaire",
         "LienConnect": "https://myportal.vandenbroeleconnect.be/contenu/livres/detail/73184593456836264/le-vade-mecum-de-la-commune-au-travers-du-cdld#73186792480091832"
     },
@@ -5395,7 +5395,7 @@
             "conseil communal"
         ],
         "Commentaire": "",
-        "Delegation": "collège communal / directeur général, directeur général ajdoint ou autre fonctionnaire, à l'exclusion du directeur fi""cier",
+        "Delegation": "collège communal / directeur général, directeur général ajdoint ou autre fonctionnaire, à l'exclusion du directeur financier",
         "BaseDelegation": "art. L1222-7, §4, al. 1er CDLD; art. L1222-7, §5, al. 2 CDLD",
         "LienConnect": "https://myportal.vandenbroeleconnect.be/contenu/livres/detail/73184593456836264/le-vade-mecum-de-la-commune-au-travers-du-cdld#73186792480091836"
     },
@@ -6453,7 +6453,7 @@
     },
     {
         "N°": 320,
-        "Competence": "Possibilité de décider d'imputer et exécuter une dépense en cas d'avis défavorable du directeur fi""cier",
+        "Competence": "Possibilité de décider d'imputer et exécuter une dépense en cas d'avis défavorable du directeur financier",
         "BaseLegale": "art. L1311-3, §2, al. 1er CDLD",
         "EntiteFocus": [
             "commune"
@@ -6474,7 +6474,7 @@
     },
     {
         "N°": 321,
-        "Competence": "Ratifier, à la de demande du collège communal, la décision d'imputer et exécuter une dépense en cas d'avis défavorable du directeur fi""cier",
+        "Competence": "Ratifier, à la de demande du collège communal, la décision d'imputer et exécuter une dépense en cas d'avis défavorable du directeur financier",
         "BaseLegale": "art. L1311-3, §2, al. 3 CDLD",
         "EntiteFocus": [
             "commune"
@@ -6824,7 +6824,7 @@
     },
     {
         "N°": 338,
-        "Competence": "Établir les mouvements fi""ciers résultant de la convention et les soumettre pour information aux conseils des communes parties à la convention (avec l'intercommunale)",
+        "Competence": "Établir les mouvements financiers résultant de la convention et les soumettre pour information aux conseils des communes parties à la convention (avec l'intercommunale)",
         "BaseLegale": "art. L1521-3, al. 2 CDLD",
         "EntiteFocus": [
             "commune",
@@ -7091,7 +7091,7 @@
         ],
         "OrganeCompetent": [
             "fonctionnaire dirigeant",
-            "directeur fi""cier (de l'intercommunale)"
+            "directeur financier (de l'intercommunale)"
         ],
         "Commentaire": "",
         "Delegation": "",
@@ -8219,7 +8219,7 @@
     },
     {
         "N°": 408,
-        "Competence": "Rejeter une demande de publicité adressée à l'intercommunale si l’intérêt de la publicité ne l’emporte pas sur la protection de l’intérêt fi""cier ou commercial de l’intercommunale",
+        "Competence": "Rejeter une demande de publicité adressée à l'intercommunale si l’intérêt de la publicité ne l’emporte pas sur la protection de l’intérêt financier ou commercial de l’intercommunale",
         "BaseLegale": "art. L1561-6, al. 2 CDLD",
         "EntiteFocus": [
             "intercommunale"
@@ -8238,7 +8238,7 @@
     },
     {
         "N°": 409,
-        "Competence": "Solliciter une ou plusieurs décision(s) figurant dans la liste des décisions ayant un coût fi""cier et non reprises au budget à transmettre, par un établissement cultuel au collège communal",
+        "Competence": "Solliciter une ou plusieurs décision(s) figurant dans la liste des décisions ayant un coût financier et non reprises au budget à transmettre, par un établissement cultuel au collège communal",
         "BaseLegale": "art. L3161-5, al. 2 CDLD",
         "EntiteFocus": [
             "commune",
@@ -8246,7 +8246,7 @@
         ],
         "Sujet": "",
         "IndexObjet": [
-            "décisions ayant un coût fi""cier non encore reprises dans le budget",
+            "décisions ayant un coût financier non encore reprises dans le budget",
             "cultes reconnus (fabriques d'église)"
         ],
         "OrganeCompetent": [
@@ -8259,7 +8259,7 @@
     },
     {
         "N°": 410,
-        "Competence": "Introduction d'un recours contre une décision reprise dans la liste des décisions ayant un coût fi""cier (et non reprises au budget) à transmettre par un établissement cultuel fi""cé au collège communal",
+        "Competence": "Introduction d'un recours contre une décision reprise dans la liste des décisions ayant un coût financier (et non reprises au budget) à transmettre par un établissement cultuel fi""cé au collège communal",
         "BaseLegale": "art. L3161-5, al. 3 CDLD",
         "EntiteFocus": [
             "commune",
@@ -8267,7 +8267,7 @@
         ],
         "Sujet": "",
         "IndexObjet": [
-            "décisions ayant un coût fi""cier non encore reprises dans le budget",
+            "décisions ayant un coût financier non encore reprises dans le budget",
             "cultes reconnus (fabriques d'église)"
         ],
         "OrganeCompetent": [
@@ -8573,7 +8573,7 @@
             "perspective de développement urbain"
         ],
         "OrganeCompetent": [
-            "directeur fi""cier"
+            "directeur financier"
         ],
         "Commentaire": "",
         "Delegation": "",
@@ -8632,7 +8632,7 @@
             "acte authentique"
         ],
         "OrganeCompetent": [
-            "directeur fi""cier"
+            "directeur financier"
         ],
         "Commentaire": "",
         "Delegation": "",
@@ -9935,7 +9935,7 @@
             "comité de concertation"
         ],
         "OrganeCompetent": [
-            "directeur fi""cier (CPAS)"
+            "directeur financier (CPAS)"
         ],
         "Commentaire": "",
         "Delegation": "",
@@ -10471,7 +10471,7 @@
             "directeur général (CPAS)"
         ],
         "Commentaire": "",
-        "Delegation": "délégation, par le président, à un ou plusieurs membres; le directeur général peut également déléguer, moyen""t l'autorisation du conseil de l'action sociale ou du bureau permanent; le président peut déléguer la signature des actes authentiques à un collaborateur d'une étude notariale; le directeur général et le directeur fi""cier peuvent déléguer le contreseing ou la signature des actes authentiques à un collaborateur d'une étude notariale.",
+        "Delegation": "délégation, par le président, à un ou plusieurs membres; le directeur général peut également déléguer, moyen""t l'autorisation du conseil de l'action sociale ou du bureau permanent; le président peut déléguer la signature des actes authentiques à un collaborateur d'une étude notariale; le directeur général et le directeur financier peuvent déléguer le contreseing ou la signature des actes authentiques à un collaborateur d'une étude notariale.",
         "BaseDelegation": "art. 28, §2, al. 5 LO; art. 28, §2, al. 6 LO; art. 28, §2, al. 7 LO; art. 28, §2, al. 8 LO",
         "LienConnect": "https://myportal.vandenbroeleconnect.be/contenu/livres/detail/73184593456836264/le-vade-mecum-de-la-commune-au-travers-du-cdld#73186792480091836"
     },
@@ -10500,7 +10500,7 @@
     },
     {
         "N°": 517,
-        "Competence": "Autoriser le directeur général et le directeur fi""cier du centre public d'action sociale à déléguer le contreseing ou la signature des actes authentiques à un collaborateur d'une étude notariale",
+        "Competence": "Autoriser le directeur général et le directeur financier du centre public d'action sociale à déléguer le contreseing ou la signature des actes authentiques à un collaborateur d'une étude notariale",
         "BaseLegale": "art. 28, §2, al. 8 LO",
         "EntiteFocus": [
             "CPAS"
@@ -10512,7 +10512,7 @@
             "délégation",
             "acte authentique",
             "directeur général",
-            "directeur fi""cier"
+            "directeur financier"
         ],
         "OrganeCompetent": [
             "conseil de l'action sociale"
@@ -10524,7 +10524,7 @@
     },
     {
         "N°": 518,
-        "Competence": "Autoriser le directeur fi""cier du centre public d'action sociale à déléguer la signature de certains documents à un ou plusieurs fonctionnaires du centre",
+        "Competence": "Autoriser le directeur financier du centre public d'action sociale à déléguer la signature de certains documents à un ou plusieurs fonctionnaires du centre",
         "BaseLegale": "art. 28, §2, al. 13 LO",
         "EntiteFocus": [
             "CPAS"
@@ -10534,7 +10534,7 @@
             "signatures",
             "contreseing",
             "délégation",
-            "directeur fi""cier"
+            "directeur financier"
         ],
         "OrganeCompetent": [
             "bureau permanent"
@@ -10618,9 +10618,9 @@
         ],
         "OrganeCompetent": [
             "directeur général (CPAS)",
-            "directeur fi""cier (CPAS)"
+            "directeur financier (CPAS)"
         ],
-        "Commentaire": "Le directeur général et le directeur fi""cier peuvent désigner un fonctionnaire pour remplir cette mission",
+        "Commentaire": "Le directeur général et le directeur financier peuvent désigner un fonctionnaire pour remplir cette mission",
         "Delegation": "",
         "BaseDelegation": "",
         "LienConnect": "https://myportal.vandenbroeleconnect.be/contenu/livres/detail/73184593456836264/le-vade-mecum-de-la-commune-au-travers-du-cdld#73186792480091835"
@@ -10639,7 +10639,7 @@
         ],
         "OrganeCompetent": [
             "directeur général (CPAS)",
-            "directeur fi""cier (CPAS)"
+            "directeur financier (CPAS)"
         ],
         "Commentaire": "",
         "Delegation": "",
@@ -10661,9 +10661,9 @@
         ],
         "OrganeCompetent": [
             "directeur général (CPAS)",
-            "directeur fi""cier (CPAS)"
+            "directeur financier (CPAS)"
         ],
-        "Commentaire": "Le directeur général et le directeur fi""cier peuvent désigner un fonctionnaire pour remplir cette mission",
+        "Commentaire": "Le directeur général et le directeur financier peuvent désigner un fonctionnaire pour remplir cette mission",
         "Delegation": "",
         "BaseDelegation": "",
         "LienConnect": "https://myportal.vandenbroeleconnect.be/contenu/livres/detail/73184593456836264/le-vade-mecum-de-la-commune-au-travers-du-cdld#73186792480091839"
@@ -10683,7 +10683,7 @@
         ],
         "OrganeCompetent": [
             "directeur général (CPAS)",
-            "directeur fi""cier (CPAS)"
+            "directeur financier (CPAS)"
         ],
         "Commentaire": "",
         "Delegation": "",
@@ -10959,14 +10959,14 @@
     },
     {
         "N°": 539,
-        "Competence": "Établir le règlement qui fixe le statut administratif du directeur général et du directeur fi""cier du centre public d'action sociale",
+        "Competence": "Établir le règlement qui fixe le statut administratif du directeur général et du directeur financier du centre public d'action sociale",
         "BaseLegale": "art. 41, al. 2 LO",
         "EntiteFocus": [
             "CPAS"
         ],
         "Sujet": "",
         "IndexObjet": [
-            "directeur fi""cier",
+            "directeur financier",
             "directeur général",
             "statut administratif",
             "statut général du personnel"
@@ -10981,14 +10981,14 @@
     },
     {
         "N°": 540,
-        "Competence": "Évaluer le directeur général, le directeur fi""cier et le directeur général adjoint du CPAS",
+        "Competence": "Évaluer le directeur général, le directeur financier et le directeur général adjoint du CPAS",
         "BaseLegale": "art. 41, al. 6 LO",
         "EntiteFocus": [
             "CPAS"
         ],
         "Sujet": "",
         "IndexObjet": [
-            "directeur fi""cier",
+            "directeur financier",
             "directeur général",
             "directeur général adjoint",
             "évaluation"
@@ -11003,14 +11003,14 @@
     },
     {
         "N°": 541,
-        "Competence": "Élaborer et adopter un rapport de planification détermi""t les objectifs que le directeur général, le directeur général adjoint et le directeur fi""cier doivent atteindre dans le cadre des missions leur confiées",
+        "Competence": "Élaborer et adopter un rapport de planification détermi""t les objectifs que le directeur général, le directeur général adjoint et le directeur financier doivent atteindre dans le cadre des missions leur confiées",
         "BaseLegale": "art. 41, al. 8 et 9 LO",
         "EntiteFocus": [
             "CPAS"
         ],
         "Sujet": "",
         "IndexObjet": [
-            "directeur fi""cier",
+            "directeur financier",
             "directeur général",
             "directeur général adjoint",
             "rapport de planification"
@@ -11146,7 +11146,7 @@
     },
     {
         "N°": 548,
-        "Competence": "Déterminer, de commun accord, la répartition du temps de travail du directeur fi""cier commun à la commune et au CPAS",
+        "Competence": "Déterminer, de commun accord, la répartition du temps de travail du directeur financier commun à la commune et au CPAS",
         "BaseLegale": "art. 41ter, §4, al. 2 LO",
         "EntiteFocus": [
             "CPAS",
@@ -11154,7 +11154,7 @@
         ],
         "Sujet": "",
         "IndexObjet": [
-            "directeur fi""cier",
+            "directeur financier",
             "répartition"
         ],
         "OrganeCompetent": [
@@ -11766,7 +11766,7 @@
             "copie des documents transmis aux organes"
         ],
         "OrganeCompetent": [
-            "directeur fi""cier (CPAS)"
+            "directeur financier (CPAS)"
         ],
         "Commentaire": "",
         "Delegation": "",
@@ -11790,7 +11790,7 @@
         "OrganeCompetent": [
             "directeur général (CPAS)"
         ],
-        "Commentaire": "Pas d'application au directeur général ni au directeur fi""cier (art. 45, §3, al. 4 LO).",
+        "Commentaire": "Pas d'application au directeur général ni au directeur financier (art. 45, §3, al. 4 LO).",
         "Delegation": "",
         "BaseDelegation": "",
         "LienConnect": "https://myportal.vandenbroeleconnect.be/contenu/livres/detail/73184593456836264/le-vade-mecum-de-la-commune-au-travers-du-cdld#73186792480091836"
@@ -12065,7 +12065,7 @@
             "comptes annuels"
         ],
         "OrganeCompetent": [
-            "directeur fi""cier (CPAS)"
+            "directeur financier (CPAS)"
         ],
         "Commentaire": "C'est sous l'autorité du bureau permanent",
         "Delegation": "",
@@ -12074,14 +12074,14 @@
     },
     {
         "N°": 594,
-        "Competence": "Exercer l'autorité sur le directeur fi""cier du CPAS",
+        "Competence": "Exercer l'autorité sur le directeur financier du CPAS",
         "BaseLegale": "art. 46, §1er, al. 1er LO",
         "EntiteFocus": [
             "CPAS"
         ],
         "Sujet": "",
         "IndexObjet": [
-            "directeur fi""cier"
+            "directeur financier"
         ],
         "OrganeCompetent": [
             "bureau permanent"
@@ -12093,18 +12093,18 @@
     },
     {
         "N°": 595,
-        "Competence": "Remplir la fonction de conseiller fi""cier et budgétaire du CPAS",
+        "Competence": "Remplir la fonction de conseiller financier et budgétaire du CPAS",
         "BaseLegale": "art. 46, §1er, al. 1er LO",
         "EntiteFocus": [
             "CPAS"
         ],
         "Sujet": "",
         "IndexObjet": [
-            "conseiller fi""cier",
+            "conseiller financier",
             "conseiller budgétaire"
         ],
         "OrganeCompetent": [
-            "directeur fi""cier (CPAS)"
+            "directeur financier (CPAS)"
         ],
         "Commentaire": "",
         "Delegation": "",
@@ -12125,7 +12125,7 @@
             "recettes"
         ],
         "OrganeCompetent": [
-            "directeur fi""cier (CPAS)"
+            "directeur financier (CPAS)"
         ],
         "Commentaire": "",
         "Delegation": "",
@@ -12147,7 +12147,7 @@
             "mandats de paiement"
         ],
         "OrganeCompetent": [
-            "directeur fi""cier (CPAS)"
+            "directeur financier (CPAS)"
         ],
         "Commentaire": "",
         "Delegation": "",
@@ -12169,7 +12169,7 @@
             "déchéances"
         ],
         "OrganeCompetent": [
-            "directeur fi""cier (CPAS)"
+            "directeur financier (CPAS)"
         ],
         "Commentaire": "",
         "Delegation": "",
@@ -12191,7 +12191,7 @@
             "titres"
         ],
         "OrganeCompetent": [
-            "directeur fi""cier (CPAS)"
+            "directeur financier (CPAS)"
         ],
         "Commentaire": "",
         "Delegation": "",
@@ -12213,7 +12213,7 @@
             "droits"
         ],
         "OrganeCompetent": [
-            "directeur fi""cier (CPAS)"
+            "directeur financier (CPAS)"
         ],
         "Commentaire": "",
         "Delegation": "",
@@ -12232,7 +12232,7 @@
             "avis de légalité"
         ],
         "OrganeCompetent": [
-            "directeur fi""cier (CPAS)"
+            "directeur financier (CPAS)"
         ],
         "Commentaire": "À l'exception du projet de budget ou de modification budgétaire, des décisions relatives à l'octroi de l'aide sociale ou visées à l'art. 56 LO.",
         "Delegation": "",
@@ -12253,7 +12253,7 @@
             "legs"
         ],
         "OrganeCompetent": [
-            "directeur fi""cier (CPAS)"
+            "directeur financier (CPAS)"
         ],
         "Commentaire": "",
         "Delegation": "",
@@ -12272,7 +12272,7 @@
             "avis de légalité"
         ],
         "OrganeCompetent": [
-            "directeur fi""cier (CPAS)"
+            "directeur financier (CPAS)"
         ],
         "Commentaire": "",
         "Delegation": "",
@@ -12291,7 +12291,7 @@
             "ressources"
         ],
         "OrganeCompetent": [
-            "directeur fi""cier (CPAS)"
+            "directeur financier (CPAS)"
         ],
         "Commentaire": "",
         "Delegation": "",
@@ -12312,7 +12312,7 @@
             "actifs"
         ],
         "OrganeCompetent": [
-            "directeur fi""cier (CPAS)"
+            "directeur financier (CPAS)"
         ],
         "Commentaire": "",
         "Delegation": "",
@@ -12332,7 +12332,7 @@
             "informations fiables"
         ],
         "OrganeCompetent": [
-            "directeur fi""cier (CPAS)"
+            "directeur financier (CPAS)"
         ],
         "Commentaire": "",
         "Delegation": "",
@@ -12341,7 +12341,7 @@
     },
     {
         "N°": 607,
-        "Competence": "Effectuer le suivi fi""cier du programme stratégique transversal du CPAS",
+        "Competence": "Effectuer le suivi financier du programme stratégique transversal du CPAS",
         "BaseLegale": "art. 46, §2, al. 1er LO",
         "EntiteFocus": [
             "CPAS"
@@ -12351,7 +12351,7 @@
             "programme stratégique transversal"
         ],
         "OrganeCompetent": [
-            "directeur fi""cier (CPAS)"
+            "directeur financier (CPAS)"
         ],
         "Commentaire": "",
         "Delegation": "",
@@ -12360,14 +12360,14 @@
     },
     {
         "N°": 608,
-        "Competence": "Garantir au directeur fi""cier du CPAS un accès complet à tous les éléments des dossiers soumis au bureau permanent et au conseil de l'actions sociale en vue de son avis de légalité sur les projets de décisions ayant un impact fi""cier et sur l'acceptation des dons et legs",
+        "Competence": "Garantir au directeur financier du CPAS un accès complet à tous les éléments des dossiers soumis au bureau permanent et au conseil de l'actions sociale en vue de son avis de légalité sur les projets de décisions ayant un impact financier et sur l'acceptation des dons et legs",
         "BaseLegale": "art. 46, §2, al. 3 LO",
         "EntiteFocus": [
             "CPAS"
         ],
         "Sujet": "",
         "IndexObjet": [
-            "directeur fi""cier",
+            "directeur financier",
             "accès aux dossiers",
             "avis de légalité"
         ],
@@ -12391,7 +12391,7 @@
             "avis de légalité"
         ],
         "OrganeCompetent": [
-            "directeur fi""cier (CPAS)"
+            "directeur financier (CPAS)"
         ],
         "Commentaire": "",
         "Delegation": "",
@@ -12411,7 +12411,7 @@
             "d'initiative"
         ],
         "OrganeCompetent": [
-            "directeur fi""cier (CPAS)"
+            "directeur financier (CPAS)"
         ],
         "Commentaire": "",
         "Delegation": "",
@@ -12420,7 +12420,7 @@
     },
     {
         "N°": 611,
-        "Competence": "Faire rapport en toute indépendance au conseil de l'action sociale au moins une fois par an sur l’exécution de la mission de remise d’avis du directeur fi""cier ",
+        "Competence": "Faire rapport en toute indépendance au conseil de l'action sociale au moins une fois par an sur l’exécution de la mission de remise d’avis du directeur financier ",
         "BaseLegale": "art. 46, §5, al. 1 LO",
         "EntiteFocus": [
             "CPAS"
@@ -12431,7 +12431,7 @@
             "rapport sur l'exécution de la mission de remise d'avis"
         ],
         "OrganeCompetent": [
-            "directeur fi""cier (CPAS)"
+            "directeur financier (CPAS)"
         ],
         "Commentaire": "",
         "Delegation": "",
@@ -12440,7 +12440,7 @@
     },
     {
         "N°": 612,
-        "Competence": "Adresser une copie du rapport sur l'exécution de la mission de remise d'avis du directeur fi""cier au bureau permanent et au directeur général",
+        "Competence": "Adresser une copie du rapport sur l'exécution de la mission de remise d'avis du directeur financier au bureau permanent et au directeur général",
         "BaseLegale": "art. 46, §5, al. 2 LO",
         "EntiteFocus": [
             "CPAS"
@@ -12451,7 +12451,7 @@
             "rapport sur l'exécution de la mission de remise d'avis"
         ],
         "OrganeCompetent": [
-            "directeur fi""cier (CPAS)"
+            "directeur financier (CPAS)"
         ],
         "Commentaire": "",
         "Delegation": "",
@@ -12460,19 +12460,19 @@
     },
     {
         "N°": 613,
-        "Competence": "Désigner, en cas d'absence justifiée du directeur fi""cier du CPAS, un directeur fi""cier faisant fonction, pour une période de 30 jours au maximum",
+        "Competence": "Désigner, en cas d'absence justifiée du directeur financier du CPAS, un directeur financier faisant fonction, pour une période de 30 jours au maximum",
         "BaseLegale": "art. 46, §6, al. 1er LO",
         "EntiteFocus": [
             "CPAS"
         ],
         "Sujet": "",
         "IndexObjet": [
-            "directeur fi""cier",
+            "directeur financier",
             "absence",
-            "directeur fi""cier faisant fonction"
+            "directeur financier faisant fonction"
         ],
         "OrganeCompetent": [
-            "directeur fi""cier (CPAS)"
+            "directeur financier (CPAS)"
         ],
         "Commentaire": "",
         "Delegation": "",
@@ -12481,16 +12481,16 @@
     },
     {
         "N°": 614,
-        "Competence": "Désigner un directeur fi""cier faisant fonction au sein du CPAS (sauf si le directeur fi""cier est compétent)",
+        "Competence": "Désigner un directeur financier faisant fonction au sein du CPAS (sauf si le directeur financier est compétent)",
         "BaseLegale": "art. 46, §6, al. 2 LO",
         "EntiteFocus": [
             "CPAS"
         ],
         "Sujet": "",
         "IndexObjet": [
-            "directeur fi""cier",
+            "directeur financier",
             "absence",
-            "directeur fi""cier faisant fonction"
+            "directeur financier faisant fonction"
         ],
         "OrganeCompetent": [
             "bureau permanent"
@@ -12502,19 +12502,19 @@
     },
     {
         "N°": 615,
-        "Competence": "Exercer toutes les attributions dévolues au directeur fi""cier lors de l'absence de celui-ci",
+        "Competence": "Exercer toutes les attributions dévolues au directeur financier lors de l'absence de celui-ci",
         "BaseLegale": "art. 46, §6, al. 5 LO",
         "EntiteFocus": [
             "CPAS"
         ],
         "Sujet": "",
         "IndexObjet": [
-            "directeur fi""cier",
+            "directeur financier",
             "absence",
-            "directeur fi""cier faisant fonction"
+            "directeur financier faisant fonction"
         ],
         "OrganeCompetent": [
-            "directeur fi""cier faisant fonction (CPAS)"
+            "directeur financier faisant fonction (CPAS)"
         ],
         "Commentaire": "",
         "Delegation": "",
@@ -12536,7 +12536,7 @@
             "encaisse"
         ],
         "OrganeCompetent": [
-            "directeur fi""cier (CPAS)"
+            "directeur financier (CPAS)"
         ],
         "Commentaire": "",
         "Delegation": "",
@@ -12568,7 +12568,7 @@
     },
     {
         "N°": 618,
-        "Competence": "Établir un compte de fin de gestion en cas de cessation définitive des fonctions, comme directeur fi""cier, directeur fi""cier faisant fonction ou agent spécial",
+        "Competence": "Établir un compte de fin de gestion en cas de cessation définitive des fonctions, comme directeur financier, directeur financier faisant fonction ou agent spécial",
         "BaseLegale": "art. 46, §8, al. 1er LO",
         "EntiteFocus": [
             "CPAS"
@@ -12580,8 +12580,8 @@
             "compte de fin de gestion"
         ],
         "OrganeCompetent": [
-            "directeur fi""cier (CPAS)",
-            "directeur fi""cier faisant fonction (CPAS)",
+            "directeur financier (CPAS)",
+            "directeur financier faisant fonction (CPAS)",
             "agent spécial (CPAS)"
         ],
         "Commentaire": "",
@@ -12591,7 +12591,7 @@
     },
     {
         "N°": 619,
-        "Competence": "Arrêter le compte de fin de gestion du directeur fi""cier, du directeur fi""cier faisant fonction ou d'un agent spécial et déclarer quitte le comptable (ou fixer un débet)",
+        "Competence": "Arrêter le compte de fin de gestion du directeur financier, du directeur financier faisant fonction ou d'un agent spécial et déclarer quitte le comptable (ou fixer un débet)",
         "BaseLegale": "art. 46, §8, al. 2 LO",
         "EntiteFocus": [
             "CPAS"
@@ -12732,7 +12732,7 @@
     },
     {
         "N°": 626,
-        "Competence": "Autoriser le cumul du directeur général de CPAS, du directeur général adjoint du CPAS ou du directeur fi""cier du CPAS",
+        "Competence": "Autoriser le cumul du directeur général de CPAS, du directeur général adjoint du CPAS ou du directeur financier du CPAS",
         "BaseLegale": "art. 49, §5, al. 2 LO",
         "EntiteFocus": [
             "CPAS"
@@ -12741,7 +12741,7 @@
         "IndexObjet": [
             "personnel",
             "directeur général",
-            "directeur fi""cier",
+            "directeur financier",
             "directeur général adjoint",
             "cumul des fonctions"
         ],
@@ -12768,7 +12768,7 @@
         "OrganeCompetent": [
             "conseil de l'action sociale"
         ],
-        "Commentaire": "C'est sur rapport du directeur général, sauf pour le directeur général, le directeur général adjoint, le directeur fi""cier et le comptable spécial.",
+        "Commentaire": "C'est sur rapport du directeur général, sauf pour le directeur général, le directeur général adjoint, le directeur financier et le comptable spécial.",
         "Delegation": "",
         "BaseDelegation": "",
         "LienConnect": "https://myportal.vandenbroeleconnect.be/contenu/livres/detail/73184593456836264/le-vade-mecum-de-la-commune-au-travers-du-cdld#73186792480091836"
@@ -12788,7 +12788,7 @@
         "OrganeCompetent": [
             "directeur général (CPAS)"
         ],
-        "Commentaire": "Ce rapport n'est pas d'application s'il s'agit du directeur général, sauf pour le directeur général, le directeur général adjoint, le directeur fi""cier et le comptable spécial.",
+        "Commentaire": "Ce rapport n'est pas d'application s'il s'agit du directeur général, sauf pour le directeur général, le directeur général adjoint, le directeur financier et le comptable spécial.",
         "Delegation": "",
         "BaseDelegation": "",
         "LienConnect": "https://myportal.vandenbroeleconnect.be/contenu/livres/detail/73184593456836264/le-vade-mecum-de-la-commune-au-travers-du-cdld#73186792480091839"
@@ -12983,14 +12983,14 @@
         "OrganeCompetent": [
             "autorité disciplinaire"
         ],
-        "Commentaire": "Pour le directeur général, le directeur général adjoint, le directeur fi""cier et le comptable spécial, c'est le bureau permanent et le conseil de l'action sociale qui sont compétents; voir aussi l'article L1215-23 CDLD (juncto art. 52 LO) pour une éventuelle retenue de traitement et privation des titres à l'avancement.",
+        "Commentaire": "Pour le directeur général, le directeur général adjoint, le directeur financier et le comptable spécial, c'est le bureau permanent et le conseil de l'action sociale qui sont compétents; voir aussi l'article L1215-23 CDLD (juncto art. 52 LO) pour une éventuelle retenue de traitement et privation des titres à l'avancement.",
         "Delegation": "",
         "BaseDelegation": "",
         "LienConnect": "https://myportal.vandenbroeleconnect.be/contenu/livres/detail/73184593456836264/le-vade-mecum-de-la-commune-au-travers-du-cdld#73186792480091832"
     },
     {
         "N°": 638,
-        "Competence": "Infliger une suspension préventive à l'égard du directeur général, du directeur général adjoint, du directeur fi""cier et du comptable spécial du CPAS",
+        "Competence": "Infliger une suspension préventive à l'égard du directeur général, du directeur général adjoint, du directeur financier et du comptable spécial du CPAS",
         "BaseLegale": "art. 52, al. 1er LO, juncto art. L1215-21, al. 2 CDLD",
         "EntiteFocus": [
             "CPAS"
@@ -13001,7 +13001,7 @@
             "sanctions disciplinaires",
             "directeur général",
             "directeur général adjoint",
-            "directeur fi""cier",
+            "directeur financier",
             "comptable spécial",
             "suspension préventive"
         ],
@@ -13132,7 +13132,7 @@
             "valeurs"
         ],
         "OrganeCompetent": [
-            "directeur fi""cier (CPAS)",
+            "directeur financier (CPAS)",
             "receveur régional"
         ],
         "Commentaire": "",
@@ -13154,7 +13154,7 @@
             "valeurs"
         ],
         "OrganeCompetent": [
-            "directeur fi""cier (CPAS)",
+            "directeur financier (CPAS)",
             "receveur régional"
         ],
         "Commentaire": "C'est avec l'accord du directeur général du CPAS.",
@@ -13164,7 +13164,7 @@
     },
     {
         "N°": 646,
-        "Competence": "Marquer son accord en cas de désignation, par le directeur fi""cier du CPAS, de personnes chargées de recevoir, de garder et de restituer les dépôts de valeurs pour le CPAS",
+        "Competence": "Marquer son accord en cas de désignation, par le directeur financier du CPAS, de personnes chargées de recevoir, de garder et de restituer les dépôts de valeurs pour le CPAS",
         "BaseLegale": "art. 60, §8, al. 2 LO",
         "EntiteFocus": [
             "CPAS"
@@ -13196,7 +13196,7 @@
             "biens"
         ],
         "OrganeCompetent": [
-            "directeur fi""cier (CPAS)",
+            "directeur financier (CPAS)",
             "receveur régional"
         ],
         "Commentaire": "",
@@ -13412,7 +13412,7 @@
             "président du conseil de l'action sociale"
         ],
         "Commentaire": "",
-        "Delegation": "à un fonctionnaire, à l'exclusion du directeur fi""cier",
+        "Delegation": "à un fonctionnaire, à l'exclusion du directeur financier",
         "BaseDelegation": "art. 80bis, al. 2 LO",
         "LienConnect": "https://myportal.vandenbroeleconnect.be/contenu/livres/detail/73184593456836264/le-vade-mecum-de-la-commune-au-travers-du-cdld#73186792480091832"
     },
@@ -13431,7 +13431,7 @@
             "conseil de l'action sociale"
         ],
         "Commentaire": "",
-        "Delegation": "au bureau permanent et aux comités spéciaux, mais il y a des plafonds à respecter; pour ce qui concerne les dépenses relevant du budget ordinaire, la délégation au directeur général, au directeur général adjoint ou à un autre fonctionnaire, à l'exclusion du directeur fi""cier, est possible; pour les dépenses relevant du budget extraordinaire la délégation est uniquement possible au directeur général et au directeur général adjoint",
+        "Delegation": "au bureau permanent et aux comités spéciaux, mais il y a des plafonds à respecter; pour ce qui concerne les dépenses relevant du budget ordinaire, la délégation au directeur général, au directeur général adjoint ou à un autre fonctionnaire, à l'exclusion du directeur financier, est possible; pour les dépenses relevant du budget extraordinaire la délégation est uniquement possible au directeur général et au directeur général adjoint",
         "BaseDelegation": "art. 84, §2, al. 1er LO; art. 84, §3, al. 1er LO",
         "LienConnect": "https://myportal.vandenbroeleconnect.be/contenu/livres/detail/73184593456836264/le-vade-mecum-de-la-commune-au-travers-du-cdld#73186792480091835"
     },
@@ -13450,7 +13450,7 @@
             "conseil de l'action sociale"
         ],
         "Commentaire": "",
-        "Delegation": "au bureau permanent et aux comités spéciaux, mais il y a des plafonds à respecter; pour ce qui concerne les dépenses relevant du budget ordinaire, la délégation au directeur général, au directeur général adjoint ou à un autre fonctionnaire, à l'exclusion du directeur fi""cier, est possible; pour les dépenses relevant du budget extraordinaire la délégation est uniquement possible au directeur général et au directeur général adjoint",
+        "Delegation": "au bureau permanent et aux comités spéciaux, mais il y a des plafonds à respecter; pour ce qui concerne les dépenses relevant du budget ordinaire, la délégation au directeur général, au directeur général adjoint ou à un autre fonctionnaire, à l'exclusion du directeur financier, est possible; pour les dépenses relevant du budget extraordinaire la délégation est uniquement possible au directeur général et au directeur général adjoint",
         "BaseDelegation": "art. 84, §2, al. 1er LO; art. 84, §3, al. 1er LO",
         "LienConnect": "https://myportal.vandenbroeleconnect.be/contenu/livres/detail/73184593456836264/le-vade-mecum-de-la-commune-au-travers-du-cdld#73186792480091836"
     },
@@ -13469,7 +13469,7 @@
             "conseil de l'action sociale"
         ],
         "Commentaire": "",
-        "Delegation": "au bureau permanent et aux comités spéciaux, mais il y a des plafonds à respecter; pour ce qui concerne les dépenses relevant du budget ordinaire, la délégation au directeur général, au directeur général adjoint ou à un autre fonctionnaire, à l'exclusion du directeur fi""cier, est possible; pour les dépenses relevant du budget extraordinaire la délégation est uniquement possible au directeur général et au directeur général adjoint; les compétences de vérification, en vue du paiement, des travaux, des fournitures et des services qui sont acceptés en paiement, le cas échéant d'invitation à facturer, et de fixer le montant dû peuvent être déléguées au directeur général ou au directeur général adjoint",
+        "Delegation": "au bureau permanent et aux comités spéciaux, mais il y a des plafonds à respecter; pour ce qui concerne les dépenses relevant du budget ordinaire, la délégation au directeur général, au directeur général adjoint ou à un autre fonctionnaire, à l'exclusion du directeur financier, est possible; pour les dépenses relevant du budget extraordinaire la délégation est uniquement possible au directeur général et au directeur général adjoint; les compétences de vérification, en vue du paiement, des travaux, des fournitures et des services qui sont acceptés en paiement, le cas échéant d'invitation à facturer, et de fixer le montant dû peuvent être déléguées au directeur général ou au directeur général adjoint",
         "BaseDelegation": "art. 84, §2, al. 1er LO; art. 84, §3, al. 1er LO; art. 84, §3bis, al. 1er LO",
         "LienConnect": "https://myportal.vandenbroeleconnect.be/contenu/livres/detail/73184593456836264/le-vade-mecum-de-la-commune-au-travers-du-cdld#73186792480091839"
     },
@@ -13489,7 +13489,7 @@
             "conseil de l'action sociale"
         ],
         "Commentaire": "",
-        "Delegation": "au bureau permanent et aux comités spéciaux, mais il y a des plafonds à respecter; pour ce qui concerne les dépenses relevant du budget ordinaire, la délégation au directeur général, au directeur général adjoint ou à un autre fonctionnaire, à l'exclusion du directeur fi""cier, est possible; pour les dépenses relevant du budget extraordinaire la délégation est uniquement possible au directeur général et au directeur général adjoint",
+        "Delegation": "au bureau permanent et aux comités spéciaux, mais il y a des plafonds à respecter; pour ce qui concerne les dépenses relevant du budget ordinaire, la délégation au directeur général, au directeur général adjoint ou à un autre fonctionnaire, à l'exclusion du directeur financier, est possible; pour les dépenses relevant du budget extraordinaire la délégation est uniquement possible au directeur général et au directeur général adjoint",
         "BaseDelegation": "art. 84, §2, al. 1er LO; art. 84, §3, al. 1er LO",
         "LienConnect": "https://myportal.vandenbroeleconnect.be/contenu/livres/detail/73184593456836264/le-vade-mecum-de-la-commune-au-travers-du-cdld#73186792480091832"
     },
@@ -13508,7 +13508,7 @@
             "conseil de l'action sociale"
         ],
         "Commentaire": "",
-        "Delegation": "au bureau permanent et aux comités spéciaux, mais il y a des plafonds à respecter; pour ce qui concerne les dépenses relevant du budget ordinaire, la délégation au directeur général, au directeur général adjoint ou à un autre fonctionnaire, à l'exclusion du directeur fi""cier, est possible; pour les dépenses relevant du budget extraordinaire la délégation est uniquement possible au directeur général et au directeur général adjoint",
+        "Delegation": "au bureau permanent et aux comités spéciaux, mais il y a des plafonds à respecter; pour ce qui concerne les dépenses relevant du budget ordinaire, la délégation au directeur général, au directeur général adjoint ou à un autre fonctionnaire, à l'exclusion du directeur financier, est possible; pour les dépenses relevant du budget extraordinaire la délégation est uniquement possible au directeur général et au directeur général adjoint",
         "BaseDelegation": "art. 84, §2, al. 1er LO; art. 84, §3, al. 1er LO",
         "LienConnect": "https://myportal.vandenbroeleconnect.be/contenu/livres/detail/73184593456836264/le-vade-mecum-de-la-commune-au-travers-du-cdld#73186792480091835"
     },
@@ -13528,7 +13528,7 @@
             "conseil de l'action sociale"
         ],
         "Commentaire": "",
-        "Delegation": "au bureau permanent et aux comités spéciaux, mais il y a des plafonds à respecter; pour ce qui concerne les dépenses relevant du budget ordinaire, la délégation au directeur général, au directeur général adjoint ou à un autre fonctionnaire, à l'exclusion du directeur fi""cier, est possible; pour les dépenses relevant du budget extraordinaire la délégation est uniquement possible au directeur général et au directeur général adjoint",
+        "Delegation": "au bureau permanent et aux comités spéciaux, mais il y a des plafonds à respecter; pour ce qui concerne les dépenses relevant du budget ordinaire, la délégation au directeur général, au directeur général adjoint ou à un autre fonctionnaire, à l'exclusion du directeur financier, est possible; pour les dépenses relevant du budget extraordinaire la délégation est uniquement possible au directeur général et au directeur général adjoint",
         "BaseDelegation": "art. 84, §2, al. 1er LO; art. 84, §3, al. 1er LO",
         "LienConnect": "https://myportal.vandenbroeleconnect.be/contenu/livres/detail/73184593456836264/le-vade-mecum-de-la-commune-au-travers-du-cdld#73186792480091836"
     },
@@ -13567,7 +13567,7 @@
             "conseil de l'action sociale"
         ],
         "Commentaire": "",
-        "Delegation": "au bureau permanent et aux comités spéciaux, mais il y a des plafonds à respecter; pour ce qui concerne les dépenses relevant du budget ordinaire, la délégation au directeur général, au directeur général adjoint ou à un autre fonctionnaire, à l'exclusion du directeur fi""cier, est possible; pour les dépenses relevant du budget extraordinaire la délégation est uniquement possible au directeur général et au directeur général adjoint",
+        "Delegation": "au bureau permanent et aux comités spéciaux, mais il y a des plafonds à respecter; pour ce qui concerne les dépenses relevant du budget ordinaire, la délégation au directeur général, au directeur général adjoint ou à un autre fonctionnaire, à l'exclusion du directeur financier, est possible; pour les dépenses relevant du budget extraordinaire la délégation est uniquement possible au directeur général et au directeur général adjoint",
         "BaseDelegation": "art. 84bis, §2, al. 1er LO; art. 84bis, §3, al. 1er LO; ",
         "LienConnect": "https://myportal.vandenbroeleconnect.be/contenu/livres/detail/73184593456836264/le-vade-mecum-de-la-commune-au-travers-du-cdld#73186792480091832"
     },
@@ -13587,7 +13587,7 @@
             "conseil de l'action sociale"
         ],
         "Commentaire": "",
-        "Delegation": "au bureau permanent et aux comités spéciaux, mais il y a des plafonds à respecter; pour ce qui concerne les dépenses relevant du budget ordinaire, la délégation au directeur général, au directeur général adjoint ou à un autre fonctionnaire, à l'exclusion du directeur fi""cier, est possible; pour les dépenses relevant du budget extraordinaire la délégation est uniquement possible au directeur général et au directeur général adjoint",
+        "Delegation": "au bureau permanent et aux comités spéciaux, mais il y a des plafonds à respecter; pour ce qui concerne les dépenses relevant du budget ordinaire, la délégation au directeur général, au directeur général adjoint ou à un autre fonctionnaire, à l'exclusion du directeur financier, est possible; pour les dépenses relevant du budget extraordinaire la délégation est uniquement possible au directeur général et au directeur général adjoint",
         "BaseDelegation": "art. 84bis, §2, al. 1er LO; art. 84bis, §3, al. 1er LO; ",
         "LienConnect": "https://myportal.vandenbroeleconnect.be/contenu/livres/detail/73184593456836264/le-vade-mecum-de-la-commune-au-travers-du-cdld#73186792480091835"
     },
@@ -13607,7 +13607,7 @@
             "conseil de l'action sociale"
         ],
         "Commentaire": "",
-        "Delegation": "au bureau permanent et aux comités spéciaux, mais il y a des plafonds à respecter; pour ce qui concerne les dépenses relevant du budget ordinaire, la délégation au directeur général, au directeur général adjoint ou à un autre fonctionnaire, à l'exclusion du directeur fi""cier, est possible; pour les dépenses relevant du budget extraordinaire la délégation est uniquement possible au directeur général et au directeur général adjoint",
+        "Delegation": "au bureau permanent et aux comités spéciaux, mais il y a des plafonds à respecter; pour ce qui concerne les dépenses relevant du budget ordinaire, la délégation au directeur général, au directeur général adjoint ou à un autre fonctionnaire, à l'exclusion du directeur financier, est possible; pour les dépenses relevant du budget extraordinaire la délégation est uniquement possible au directeur général et au directeur général adjoint",
         "BaseDelegation": "art. 84bis, §2, al. 1er LO; art. 84bis, §3, al. 1er LO; ",
         "LienConnect": "https://myportal.vandenbroeleconnect.be/contenu/livres/detail/73184593456836264/le-vade-mecum-de-la-commune-au-travers-du-cdld#73186792480091836"
     },
@@ -13667,7 +13667,7 @@
             "conseil de l'action sociale"
         ],
         "Commentaire": "",
-        "Delegation": "au bureau permanent et aux comités spéciaux, mais il y a des plafonds à respecter; la manifestation d'intérêt peut être déléguée au directeur général, au directeur général adjoint ou à un autre fonctionnaire, à l'exclusion du directeur fi""cier; ",
+        "Delegation": "au bureau permanent et aux comités spéciaux, mais il y a des plafonds à respecter; la manifestation d'intérêt peut être déléguée au directeur général, au directeur général adjoint ou à un autre fonctionnaire, à l'exclusion du directeur financier; ",
         "BaseDelegation": "art. 84ter, §4, al. 1er LO; art. 84ter, §5, al. 1er LO",
         "LienConnect": "https://myportal.vandenbroeleconnect.be/contenu/livres/detail/73184593456836264/le-vade-mecum-de-la-commune-au-travers-du-cdld#73186792480091835"
     },
@@ -13687,7 +13687,7 @@
             "conseil de l'action sociale"
         ],
         "Commentaire": "",
-        "Delegation": "au bureau permanent et aux comités spéciaux, mais il y a des plafonds à respecter; pour ce qui concerne les dépenses relevant du budget ordinaire, la délégation au directeur général, au directeur général adjoint ou à un autre fonctionnaire, à l'exclusion du directeur fi""cier, est possible; pour les dépenses relevant du budget extraordinaire la délégation est uniquement possible au directeur général et au directeur général adjoint",
+        "Delegation": "au bureau permanent et aux comités spéciaux, mais il y a des plafonds à respecter; pour ce qui concerne les dépenses relevant du budget ordinaire, la délégation au directeur général, au directeur général adjoint ou à un autre fonctionnaire, à l'exclusion du directeur financier, est possible; pour les dépenses relevant du budget extraordinaire la délégation est uniquement possible au directeur général et au directeur général adjoint",
         "BaseDelegation": "art. 84ter, §4, al. 1er LO; art. 84ter, §5, al. 2 LO",
         "LienConnect": "https://myportal.vandenbroeleconnect.be/contenu/livres/detail/73184593456836264/le-vade-mecum-de-la-commune-au-travers-du-cdld#73186792480091836"
     },
@@ -14195,7 +14195,7 @@
     },
     {
         "N°": 697,
-        "Competence": "Décider de l'imputation et de l'exécution d'une dépense en cas d'avis défavorable du directeur fi""cier (CPAS)",
+        "Competence": "Décider de l'imputation et de l'exécution d'une dépense en cas d'avis défavorable du directeur financier (CPAS)",
         "BaseLegale": "art. 91, §3, al. 1er LO",
         "EntiteFocus": [
             "CPAS"
@@ -14238,7 +14238,7 @@
     },
     {
         "N°": 699,
-        "Competence": "Vérifier l'encaisse du directeur fi""cier (au moins une fois par trimestre) et établir un procès-verbal de vérification (CPAS)",
+        "Competence": "Vérifier l'encaisse du directeur financier (au moins une fois par trimestre) et établir un procès-verbal de vérification (CPAS)",
         "BaseLegale": "art. 93, §1er, al. 1er LO",
         "EntiteFocus": [
             "CPAS"
@@ -14259,7 +14259,7 @@
     },
     {
         "N°": 700,
-        "Competence": "Désigner des membres du conseil de l'action sociale en vue de la vérification de l'encaisse du directeur fi""cier (au moins une fois par trimestre) et établir un procès-verbal de vérification (CPAS)",
+        "Competence": "Désigner des membres du conseil de l'action sociale en vue de la vérification de l'encaisse du directeur financier (au moins une fois par trimestre) et établir un procès-verbal de vérification (CPAS)",
         "BaseLegale": "art. 93, §1er, al. 1er LO",
         "EntiteFocus": [
             "CPAS"
@@ -14280,7 +14280,7 @@
     },
     {
         "N°": 701,
-        "Competence": "Signer le procès-verbal de la vérification de l'encaisse du directeur fi""cier (au moins une fois par trimestre) (CPAS)",
+        "Competence": "Signer le procès-verbal de la vérification de l'encaisse du directeur financier (au moins une fois par trimestre) (CPAS)",
         "BaseLegale": "art. 93, §1er, al. 1er LO",
         "EntiteFocus": [
             "CPAS"
@@ -14292,7 +14292,7 @@
             "encaisse"
         ],
         "OrganeCompetent": [
-            "directeur fi""cier (CPAS)",
+            "directeur financier (CPAS)",
             "receveur régional",
             "conseil de l'action sociale"
         ],
@@ -14317,7 +14317,7 @@
             "perte"
         ],
         "OrganeCompetent": [
-            "directeur fi""cier (CPAS)",
+            "directeur financier (CPAS)",
             "receveur régional"
         ],
         "Commentaire": "",
@@ -14327,7 +14327,7 @@
     },
     {
         "N°": 703,
-        "Competence": "Inviter, lorsque la vérification de l'encaisse fait apparaître un déficit à la suite d'un vol ou d'une perte, le directeur fi""cier, par recommandé, à verser une somme équivalente dans la caisse du centre public de l'action sociale",
+        "Competence": "Inviter, lorsque la vérification de l'encaisse fait apparaître un déficit à la suite d'un vol ou d'une perte, le directeur financier, par recommandé, à verser une somme équivalente dans la caisse du centre public de l'action sociale",
         "BaseLegale": "art. 93, §3, al. 1er LO",
         "EntiteFocus": [
             "CPAS"
@@ -14364,7 +14364,7 @@
             "perte"
         ],
         "OrganeCompetent": [
-            "directeur fi""cier (CPAS)",
+            "directeur financier (CPAS)",
             "receveur régional"
         ],
         "Commentaire": "",
@@ -14852,7 +14852,7 @@
     },
     {
         "N°": 728,
-        "Competence": "Désigner un directeur fi""cier spécial pour l'hôpital (qui dépend du centre public d'action sociale)",
+        "Competence": "Désigner un directeur financier spécial pour l'hôpital (qui dépend du centre public d'action sociale)",
         "BaseLegale": "art. 94, §3, al. 1er LO",
         "EntiteFocus": [
             "CPAS",
@@ -14860,7 +14860,7 @@
         ],
         "Sujet": "",
         "IndexObjet": [
-            "directeur fi""cier spécial"
+            "directeur financier spécial"
         ],
         "OrganeCompetent": [
             "conseil de l'action sociale"
@@ -15129,16 +15129,16 @@
             "trésorier"
         ],
         "OrganeCompetent": [
-            "directeur fi""cier (CPAS)"
+            "directeur financier (CPAS)"
         ],
-        "Commentaire": "Sauf désignation par le conseil de l'action sociale d'un directeur fi""cier spécial.",
+        "Commentaire": "Sauf désignation par le conseil de l'action sociale d'un directeur financier spécial.",
         "Delegation": "",
         "BaseDelegation": "",
         "LienConnect": "https://myportal.vandenbroeleconnect.be/contenu/livres/detail/73184593456836264/le-vade-mecum-de-la-commune-au-travers-du-cdld#73186792480091839"
     },
     {
         "N°": 741,
-        "Competence": "Exercer l'autorité sur le trésorier (directeur fi""cier / directeur fi""cier spécial) de l'hôpital (qui dépend du centre public d'action sociale)",
+        "Competence": "Exercer l'autorité sur le trésorier (directeur financier / directeur financier spécial) de l'hôpital (qui dépend du centre public d'action sociale)",
         "BaseLegale": "art. 94, §5, al. 3 LO",
         "EntiteFocus": [
             "CPAS",
@@ -15181,7 +15181,7 @@
     },
     {
         "N°": 743,
-        "Competence": "Désigner, en cas d'absence justifiée du trésorier de l'hôpital (qui dépend du centre public d'action sociale), un directeur fi""cier faisant fonction, pour une période de 30 jours au maximum",
+        "Competence": "Désigner, en cas d'absence justifiée du trésorier de l'hôpital (qui dépend du centre public d'action sociale), un directeur financier faisant fonction, pour une période de 30 jours au maximum",
         "BaseLegale": "Art. 46, §6, al. 1er LO juncto art. 94, §5, al. 4 LO",
         "EntiteFocus": [
             "CPAS",
@@ -15203,7 +15203,7 @@
     },
     {
         "N°": 744,
-        "Competence": "Désigner un directeur fi""cier faisant fonction pour remplacer le trésorier de l'hôpital (qui dépend du centre public d'action sociale) (sauf si le directeur fi""cier est compétent)",
+        "Competence": "Désigner un directeur financier faisant fonction pour remplacer le trésorier de l'hôpital (qui dépend du centre public d'action sociale) (sauf si le directeur financier est compétent)",
         "BaseLegale": "Art. 46, §6, al. 2 LO juncto art. 94, §5, al. 4 LO",
         "EntiteFocus": [
             "CPAS",
@@ -15238,7 +15238,7 @@
             "directeur faisant fonction"
         ],
         "OrganeCompetent": [
-            "directeur fi""cier faisant fonction (CPAS)"
+            "directeur financier faisant fonction (CPAS)"
         ],
         "Commentaire": "",
         "Delegation": "",
@@ -15269,7 +15269,7 @@
     },
     {
         "N°": 747,
-        "Competence": "Établir un compte de fin de gestion en cas de cessation définitive des fonctions, comme trésorier, directeur fi""cier faisant fonction ou agent spécial de l'hôpital (qui dépend du centre public d'action sociale",
+        "Competence": "Établir un compte de fin de gestion en cas de cessation définitive des fonctions, comme trésorier, directeur financier faisant fonction ou agent spécial de l'hôpital (qui dépend du centre public d'action sociale",
         "BaseLegale": "Art. 46, §8, al. 1er LO juncto art. 94, §5, al. 4 LO",
         "EntiteFocus": [
             "CPAS",
@@ -15283,7 +15283,7 @@
         ],
         "OrganeCompetent": [
             "trésorier (de l'hôpital)",
-            "directeur fi""cier faisant fonction (CPAS",
+            "directeur financier faisant fonction (CPAS",
             "de l'hôpital)",
             "agent spécial (CPAS",
             "de l'hôpital)"
@@ -15295,7 +15295,7 @@
     },
     {
         "N°": 748,
-        "Competence": "Arrêter le compte de fin de gestion du trésorier de l'hôpital (qui dépend du centre public d'action sociale), du directeur fi""cier faisant fonction ou d'un agent spécial et déclarer quitte le comptable (ou fixer un débet)",
+        "Competence": "Arrêter le compte de fin de gestion du trésorier de l'hôpital (qui dépend du centre public d'action sociale), du directeur financier faisant fonction ou d'un agent spécial et déclarer quitte le comptable (ou fixer un débet)",
         "BaseLegale": "Art. 46, §8, al. 2 LO juncto art. 94, §5, al. 4 LO",
         "EntiteFocus": [
             "CPAS",
@@ -15374,7 +15374,7 @@
             "encaisse"
         ],
         "OrganeCompetent": [
-            "directeur fi""cier (CPAS)",
+            "directeur financier (CPAS)",
             "receveur régional",
             "conseil de l'action sociale"
         ],
@@ -15400,7 +15400,7 @@
             "perte"
         ],
         "OrganeCompetent": [
-            "trésorier (de l hôpital)"
+            "trésorier (de l'hôpital)"
         ],
         "Commentaire": "",
         "Delegation": "",
@@ -15409,7 +15409,7 @@
     },
     {
         "N°": 753,
-        "Competence": "Inviter, lorsque la vérification de l'encaisse de l'hôpital (qui dépend du centre public d'action sociale) fait apparaître un déficit à la suite d'un vol ou d'une perte, le directeur fi""cier, par recommandé, à verser une somme équivalente dans la caisse de l'hôpital",
+        "Competence": "Inviter, lorsque la vérification de l'encaisse de l'hôpital (qui dépend du centre public d'action sociale) fait apparaître un déficit à la suite d'un vol ou d'une perte, le directeur financier, par recommandé, à verser une somme équivalente dans la caisse de l'hôpital",
         "BaseLegale": "art. 93, §3, al. 1er LO juncto art. 94, §5, al. 4 LO",
         "EntiteFocus": [
             "CPAS",
@@ -15457,7 +15457,7 @@
     },
     {
         "N°": 755,
-        "Competence": "Exercer les actions judiciaires en demandant au sujet des opérations dont question à l'article 46, § 1er LO (comptabilité, comptes annuels, fonction de conseiller fi""cier et budgétaire de l'hôpital qui dépend du CPAS), ainsi que celles au sujet de la gestion des biens et le recouvrement des frais de l'aide octroyée",
+        "Competence": "Exercer les actions judiciaires en demandant au sujet des opérations dont question à l'article 46, § 1er LO (comptabilité, comptes annuels, fonction de conseiller financier et budgétaire de l'hôpital qui dépend du CPAS), ainsi que celles au sujet de la gestion des biens et le recouvrement des frais de l'aide octroyée",
         "BaseLegale": "art. 115 LO juncto art. 94, §5, al. 4 LO",
         "EntiteFocus": [
             "CPAS",
@@ -15519,7 +15519,7 @@
     },
     {
         "N°": 758,
-        "Competence": "Arrêter le plan de gestion pour l'hôpital qui dépend du centre public d'action sociale en cas d'un budget où manque l'équilibre fi""cier",
+        "Competence": "Arrêter le plan de gestion pour l'hôpital qui dépend du centre public d'action sociale en cas d'un budget où manque l'équilibre financier",
         "BaseLegale": "art. 94, §10, al. 2 LO",
         "EntiteFocus": [
             "CPAS",
@@ -15540,7 +15540,7 @@
     },
     {
         "N°": 759,
-        "Competence": "Approuver le plan de gestion pour l'hôpital qui dépend du centre public d'action sociale en cas d'un budget où manque l'équilibre fi""cier",
+        "Competence": "Approuver le plan de gestion pour l'hôpital qui dépend du centre public d'action sociale en cas d'un budget où manque l'équilibre financier",
         "BaseLegale": "art. 94, §10, al. 2 LO",
         "EntiteFocus": [
             "CPAS",
@@ -15561,7 +15561,7 @@
     },
     {
         "N°": 760,
-        "Competence": "Avis sur le plan de gestion pour l'hôpital qui dépend du centre public d'action sociale en cas d'un budget où manque l'équilibre fi""cier",
+        "Competence": "Avis sur le plan de gestion pour l'hôpital qui dépend du centre public d'action sociale en cas d'un budget où manque l'équilibre financier",
         "BaseLegale": "art. 94, §10, al. 2 LO",
         "EntiteFocus": [
             "CPAS",
@@ -15582,7 +15582,7 @@
     },
     {
         "N°": 761,
-        "Competence": "Possibilité de dispenser le conseil de l'action sociale d'établir un plan de gestion pour l'hôpital qui dépend du centre public d'action sociale en cas d'un budget où manque l'équilibre fi""cier",
+        "Competence": "Possibilité de dispenser le conseil de l'action sociale d'établir un plan de gestion pour l'hôpital qui dépend du centre public d'action sociale en cas d'un budget où manque l'équilibre financier",
         "BaseLegale": "art. 94, §10, al. 3 LO",
         "EntiteFocus": [
             "CPAS",
@@ -15881,10 +15881,10 @@
             "hypothèque légale"
         ],
         "OrganeCompetent": [
-            "directeur fi""cier (CPAS)",
+            "directeur financier (CPAS)",
             "receveur régional"
         ],
-        "Commentaire": "Le consentement du directeur fi""cier / receveur régional est nécessaire pour radier ou réduire l'inscription ou céder le rang (art. 101, al. 5 LO).",
+        "Commentaire": "Le consentement du directeur financier / receveur régional est nécessaire pour radier ou réduire l'inscription ou céder le rang (art. 101, al. 5 LO).",
         "Delegation": "",
         "BaseDelegation": "",
         "LienConnect": "https://myportal.vandenbroeleconnect.be/contenu/livres/detail/73184593456836264/le-vade-mecum-de-la-commune-au-travers-du-cdld#73186792480091835"
@@ -16183,7 +16183,7 @@
     },
     {
         "N°": 789,
-        "Competence": "Exercer les actions judiciaires en demandant au sujet des opérations dont question à l'article 46, § 1er LO (comptabilité, comptes annuels, fonction de conseiller fi""cier et budgétaire du centre public d'action sociale), ainsi que celles au sujet de la gestion des biens et le recouvrement des frais de l'aide octroyée",
+        "Competence": "Exercer les actions judiciaires en demandant au sujet des opérations dont question à l'article 46, § 1er LO (comptabilité, comptes annuels, fonction de conseiller financier et budgétaire du centre public d'action sociale), ainsi que celles au sujet de la gestion des biens et le recouvrement des frais de l'aide octroyée",
         "BaseLegale": "art. 115, §2, al. 1er LO",
         "EntiteFocus": [
             "CPAS"
@@ -16194,9 +16194,9 @@
             "justice"
         ],
         "OrganeCompetent": [
-            "directeur fi""cier (CPAS)"
+            "directeur financier (CPAS)"
         ],
-        "Commentaire": "C'est toujours conformément à la décision du conseil de l'action sociale. Le cas échéant, c'est le receveur spécial visé à l'article 96 LO qui s'en charge. \nEn cas d'empêchement ou d'absence d'un de ces fonctionnaires, les actes sont accomplis par le fonctionnaire que, sous sa responsabilité, le directeur fi""cier du centre public d'action sociale a désigné ou par le receveur intérimaire; à défaut, le conseil de l'action sociale délègue un fonctionnaire à cet effet.",
+        "Commentaire": "C'est toujours conformément à la décision du conseil de l'action sociale. Le cas échéant, c'est le receveur spécial visé à l'article 96 LO qui s'en charge. \nEn cas d'empêchement ou d'absence d'un de ces fonctionnaires, les actes sont accomplis par le fonctionnaire que, sous sa responsabilité, le directeur financier du centre public d'action sociale a désigné ou par le receveur intérimaire; à défaut, le conseil de l'action sociale délègue un fonctionnaire à cet effet.",
         "Delegation": "",
         "BaseDelegation": "",
         "LienConnect": "https://myportal.vandenbroeleconnect.be/contenu/livres/detail/73184593456836264/le-vade-mecum-de-la-commune-au-travers-du-cdld#73186792480091832"
