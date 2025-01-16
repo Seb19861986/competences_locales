@@ -7,7 +7,7 @@
             "commune"
         ],
         "Sujet": "Généralité",
-        "Index (objet)": [
+        "IndexObjet": [
             "biens communaux"
         ],
         "OrganeCompetent": [
@@ -26,7 +26,7 @@
             "commune"
         ],
         "Sujet": "Généralité",
-        "Index (objet)": [
+        "IndexObjet": [
             "élections"
         ],
         "OrganeCompetent": [
@@ -45,7 +45,7 @@
             "commune"
         ],
         "Sujet": "Action sociale",
-        "Index (objet)": [
+        "IndexObjet": [
             "élections",
             "mandat politique"
         ],
@@ -65,7 +65,7 @@
             "commune"
         ],
         "Sujet": "Action sociale",
-        "Index (objet)": [
+        "IndexObjet": [
             "élections",
             "mandat politique"
         ],
@@ -85,7 +85,7 @@
             "commune"
         ],
         "Sujet": "Juridique",
-        "Index (objet)": [
+        "IndexObjet": [
             "élections",
             "mandat politique"
         ],
@@ -105,7 +105,7 @@
             "commune"
         ],
         "Sujet": "Juridique",
-        "Index (objet)": [
+        "IndexObjet": [
             "élections",
             "éligibilité"
         ],
@@ -125,7 +125,7 @@
             "commune"
         ],
         "Sujet": "Juridique",
-        "Index (objet)": [
+        "IndexObjet": [
             "élections",
             "éligibilité"
         ],
@@ -145,7 +145,7 @@
             "commune"
         ],
         "Sujet": "Juridique",
-        "Index (objet)": [
+        "IndexObjet": [
             "élections",
             "éligibilité"
         ],
@@ -165,7 +165,7 @@
             "commune"
         ],
         "Sujet": "Juridique",
-        "Index (objet)": [
+        "IndexObjet": [
             "élections",
             "éligibilité"
         ],
@@ -185,7 +185,7 @@
             "commune"
         ],
         "Sujet": "Juridique",
-        "Index (objet)": [
+        "IndexObjet": [
             "mandat politique",
             "congé"
         ],
