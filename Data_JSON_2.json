@@ -568,7 +568,7 @@
     },
     {
         "N°": 29,
-        "Competence": "Police de l'assemblée (du conseil communal) et possibilité de dresser procès-verbal à charge d'un contreve""t",
+        "Competence": "Police de l'assemblée (du conseil communal) et possibilité de dresser procès-verbal à charge d'un contrevenant",
         "BaseLegale": "art. L1122-25, al. 1er CDLD",
         "EntiteFocus": [
             "commune"
@@ -696,14 +696,14 @@
         "OrganeCompetent": [
             "conseil communal"
         ],
-        "Commentaire": "Voir aussi l'art. 119 NLC. Les ordon""ces de police temporaires relatives à la circulation routière sont dévolues au collège communal (voir l'art. 130bis NLC).",
+        "Commentaire": "Voir aussi l'art. 119 NLC. Les ordonances de police temporaires relatives à la circulation routière sont dévolues au collège communal (voir l'art. 130bis NLC).",
         "Delegation": "",
         "BaseDelegation": "",
         "LienConnect": "https://myportal.vandenbroeleconnect.be/contenu/livres/detail/73184593456836264/le-vade-mecum-de-la-commune-au-travers-du-cdld#73186792480091836"
     },
     {
         "N°": 36,
-        "Competence": "Expédition des règlements conte""t des mesures de police comportant une peine de police ou une sanction administrative au greffe du tribunal de première instance et à celui du tribunal de police où elles seront inscrites sur un registre à ce destiné.",
+        "Competence": "Expédition des règlements contenant des mesures de police comportant une peine de police ou une sanction administrative au greffe du tribunal de première instance et à celui du tribunal de police où elles seront inscrites sur un registre à ce destiné.",
         "BaseLegale": "art. L1122-32, al. 3 CDLD",
         "EntiteFocus": [
             "commune"
@@ -960,7 +960,7 @@
     },
     {
         "N°": 49,
-        "Competence": "Adoption d'un ave""t au pacte majorité afin de pourvoir au remplacement définitif d'un membre du collège au cours de la législature",
+        "Competence": "Adoption d'un avenant au pacte majorité afin de pourvoir au remplacement définitif d'un membre du collège au cours de la législature",
         "BaseLegale": "art. L1123-2, al. 1er CDLD",
         "EntiteFocus": [
             "commune"
@@ -980,7 +980,7 @@
     },
     {
         "N°": 50,
-        "Competence": "Adoption d'un ave""t au pacte majorité afin de désigner, au cours de la législature, le président du conseil de l'action sociale si la législation qui lui est applicable prévoit sa présence au sein du collège communal",
+        "Competence": "Adoption d'un avenant au pacte majorité afin de désigner, au cours de la législature, le président du conseil de l'action sociale si la législation qui lui est applicable prévoit sa présence au sein du collège communal",
         "BaseLegale": "art. L1123-2, al. 1er CDLD",
         "EntiteFocus": [
             "commune"
@@ -1155,14 +1155,14 @@
     },
     {
         "N°": 59,
-        "Competence": "La gestion des revenus, de l’ordon""cement des dépenses de la commune et de la surveillance de la comptabilité",
+        "Competence": "La gestion des revenus, de l’ordonancement des dépenses de la commune et de la surveillance de la comptabilité",
         "BaseLegale": "art. L1123-23, al. 1er, 4° CDLD",
         "EntiteFocus": [
             "commune"
         ],
         "Sujet": "Action sociale",
         "IndexObjet": [
-            "fi""ces",
+            "finances",
             "revenus",
             "dépenses",
             "comptabilité"
@@ -1339,7 +1339,7 @@
         ],
         "Sujet": "Action sociale",
         "IndexObjet": [
-            "fi""ces",
+            "finances",
             "caisse d'épargne"
         ],
         "OrganeCompetent": [
@@ -1623,7 +1623,7 @@
     },
     {
         "N°": 83,
-        "Competence": "Régler la composition et fi""cement des secrétariats assistant les membres du collège communal ainsi que le mode de recrutement, le statut administratif, la rémunération et les indemnités éventuelles des collaborateurs des secrétariats",
+        "Competence": "Régler la composition et financement des secrétariats assistant les membres du collège communal ainsi que le mode de recrutement, le statut administratif, la rémunération et les indemnités éventuelles des collaborateurs des secrétariats",
         "BaseLegale": "art. L1123-31, al. 1er CDLD",
         "EntiteFocus": [
             "commune"
@@ -2727,7 +2727,7 @@
         ],
         "Sujet": "Organe politique/mandats et présentation",
         "IndexObjet": [
-            "fi""ces",
+            "finances",
             "comptabilité",
             "recettes"
         ],
@@ -2741,16 +2741,16 @@
     },
     {
         "N°": 139,
-        "Competence": "Acquitter sur mandats les dépenses ordon""cées",
+        "Competence": "Acquitter sur mandats les dépenses ordonnancées",
         "BaseLegale": "art. L1124-40, §1er, al. 1er, 2° CDLD",
         "EntiteFocus": [
             "commune"
         ],
         "Sujet": "Organe politique/mandats et présentation",
         "IndexObjet": [
-            "fi""ces",
+            "finances",
             "comptabilité",
-            "dépenses ordon""cées",
+            "dépenses ordonnancées",
             "mandats de paiement"
         ],
         "OrganeCompetent": [
@@ -2763,7 +2763,7 @@
     },
     {
         "N°": 140,
-        "Competence": "Remettre, en toute indépendance, un avis de légalité écrit préalable et motivé sur tout projet de décision du conseil communal ou du collège communal ayant une incidence fi""cière ou budgétaire supérieure à 30.000 euros HTVA",
+        "Competence": "Remettre, en toute indépendance, un avis de légalité écrit préalable et motivé sur tout projet de décision du conseil communal ou du collège communal ayant une incidence financière ou budgétaire supérieure à 30.000 euros HTVA",
         "BaseLegale": "art. L1124-40, §1er, al. 1er, 3° CDLD",
         "EntiteFocus": [
             "commune"
@@ -2803,7 +2803,7 @@
     },
     {
         "N°": 142,
-        "Competence": "Remettre, en toute indépendance et d’initiative, un avis de légalité écrit préalable et motivé sur tout projet de décision du conseil communal ou du collège communal ayant une incidence fi""cière ou budgétaire égale ou inférieure à 30.000 euros HTVA",
+        "Competence": "Remettre, en toute indépendance et d’initiative, un avis de légalité écrit préalable et motivé sur tout projet de décision du conseil communal ou du collège communal ayant une incidence financière ou budgétaire égale ou inférieure à 30.000 euros HTVA",
         "BaseLegale": "art. L1124-40, §1er, al. 1er, 4° CDLD",
         "EntiteFocus": [
             "commune"
@@ -2841,16 +2841,16 @@
     },
     {
         "N°": 144,
-        "Competence": "Poursuivre, en cas de refus ou retard d'acquitter le montant des dépenses ordon""cées par le directeur financier, le paiement",
+        "Competence": "Poursuivre, en cas de refus ou retard d'acquitter le montant des dépenses ordonnancées par le directeur financier, le paiement",
         "BaseLegale": "art. L1124-40, §1er, al. 4 CDLD",
         "EntiteFocus": [
             "commune"
         ],
         "Sujet": "Organe politique/mandats et présentation",
         "IndexObjet": [
-            "fi""ces",
+            "finances",
             "comptabilité",
-            "dépenses ordon""cées"
+            "dépenses ordonnancées"
         ],
         "OrganeCompetent": [
             "receveur régional des contributions directes"
@@ -2862,7 +2862,7 @@
     },
     {
         "N°": 145,
-        "Competence": "Donner, en toute indépendance, un avis de légalité écrit et motivé, sur demande du collège communal ou du directeur général, sur toute question ayant une incidence fi""cière",
+        "Competence": "Donner, en toute indépendance, un avis de légalité écrit et motivé, sur demande du collège communal ou du directeur général, sur toute question ayant une incidence financière",
         "BaseLegale": "art. L1124-40, §2, al. 1er CDLD",
         "EntiteFocus": [
             "commune"
@@ -2881,7 +2881,7 @@
     },
     {
         "N°": 146,
-        "Competence": "Rendre, en toute indépendance et d’initiative, au collège communal son avis de légalité écrit et motivé ou ses suggestions sur toute question ayant une incidence fi""cière au niveau de la commune ou au niveau des entités consolidées de la commune, à savoir le centre public d’action sociale pour les communes de la région de langue française, la zone de police, les fabriques d’église et les établissements chargés de la gestion du temporel des cultes reconnus pour les communes de la région de langue française, les régies ordinaires ou autonomes ainsi que les diverses associations de droit ou de fait qui reçoivent des subventions de la commune",
+        "Competence": "Rendre, en toute indépendance et d’initiative, au collège communal son avis de légalité écrit et motivé ou ses suggestions sur toute question ayant une incidence financière au niveau de la commune ou au niveau des entités consolidées de la commune, à savoir le centre public d’action sociale pour les communes de la région de langue française, la zone de police, les fabriques d’église et les établissements chargés de la gestion du temporel des cultes reconnus pour les communes de la région de langue française, les régies ordinaires ou autonomes ainsi que les diverses associations de droit ou de fait qui reçoivent des subventions de la commune",
         "BaseLegale": "art. L1124-40, §2, al. 1er CDLD",
         "EntiteFocus": [
             "commune"
@@ -2954,7 +2954,7 @@
         ],
         "Sujet": "Organe politique/mandats et présentation",
         "IndexObjet": [
-            "fi""ces",
+            "finances",
             "comptabilité",
             "encaisse"
         ],
@@ -2975,7 +2975,7 @@
         ],
         "Sujet": "Organe politique/mandats et présentation",
         "IndexObjet": [
-            "fi""ces",
+            "finances",
             "comptabilité",
             "encaisse"
         ],
@@ -2997,7 +2997,7 @@
         ],
         "Sujet": "Organe politique/mandats et présentation",
         "IndexObjet": [
-            "fi""ces",
+            "finances",
             "comptabilité",
             "encaisse"
         ],
@@ -3018,7 +3018,7 @@
         ],
         "Sujet": "Organe politique/mandats et présentation",
         "IndexObjet": [
-            "fi""ces",
+            "finances",
             "comptabilité",
             "encaisse",
             "vol",
@@ -3041,7 +3041,7 @@
         ],
         "Sujet": "Organe politique/mandats et présentation",
         "IndexObjet": [
-            "fi""ces",
+            "finances",
             "comptabilité",
             "encaisse",
             "vol",
@@ -3064,7 +3064,7 @@
         ],
         "Sujet": "Organe politique/mandats et présentation",
         "IndexObjet": [
-            "fi""ces",
+            "finances",
             "comptabilité",
             "encaisse",
             "vol",
@@ -3087,7 +3087,7 @@
         ],
         "Sujet": "Organe politique/mandats et présentation",
         "IndexObjet": [
-            "fi""ces",
+            "finances",
             "comptabilité",
             "recouvrement"
         ],
@@ -3109,7 +3109,7 @@
         ],
         "Sujet": "Organe politique/mandats et présentation",
         "IndexObjet": [
-            "fi""ces",
+            "finances",
             "comptabilité",
             "recettes",
             "agents spéciaux"
@@ -3131,7 +3131,7 @@
         ],
         "Sujet": "Organe politique/mandats et présentation",
         "IndexObjet": [
-            "fi""ces",
+            "finances",
             "comptabilité",
             "recettes",
             "dépenses"
@@ -3153,7 +3153,7 @@
         ],
         "Sujet": "Organe politique/mandats et présentation",
         "IndexObjet": [
-            "fi""ces",
+            "finances",
             "comptabilité",
             "directeur financier",
             "compte de fin de gestion"
@@ -3176,7 +3176,7 @@
         ],
         "Sujet": "Organe politique/mandats et présentation",
         "IndexObjet": [
-            "fi""ces",
+            "finances",
             "comptabilité",
             "directeur financier",
             "compte de fin de gestion"
@@ -3198,7 +3198,7 @@
         ],
         "Sujet": "Organe politique/mandats et présentation",
         "IndexObjet": [
-            "fi""ces",
+            "finances",
             "comptabilité",
             "directeur financier",
             "compte de fin de gestion"
@@ -3220,7 +3220,7 @@
         ],
         "Sujet": "Organe politique/mandats et présentation",
         "IndexObjet": [
-            "fi""ces",
+            "finances",
             "comptabilité",
             "directeur financier",
             "compte de fin de gestion"
@@ -3242,7 +3242,7 @@
         ],
         "Sujet": "Organe politique/mandats et présentation",
         "IndexObjet": [
-            "fi""ces",
+            "finances",
             "comptabilité",
             "encaisse"
         ],
@@ -3263,7 +3263,7 @@
         ],
         "Sujet": "Organe politique/mandats et présentation",
         "IndexObjet": [
-            "fi""ces",
+            "finances",
             "comptabilité",
             "encaisse"
         ],
@@ -3284,7 +3284,7 @@
         ],
         "Sujet": "Organe politique/mandats et présentation",
         "IndexObjet": [
-            "fi""ces",
+            "finances",
             "comptabilité",
             "encaisse"
         ],
@@ -3306,7 +3306,7 @@
         ],
         "Sujet": "Organe politique/mandats et présentation",
         "IndexObjet": [
-            "fi""ces",
+            "finances",
             "comptabilité",
             "encaisse"
         ],
@@ -3327,7 +3327,7 @@
         ],
         "Sujet": "Organe politique/mandats et présentation",
         "IndexObjet": [
-            "fi""ces",
+            "finances",
             "comptabilité",
             "encaisse",
             "vol",
@@ -3403,7 +3403,7 @@
     },
     {
         "N°": 170,
-        "Competence": "Élaboration et adoption d'un rapport de planification détermi""t les objectifs que le directeur général doit atteindre",
+        "Competence": "Élaboration et adoption d'un rapport de planification déterminant les objectifs que le directeur général doit atteindre",
         "BaseLegale": "art. L1124-50, al. 3 CDLD",
         "EntiteFocus": [
             "commune"
@@ -3424,7 +3424,7 @@
     },
     {
         "N°": 171,
-        "Competence": "Élaboration et adoption d'un rapport de planification détermi""t les objectifs que le directeur général adjoint doit atteindre",
+        "Competence": "Élaboration et adoption d'un rapport de planification déterminant les objectifs que le directeur général adjoint doit atteindre",
         "BaseLegale": "art. L1124-50, al. 3 CDLD",
         "EntiteFocus": [
             "commune"
@@ -3445,7 +3445,7 @@
     },
     {
         "N°": 172,
-        "Competence": "Élaboration et adoption d'un rapport de planification détermi""t les objectifs que le directeur financier doit atteindre",
+        "Competence": "Élaboration et adoption d'un rapport de planification déterminant les objectifs que le directeur financier doit atteindre",
         "BaseLegale": "art. L1124-50, al. 3 CDLD",
         "EntiteFocus": [
             "commune"
@@ -3592,7 +3592,7 @@
     },
     {
         "N°": 179,
-        "Competence": "Signer les règlements et ordon""ces du conseil et du collège communal, les publications, les actes et la correspondance de la commune",
+        "Competence": "Signer les règlements et ordonances du conseil et du collège communal, les publications, les actes et la correspondance de la commune",
         "BaseLegale": "art. L1132-3, §1er, al. 1er CDLD",
         "EntiteFocus": [
             "commune"
@@ -3600,7 +3600,7 @@
         "Sujet": "Organe politique/mandats et présentation",
         "IndexObjet": [
             "règlements",
-            "ordon""ces",
+            "ordonances",
             "publications",
             "actes",
             "correspondance",
@@ -3616,7 +3616,7 @@
     },
     {
         "N°": 180,
-        "Competence": "Contresigner les règlements et ordon""ces du conseil et du collège communal, les publications, les actes et la correspondance de la commune",
+        "Competence": "Contresigner les règlements et ordonances du conseil et du collège communal, les publications, les actes et la correspondance de la commune",
         "BaseLegale": "art. L1132-3, §1er, al. 1er CDLD",
         "EntiteFocus": [
             "commune"
@@ -3624,7 +3624,7 @@
         "Sujet": "Organe politique/mandats et présentation",
         "IndexObjet": [
             "règlements",
-            "ordon""ces",
+            "ordonances",
             "publications",
             "actes",
             "correspondance",
@@ -3649,7 +3649,7 @@
         "Sujet": "Organe politique/mandats et présentation",
         "IndexObjet": [
             "règlements",
-            "ordon""ces",
+            "ordonances",
             "publications",
             "actes",
             "correspondance",
@@ -3675,7 +3675,7 @@
         "IndexObjet": [
             "actes",
             "correspondance",
-            "fi""ces",
+            "finances",
             "signatures"
         ],
         "OrganeCompetent": [
@@ -3697,7 +3697,7 @@
         "IndexObjet": [
             "actes",
             "correspondance",
-            "fi""ces",
+            "finances",
             "signatures"
         ],
         "OrganeCompetent": [
@@ -3718,7 +3718,7 @@
         "Sujet": "Organe politique/mandats et présentation",
         "IndexObjet": [
             "règlements",
-            "ordon""ces",
+            "ordonances",
             "publications",
             "acte authentique",
             "correspondance",
@@ -3744,7 +3744,7 @@
         "IndexObjet": [
             "acte authentique",
             "correspondance",
-            "fi""ces",
+            "finances",
             "signatures"
         ],
         "OrganeCompetent": [
@@ -3757,7 +3757,7 @@
     },
     {
         "N°": 186,
-        "Competence": "Publication, par voie d'une affiche, les règlements et ordon""ces du conseil communal, du collège communal et du bourgmestre",
+        "Competence": "Publication, par voie d'une affiche, les règlements et ordonances du conseil communal, du collège communal et du bourgmestre",
         "BaseLegale": "art. L1133-1, al. 1er CDLD",
         "EntiteFocus": [
             "commune"
@@ -3765,7 +3765,7 @@
         "Sujet": "Organe politique/mandats et présentation",
         "IndexObjet": [
             "règlements",
-            "ordon""ces",
+            "ordonances",
             "publication"
         ],
         "OrganeCompetent": [
@@ -3797,7 +3797,7 @@
     },
     {
         "N°": 188,
-        "Competence": "Décider de consulter les habitants de la commune sur les matières visées à l'art. 119 de la Nouvelle loi communale (ordon""ces de police communale) et aux art. 121 et 135, §2, de la Nouvelle loi communale",
+        "Competence": "Décider de consulter les habitants de la commune sur les matières visées à l'art. 119 de la Nouvelle loi communale (ordonances de police communale) et aux art. 121 et 135, §2, de la Nouvelle loi communale",
         "BaseLegale": "art. L1141-1, §2, al. 1er CDLD",
         "EntiteFocus": [
             "commune"
@@ -4202,7 +4202,7 @@
             "conseil communal"
         ],
         "Commentaire": "",
-        "Delegation": "collège communal (sauf pour ce qui concerne les membres du personnel enseig""t)",
+        "Delegation": "collège communal (sauf pour ce qui concerne les membres du personnel enseignant)",
         "BaseDelegation": "art. L1212-4, §1er, al. 1er CDLD",
         "LienConnect": "https://myportal.vandenbroeleconnect.be/contenu/livres/detail/73184593456836264/le-vade-mecum-de-la-commune-au-travers-du-cdld#73186792480091839"
     },
@@ -5741,7 +5741,7 @@
     },
     {
         "N°": 285,
-        "Competence": "Désigner les trois commissaires faisant partie du collège en charge du contrôle de la situation fi""cière et des comptes annuels de régies communales autonomes",
+        "Competence": "Désigner les trois commissaires faisant partie du collège en charge du contrôle de la situation financière et des comptes annuels de régies communales autonomes",
         "BaseLegale": "art. L1231-6, al. 1er CDLD",
         "EntiteFocus": [
             "commune",
@@ -6440,7 +6440,7 @@
         ],
         "Sujet": "",
         "IndexObjet": [
-            "fi""ces",
+            "finances",
             "dépense (facultative)"
         ],
         "OrganeCompetent": [
@@ -6460,7 +6460,7 @@
         ],
         "Sujet": "",
         "IndexObjet": [
-            "fi""ces",
+            "finances",
             "dépense",
             "avis défavorable"
         ],
@@ -6481,7 +6481,7 @@
         ],
         "Sujet": "",
         "IndexObjet": [
-            "fi""ces",
+            "finances",
             "dépense",
             "avis défavorable"
         ],
@@ -6502,7 +6502,7 @@
         ],
         "Sujet": "",
         "IndexObjet": [
-            "fi""ces",
+            "finances",
             "dépense",
             "transfert à l'exercice suivant"
         ],
@@ -6523,7 +6523,7 @@
         ],
         "Sujet": "",
         "IndexObjet": [
-            "fi""ces",
+            "finances",
             "dépense",
             "circonstances impérieuses et imprévues"
         ],
@@ -6544,7 +6544,7 @@
         ],
         "Sujet": "",
         "IndexObjet": [
-            "fi""ces",
+            "finances",
             "dépense",
             "préjudice en cas de retard"
         ],
@@ -6558,14 +6558,14 @@
     },
     {
         "N°": 325,
-        "Competence": "Signer les mandats ordon""cés par le collège communal",
+        "Competence": "Signer les mandats ordonnancés par le collège communal",
         "BaseLegale": "art. L1311-6, al. 1er CDLD",
         "EntiteFocus": [
             "commune"
         ],
         "Sujet": "",
         "IndexObjet": [
-            "fi""ces",
+            "finances",
             "comptabilité",
             "dépense",
             "mandats"
@@ -6719,7 +6719,7 @@
     },
     {
         "N°": 333,
-        "Competence": "Possibilité d'affecter une partie du budget communal à des projets éma""t de comités de quartier ou d'associations citoyennes dotées de la personnalité juridique (budget participatif)",
+        "Competence": "Possibilité d'affecter une partie du budget communal à des projets émanant de comités de quartier ou d'associations citoyennes dotées de la personnalité juridique (budget participatif)",
         "BaseLegale": "art. L1321-3, al. 1er CDLD",
         "EntiteFocus": [
             "commune"
@@ -6833,7 +6833,7 @@
         "Sujet": "",
         "IndexObjet": [
             "intercommunale",
-            "fi""ces"
+            "finances"
         ],
         "OrganeCompetent": [
             "comité de gestion (intercommunale)"
@@ -7718,7 +7718,7 @@
         "OrganeCompetent": [
             "conseil d'administration (de l'intercommunale)"
         ],
-        "Commentaire": "DELEGATION; compétence de base? Les décisions sur la stratégie fi""cière, (les décisions adoptant ou modifiant le statut général du personnel - Décret du 14 mars 2024, art.28), et les règles particulières relatives à la fonction dirigeante locale telle que définie à l’article L5111-1 du présent Code, ne peuvent pas faire l’objet d’une délégation par le conseil d’administration.",
+        "Commentaire": "DELEGATION; compétence de base? Les décisions sur la stratégie financière, (les décisions adoptant ou modifiant le statut général du personnel - Décret du 14 mars 2024, art.28), et les règles particulières relatives à la fonction dirigeante locale telle que définie à l’article L5111-1 du présent Code, ne peuvent pas faire l’objet d’une délégation par le conseil d’administration.",
         "Delegation": "",
         "BaseDelegation": "",
         "LienConnect": "https://myportal.vandenbroeleconnect.be/contenu/livres/detail/73184593456836264/le-vade-mecum-de-la-commune-au-travers-du-cdld#73186792480091835"
@@ -8259,7 +8259,7 @@
     },
     {
         "N°": 410,
-        "Competence": "Introduction d'un recours contre une décision reprise dans la liste des décisions ayant un coût financier (et non reprises au budget) à transmettre par un établissement cultuel fi""cé au collège communal",
+        "Competence": "Introduction d'un recours contre une décision reprise dans la liste des décisions ayant un coût financier (et non reprises au budget) à transmettre par un établissement cultuel financé au collège communal",
         "BaseLegale": "art. L3161-5, al. 3 CDLD",
         "EntiteFocus": [
             "commune",
@@ -8280,7 +8280,7 @@
     },
     {
         "N°": 411,
-        "Competence": "Approbation du budget, des modifications budgétaires et du compte annuel des établissements cultuels fi""cés au niveau communal",
+        "Competence": "Approbation du budget, des modifications budgétaires et du compte annuel des établissements cultuels financés au niveau communal",
         "BaseLegale": "art. L3162-1, §1er, al. 1er CDLD",
         "EntiteFocus": [
             "commune",
@@ -8303,7 +8303,7 @@
     },
     {
         "N°": 412,
-        "Competence": "Avis sur le budget, les modifications budgétaires et le compte annuel des établissements cultuels fi""cés au niveau communal, dans la mesure où il s'agit de la commune \"non principale\" d'un établissement pluricommunal",
+        "Competence": "Avis sur le budget, les modifications budgétaires et le compte annuel des établissements cultuels financés au niveau communal, dans la mesure où il s'agit de la commune \"non principale\" d'un établissement pluricommunal",
         "BaseLegale": "art. L3162-1, §3, al. 1er CDLD",
         "EntiteFocus": [
             "commune",
@@ -8641,7 +8641,7 @@
     },
     {
         "N°": 429,
-        "Competence": "Informer le Gouvernement du constat qu’une action approuvée dans le cadre des perspectives de développement urbain est, en totalité ou en partie, fi""cée par une aide autre que le droit de tirage prévu (double fi""cement)",
+        "Competence": "Informer le Gouvernement du constat qu’une action approuvée dans le cadre des perspectives de développement urbain est, en totalité ou en partie, financée par une aide autre que le droit de tirage prévu (double financement)",
         "BaseLegale": "art. L3354-4, al. 1er CDLD",
         "EntiteFocus": [
             "commune"
@@ -8736,7 +8736,7 @@
     },
     {
         "N°": 434,
-        "Competence": "Publier un avis à la fois aux valves communales et sur le site web communal concer""t le registre des électeurs établi et mention""t les heures d'ouverture de l'administration communale et reproduisant la procédure de réclamation et de recours",
+        "Competence": "Publier un avis à la fois aux valves communales et sur le site web communal concernant le registre des électeurs établi et mentionnantt les heures d'ouverture de l'administration communale et reproduisant la procédure de réclamation et de recours",
         "BaseLegale": "art. L4122-2, §2, al. 1er CDLD",
         "EntiteFocus": [
             "commune"
@@ -8793,7 +8793,7 @@
     },
     {
         "N°": 437,
-        "Competence": "Envoyer, sans délai, à la Cour d'appel, par tous moyens, une expédition des décisions du collège communal relatives aux réclamations concer""t le registre des électeurs frappées d'appel (ainsi que tous les documents intéressant les litiges)",
+        "Competence": "Envoyer, sans délai, à la Cour d'appel, par tous moyens, une expédition des décisions du collège communal relatives aux réclamations concernant le registre des électeurs frappées d'appel (ainsi que tous les documents intéressant les litiges)",
         "BaseLegale": "art. L4122-19, al. 1er CDLD",
         "EntiteFocus": [
             "commune"
@@ -9126,7 +9126,7 @@
         "OrganeCompetent": [
             "collège communal"
         ],
-        "Commentaire": "Une attestation du collège communal ou une décision du collège suffiront. Un arrêt de la cour d'appel ordon""t l'inscription de l'électeur au registre est également possible. ",
+        "Commentaire": "Une attestation du collège communal ou une décision du collège suffiront. Un arrêt de la cour d'appel ordonnant l'inscription de l'électeur au registre est également possible. ",
         "Delegation": "",
         "BaseDelegation": "",
         "LienConnect": "https://myportal.vandenbroeleconnect.be/contenu/livres/detail/73184593456836264/le-vade-mecum-de-la-commune-au-travers-du-cdld#73186792480091832"
@@ -9319,7 +9319,7 @@
     },
     {
         "N°": 463,
-        "Competence": "Établir pour l’intercommunale, les sociétés à participation publique locale significative, l’association de pouvoirs publics visées à l’article 118 de la loi du 8 juillet 1976 organique des centres publics d’action sociale, la société de logement de service public, l’A.S.B.L. communale ou provinciale, la régie communale autonome, l’association de projet ou tout autre organisme supralocal, un rapport de rémunération écrit repre""t un relevé individuel et nominatif des jetons, rémunérations ainsi que des avantages en nature perçus dans le courant de l’exercice comptable précédent, par les mandataires, les personnes non élues et les titulaires de la fonction dirigeante locale",
+        "Competence": "Établir pour l’intercommunale, les sociétés à participation publique locale significative, l’association de pouvoirs publics visées à l’article 118 de la loi du 8 juillet 1976 organique des centres publics d’action sociale, la société de logement de service public, l’A.S.B.L. communale ou provinciale, la régie communale autonome, l’association de projet ou tout autre organisme supralocal, un rapport de rémunération écrit reprenant un relevé individuel et nominatif des jetons, rémunérations ainsi que des avantages en nature perçus dans le courant de l’exercice comptable précédent, par les mandataires, les personnes non élues et les titulaires de la fonction dirigeante locale",
         "BaseLegale": "art. L6421-1, §1er, al. 1er CDLD",
         "EntiteFocus": [
             "intercommunale",
@@ -9345,7 +9345,7 @@
     },
     {
         "N°": 464,
-        "Competence": "Établir, pour la commune, un rapport de rémunération écrit repre""t un relevé individuel et nominatif des jetons, rémunérations ainsi que des avantages en nature perçus dans le courant de l'exercice comptable précédent par les mandataires et les personnes non élues",
+        "Competence": "Établir, pour la commune, un rapport de rémunération écrit reprenant un relevé individuel et nominatif des jetons, rémunérations ainsi que des avantages en nature perçus dans le courant de l'exercice comptable précédent par les mandataires et les personnes non élues",
         "BaseLegale": "art. L6421-1, §2, al. 1er CDLD",
         "EntiteFocus": [
             "commune"
@@ -9364,7 +9364,7 @@
     },
     {
         "N°": 465,
-        "Competence": "Établir, pour le CPAS, un rapport de rémunération écrit repre""t un relevé individuel et nominatif des jetons, rémunérations ainsi que des avantages en nature perçus dans le courant de l'exercice comptable précédent par les mandataires et les personnes non élues",
+        "Competence": "Établir, pour le CPAS, un rapport de rémunération écrit reprenant un relevé individuel et nominatif des jetons, rémunérations ainsi que des avantages en nature perçus dans le courant de l'exercice comptable précédent par les mandataires et les personnes non élues",
         "BaseLegale": "art. L6421-1, §2, al. 1er CDLD",
         "EntiteFocus": [
             "CPAS"
@@ -9383,7 +9383,7 @@
     },
     {
         "N°": 466,
-        "Competence": "Adopter, pour la commune et le CPAS, le rapport de rémunération écrit repre""t un relevé individuel et nominatif des jetons, rémunérations ainsi que des avantages en nature perçus dans le courant de l'exercice comptable précédent par les mandataires et les personnes non élues",
+        "Competence": "Adopter, pour la commune et le CPAS, le rapport de rémunération écrit reprenant un relevé individuel et nominatif des jetons, rémunérations ainsi que des avantages en nature perçus dans le courant de l'exercice comptable précédent par les mandataires et les personnes non élues",
         "BaseLegale": "art. L6421-1, §2, al. 3 CDLD",
         "EntiteFocus": [
             "commune",
@@ -10471,7 +10471,7 @@
             "directeur général (CPAS)"
         ],
         "Commentaire": "",
-        "Delegation": "délégation, par le président, à un ou plusieurs membres; le directeur général peut également déléguer, moyen""t l'autorisation du conseil de l'action sociale ou du bureau permanent; le président peut déléguer la signature des actes authentiques à un collaborateur d'une étude notariale; le directeur général et le directeur financier peuvent déléguer le contreseing ou la signature des actes authentiques à un collaborateur d'une étude notariale.",
+        "Delegation": "délégation, par le président, à un ou plusieurs membres; le directeur général peut également déléguer, moyennant l'autorisation du conseil de l'action sociale ou du bureau permanent; le président peut déléguer la signature des actes authentiques à un collaborateur d'une étude notariale; le directeur général et le directeur financier peuvent déléguer le contreseing ou la signature des actes authentiques à un collaborateur d'une étude notariale.",
         "BaseDelegation": "art. 28, §2, al. 5 LO; art. 28, §2, al. 6 LO; art. 28, §2, al. 7 LO; art. 28, §2, al. 8 LO",
         "LienConnect": "https://myportal.vandenbroeleconnect.be/contenu/livres/detail/73184593456836264/le-vade-mecum-de-la-commune-au-travers-du-cdld#73186792480091836"
     },
@@ -10792,7 +10792,7 @@
     },
     {
         "N°": 531,
-        "Competence": "Si la majorité requise n'est pas obtenue au premier tour du scrutin pour l'élection ou la présentation à des mandats ou des fonctions d'ordre politique pour le CPAS, dresser une liste conte""t deux fois autant de noms qu'il y a de nominations ou de présentations en vue du scrutin de ballottage entre les candidats qui ont obtenu le plus grand nombre de voix",
+        "Competence": "Si la majorité requise n'est pas obtenue au premier tour du scrutin pour l'élection ou la présentation à des mandats ou des fonctions d'ordre politique pour le CPAS, dresser une liste contenant deux fois autant de noms qu'il y a de nominations ou de présentations en vue du scrutin de ballottage entre les candidats qui ont obtenu le plus grand nombre de voix",
         "BaseLegale": "art. 33, §3ter, al. 3 LO",
         "EntiteFocus": [
             "CPAS"
@@ -11003,7 +11003,7 @@
     },
     {
         "N°": 541,
-        "Competence": "Élaborer et adopter un rapport de planification détermi""t les objectifs que le directeur général, le directeur général adjoint et le directeur financier doivent atteindre dans le cadre des missions leur confiées",
+        "Competence": "Élaborer et adopter un rapport de planification déterminant les objectifs que le directeur général, le directeur général adjoint et le directeur financier doivent atteindre dans le cadre des missions leur confiées",
         "BaseLegale": "art. 41, al. 8 et 9 LO",
         "EntiteFocus": [
             "CPAS"
@@ -11711,16 +11711,16 @@
     },
     {
         "N°": 576,
-        "Competence": "Signer les mandats ordon""cés et les états de recouvrement du CPAS",
+        "Competence": "Signer les mandats ordonnancés et les états de recouvrement du CPAS",
         "BaseLegale": "art. 45, §2, al. 1er LO",
         "EntiteFocus": [
             "CPAS"
         ],
         "Sujet": "",
         "IndexObjet": [
-            "fi""ces",
+            "finances",
             "comptabilité",
-            "mandats ordon""cés",
+            "mandats ordonnancés",
             "mandats de paiement",
             "états de recouvrement"
         ],
@@ -12120,7 +12120,7 @@
         ],
         "Sujet": "",
         "IndexObjet": [
-            "fi""ces",
+            "finances",
             "comptabilité",
             "recettes"
         ],
@@ -12134,14 +12134,14 @@
     },
     {
         "N°": 597,
-        "Competence": "Acquitter sur mandats les dépenses ordon""cées du CPAS",
+        "Competence": "Acquitter sur mandats les dépenses ordonnancées du CPAS",
         "BaseLegale": "art. 46, §2, al. 1er LO",
         "EntiteFocus": [
             "CPAS"
         ],
         "Sujet": "",
         "IndexObjet": [
-            "fi""ces",
+            "finances",
             "comptabilité",
             "dépenses",
             "mandats de paiement"
@@ -12163,7 +12163,7 @@
         ],
         "Sujet": "",
         "IndexObjet": [
-            "fi""ces",
+            "finances",
             "comptabilité",
             "prescription",
             "déchéances"
@@ -12185,7 +12185,7 @@
         ],
         "Sujet": "",
         "IndexObjet": [
-            "fi""ces",
+            "finances",
             "comptabilité",
             "saisies",
             "titres"
@@ -12207,7 +12207,7 @@
         ],
         "Sujet": "",
         "IndexObjet": [
-            "fi""ces",
+            "finances",
             "baux",
             "retards de paiement",
             "droits"
@@ -12222,7 +12222,7 @@
     },
     {
         "N°": 601,
-        "Competence": "Remettre, en toute indépendance, un avis de légalité écrit préalable et motivé, sur tout projet de décision du conseil de l'action sociale, du bureau, du président ou de l'organe qui a reçu délégation du conseil ayant une incidence fi""cière ou budgétaire supérieure à 30.000 euros",
+        "Competence": "Remettre, en toute indépendance, un avis de légalité écrit préalable et motivé, sur tout projet de décision du conseil de l'action sociale, du bureau, du président ou de l'organe qui a reçu délégation du conseil ayant une incidence financière ou budgétaire supérieure à 30.000 euros",
         "BaseLegale": "art. 46, §2, al. 1er LO",
         "EntiteFocus": [
             "CPAS"
@@ -12262,7 +12262,7 @@
     },
     {
         "N°": 603,
-        "Competence": "Remettre, en toute indépendance et d'initiative, un avis de légalité écrit préalable et motivé sur tout projet de décision du conseil de l'action sociale ou du bureau permanent ayant une incidence fi""cière ou budgétaire égale ou inférieure à 30.000 euros",
+        "Competence": "Remettre, en toute indépendance et d'initiative, un avis de légalité écrit préalable et motivé sur tout projet de décision du conseil de l'action sociale ou du bureau permanent ayant une incidence financière ou budgétaire égale ou inférieure à 30.000 euros",
         "BaseLegale": "art. 46, §2, al. 1er LO",
         "EntiteFocus": [
             "CPAS"
@@ -12307,7 +12307,7 @@
         ],
         "Sujet": "",
         "IndexObjet": [
-            "fi""ces",
+            "finances",
             "comptabilité",
             "actifs"
         ],
@@ -12321,7 +12321,7 @@
     },
     {
         "N°": 606,
-        "Competence": "Fournir au directeur général du CPAS des informations fi""cières fiables",
+        "Competence": "Fournir au directeur général du CPAS des informations financières fiables",
         "BaseLegale": "art. 46, §2, al. 1er LO",
         "EntiteFocus": [
             "CPAS"
@@ -12381,7 +12381,7 @@
     },
     {
         "N°": 609,
-        "Competence": "Donner, en toute indépendance, un avis de légalité écrit et motivé, sur demande du conseil de l'action sociale, du bureau permanent, du président, de l'organe ayant reçu délégation du conseil, ou du directeur général, sur toute question ayant une incidence fi""cière",
+        "Competence": "Donner, en toute indépendance, un avis de légalité écrit et motivé, sur demande du conseil de l'action sociale, du bureau permanent, du président, de l'organe ayant reçu délégation du conseil, ou du directeur général, sur toute question ayant une incidence financière",
         "BaseLegale": "art. 46, §3, al. 1 LO",
         "EntiteFocus": [
             "CPAS"
@@ -12400,7 +12400,7 @@
     },
     {
         "N°": 610,
-        "Competence": "Possibilité de rendre, d'initiative, au bureau, au président du conseil de l'action sociale ou à l'organe qui a reçu éventuellement délégation du conseil, son avis de légalité écrit et motivé ou ses suggestions ayant une incidence fi""cière",
+        "Competence": "Possibilité de rendre, d'initiative, au bureau, au président du conseil de l'action sociale ou à l'organe qui a reçu éventuellement délégation du conseil, son avis de légalité écrit et motivé ou ses suggestions ayant une incidence financière",
         "BaseLegale": "art. 46, §3, al. 1 LO",
         "EntiteFocus": [
             "CPAS"
@@ -12530,7 +12530,7 @@
         ],
         "Sujet": "",
         "IndexObjet": [
-            "fi""ces",
+            "finances",
             "comptabilité",
             "compte de fin de gestion",
             "encaisse"
@@ -12552,7 +12552,7 @@
         ],
         "Sujet": "",
         "IndexObjet": [
-            "fi""ces",
+            "finances",
             "comptabilité",
             "dépenses",
             "paiement",
@@ -12575,7 +12575,7 @@
         ],
         "Sujet": "",
         "IndexObjet": [
-            "fi""ces",
+            "finances",
             "comptabilité",
             "compte de fin de gestion"
         ],
@@ -12598,7 +12598,7 @@
         ],
         "Sujet": "",
         "IndexObjet": [
-            "fi""ces",
+            "finances",
             "comptabilité",
             "compte de fin de gestion"
         ],
@@ -13105,7 +13105,7 @@
         ],
         "Sujet": "",
         "IndexObjet": [
-            "fi""ces",
+            "finances",
             "comptabilité",
             "valeurs",
             "règlement d'ordre intérieur"
@@ -13127,7 +13127,7 @@
         ],
         "Sujet": "",
         "IndexObjet": [
-            "fi""ces",
+            "finances",
             "comptabilité",
             "valeurs"
         ],
@@ -13149,7 +13149,7 @@
         ],
         "Sujet": "",
         "IndexObjet": [
-            "fi""ces",
+            "finances",
             "comptabilité",
             "valeurs"
         ],
@@ -13171,7 +13171,7 @@
         ],
         "Sujet": "",
         "IndexObjet": [
-            "fi""ces",
+            "finances",
             "comptabilité",
             "valeurs"
         ],
@@ -13873,17 +13873,17 @@
     },
     {
         "N°": 681,
-        "Competence": "Arrêter les droits à recettes, ordon""cer les dépenses du centre public d'action sociale et surveiller la comptabilité",
+        "Competence": "Arrêter les droits à recettes, ordonnancer les dépenses du centre public d'action sociale et surveiller la comptabilité",
         "BaseLegale": "art. 86, al. 2 LO",
         "EntiteFocus": [
             "CPAS"
         ],
         "Sujet": "",
         "IndexObjet": [
-            "fi""ces",
+            "finances",
             "comptabilité",
             "droits à recettes",
-            "ordon""cer les dépenses"
+            "ordonnancer les dépenses"
         ],
         "OrganeCompetent": [
             "conseil de l'action sociale"
@@ -14020,7 +14020,7 @@
         ],
         "Sujet": "",
         "IndexObjet": [
-            "fi""ces",
+            "finances",
             "comptabilité",
             "dépense",
             "urgence",
@@ -14029,7 +14029,7 @@
         "OrganeCompetent": [
             "conseil de l'action sociale"
         ],
-        "Commentaire": "c'est moyen""t l'accord du collège communal et à charge de porter sans délai les crédits nécessaires au budget pour une modification de celui-ci; en cas d'une aide sociale individuelle sous forme d'aide fi""cière et en ce qui concerne le paiement du revenu d'intégration, l'autorisation du collège communal n'est pas requise",
+        "Commentaire": "c'est moyennant l'accord du collège communal et à charge de porter sans délai les crédits nécessaires au budget pour une modification de celui-ci; en cas d'une aide sociale individuelle sous forme d'aide financière et en ce qui concerne le paiement du revenu d'intégration, l'autorisation du collège communal n'est pas requise",
         "Delegation": "",
         "BaseDelegation": "",
         "LienConnect": "https://myportal.vandenbroeleconnect.be/contenu/livres/detail/73184593456836264/le-vade-mecum-de-la-commune-au-travers-du-cdld#73186792480091839"
@@ -14180,7 +14180,7 @@
         ],
         "Sujet": "",
         "IndexObjet": [
-            "fi""ces",
+            "finances",
             "comptabilité",
             "comptes annuels",
             "dette de clôture"
@@ -14202,7 +14202,7 @@
         ],
         "Sujet": "",
         "IndexObjet": [
-            "fi""ces",
+            "finances",
             "comptabilité",
             "dépense",
             "avis défavorable"
@@ -14217,16 +14217,16 @@
     },
     {
         "N°": 698,
-        "Competence": "Responsabilité personnelle des dépenses engagées ou ordon""cées pour le CPAS",
+        "Competence": "Responsabilité personnelle des dépenses engagées ou ordonnancées pour le CPAS",
         "BaseLegale": "art. 91, §4, al. 1er LO",
         "EntiteFocus": [
             "CPAS"
         ],
         "Sujet": "",
         "IndexObjet": [
-            "fi""ces",
+            "finances",
             "comptabilité",
-            "dépenses ordon""cées"
+            "dépenses ordonnancées"
         ],
         "OrganeCompetent": [
             "membres du conseil de l'action sociale"
@@ -14245,7 +14245,7 @@
         ],
         "Sujet": "",
         "IndexObjet": [
-            "fi""ces",
+            "finances",
             "comptabilité",
             "encaisse"
         ],
@@ -14266,7 +14266,7 @@
         ],
         "Sujet": "",
         "IndexObjet": [
-            "fi""ces",
+            "finances",
             "comptabilité",
             "encaisse"
         ],
@@ -14287,7 +14287,7 @@
         ],
         "Sujet": "",
         "IndexObjet": [
-            "fi""ces",
+            "finances",
             "comptabilité",
             "encaisse"
         ],
@@ -14310,7 +14310,7 @@
         ],
         "Sujet": "",
         "IndexObjet": [
-            "fi""ces",
+            "finances",
             "comptabilité",
             "encaisse",
             "vol",
@@ -14334,7 +14334,7 @@
         ],
         "Sujet": "",
         "IndexObjet": [
-            "fi""ces",
+            "finances",
             "comptabilité",
             "encaisse",
             "vol",
@@ -14357,7 +14357,7 @@
         ],
         "Sujet": "",
         "IndexObjet": [
-            "fi""ces",
+            "finances",
             "comptabilité",
             "encaisse",
             "vol",
@@ -15022,7 +15022,7 @@
             "président du conseil de l'action sociale"
         ],
         "Commentaire": "",
-        "Delegation": "oui, moyen""t l'accord du comité de gestion",
+        "Delegation": "oui, moyennant l'accord du comité de gestion",
         "BaseDelegation": "art. 94, §4, al. 9",
         "LienConnect": "https://myportal.vandenbroeleconnect.be/contenu/livres/detail/73184593456836264/le-vade-mecum-de-la-commune-au-travers-du-cdld#73186792480091836"
     },
@@ -15036,9 +15036,9 @@
         ],
         "Sujet": "",
         "IndexObjet": [
-            "fi""ces",
+            "finances",
             "comptabilité",
-            "mandats ordon""cés",
+            "mandats ordonnancés",
             "mandats de paiement",
             "états de recouvrement"
         ],
@@ -15060,9 +15060,9 @@
         ],
         "Sujet": "",
         "IndexObjet": [
-            "fi""ces",
+            "finances",
             "comptabilité",
-            "mandats ordon""cés",
+            "mandats ordonnancés",
             "états de recouvrement"
         ],
         "OrganeCompetent": [
@@ -15070,7 +15070,7 @@
             "président du conseil de l'action sociale"
         ],
         "Commentaire": "",
-        "Delegation": "oui, moyen""t l'accord du comité de gestion",
+        "Delegation": "oui, moyennant l'accord du comité de gestion",
         "BaseDelegation": "art. 94, §4, al. 9",
         "LienConnect": "https://myportal.vandenbroeleconnect.be/contenu/livres/detail/73184593456836264/le-vade-mecum-de-la-commune-au-travers-du-cdld#73186792480091832"
     },
@@ -15166,7 +15166,7 @@
         ],
         "Sujet": "",
         "IndexObjet": [
-            "fi""ces",
+            "finances",
             "comptabilité",
             "recettes",
             "dépenses"
@@ -15255,7 +15255,7 @@
         ],
         "Sujet": "",
         "IndexObjet": [
-            "fi""ces",
+            "finances",
             "comptabilité",
             "compte de fin de gestion"
         ],
@@ -15277,7 +15277,7 @@
         ],
         "Sujet": "",
         "IndexObjet": [
-            "fi""ces",
+            "finances",
             "comptabilité",
             "compte de fin de gestion"
         ],
@@ -15303,7 +15303,7 @@
         ],
         "Sujet": "",
         "IndexObjet": [
-            "fi""ces",
+            "finances",
             "comptabilité",
             "compte de fin de gestion"
         ],
@@ -15325,7 +15325,7 @@
         ],
         "Sujet": "",
         "IndexObjet": [
-            "fi""ces",
+            "finances",
             "comptabilité",
             "encaisse"
         ],
@@ -15347,7 +15347,7 @@
         ],
         "Sujet": "",
         "IndexObjet": [
-            "fi""ces",
+            "finances",
             "comptabilité",
             "encaisse"
         ],
@@ -15369,7 +15369,7 @@
         ],
         "Sujet": "",
         "IndexObjet": [
-            "fi""ces",
+            "finances",
             "comptabilité",
             "encaisse"
         ],
@@ -15393,7 +15393,7 @@
         ],
         "Sujet": "",
         "IndexObjet": [
-            "fi""ces",
+            "finances",
             "comptabilité",
             "encaisse",
             "vol",
@@ -15417,7 +15417,7 @@
         ],
         "Sujet": "",
         "IndexObjet": [
-            "fi""ces",
+            "finances",
             "comptabilité",
             "encaisse",
             "vol",
@@ -15441,7 +15441,7 @@
         ],
         "Sujet": "",
         "IndexObjet": [
-            "fi""ces",
+            "finances",
             "comptabilité",
             "encaisse",
             "vol",
@@ -15643,7 +15643,7 @@
     },
     {
         "N°": 764,
-        "Competence": "Établir pour l’association de pouvoirs publics visées à l’article 118 de la loi du 8 juillet 1976 organique des centres publics d’action sociale (\"associations chapitre XII\") un rapport de rémunération écrit repre""t un relevé individuel et nominatif des jetons, rémunérations ainsi que des avantages en nature perçus dans le courant de l’exercice comptable précédent, par les mandataires, les personnes non élues et les titulaires de la fonction dirigeante locale",
+        "Competence": "Établir pour l’association de pouvoirs publics visées à l’article 118 de la loi du 8 juillet 1976 organique des centres publics d’action sociale (\"associations chapitre XII\") un rapport de rémunération écrit reprenant un relevé individuel et nominatif des jetons, rémunérations ainsi que des avantages en nature perçus dans le courant de l’exercice comptable précédent, par les mandataires, les personnes non élues et les titulaires de la fonction dirigeante locale",
         "BaseLegale": "art. 96/3, §1er, al. 1er LO",
         "EntiteFocus": [
             "CPAS",
@@ -15663,7 +15663,7 @@
     },
     {
         "N°": 765,
-        "Competence": "Adoption du rapport de rémunération écrit repre""t un relevé individuel et nominatif des jetons, rémunérations ainsi que des avantages en nature perçus dans le courant de l’exercice comptable précédent, par les mandataires, les personnes non élues et les titulaires de la fonction dirigeante locale, établi pour l’association de pouvoirs publics visées à l’article 118 de la loi du 8 juillet 1976 organique des centres publics d’action sociale (\"associations chapitre XII\") ",
+        "Competence": "Adoption du rapport de rémunération écrit reprenant un relevé individuel et nominatif des jetons, rémunérations ainsi que des avantages en nature perçus dans le courant de l’exercice comptable précédent, par les mandataires, les personnes non élues et les titulaires de la fonction dirigeante locale, établi pour l’association de pouvoirs publics visées à l’article 118 de la loi du 8 juillet 1976 organique des centres publics d’action sociale (\"associations chapitre XII\") ",
         "BaseLegale": "art. 96/3, §1er, al. 3 LO",
         "EntiteFocus": [
             "CPAS",
@@ -15683,7 +15683,7 @@
     },
     {
         "N°": 766,
-        "Competence": "Délibérer sur le rapport de rémunération écrit repre""t un relevé individuel et nominatif des jetons, rémunérations ainsi que des avantages en nature perçus dans le courant de l’exercice comptable précédent, par les mandataires, les personnes non élues et les titulaires de la fonction dirigeante locale, établi pour l’association de pouvoirs publics visées à l’article 118 de la loi du 8 juillet 1976 organique des centres publics d’action sociale (\"associations chapitre XII\") ",
+        "Competence": "Délibérer sur le rapport de rémunération écrit reprenant un relevé individuel et nominatif des jetons, rémunérations ainsi que des avantages en nature perçus dans le courant de l’exercice comptable précédent, par les mandataires, les personnes non élues et les titulaires de la fonction dirigeante locale, établi pour l’association de pouvoirs publics visées à l’article 118 de la loi du 8 juillet 1976 organique des centres publics d’action sociale (\"associations chapitre XII\") ",
         "BaseLegale": "art. 96/3, §1er, al. 3 LO",
         "EntiteFocus": [
             "CPAS",
@@ -15703,7 +15703,7 @@
     },
     {
         "N°": 767,
-        "Competence": "Transmission au Gouvernement wallon et aux communes, le cas échéant, aux provinces et CPAS associés, d'une copie du rapport de rémunération écrit repre""t un relevé individuel et nominatif des jetons, rémunérations ainsi que des avantages en nature perçus dans le courant de l’exercice comptable précédent, par les mandataires, les personnes non élues et les titulaires de la fonction dirigeante locale, établi pour l’association de pouvoirs publics visées à l’article 118 de la loi du 8 juillet 1976 organique des centres publics d’action sociale (\"associations chapitre XII\") ",
+        "Competence": "Transmission au Gouvernement wallon et aux communes, le cas échéant, aux provinces et CPAS associés, d'une copie du rapport de rémunération écrit reprenant un relevé individuel et nominatif des jetons, rémunérations ainsi que des avantages en nature perçus dans le courant de l’exercice comptable précédent, par les mandataires, les personnes non élues et les titulaires de la fonction dirigeante locale, établi pour l’association de pouvoirs publics visées à l’article 118 de la loi du 8 juillet 1976 organique des centres publics d’action sociale (\"associations chapitre XII\") ",
         "BaseLegale": "art. 96/3, §2, al. 1 LO",
         "EntiteFocus": [
             "CPAS",
@@ -15726,7 +15726,7 @@
     },
     {
         "N°": 768,
-        "Competence": "Transmission aux communes, le cas échéant, aux provinces et CPAS associés, d'une copie du rapport de rémunération écrit repre""t un relevé individuel et nominatif des jetons, rémunérations ainsi que des avantages en nature perçus dans le courant de l’exercice comptable précédent, par les mandataires, les personnes non élues et les titulaires de la fonction dirigeante locale, établi pour tout autre organisme supralocal (autre que les \"associations chapitre XII\")",
+        "Competence": "Transmission aux communes, le cas échéant, aux provinces et CPAS associés, d'une copie du rapport de rémunération écrit reprenant un relevé individuel et nominatif des jetons, rémunérations ainsi que des avantages en nature perçus dans le courant de l’exercice comptable précédent, par les mandataires, les personnes non élues et les titulaires de la fonction dirigeante locale, établi pour tout autre organisme supralocal (autre que les \"associations chapitre XII\")",
         "BaseLegale": "art. 96/3, §3, al. 1 LO",
         "EntiteFocus": [
             "CPAS",
@@ -16148,14 +16148,14 @@
         "OrganeCompetent": [
             "conseil communal"
         ],
-        "Commentaire": "La Loi organique fait référence à l'art. 42, §1er, al. 9, entre-temps remplacé. \n\n[ Le [ conseil de l'action sociale ] arrête les dérogations au statut visé à l'alinéa précédent, dans la mesure où le caractère spécifique de certains services et établissements du centre le commanderait, et fixe le statut administratif et pécuniaire des emplois inexistants au niveau communal ainsi que celui du personnel de l'hôpital. ]\n\nVoir l'art. 42/1, §2, al. 1er LO, tel que remplacé.\n\n[ § 1er. Le conseil de l'action sociale fixe le cadre du personnel.\n\nLe cadre du personnel contient tous les emplois nécessaires au bon fonctionnement des services de l'administration, qu'ils soient pourvus ou non au sein de l'administration, qu'ils soient statutaires ou contractuels.\n\nChacun de ces emplois est exprimé en équivalent temps plein, avec le grade ou la fonction et l'échelle barémique y attachée.\n\nLe cadre contient au minimum un travailleur social.\n\nToute modification du cadre inclut une évaluation budgétaire de son impact.\n\n§ 2. Les emplois contractuels pourvus dans le but d'accomplir une mission spécifique de durée limitée ne sont pas inclus dans le cadre.\n\n§ 3. Lorsque des emplois contractuels à pourvoir concernent une mission imprévisible ou nouvelle confiée par une autorité supérieure, la modification du cadre peut intervenir après l'engagement de l'agent, moyen""t ratification.\n\n§ 4. Le Gouvernement fixe le nombre de personnes handicapées que les centres publics d'action sociale occupent en te""t compte de la nature et de l'importance des services. ]\n\n(D. 14.3.2024 - art. 4 - Mon. 8.5.2024)",
+        "Commentaire": "La Loi organique fait référence à l'art. 42, §1er, al. 9, entre-temps remplacé. \n\n[ Le [ conseil de l'action sociale ] arrête les dérogations au statut visé à l'alinéa précédent, dans la mesure où le caractère spécifique de certains services et établissements du centre le commanderait, et fixe le statut administratif et pécuniaire des emplois inexistants au niveau communal ainsi que celui du personnel de l'hôpital. ]\n\nVoir l'art. 42/1, §2, al. 1er LO, tel que remplacé.\n\n[ § 1er. Le conseil de l'action sociale fixe le cadre du personnel.\n\nLe cadre du personnel contient tous les emplois nécessaires au bon fonctionnement des services de l'administration, qu'ils soient pourvus ou non au sein de l'administration, qu'ils soient statutaires ou contractuels.\n\nChacun de ces emplois est exprimé en équivalent temps plein, avec le grade ou la fonction et l'échelle barémique y attachée.\n\nLe cadre contient au minimum un travailleur social.\n\nToute modification du cadre inclut une évaluation budgétaire de son impact.\n\n§ 2. Les emplois contractuels pourvus dans le but d'accomplir une mission spécifique de durée limitée ne sont pas inclus dans le cadre.\n\n§ 3. Lorsque des emplois contractuels à pourvoir concernent une mission imprévisible ou nouvelle confiée par une autorité supérieure, la modification du cadre peut intervenir après l'engagement de l'agent, moyennant ratification.\n\n§ 4. Le Gouvernement fixe le nombre de personnes handicapées que les centres publics d'action sociale occupent en tenant compte de la nature et de l'importance des services. ]\n\n(D. 14.3.2024 - art. 4 - Mon. 8.5.2024)",
         "Delegation": "",
         "BaseDelegation": "",
         "LienConnect": "https://myportal.vandenbroeleconnect.be/contenu/livres/detail/73184593456836264/le-vade-mecum-de-la-commune-au-travers-du-cdld#73186792480091836"
     },
     {
         "N°": 788,
-        "Competence": "Approuver les actes des centres publics d'action sociale portant sur la création et la prise de participation dans les intercommunales, les associations de projet, les associations visées au chapitre XII ainsi que dans les associations ou les sociétés de droit public ou de droit privé, autres qu'intercommunale ou association de projet, susceptibles d'engager les fi""ces communales",
+        "Competence": "Approuver les actes des centres publics d'action sociale portant sur la création et la prise de participation dans les intercommunales, les associations de projet, les associations visées au chapitre XII ainsi que dans les associations ou les sociétés de droit public ou de droit privé, autres qu'intercommunale ou association de projet, susceptibles d'engager les finances communales",
         "BaseLegale": "art. 112quinquies, §1er, al. 1er LO",
         "EntiteFocus": [
             "CPAS",
@@ -17235,7 +17235,7 @@
     },
     {
         "N°": 843,
-        "Competence": "Faire les règlements communaux d'administration intérieure et les ordon""ces de police communale",
+        "Competence": "Faire les règlements communaux d'administration intérieure et les ordonances de police communale",
         "BaseLegale": "art. 119, al. 1er NLC; art. 135, §2, al. 1er NLC",
         "EntiteFocus": [
             "commune"
@@ -17243,12 +17243,12 @@
         "Sujet": "",
         "IndexObjet": [
             "règlements",
-            "ordon""ces de police"
+            "ordonances de police"
         ],
         "OrganeCompetent": [
             "conseil communal"
         ],
-        "Commentaire": "à l'exception des ordon""ces de police temporaire relatives à la circulation routière (collège communal, art. 130bis NLC); la codification est prévue à l'art. L1122-32, al. 1er CDLD.",
+        "Commentaire": "à l'exception des ordonances de police temporaire relatives à la circulation routière (collège communal, art. 130bis NLC); la codification est prévue à l'art. L1122-32, al. 1er CDLD.",
         "Delegation": "",
         "BaseDelegation": "",
         "LienConnect": "https://myportal.vandenbroeleconnect.be/contenu/livres/detail/73184593456836264/le-vade-mecum-de-la-commune-au-travers-du-cdld#73186792480091836"
@@ -17274,14 +17274,14 @@
     },
     {
         "N°": 845,
-        "Competence": "Adopter une ordon""ce de police communale en vue d'empêcher la criminalité déstabilisante",
+        "Competence": "Adopter une ordonnance de police communale en vue d'empêcher la criminalité déstabilisante",
         "BaseLegale": "art. 119ter, §1er, al. 1er NLC",
         "EntiteFocus": [
             "commune"
         ],
         "Sujet": "",
         "IndexObjet": [
-            "ordon""ce de police communale",
+            "ordonnance de police communale",
             "criminalité déstabilisante"
         ],
         "OrganeCompetent": [
@@ -17585,14 +17585,14 @@
     },
     {
         "N°": 860,
-        "Competence": "Ordon""ces de police temporaires relatives à la circulation routière",
+        "Competence": "ordonances de police temporaires relatives à la circulation routière",
         "BaseLegale": "art. 130bis, al. 1er NLC",
         "EntiteFocus": [
             "commune"
         ],
         "Sujet": "",
         "IndexObjet": [
-            "ordon""ce de police communale",
+            "ordonnance de police communale",
             "circulation routière"
         ],
         "OrganeCompetent": [
@@ -17705,14 +17705,14 @@
     },
     {
         "N°": 866,
-        "Competence": "Faire des ordon""ces de police en cas d'émeutes, d'attroupements hostiles, d'atteintes graves protées à la paix publique ou d'autres événements imprévus, lorsque le moindre retard pourrait occasionner des dangers ou des dommages pour les habitants",
+        "Competence": "Faire des ordonances de police en cas d'émeutes, d'attroupements hostiles, d'atteintes graves protées à la paix publique ou d'autres événements imprévus, lorsque le moindre retard pourrait occasionner des dangers ou des dommages pour les habitants",
         "BaseLegale": "art. 134, §1er, al. 1er NLC",
         "EntiteFocus": [
             "commune"
         ],
         "Sujet": "",
         "IndexObjet": [
-            "ordon""ce de police "
+            "ordonnance de police "
         ],
         "OrganeCompetent": [
             "bourgmestre"
@@ -17768,7 +17768,7 @@
     },
     {
         "N°": 869,
-        "Competence": "Prononcer la fermeture d'un établissement accessible au public si l'ordre public autour est troublé par des comportements surve""t dans cet établissement",
+        "Competence": "Prononcer la fermeture d'un établissement accessible au public si l'ordre public autour est troublé par des comportements survenant dans cet établissement",
         "BaseLegale": "art. 134quater, al. 1er NLC",
         "EntiteFocus": [
             "commune"
@@ -17789,7 +17789,7 @@
     },
     {
         "N°": 870,
-        "Competence": "Confirmer la décision du bourgmestre de la fermeture d'un établissement accessible au public si l'ordre public autour est troublé par des comportements surve""t dans cet établissement",
+        "Competence": "Confirmer la décision du bourgmestre de la fermeture d'un établissement accessible au public si l'ordre public autour est troublé par des comportements survenant dans cet établissement",
         "BaseLegale": "art. 134quater, al. 2 NLC",
         "EntiteFocus": [
             "commune"
@@ -17852,7 +17852,7 @@
     },
     {
         "N°": 873,
-        "Competence": "En cas de trouble à l'ordre public causé par des comportements individuels ou collectifs, ou en cas d'infractions répétées aux règlements et ordon""ces du conseil communal commises dans un même lieu ou à l'occasion d'évènements semblables, et impliquant un trouble de l'ordre public ou une incivilité, décider d'une interdiction temporaire de lieu d'un mois",
+        "Competence": "En cas de trouble à l'ordre public causé par des comportements individuels ou collectifs, ou en cas d'infractions répétées aux règlements et ordonances du conseil communal commises dans un même lieu ou à l'occasion d'évènements semblables, et impliquant un trouble de l'ordre public ou une incivilité, décider d'une interdiction temporaire de lieu d'un mois",
         "BaseLegale": "art. 134sexies, §1er, al. 1er NLC",
         "EntiteFocus": [
             "commune"
@@ -17953,14 +17953,14 @@
     },
     {
         "N°": 878,
-        "Competence": "Suspension ou révocation du personnel enseig""t dont la nomination lui est attribuée",
+        "Competence": "Suspension ou révocation du personnel enseignant dont la nomination lui est attribuée",
         "BaseLegale": "art. 150, §1er, al. 1er NLC",
         "EntiteFocus": [
             "commune"
         ],
         "Sujet": "",
         "IndexObjet": [
-            "personnel enseig""t"
+            "personnel enseignant"
         ],
         "OrganeCompetent": [
             "conseil communal"
@@ -17972,14 +17972,14 @@
     },
     {
         "N°": 879,
-        "Competence": "Suspension du personnel enseig""t pour une période de six semaines au maximum",
+        "Competence": "Suspension du personnel enseignant pour une période de six semaines au maximum",
         "BaseLegale": "art. 151, al. 1er NLC",
         "EntiteFocus": [
             "commune"
         ],
         "Sujet": "",
         "IndexObjet": [
-            "personnel enseig""t"
+            "personnel enseignant"
         ],
         "OrganeCompetent": [
             "conseil communal"
