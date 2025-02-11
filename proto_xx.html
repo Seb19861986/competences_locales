@@ -977,17 +977,17 @@ function displayResults(results) {
                 <a href="${item.LienConnect}" class="base-legale" target="_blank">${item.BaseLegale}</a>
             </h3>`,
             item.EntiteFocus && item.EntiteFocus.length > 0
-                ? `<p><strong>Entité Focus :</strong> ${item.EntiteFocus.}</p>`
-                : '',
+                ? `<p><strong>Entité Focus :</strong> ${item.EntiteFocus.join(', ')}</p>`
+                : item.EntiteFocus || '';
             item.Sujet && item.Sujet !== 'N/A'
                 ? `<p><strong>Sujet :</strong> <a href="#" onclick="filterBySubject('${item.Sujet}')">${item.Sujet}</a></p>`
                 : '',
             item.IndexObjet && item.IndexObjet.length > 0
                 ? `<p><strong>Index Objet :</strong> ${item.IndexObjet.join(', ')}</p>`
-                : '',
+                : item.IndexObjet || '';
             item.OrganeCompetent && item.OrganeCompetent.length > 0
-                ? `<p><strong>Organe Compétent :</strong> <span class="organe-competent">${item.OrganeCompetent}</span></p>`
-                : '',
+                ? `<p><strong>Organe Compétent :</strong> <span class="organe-competent">${item.OrganeCompetent.join(', ')}</span></p>`
+                : item.OrganeCompetent || '';
             item.Commentaire && item.Commentaire !== 'N/A'
                 ? `<p><strong>Commentaire(s) :</strong> ${item.Commentaire}</p>`
                 : '',
