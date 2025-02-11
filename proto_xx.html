@@ -971,37 +971,36 @@ function displayResults(results) {
     const pageResults = results.slice(startIndex, endIndex);
 
     resultsContainer.innerHTML = pageResults.map(item => {
-        const fields = [
-            `<h3>
-                <span class="competence">${item.Competence}</span> -
-                <a href="${item.LienConnect}" class="base-legale" target="_blank">${item.BaseLegale}</a>
-            </h3>`,
-            item.EntiteFocus && item.EntiteFocus.length > 0
-                ? `<p><strong>Entité Focus :</strong> ${item.EntiteFocus.join(', ')}</p>`
-                : item.EntiteFocus || '';
-            item.Sujet && item.Sujet !== 'N/A'
-                ? `<p><strong>Sujet :</strong> <a href="#" onclick="filterBySubject('${item.Sujet}')">${item.Sujet}</a></p>`
-                : '',
-            item.IndexObjet && item.IndexObjet.length > 0
-                ? `<p><strong>Index Objet :</strong> ${item.IndexObjet.join(', ')}</p>`
-                : item.IndexObjet || '';
-            item.OrganeCompetent && item.OrganeCompetent.length > 0
-                ? `<p><strong>Organe Compétent :</strong> <span class="organe-competent">${item.OrganeCompetent.join(', ')}</span></p>`
-                : item.OrganeCompetent || '';
-            item.Commentaire && item.Commentaire !== 'N/A'
-                ? `<p><strong>Commentaire(s) :</strong> ${item.Commentaire}</p>`
-                : '',
-            item.Delegation && item.Delegation !== 'N/A'
-                ? `<p><strong>Délégation :</strong> ${item.Delegation}</p>`
-                : '',
-            item.BaseDelegation && item.BaseDelegation !== 'N/A'
-                ? `<p><strong>Base légale (délégation) :</strong> ${item.BaseDelegation}</p>`
-                : '',
-            item.BaseCommentaire && item.BaseCommentaire !== 'N/A'
-                ? `<p><strong>Base légale (commentaire) :</strong> ${item.BaseCommentaire}</p>`
-                : ''
-        ];
-
+       const fields = [
+    `<h3>
+        <span class="competence">${item.Competence}</span> -
+        <a href="${item.LienConnect}" class="base-legale" target="_blank">${item.BaseLegale}</a>
+    </h3>`,
+    item.EntiteFocus && item.EntiteFocus.length > 0
+        ? `<p><strong>Entité Focus :</strong> ${Array.isArray(item.EntiteFocus) ? item.EntiteFocus.join(', ') : item.EntiteFocus}</p>`
+        : '',
+    item.Sujet && item.Sujet !== 'N/A'
+        ? `<p><strong>Sujet :</strong> <a href="#" onclick="filterBySubject('${item.Sujet}')">${item.Sujet}</a></p>`
+        : '',
+    item.IndexObjet && item.IndexObjet.length > 0
+        ? `<p><strong>Index Objet :</strong> ${Array.isArray(item.IndexObjet) ? item.IndexObjet.join(', ') : item.IndexObjet}</p>`
+        : '',
+    item.OrganeCompetent && item.OrganeCompetent.length > 0
+        ? `<p><strong>Organe Compétent :</strong> <span class="organe-competent">${Array.isArray(item.OrganeCompetent) ? item.OrganeCompetent.join(', ') : item.OrganeCompetent}</span></p>`
+        : '',
+    item.Commentaire && item.Commentaire !== 'N/A'
+        ? `<p><strong>Commentaire(s) :</strong> ${item.Commentaire}</p>`
+        : '',
+    item.Delegation && item.Delegation !== 'N/A'
+        ? `<p><strong>Délégation :</strong> ${item.Delegation}</p>`
+        : '',
+    item.BaseDelegation && item.BaseDelegation !== 'N/A'
+        ? `<p><strong>Base légale (délégation) :</strong> ${item.BaseDelegation}</p>`
+        : '',
+    item.BaseCommentaire && item.BaseCommentaire !== 'N/A'
+        ? `<p><strong>Base légale (commentaire) :</strong> ${item.BaseCommentaire}</p>`
+        : ''
+];
         return `<div class="result-item">${fields.filter(Boolean).join('')}</div>`;
     }).join('');
 
