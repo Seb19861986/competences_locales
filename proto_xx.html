@@ -843,13 +843,6 @@ function executeSimpleSearch() {
   if (advancedSearch) advancedSearch.style.display = 'none';
 }
 
-function toggleAdvancedSearch() {
-  const advancedSearch = document.getElementById('search-advanced');
-  if (advancedSearch) {
-    advancedSearch.style.display = advancedSearch.style.display === 'block' ? 'none' : 'block';
-  }
-}
-
 function executeAdvancedSearch() {
   document.querySelectorAll('.advanced-filter:checked').forEach(input => {
     const field = input.getAttribute('data-field');
@@ -871,6 +864,27 @@ function executeAdvancedSearch() {
 
   displayAppliedFilters(selectedFilters);
   displayResults(filteredResults);
+}
+
+function displayAppliedFilters(filters) {
+  const appliedFiltersContainer = document.getElementById('applied-filters');
+  appliedFiltersContainer.innerHTML = Object.keys(filters)
+    .flatMap(field => filters[field].map(value => `<span class="filter-tag">${value} <button onclick="removeFilter('${field}', '${value}')">×</button></span>`))
+    .join('');
+  appliedFiltersContainer.style.display = Object.keys(filters).length ? 'block' : 'none';
+}
+
+function resetAdvancedSearch() {
+  document.querySelectorAll('.advanced-filter').forEach(filter => (filter.checked = false));
+  selectedFilters = {};
+  document.getElementById('applied-filters')?.style.display = 'none';
+  displayResults(data);
+}
+
+function changePage(direction) {
+  const totalPages = Math.ceil(currentResults.length / resultsPerPage);
+  currentPage = Math.max(1, Math.min(currentPage + direction, totalPages));
+  displayResults(currentResults);
 }
 
 function displayResults(results) {
@@ -913,3 +927,4 @@ function displayResults(results) {
   document.getElementById('nextPage').disabled = currentPage === totalPages;
 }
 </script>
+
