@@ -970,39 +970,61 @@ function displayResults(results) {
     // Générer les résultats pour la page actuelle
     const pageResults = results.slice(startIndex, endIndex);
 
-    resultsContainer.innerHTML = pageResults.map(item => {
-       const fields = [
-    `<h3>
-        <span class="competence">${item.Competence}</span> -
-        <a href="${item.LienConnect}" class="base-legale" target="_blank">${item.BaseLegale}</a>
-    </h3>`,
-    item.EntiteFocus && item.EntiteFocus.length > 0
-        ? `<p><strong>Entité Focus :</strong> ${Array.isArray(item.EntiteFocus) ? item.EntiteFocus.join(', ') : item.EntiteFocus}</p>`
-        : '',
-    item.Sujet && item.Sujet !== 'N/A'
-        ? `<p><strong>Sujet :</strong> <a href="#" onclick="filterBySubject('${item.Sujet}')">${item.Sujet}</a></p>`
-        : '',
-    item.IndexObjet && item.IndexObjet.length > 0
-        ? `<p><strong>Index Objet :</strong> ${Array.isArray(item.IndexObjet) ? item.IndexObjet.join(', ') : item.IndexObjet}</p>`
-        : '',
-    item.OrganeCompetent && item.OrganeCompetent.length > 0
-        ? `<p><strong>Organe Compétent :</strong> <span class="organe-competent">${Array.isArray(item.OrganeCompetent) ? item.OrganeCompetent.join(', ') : item.OrganeCompetent}</span></p>`
-        : '',
-    item.Commentaire && item.Commentaire !== 'N/A'
-        ? `<p><strong>Commentaire(s) :</strong> ${item.Commentaire}</p>`
-        : '',
-    item.Delegation && item.Delegation !== 'N/A'
-        ? `<p><strong>Délégation :</strong> ${item.Delegation}</p>`
-        : '',
-    item.BaseDelegation && item.BaseDelegation !== 'N/A'
-        ? `<p><strong>Base légale (délégation) :</strong> ${item.BaseDelegation}</p>`
-        : '',
-    item.BaseCommentaire && item.BaseCommentaire !== 'N/A'
-        ? `<p><strong>Base légale (commentaire) :</strong> ${item.BaseCommentaire}</p>`
-        : ''
-];
-        return `<div class="result-item">${fields.filter(Boolean).join('')}</div>`;
-    }).join('');
+    // Générer les résultats pour la page actuelle
+const pageResults = results.slice(startIndex, endIndex);
+
+resultsContainer.innerHTML = pageResults.map(item => {
+    const fields = [];
+    
+    if (item.Competence) {
+        fields.push(`<h3>
+            <span class="competence">${item.Competence}</span> -
+            ${item.BaseLegale_1 ? `<a href="#" class="base-legale">${item.BaseLegale_1}</a>` : ''}
+        </h3>`);
+    }
+    
+    const base_legale = [item.BaseLegale_2, item.BaseLegale_3, item.BaseLegale_4, item.BaseLegale_5].filter(Boolean).join(', ');
+    if (base_legale) {
+        fields.push(`<p><strong>Base légale :</strong> ${base_legale}</p>`);
+    }
+
+    if (item.EntiteFocus) {
+        fields.push(`<p><strong>Entité Focus :</strong> ${item.EntiteFocus}</p>`);
+    }
+
+    const sujets = [item.Sujet_1, item.Sujet_2, item.Sujet_3].filter(Boolean).join(', ');
+    if (sujets) {
+        fields.push(`<p><strong>Sujet :</strong> ${sujets}</p>`);
+    }
+
+    const indexObjets = [item.IndexObjet_1, item.IndexObjet_2, item.IndexObjet_3, item.IndexObjet_4, item.IndexObjet_5, item.IndexObjet_6, item.IndexObjet_7].filter(Boolean).join(', ');
+    if (indexObjets) {
+        fields.push(`<p><strong>Index Objet :</strong> ${indexObjets}</p>`);
+    }
+
+    if (item.OrganeCompetent) {
+        fields.push(`<p><strong>Organe Compétent :</strong> <span class="organe-competent">${item.OrganeCompetent}</span></p>`);
+    }
+
+    if (item.Commentaire) {
+        fields.push(`<p><strong>Commentaire(s) :</strong> ${item.Commentaire}</p>`);
+    }
+
+    if (item.Delegation) {
+        fields.push(`<p><strong>Délégation :</strong> ${item.Delegation}</p>`);
+    }
+
+    const baseDelegations = [item.BaseDelegation_1, item.BaseDelegation_2, item.BaseDelegation_3].filter(Boolean).join(', ');
+    if (baseDelegations) {
+        fields.push(`<p><strong>Base légale (délégation) :</strong> ${baseDelegations}</p>`);
+    }
+
+    if (item.BaseCommentaire) {
+        fields.push(`<p><strong>Base légale (commentaire) :</strong> ${item.BaseCommentaire}</p>`);
+    }
+    
+    return fields.length > 0 ? `<div class="result-item">${fields.join('')}</div>` : '';
+}).join('');
 
     // Mettre à jour la pagination
     if (paginationContainer) {
