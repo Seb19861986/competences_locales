@@ -792,131 +792,134 @@
     <button id="nextPage" onclick="changePage(1)" disabled>Suivant</button>
 </div>
 <script>
-let data = []; // Variable globale pour stocker les données
+document.addEventListener("DOMContentLoaded", function() {
+    let data = []; // Variable globale pour stocker les données
 
-// Charger les données depuis le fichier JSON
-fetch('DataTest.json')
-  .then(response => response.json())
-  .then(jsonData => {
-    data = jsonData; // Stocker les données dans la variable globale
-    displayResults(data); // Afficher les données initialement
-  })
-  .catch(error => console.error("Erreur lors du chargement des données :", error));
+    // Charger les données depuis le fichier JSON
+    fetch('DataTest.json')
+      .then(response => response.json())
+      .then(jsonData => {
+        data = jsonData; // Stocker les données dans la variable globale
+        displayResults(data); // Afficher les données initialement
+      })
+      .catch(error => console.error("Erreur lors du chargement des données :", error));
 
-let currentResults = [];
-let selectedFilters = {};
-let currentPage = 1;
-const resultsPerPage = 25;
+    let currentResults = [];
+    let selectedFilters = {};
+    let currentPage = 1;
+    const resultsPerPage = 25;
 
-function toggleDropdown(button) {
-  const filterGroup = button.parentElement;
-  const isActive = filterGroup.classList.contains('active');
-  document.querySelectorAll('.filter-group').forEach(group => group.classList.remove('active'));
-  if (!isActive) {
-    filterGroup.classList.add('active');
-  }
-}
-
-document.addEventListener('click', event => {
-  if (!event.target.closest('.filter-group')) {
-    document.querySelectorAll('.filter-group').forEach(group => group.classList.remove('active'));
-  }
-});
-
-function executeSimpleSearch() {
-  const query = document.getElementById('simple-search')?.value.toLowerCase() || "";
-  currentResults = data.filter(item =>
-    (item.Competence && item.Competence.toLowerCase().includes(query)) ||
-    (item.BaseLegale && item.BaseLegale.toLowerCase().includes(query)) ||
-    (item.EntiteFocus && (Array.isArray(item.EntiteFocus) 
-      ? item.EntiteFocus.some(focus => focus.toLowerCase().includes(query))
-      : String(item.EntiteFocus || '').toLowerCase().includes(query)))
-  );
-  currentPage = 1;
-  displayResults(currentResults);
-}
-
-document.getElementById('simple-search')?.addEventListener('keypress', function(event) {
-  if (event.key === 'Enter') {
-    executeSimpleSearch();
-  }
-});
-
-function executeAdvancedSearch() {
-  document.querySelectorAll('.advanced-filter:checked').forEach(input => {
-    const field = input.getAttribute('data-field');
-    selectedFilters[field] = selectedFilters[field] || [];
-    if (!selectedFilters[field].includes(input.value.toLowerCase())) {
-      selectedFilters[field].push(input.value.toLowerCase());
+    function toggleDropdown(button) {
+      const filterGroup = button.parentElement;
+      const isActive = filterGroup.classList.contains('active');
+      document.querySelectorAll('.filter-group').forEach(group => group.classList.remove('active'));
+      if (!isActive) {
+        filterGroup.classList.add('active');
+      }
     }
-  });
-  const filteredResults = data.filter(item =>
-    Object.keys(selectedFilters).every(field => {
-      if (!selectedFilters[field].length) return true;
-      const fieldValue = item[field];
-      return Array.isArray(fieldValue)
-        ? selectedFilters[field].some(filterValue => fieldValue.some(value => value.toLowerCase().includes(filterValue)))
-        : typeof fieldValue === 'string' && selectedFilters[field].some(filterValue => fieldValue.toLowerCase().includes(filterValue));
-    })
-  );
-  displayAppliedFilters(selectedFilters);
-  displayResults(filteredResults);
-}
 
-function displayAppliedFilters(filters) {
-  const appliedFiltersContainer = document.getElementById('applied-filters');
-  appliedFiltersContainer.innerHTML = Object.keys(filters)
-    .flatMap(field => filters[field].map(value => `<span class="filter-tag">${value} <button onclick="removeFilter('${field}', '${value}')">×</button></span>`))
-    .join('');
-  appliedFiltersContainer.style.display = Object.keys(filters).length ? 'block' : 'none';
-}
+    document.addEventListener('click', event => {
+      if (!event.target.closest('.filter-group')) {
+        document.querySelectorAll('.filter-group').forEach(group => group.classList.remove('active'));
+      }
+    });
 
-function resetAdvancedSearch() {
-  document.querySelectorAll('.advanced-filter').forEach(filter => (filter.checked = false));
-  selectedFilters = {};
-  document.getElementById('applied-filters')?.style.display = 'none';
-  displayResults(data);
-}
-
-function changePage(direction) {
-  const totalPages = Math.ceil(currentResults.length / resultsPerPage);
-  currentPage = Math.max(1, Math.min(currentPage + direction, totalPages));
-  displayResults(currentResults);
-}
-
-function displayResults(results) {
-  const resultsContainer = document.getElementById('results');
-  const paginationContainer = document.getElementById('pagination');
-  
-  if (!resultsContainer) return;
-  
-  if (results.length === 0) {
-    resultsContainer.style.display = 'none';
-    resultsContainer.innerHTML = '';
-    paginationContainer.style.display = 'none';
-    return;
-  }
-
-  resultsContainer.style.display = 'block';
-  const totalPages = Math.ceil(results.length / resultsPerPage);
-  const startIndex = (currentPage - 1) * resultsPerPage;
-  const endIndex = Math.min(startIndex + resultsPerPage, results.length);
-  const pageResults = results.slice(startIndex, endIndex);
-
-  resultsContainer.innerHTML = pageResults.map(item => {
-    const fields = [];
-    if (item.Competence) {
-      fields.push(`<h3><span class="competence">${item.Competence}</span> - ${item.BaseLegale_1 ? `<a href="#" class="base-legale">${item.BaseLegale_1}</a>` : ''}</h3>`);
+    function executeSimpleSearch() {
+      const searchInput = document.getElementById('simple-search');
+      if (!searchInput) return;
+      const query = searchInput.value.toLowerCase();
+      currentResults = data.filter(item =>
+        (item.Competence && item.Competence.toLowerCase().includes(query)) ||
+        (item.BaseLegale && item.BaseLegale.toLowerCase().includes(query)) ||
+        (item.EntiteFocus && (Array.isArray(item.EntiteFocus) 
+          ? item.EntiteFocus.some(focus => focus.toLowerCase().includes(query))
+          : String(item.EntiteFocus || '').toLowerCase().includes(query)))
+      );
+      currentPage = 1;
+      displayResults(currentResults);
     }
-    const base_legale = [item.BaseLegale_2, item.BaseLegale_3, item.BaseLegale_4, item.BaseLegale_5].filter(Boolean).join(', ');
-    if (base_legale) fields.push(`<p><strong>Base légale :</strong> ${base_legale}</p>`);
-    if (item.EntiteFocus) fields.push(`<p><strong>Entité Focus :</strong> ${item.EntiteFocus}</p>`);
-    return fields.length > 0 ? `<div class="result-item">${fields.join('')}</div>` : '';
-  }).join('');
 
-  paginationContainer.style.display = 'block';
-  document.getElementById('pageInfo').textContent = `Page ${currentPage} sur ${totalPages}`;
-  document.getElementById('prevPage').disabled = currentPage === 1;
-  document.getElementById('nextPage').disabled = currentPage === totalPages;
-}
+    const searchInput = document.getElementById('simple-search');
+    if (searchInput) {
+      searchInput.addEventListener('keypress', function(event) {
+        if (event.key === 'Enter') {
+          executeSimpleSearch();
+        }
+      });
+    }
+
+    function executeAdvancedSearch() {
+      document.querySelectorAll('.advanced-filter:checked').forEach(input => {
+        const field = input.getAttribute('data-field');
+        selectedFilters[field] = selectedFilters[field] || [];
+        if (!selectedFilters[field].includes(input.value.toLowerCase())) {
+          selectedFilters[field].push(input.value.toLowerCase());
+        }
+      });
+      const filteredResults = data.filter(item =>
+        Object.keys(selectedFilters).every(field => {
+          if (!selectedFilters[field].length) return true;
+          const fieldValue = item[field];
+          return Array.isArray(fieldValue)
+            ? selectedFilters[field].some(filterValue => fieldValue.some(value => value.toLowerCase().includes(filterValue)))
+            : typeof fieldValue === 'string' && selectedFilters[field].some(filterValue => fieldValue.toLowerCase().includes(filterValue));
+        })
+      );
+      displayAppliedFilters(selectedFilters);
+      displayResults(filteredResults);
+    }
+
+    function displayAppliedFilters(filters) {
+      const appliedFiltersContainer = document.getElementById('applied-filters');
+      if (!appliedFiltersContainer) return;
+      appliedFiltersContainer.innerHTML = Object.keys(filters)
+        .flatMap(field => filters[field].map(value => `<span class="filter-tag">${value} <button onclick="removeFilter('${field}', '${value}')">×</button></span>`))
+        .join('');
+      appliedFiltersContainer.style.display = Object.keys(filters).length ? 'block' : 'none';
+    }
+
+    function resetAdvancedSearch() {
+      document.querySelectorAll('.advanced-filter').forEach(filter => (filter.checked = false));
+      selectedFilters = {};
+      document.getElementById('applied-filters')?.style.display = 'none';
+      displayResults(data);
+    }
+
+    function changePage(direction) {
+      const totalPages = Math.ceil(currentResults.length / resultsPerPage);
+      currentPage = Math.max(1, Math.min(currentPage + direction, totalPages));
+      displayResults(currentResults);
+    }
+
+    function displayResults(results) {
+      const resultsContainer = document.getElementById('results');
+      const paginationContainer = document.getElementById('pagination');
+      if (!resultsContainer) return;
+      if (results.length === 0) {
+        resultsContainer.style.display = 'none';
+        resultsContainer.innerHTML = '';
+        paginationContainer.style.display = 'none';
+        return;
+      }
+      resultsContainer.style.display = 'block';
+      const totalPages = Math.ceil(results.length / resultsPerPage);
+      const startIndex = (currentPage - 1) * resultsPerPage;
+      const endIndex = Math.min(startIndex + resultsPerPage, results.length);
+      const pageResults = results.slice(startIndex, endIndex);
+      resultsContainer.innerHTML = pageResults.map(item => {
+        const fields = [];
+        if (item.Competence) {
+          fields.push(`<h3><span class="competence">${item.Competence}</span> - ${item.BaseLegale_1 ? `<a href="#" class="base-legale">${item.BaseLegale_1}</a>` : ''}</h3>`);
+        }
+        const base_legale = [item.BaseLegale_2, item.BaseLegale_3, item.BaseLegale_4, item.BaseLegale_5].filter(Boolean).join(', ');
+        if (base_legale) fields.push(`<p><strong>Base légale :</strong> ${base_legale}</p>`);
+        if (item.EntiteFocus) fields.push(`<p><strong>Entité Focus :</strong> ${item.EntiteFocus}</p>`);
+        return fields.length > 0 ? `<div class="result-item">${fields.join('')}</div>` : '';
+      }).join('');
+      paginationContainer.style.display = 'block';
+      document.getElementById('pageInfo').textContent = `Page ${currentPage} sur ${totalPages}`;
+      document.getElementById('prevPage').disabled = currentPage === 1;
+      document.getElementById('nextPage').disabled = currentPage === totalPages;
+    }
+});
 </script>
