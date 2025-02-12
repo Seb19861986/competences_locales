@@ -632,17 +632,16 @@
     </style>
 </head>
 <body>
-    <div class="search-simple">
+    <div class="header-content">
+        <h1>Recherche des compétences et responsabilités</h1>
+        <p>Utilisez les options de recherche pour affiner vos résultats.</p>
+    </div>
+<div class="search-simple">
         <h2>Recherche Simple</h2>
         <input type="text" id="simple-search" placeholder="Rechercher par mots-clés (Compétence, Base Légale, Entité Focus)">
         <button onclick="executeSimpleSearch()">Rechercher</button>
         <button class="toggle-advanced" onclick="toggleAdvancedSearch()">Recherche Avancée ▼</button>
     </div>
-    <div class="header-content">
-        <h1>Recherche des compétences et responsabilités</h1>
-        <p>Utilisez les options de recherche pour affiner vos résultats.</p>
-    </div>
-
    <div id="search-advanced" class="search-advanced" style="display: none;">
         <h2>Recherche Avancée</h2>
         <div class="filter-group">
@@ -832,13 +831,14 @@
       const query = searchInput.value.toLowerCase();
       currentResults = data.filter(item =>
         (item.Competence && item.Competence.toLowerCase().includes(query)) ||
-        (item.BaseLegale && item.BaseLegale.toLowerCase().includes(query)) ||
+        (item.BaseLegale_1 && item.BaseLegale_1.toLowerCase().includes(query)) ||
         (item.EntiteFocus && (Array.isArray(item.EntiteFocus) 
           ? item.EntiteFocus.some(focus => focus.toLowerCase().includes(query))
           : String(item.EntiteFocus || '').toLowerCase().includes(query)))
       );
       currentPage = 1;
       displayResults(currentResults);
+      console.log("Recherche exécutée");  
     }
 
     const searchInput = document.getElementById('simple-search');
