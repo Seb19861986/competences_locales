@@ -632,19 +632,18 @@
     </style>
 </head>
 <body>
-    <div class="header-content">
-        <h1>Recherche des compétences et responsabilités</h1>
-        <p>Utilisez les options de recherche pour affiner vos résultats.</p>
-    </div>
-
     <div class="search-simple">
         <h2>Recherche Simple</h2>
         <input type="text" id="simple-search" placeholder="Rechercher par mots-clés (Compétence, Base Légale, Entité Focus)">
         <button onclick="executeSimpleSearch()">Rechercher</button>
         <button class="toggle-advanced" onclick="toggleAdvancedSearch()">Recherche Avancée ▼</button>
     </div>
+    <div class="header-content">
+        <h1>Recherche des compétences et responsabilités</h1>
+        <p>Utilisez les options de recherche pour affiner vos résultats.</p>
+    </div>
 
-    <div id="search-advanced" class="search-advanced" style="display: none;">
+   <div id="search-advanced" class="search-advanced" style="display: none;">
         <h2>Recherche Avancée</h2>
         <div class="filter-group">
             <label for="entite-filter">Entité:</label>
