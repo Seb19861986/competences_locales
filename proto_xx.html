@@ -811,9 +811,7 @@ const resultsPerPage = 25;
 function toggleDropdown(button) {
   const filterGroup = button.parentElement;
   const isActive = filterGroup.classList.contains('active');
-
   document.querySelectorAll('.filter-group').forEach(group => group.classList.remove('active'));
-
   if (!isActive) {
     filterGroup.classList.add('active');
   }
@@ -825,12 +823,8 @@ document.addEventListener('click', event => {
   }
 });
 
-function toggleFilterVisibility(show) {
-  document.getElementById('filter-column').style.display = show ? 'block' : 'none';
-}
-
 function executeSimpleSearch() {
-  const query = document.getElementById('simple-search').value.toLowerCase();
+  const query = document.getElementById('simple-search')?.value.toLowerCase() || "";
   currentResults = data.filter(item =>
     (item.Competence && item.Competence.toLowerCase().includes(query)) ||
     (item.BaseLegale && item.BaseLegale.toLowerCase().includes(query)) ||
@@ -840,8 +834,6 @@ function executeSimpleSearch() {
   );
   currentPage = 1;
   displayResults(currentResults);
-  const advancedSearch = document.getElementById('search-advanced');
-  if (advancedSearch) advancedSearch.style.display = 'none';
 }
 
 document.getElementById('simple-search')?.addEventListener('keypress', function(event) {
@@ -858,7 +850,6 @@ function executeAdvancedSearch() {
       selectedFilters[field].push(input.value.toLowerCase());
     }
   });
-
   const filteredResults = data.filter(item =>
     Object.keys(selectedFilters).every(field => {
       if (!selectedFilters[field].length) return true;
@@ -868,7 +859,6 @@ function executeAdvancedSearch() {
         : typeof fieldValue === 'string' && selectedFilters[field].some(filterValue => fieldValue.toLowerCase().includes(filterValue));
     })
   );
-
   displayAppliedFilters(selectedFilters);
   displayResults(filteredResults);
 }
@@ -915,16 +905,12 @@ function displayResults(results) {
 
   resultsContainer.innerHTML = pageResults.map(item => {
     const fields = [];
-
     if (item.Competence) {
       fields.push(`<h3><span class="competence">${item.Competence}</span> - ${item.BaseLegale_1 ? `<a href="#" class="base-legale">${item.BaseLegale_1}</a>` : ''}</h3>`);
     }
-
     const base_legale = [item.BaseLegale_2, item.BaseLegale_3, item.BaseLegale_4, item.BaseLegale_5].filter(Boolean).join(', ');
     if (base_legale) fields.push(`<p><strong>Base légale :</strong> ${base_legale}</p>`);
-
     if (item.EntiteFocus) fields.push(`<p><strong>Entité Focus :</strong> ${item.EntiteFocus}</p>`);
-    
     return fields.length > 0 ? `<div class="result-item">${fields.join('')}</div>` : '';
   }).join('');
 
@@ -934,6 +920,3 @@ function displayResults(results) {
   document.getElementById('nextPage').disabled = currentPage === totalPages;
 }
 </script>
-
-
-
