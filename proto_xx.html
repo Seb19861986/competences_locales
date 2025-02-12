@@ -834,7 +834,7 @@ function executeSimpleSearch() {
   currentResults = data.filter(item =>
     item.Competence?.toLowerCase().includes(query) ||
     item.BaseLegale?.toLowerCase().includes(query) ||
-    item.EntiteFocus?.some(focus => focus.toLowerCase().includes(query))
+    (Array.isArray(item.EntiteFocus) && item.EntiteFocus.some(focus => focus.toLowerCase().includes(query)))
   );
   currentPage = 1;
   displayResults(currentResults);
@@ -913,3 +913,4 @@ function displayResults(results) {
 }
 
 </script>
+
