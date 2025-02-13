@@ -1135,10 +1135,22 @@ function displayResults(results) {
             return sujets.length > 0 ? `<p><strong>Sujet :</strong> ${sujets.join(', ')}</p>` : '';
         })(),
 
-            // Affichage de IndexObjet_1, si disponible
-            item.IndexObjet_1 && item.IndexObjet_1.length > 0
-                ? `<p><strong>Index Objet :</strong> ${item.IndexObjet_1}</p>`
-                : '',
+ // Création des tags pour les IndexObjet
+        (() => {
+            const indexObjects = [
+                item.IndexObjet_1,
+                item.IndexObjet_2,
+                item.IndexObjet_3,
+                item.IndexObjet_4,
+                item.IndexObjet_5,
+                item.IndexObjet_6,
+                item.IndexObjet_7
+            ];
+            const tags = indexObjects.filter(index => index && index !== 'N/A').map(index => {
+                return `<a href="#" class="tag" onclick="filterByTag('${index}')">${index}</a>`;
+            });
+            return tags.length > 0 ? `<p><strong>Index Objet :</strong> ${tags.join(' ')}</p>` : '';
+        })(),
 
             // Affichage de OrganeCompetent, si disponible
             item.OrganeCompetent && item.OrganeCompetent.length > 0
@@ -1165,7 +1177,26 @@ function displayResults(results) {
         const resultHTML = `<div class="result-item">${fields.filter(Boolean).join('')}</div>`;
         resultsContainer.insertAdjacentHTML('beforeend', resultHTML);
     });
+// Fonction pour filtrer par tag cliqué
+function filterByTag(tag) {
+    // Met à jour les résultats avec ce tag
+    const filteredResults = data.filter(item => {
+        const indexObjects = [
+            item.IndexObjet_1,
+            item.IndexObjet_2,
+            item.IndexObjet_3,
+            item.IndexObjet_4,
+            item.IndexObjet_5,
+            item.IndexObjet_6,
+            item.IndexObjet_7
+        ];
+        // Cherche le tag dans les IndexObjet
+        return indexObjects.some(index => index && index.includes(tag));
+    });
 
+    // Mettre à jour l'affichage des résultats en fonction du tag
+    displayResults(filteredResults);
+}
     // Calculer le nombre total de pages
     const totalPages = Math.ceil(results.length / resultsPerPage);
 
