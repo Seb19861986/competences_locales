@@ -944,14 +944,14 @@ function resetAdvancedSearch() {
     displayResults(data);
 }
 
-let currentPage = 1;
-const resultsPerPage = 25;
+let currentPage = 1;  // Page actuelle
+const resultsPerPage = 25;  // Résultats par page
 
 function displayResults(results) {
     const resultsContainer = document.getElementById('results');
     const paginationContainer = document.getElementById('pagination');
     const filterColumn = document.getElementById('filter-column');
-    
+
     if (!resultsContainer) {
         console.error("L'élément #results est introuvable dans le DOM.");
         return;
@@ -969,7 +969,7 @@ function displayResults(results) {
     // Affiche le conteneur des résultats
     resultsContainer.style.display = 'block';
 
-    // Pagination : découpe des résultats en fonction de la page actuelle
+    // Calculer les indices de pagination
     const startIndex = (currentPage - 1) * resultsPerPage;
     const endIndex = Math.min(startIndex + resultsPerPage, results.length);
     const pageResults = results.slice(startIndex, endIndex);
