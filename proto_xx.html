@@ -949,6 +949,8 @@ const resultsPerPage = 25;
 
 function displayResults(results) {
     const resultsContainer = document.getElementById('results');
+    const paginationContainer = document.getElementById('pagination');
+    const filterColumn = document.getElementById('filter-column');
     
     if (!resultsContainer) {
         console.error("L'élément #results est introuvable dans le DOM.");
@@ -1016,10 +1018,11 @@ function displayResults(results) {
         // Retourner le contenu de chaque boîte sous forme de div
         return `<div class="result-card">${fields.filter(Boolean).join('')}</div>`;
     }).join('');
-}
+
     // Mettre à jour la pagination
     if (paginationContainer) {
         paginationContainer.style.display = 'block';
+        const totalPages = Math.ceil(results.length / resultsPerPage);
         document.getElementById('pageInfo').textContent = `Page ${currentPage} sur ${totalPages}`;
         document.getElementById('prevPage').disabled = currentPage === 1;
         document.getElementById('nextPage').disabled = currentPage === totalPages;
