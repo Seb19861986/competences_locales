@@ -844,7 +844,7 @@ function executeSimpleSearch() {
     (item.EntiteFocus && (Array.isArray(item.EntiteFocus) 
         ? item.EntiteFocus.some(focus => focus.toLowerCase().includes(query)) // Si EntiteFocus est un tableau
         : String(item.EntiteFocus).toLowerCase().includes(query)) // Si EntiteFocus est une chaîne
-);
+));
 
     currentPage = 1; // Réinitialise la page actuelle
     displayResults(currentResults);
