@@ -969,8 +969,13 @@ function displayResults(results) {
     // Affiche le conteneur des résultats
     resultsContainer.style.display = 'block';
 
+    // Pagination : découpe des résultats en fonction de la page actuelle
+    const startIndex = (currentPage - 1) * resultsPerPage;
+    const endIndex = Math.min(startIndex + resultsPerPage, results.length);
+    const pageResults = results.slice(startIndex, endIndex);
+
     // Générer les résultats pour chaque élément et ajouter au conteneur des résultats
-    results.forEach(item => {
+    pageResults.forEach(item => {
         const fields = [
             // Affichage de la compétence et du lien vers la base légale
             `<div class="result-item">
@@ -1020,10 +1025,12 @@ function displayResults(results) {
         resultsContainer.insertAdjacentHTML('beforeend', resultHTML);
     });
 
+    // Calculer le nombre total de pages
+    const totalPages = Math.ceil(results.length / resultsPerPage);
+
     // Mettre à jour la pagination
     if (paginationContainer) {
         paginationContainer.style.display = 'block';
-        const totalPages = Math.ceil(results.length / resultsPerPage);
         document.getElementById('pageInfo').textContent = `Page ${currentPage} sur ${totalPages}`;
         document.getElementById('prevPage').disabled = currentPage === 1;
         document.getElementById('nextPage').disabled = currentPage === totalPages;
