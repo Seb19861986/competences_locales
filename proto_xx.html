@@ -937,17 +937,28 @@ function executeSimpleSearch() {
 
         // Si aucun filtre n'est sélectionné, on fait une recherche simple
         if (indexFilters.length === 0) {
-            return (item.Competence && item.Competence.toLowerCase().includes(query)) ||
-                   (item.BaseLegale && item.BaseLegale.toLowerCase().includes(query)) ||
-                   (item.EntiteFocus && (Array.isArray(item.EntiteFocus)
-                       ? item.EntiteFocus.some(focus => focus.toLowerCase().includes(query))
-                       : String(item.EntiteFocus || '').toLowerCase().includes(query)));
+            return (
+                (item.Competence && item.Competence.toLowerCase().includes(query)) ||
+                (item.BaseLegale && item.BaseLegale.toLowerCase().includes(query)) ||
+                (item.EntiteFocus && (Array.isArray(item.EntiteFocus)
+                    ? item.EntiteFocus.some(focus => focus.toLowerCase().includes(query))
+                    : String(item.EntiteFocus || '').toLowerCase().includes(query))
+                )
+            );
         }
 
         // Recherche dans les champs spécifiques comme Sujet_1, Sujet_2, Sujet_3 (ou autres)
         return indexFilters.every(filter => {
             // Recherche dans les champs spécifiques
-            const fieldValues = [item[filter.field], item[`${filter.field}_1`], item[`${filter.field}_2`], item[`${filter.field}_3`], item[`${filter.field}_4`], item[`${filter.field}_5`], item[`${filter.field}_6`], item[`${filter.field}_2`]]; // Ajout de _2 et _3 _xx pour vérifier dans plusieurs champs
+            const fieldValues = [
+                item[filter.field], 
+                item[`${filter.field}_1`], 
+                item[`${filter.field}_2`], 
+                item[`${filter.field}_3`], 
+                item[`${filter.field}_4`], 
+                item[`${filter.field}_5`], 
+                item[`${filter.field}_6`]
+            ]; // Ajout de _2 et _3 _xx pour vérifier dans plusieurs champs
             return fieldValues.some(fieldValue => {
                 if (Array.isArray(fieldValue)) {
                     return fieldValue.some(value => value.toLowerCase().includes(filter.value));
@@ -961,8 +972,6 @@ function executeSimpleSearch() {
 
     currentPage = 1; // Réinitialise la page actuelle
     displayResults(currentResults);
-}
-
     // Fermer la recherche avancée
     const advancedSearch = document.getElementById('search-advanced');
     if (advancedSearch) {
