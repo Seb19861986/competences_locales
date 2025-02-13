@@ -970,37 +970,51 @@ function displayResults(results) {
     // Générer les résultats pour la page actuelle
     const pageResults = results.slice(startIndex, endIndex);
 
-    resultsContainer.innerHTML = pageResults.map(item => {
-        const fields = [
-            `<h3>
-                <span class="competence">${item.Competence}</span> -
-                <a href="${item.LienConnect}" class="base-legale" target="_blank">${item.BaseLegale_1}</a>
-            </h3>`,
-            item.EntiteFocus && item.EntiteFocus.length > 0
-                ? `<p><strong>Entité Focus :</strong> ${item.EntiteFocus.join(', ')}</p>`
-                : '',
-            item.Sujet_1 && item.Sujet_1 !== 'N/A'
-                ? `<p><strong>Sujet :</strong> <a href="#" onclick="filterBySubject('${item.Sujet_1}')">${item.Sujet_1}</a></p>`
-                : '',
-            item.IndexObjet_1 && item.IndexObjet_1.length > 0
-                ? `<p><strong>Index Objet :</strong> ${item.IndexObjet_1.join(', ')}</p>`
-                : '',
-            item.OrganeCompetent && item.OrganeCompetent.length > 0
-                ? `<p><strong>Organe Compétent :</strong> <span class="organe-competent">${item.OrganeCompetent.join(', ')}</span></p>`
-                : '',
-            item.Commentaire && item.Commentaire !== 'N/A'
-                ? `<p><strong>Commentaire(s) :</strong> ${item.Commentaire}</p>`
-                : '',
-            item.Delegation && item.Delegation !== 'N/A'
-                ? `<p><strong>Délégation :</strong> ${item.Delegation}</p>`
-                : '',
-            item.BaseDelegation_1 && item.BaseDelegation_1 !== 'N/A'
-                ? `<p><strong>Base légale (délégation) :</strong> ${item.BaseDelegation_1}</p>`
-                : ''
-        ];
+resultsContainer.innerHTML = pageResults.map(item => {
+    const fields = [
+        `<h3>
+            <span class="competence">${item.Competence}</span> -
+            <a href="${item.LienConnect}" class="base-legale" target="_blank">${item.BaseLegale_1}</a>
+        </h3>`,
+        
+        // Vérifier si EntiteFocus est un tableau avant d'utiliser join
+        item.EntiteFocus && Array.isArray(item.EntiteFocus) && item.EntiteFocus.length > 0
+            ? `<p><strong>Entité Focus :</strong> ${item.EntiteFocus.join(', ')}</p>`
+            : '',
+        
+        // Vérifier si Sujet_1 existe et est différent de 'N/A'
+        item.Sujet_1 && item.Sujet_1 !== 'N/A'
+            ? `<p><strong>Sujet :</strong> <a href="#" onclick="filterBySubject('${item.Sujet_1}')">${item.Sujet_1}</a></p>`
+            : '',
+        
+        // Vérifier si IndexObjet_1 est un tableau avant d'utiliser join
+        item.IndexObjet_1 && Array.isArray(item.IndexObjet_1) && item.IndexObjet_1.length > 0
+            ? `<p><strong>Index Objet :</strong> ${item.IndexObjet_1.join(', ')}</p>`
+            : '',
+        
+        // Vérifier si OrganeCompetent est un tableau avant d'utiliser join
+        item.OrganeCompetent && Array.isArray(item.OrganeCompetent) && item.OrganeCompetent.length > 0
+            ? `<p><strong>Organe Compétent :</strong> <span class="organe-competent">${item.OrganeCompetent.join(', ')}</span></p>`
+            : '',
+        
+        // Vérifier si Commentaire existe et n'est pas 'N/A'
+        item.Commentaire && item.Commentaire !== 'N/A'
+            ? `<p><strong>Commentaire(s) :</strong> ${item.Commentaire}</p>`
+            : '',
+        
+        // Vérifier si Delegation existe et n'est pas 'N/A'
+        item.Delegation && item.Delegation !== 'N/A'
+            ? `<p><strong>Délégation :</strong> ${item.Delegation}</p>`
+            : '',
+        
+        // Vérifier si BaseDelegation_1 existe et n'est pas 'N/A'
+        item.BaseDelegation_1 && item.BaseDelegation_1 !== 'N/A'
+            ? `<p><strong>Base légale (délégation) :</strong> ${item.BaseDelegation_1}</p>`
+            : ''
+    ];
 
-        return `<div class="result-item">${fields.filter(Boolean).join('')}</div>`;
-    }).join('');
+    return fields.filter(Boolean).join(''); // Filtrer les champs vides et les joindre
+}).join('');
 
     // Mettre à jour la pagination
     if (paginationContainer) {
