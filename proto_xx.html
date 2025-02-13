@@ -957,8 +957,8 @@ function displayResults(results) {
         return;
     }
 
-    // Réinitialiser le conteneur des résultats pour éviter la duplication
-    resultsContainer.innerHTML = '';  // C'est ici que vous videz le conteneur à chaque fois
+    // Réinitialisation du conteneur avant d'ajouter de nouveaux résultats pour éviter les duplications
+    resultsContainer.innerHTML = '';  
 
     // Si aucun résultat trouvé
     if (results.length === 0) {
@@ -969,8 +969,8 @@ function displayResults(results) {
     // Affiche le conteneur des résultats
     resultsContainer.style.display = 'block';
 
-    // Générer les résultats pour chaque élément
-    const resultsHTML = results.map(item => {
+    // Générer les résultats pour chaque élément et ajouter au conteneur des résultats
+    results.forEach(item => {
         const fields = [
             // Affichage de la compétence et du lien vers la base légale
             `<div class="result-item">
@@ -1015,12 +1015,10 @@ function displayResults(results) {
                 : ''
         ];
 
-        // Retourner le contenu de chaque boîte sous forme de div
-        return `<div class="result-card">${fields.filter(Boolean).join('')}</div>`;
-    }).join('');
-
-    // Insérer le HTML dans le conteneur des résultats
-    resultsContainer.innerHTML = resultsHTML;
+        // Ajouter le résultat dans le conteneur avec un nouveau div pour chaque "result-card"
+        const resultHTML = `<div class="result-card">${fields.filter(Boolean).join('')}</div>`;
+        resultsContainer.insertAdjacentHTML('beforeend', resultHTML);
+    });
 
     // Mettre à jour la pagination
     if (paginationContainer) {
@@ -1034,6 +1032,7 @@ function displayResults(results) {
     // Assurer que les filtres restent visibles
     if (filterColumn) filterColumn.style.display = 'block';
 }
+
 function changePage(direction) {
     const totalPages = Math.ceil(currentResults.length / resultsPerPage);
 
