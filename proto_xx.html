@@ -949,85 +949,74 @@ const resultsPerPage = 25;
 
 function displayResults(results) {
     const resultsContainer = document.getElementById('results');
-    const paginationContainer = document.getElementById('pagination');
-    const filterColumn = document.getElementById('filter-column');
-
+    
     if (!resultsContainer) {
         console.error("L'élément #results est introuvable dans le DOM.");
         return;
     }
+    
+    // Réinitialiser le conteneur des résultats pour éviter la duplication
+    resultsContainer.innerHTML = '';
 
     // Si aucun résultat trouvé
     if (results.length === 0) {
         resultsContainer.style.display = 'none'; // Masque le conteneur des résultats
-        resultsContainer.innerHTML = ''; // Vide le contenu
-        if (paginationContainer) paginationContainer.style.display = 'none'; // Masque la pagination
-        if (filterColumn) filterColumn.style.display = 'block'; // Garde les filtres visibles
         return;
     }
 
     // Affiche le conteneur des résultats
     resultsContainer.style.display = 'block';
 
-    // Pagination et calcul des limites
-    const totalPages = Math.ceil(results.length / resultsPerPage);
-    const startIndex = (currentPage - 1) * resultsPerPage;
-    const endIndex = Math.min(startIndex + resultsPerPage, results.length);
+    // Générer les résultats pour chaque élément
+    resultsContainer.innerHTML = results.map(item => {
+        const fields = [
+            // Affichage de la compétence et du lien vers la base légale
+            `<div class="result-item">
+                <h3>
+                    <span class="competence">${item.Competence}</span> - 
+                    <a href="${item.LienConnect}" class="base-legale" target="_blank">${item.BaseLegale_1}</a>
+                </h3>`,
 
-    // Générer les résultats pour la page actuelle
-    const pageResults = results.slice(startIndex, endIndex);
+            // Affichage de EntiteFocus, si disponible
+            item.EntiteFocus 
+                ? `<p><strong>Entité Focus :</strong> ${item.EntiteFocus}</p>`
+                : '',
 
-resultsContainer.innerHTML = pageResults.map(item => {
-    // Création des éléments à afficher pour chaque résultat
-    const fields = [
-        // Titre avec la compétence et le lien vers la base légale
-        `<div class="result-item">
-            <h3>
-                <span class="competence">${item.Competence}</span> - 
-                <a href="${item.LienConnect}" class="base-legale" target="_blank">${item.BaseLegale_1}</a>
-            </h3>`,
+            // Affichage du Sujet_1, si disponible
+            item.Sujet_1 && item.Sujet_1 !== 'N/A'
+                ? `<p><strong>Sujet :</strong> ${item.Sujet_1}</p>`
+                : '',
 
-        // Affichage de EntiteFocus, si disponible
-        item.EntiteFocus 
-            ? `<p><strong>Entité Focus :</strong> ${item.EntiteFocus}</p>`
-            : '',
+            // Affichage de IndexObjet_1, si disponible
+            item.IndexObjet_1 && item.IndexObjet_1.length > 0
+                ? `<p><strong>Index Objet :</strong> ${item.IndexObjet_1}</p>`
+                : '',
 
-        // Affichage du Sujet_1, si disponible
-        item.Sujet_1 && item.Sujet_1 !== 'N/A'
-            ? `<p><strong>Sujet :</strong> ${item.Sujet_1}</p>`
-            : '',
+            // Affichage de OrganeCompetent, si disponible
+            item.OrganeCompetent && item.OrganeCompetent.length > 0
+                ? `<p><strong>Organe Compétent :</strong> ${item.OrganeCompetent}</p>`
+                : '',
 
-        // Affichage de IndexObjet_1, si disponible
-        item.IndexObjet_1 && item.IndexObjet_1.length > 0
-            ? `<p><strong>Index Objet :</strong> ${item.IndexObjet_1}</p>`
-            : '',
+            // Affichage des commentaires, si disponibles
+            item.Commentaire && item.Commentaire !== 'N/A'
+                ? `<p><strong>Commentaire(s) :</strong> ${item.Commentaire}</p>`
+                : '',
 
-        // Affichage de OrganeCompetent, si disponible
-        item.OrganeCompetent && item.OrganeCompetent.length > 0
-            ? `<p><strong>Organe Compétent :</strong> ${item.OrganeCompetent}</p>`
-            : '',
+            // Affichage de Delegation, si disponible
+            item.Delegation && item.Delegation !== 'N/A'
+                ? `<p><strong>Délégation :</strong> ${item.Delegation}</p>`
+                : '',
 
-        // Affichage des commentaires, si disponibles
-        item.Commentaire && item.Commentaire !== 'N/A'
-            ? `<p><strong>Commentaire(s) :</strong> ${item.Commentaire}</p>`
-            : '',
+            // Affichage de BaseDelegation_1, si disponible
+            item.BaseDelegation_1 && item.BaseDelegation_1 !== 'N/A'
+                ? `<p><strong>Base légale (délégation) :</strong> ${item.BaseDelegation_1}</p>`
+                : ''
+        ];
 
-        // Affichage de Delegation, si disponible
-        item.Delegation && item.Delegation !== 'N/A'
-            ? `<p><strong>Délégation :</strong> ${item.Delegation}</p>`
-            : '',
-
-        // Affichage de BaseDelegation_1, si disponible
-        item.BaseDelegation_1 && item.BaseDelegation_1 !== 'N/A'
-            ? `<p><strong>Base légale (délégation) :</strong> ${item.BaseDelegation_1}</p>`
-            : ''
-    ];
-
-    // Retourner l'ensemble des champs pour chaque item dans une boîte unique
-    return `<div class="result-card">${fields.filter(Boolean).join('')}</div>`;
-}).join('')
-
-
+        // Retourner le contenu de chaque boîte sous forme de div
+        return `<div class="result-card">${fields.filter(Boolean).join('')}</div>`;
+    }).join('');
+}
     // Mettre à jour la pagination
     if (paginationContainer) {
         paginationContainer.style.display = 'block';
