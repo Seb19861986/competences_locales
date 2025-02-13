@@ -982,7 +982,7 @@ function displayResults(results) {
                 <h3>
                     <span class="competence">${item.Competence}</span> - 
                     <a href="${item.LienConnect}" class="base-legale" target="_blank">${item.BaseLegale_1}</a>
-                </h3>`,
+                </h3>`, 
 
             // Affichage de EntiteFocus, si disponible
             item.EntiteFocus 
@@ -1020,8 +1020,8 @@ function displayResults(results) {
                 : ''
         ];
 
-        // Ajouter le résultat dans le conteneur avec un nouveau div pour chaque "result-card"
-        const resultHTML = `<div class="result-card">${fields.filter(Boolean).join('')}</div>`;
+        // Ajouter chaque result-item directement au conteneur
+        const resultHTML = `<div class="result-item">${fields.filter(Boolean).join('')}</div>`;
         resultsContainer.insertAdjacentHTML('beforeend', resultHTML);
     });
 
