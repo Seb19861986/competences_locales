@@ -334,17 +334,17 @@
     font-size: 12px;
     cursor: pointer;
 }
-
+.result-card:hover {
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+}
         .result-card {
-            margin-bottom: 20px;
-            border: 1px solid #ddd;
-            border-radius: 10px;
-            padding: 20px;
-            background-color: #f9f9f9;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    padding: 15px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    transition: box-shadow 0.3s ease;
         }
         .result-card h3 {
             color: #163E67;
@@ -548,7 +548,12 @@
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     text-align: left;
 }
-
+.filter-column, .result-card {
+    flex: 1;
+    min-width: 300px;
+    max-width: 45%;
+    margin-bottom: 20px;
+}
 .search-advanced h2 {
     font-size: 18px;
     color: #C7352C;
