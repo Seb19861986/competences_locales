@@ -1120,10 +1120,14 @@ function displayResults(results) {
                 ? `<p><strong>Entité Focus :</strong> ${item.EntiteFocus}</p>`
                 : '',
 
-            // Affichage du Sujet_1, si disponible
-            item.Sujet_1 && item.Sujet_1 !== 'N/A'
-                ? `<p><strong>Sujet :</strong> ${item.Sujet_1}</p>`
-                : '',
+            // Affichage des sujets (Sujet_1, Sujet_2, Sujet_3) séparés par une virgule
+        (() => {
+            const sujets = [];
+            if (item.Sujet_1 && item.Sujet_1 !== 'N/A') sujets.push(item.Sujet_1);
+            if (item.Sujet_2 && item.Sujet_2 !== 'N/A') sujets.push(item.Sujet_2);
+            if (item.Sujet_3 && item.Sujet_3 !== 'N/A') sujets.push(item.Sujet_3);
+            return sujets.length > 0 ? `<p><strong>Sujet :</strong> ${sujets.join(', ')}</p>` : '';
+        })(),
 
             // Affichage de IndexObjet_1, si disponible
             item.IndexObjet_1 && item.IndexObjet_1.length > 0
