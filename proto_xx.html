@@ -1135,7 +1135,7 @@ function displayResults(results) {
             return sujets.length > 0 ? `<p><strong>Sujet :</strong> ${sujets.join(', ')}</p>` : '';
         })(),
 
- // Création des tags pour les IndexObjet
+  // Création des tags pour les IndexObjet
         (() => {
             const indexObjects = [
                 item.IndexObjet_1,
@@ -1196,6 +1196,24 @@ function filterByTag(tag) {
 
     // Mettre à jour l'affichage des résultats en fonction du tag
     displayResults(filteredResults);
+}
+
+// Affichage des résultats filtrés
+function displayResults(results) {
+    const resultsContainer = document.getElementById('results');
+    if (!resultsContainer) {
+        console.error("L'élément #results est introuvable dans le DOM.");
+        return;
+    }
+
+    // Réinitialiser les résultats avant d'afficher les nouveaux
+    resultsContainer.innerHTML = '';
+
+    // Afficher les résultats
+    results.forEach(item => {
+        const resultHTML = `<div class="result-item">${item.Competence} - <a href="${item.LienConnect}" target="_blank">${item.BaseLegale_1}</a></div>`;
+        resultsContainer.insertAdjacentHTML('beforeend', resultHTML);
+    });
 }
     // Calculer le nombre total de pages
     const totalPages = Math.ceil(results.length / resultsPerPage);
