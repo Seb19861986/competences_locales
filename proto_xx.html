@@ -956,9 +956,9 @@ function displayResults(results) {
         console.error("L'élément #results est introuvable dans le DOM.");
         return;
     }
-    
+
     // Réinitialiser le conteneur des résultats pour éviter la duplication
-    resultsContainer.innerHTML = '';
+    resultsContainer.innerHTML = '';  // C'est ici que vous videz le conteneur à chaque fois
 
     // Si aucun résultat trouvé
     if (results.length === 0) {
@@ -970,7 +970,7 @@ function displayResults(results) {
     resultsContainer.style.display = 'block';
 
     // Générer les résultats pour chaque élément
-    resultsContainer.innerHTML = results.map(item => {
+    const resultsHTML = results.map(item => {
         const fields = [
             // Affichage de la compétence et du lien vers la base légale
             `<div class="result-item">
@@ -1018,6 +1018,9 @@ function displayResults(results) {
         // Retourner le contenu de chaque boîte sous forme de div
         return `<div class="result-card">${fields.filter(Boolean).join('')}</div>`;
     }).join('');
+
+    // Insérer le HTML dans le conteneur des résultats
+    resultsContainer.innerHTML = resultsHTML;
 
     // Mettre à jour la pagination
     if (paginationContainer) {
