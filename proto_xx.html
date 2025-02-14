@@ -201,7 +201,20 @@
 }
 
 .filter-group .dropdown-content {
-    display: none; /* Masque les options par défaut */
+    display: none; /* Masqué par défaut */
+    position: absolute;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    padding: 10px;
+    max-width: 100%; /* S'adapte à la largeur du parent */
+    max-height: 300px; /* Hauteur maximale du menu */
+    overflow-y: auto; /* Ajoute une barre de défilement verticale si nécessaire */
+    word-wrap: break-word; /* Coupe les mots longs pour éviter de déborder */
+    white-space: normal; /* Permet aux mots de revenir à la ligne */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    z-index: 10;
+    transition: all 0.3s ease;
 }
 
 .filter-group.active .dropdown-content {
@@ -334,17 +347,17 @@
     font-size: 12px;
     cursor: pointer;
 }
-
+.result-card:hover {
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+}
         .result-card {
-            margin-bottom: 20px;
-            border: 1px solid #ddd;
-            border-radius: 10px;
-            padding: 20px;
-            background-color: #f9f9f9;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    padding: 15px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    transition: box-shadow 0.3s ease;
         }
         .result-card h3 {
             color: #163E67;
@@ -548,7 +561,12 @@
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     text-align: left;
 }
-
+.filter-column, .result-card {
+    flex: 1;
+    min-width: 250px;
+    max-width: 100%;
+    margin-bottom: 20px;
+}
 .search-advanced h2 {
     font-size: 18px;
     color: #C7352C;
@@ -684,18 +702,22 @@
         </div>
     </div>
     <div class="filter-group">
-        <label for="index-filter">Index :</label>
+        <label for="index-filter">Catégorie(s) :</label>
         <div class="dropdown">
             <button id="index-filter" class="filter-button" onclick="toggleDropdown(this)">Sélectionner un mot clé   ▼</button>
             <div class="dropdown-content">
-                <label><input type="checkbox" class="advanced-filter" data-field="IndexObjet" value="élections"> Élections</label>
-                <label><input type="checkbox" class="advanced-filter" data-field="IndexObjet" value="budget"> Budget</label>
-                <label><input type="checkbox" class="advanced-filter" data-field="IndexObjet" value="biens communaux"> Biens communaux</label>
-                <label><input type="checkbox" class="advanced-filter" data-field="IndexObjet" value="mandat politique"> Mandat politique</label>
-                <label><input type="checkbox" class="advanced-filter" data-field="IndexObjet" value="éligibilité"> Eligibilité</label>
-                <label><input type="checkbox" class="advanced-filter" data-field="IndexObjet" value="comptes annuels"> Comptes annuels</label>
-                <label><input type="checkbox" class="advanced-filter" data-field="IndexObjet" value="plan stratégique"> Plan stratégique</label>
-                <label><input type="checkbox" class="advanced-filter" data-field="IndexObjet" value="comité de rémunération"> Comité de rémunération</label>
+               <label><input type="checkbox" class="filter" data-field="Sujet" value="mission, stratégie et synergie"> Mission, stratégie et synergie</label>
+<label><input type="checkbox" class="filter" data-field="Sujet" value="organes politiques, mandataires et représentation"> Organes politiques, mandataires et représentation</label>
+<label><input type="checkbox" class="filter" data-field="Sujet" value="personnel et organisation"> Personnel et organisation</label>
+<label><input type="checkbox" class="filter" data-field="Sujet" value="finances (et comptabilité)"> Finances (et comptabilité)</label>
+<label><input type="checkbox" class="filter" data-field="Sujet" value="marchés publics et contrats"> Marchés publics et contrats</label>
+<label><input type="checkbox" class="filter" data-field="Sujet" value="biens"> Biens</label>
+<label><input type="checkbox" class="filter" data-field="Sujet" value="juridique"> Juridique</label>
+<label><input type="checkbox" class="filter" data-field="Sujet" value="juridique"> Juridique</label>
+<label><input type="checkbox" class="filter" data-field="Sujet" value="juridique"> Juridique</label>
+<label><input type="checkbox" class="filter" data-field="Sujet" value="règlements et ordonnances (et arrêtés)"> Règlements et ordonnances (et arrêtés)</label>
+<label><input type="checkbox" class="filter" data-field="Sujet" value="action sociale (aide sociale)"> Action sociale (aide sociale)</label>
+<label><input type="checkbox" class="filter" data-field="Sujet" value="divers"> Divers</label>
             </div>
         </div>
     </div>
@@ -704,46 +726,75 @@
         <div class="dropdown">
             <button id="organe-competent-filter" class="filter-button" onclick="toggleDropdown(this)">Sélectionner un organe compétent  ▼</button>
             <div class="dropdown-content">
-                <label><input type="checkbox" value="Assemblée des électeurs de la commune"> Assemblée des électeurs de la commune</label>
-                <label><input type="checkbox" value="Bourgmestre"> Bourgmestre</label>
-                <label><input type="checkbox" value="Bourgmestre / Directeur général"> Bourgmestre / Directeur général</label>
-                <label><input type="checkbox" value="Bourgmestre (ou son remplaçant)"> Bourgmestre (ou son remplaçant)</label>
-                <label><input type="checkbox" value="Bureau exécutif (régie communale autonome)"> Bureau exécutif (régie communale autonome)</label>
-                <label><input type="checkbox" value="Comité de concertation"> Comité de concertation</label>
-                <label><input type="checkbox" value="Comité de direction"> Comité de direction</label>
-                <label><input type="checkbox" value="Comité de direction (association de projet)"> Comité de direction (association de projet)</label>
-                <label><input type="checkbox" value="Comité de direction (CPAS)"> Comité de direction (CPAS)</label>
-                <label><input type="checkbox" value="Comité de gestion (de l'hôpital)"> Comité de gestion (de l'hôpital)</label>
-                <label><input type="checkbox" value="Comité de rémunération (de l'intercommunale)"> Comité de rémunération (de l'intercommunale)</label>
-                <label><input type="checkbox" value="Collège communal"> Collège communal</label>
-                <label><input type="checkbox" value="Collège communal / Conseil communal"> Collège communal / Conseil communal</label>
-                <label><input type="checkbox" value="Collège provincial"> Collège provincial</label>
-                <label><input type="checkbox" value="Conseil communal"> Conseil communal</label>
-                <label><input type="checkbox" value="Conseil communal / Conseil de l'action sociale"> Conseil communal / Conseil de l'action sociale</label>
-                <label><input type="checkbox" value="Conseil communal / Conseil provincial"> Conseil communal / Conseil provincial</label>
-                <label><input type="checkbox" value="Conseil d'administration (de l'intercommunale)"> Conseil d'administration (de l'intercommunale)</label>
-                <label><input type="checkbox" value="Conseil d'administration (régie communale autonome)"> Conseil d'administration (régie communale autonome)</label>
-                <label><input type="checkbox" value="Directeur financier"> Directeur financier</label>
-                <label><input type="checkbox" value="Directeur financier (CPAS)"> Directeur financier (CPAS)</label>
-                <label><input type="checkbox" value="Directeur général"> Directeur général</label>
-                <label><input type="checkbox" value="Directeur général (CPAS)"> Directeur général (CPAS)</label>
-                <label><input type="checkbox" value="Fonction dirigeante locale"> Fonction dirigeante locale</label>
-                <label><input type="checkbox" value="Fonctionnaire de police"> Fonctionnaire de police</label>
-                <label><input type="checkbox" value="Gouverneur"> Gouverneur</label>
-                <label><input type="checkbox" value="Président du conseil communal"> Président du conseil communal</label>
-                <label><input type="checkbox" value="Président du conseil de l'action sociale"> Président du conseil de l'action sociale</label>
-                <label><input type="checkbox" value="Référent intégrité"> Référent intégrité</label>
+                <label><input type="checkbox" class="filter" data-field="OrganeCompetent" value="collège communal"> Collège communal</label>
+                <label><input type="checkbox" class="filter" data-field="OrganeCompetent" value="conseil communal"> Conseil communal</label>
+                <label><input type="checkbox" class="filter" data-field="OrganeCompetent" value="administrateurs (de l'intercommunale)"> administrateurs (de l'intercommunale)</label>
+<label><input type="checkbox" class="filter" data-field="OrganeCompetent" value="assemblée générale (de l'intercommunale)"> assemblée générale (de l'intercommunale)</label>
+<label><input type="checkbox" class="filter" data-field="OrganeCompetent" value="assemblée générale de l'association (association chapitre XII)"> assemblée générale de l'association (association chapitre XII)</label>
+<label><input type="checkbox" class="filter" data-field="OrganeCompetent" value="bourgmestre"> bourgmestre</label>
+<label><input type="checkbox" class="filter" data-field="OrganeCompetent" value="bureau exécutif (régie communale autonome)"> bureau exécutif (régie communale autonome)</label>
+<label><input type="checkbox" class="filter" data-field="OrganeCompetent" value="bureau permanent"> bureau permanent</label>
+<label><input type="checkbox" class="filter" data-field="OrganeCompetent" value="collège (de l'intercommunale)"> collège (de l'intercommunale)</label>
+<label><input type="checkbox" class="filter" data-field="OrganeCompetent" value="collège communal"> collège communal</label>
+<label><input type="checkbox" class="filter" data-field="OrganeCompetent" value="comité de concertation"> comité de concertation</label>
+<label><input type="checkbox" class="filter" data-field="OrganeCompetent" value="comité de direction"> comité de direction</label>
+<label><input type="checkbox" class="filter" data-field="OrganeCompetent" value="comité de direction (association chapitre XII)"> comité de direction (association chapitre XII)</label>
+<label><input type="checkbox" class="filter" data-field="OrganeCompetent" value="comité de direction (CPAS)"> comité de direction (CPAS)</label>
+<label><input type="checkbox" class="filter" data-field="OrganeCompetent" value="comité de direction (de l'intercommunale)"> comité de direction (de l'intercommunale)</label>
+<label><input type="checkbox" class="filter" data-field="OrganeCompetent" value="comité de gestion (association de projet)"> comité de gestion (association de projet)</label>
+<label><input type="checkbox" class="filter" data-field="OrganeCompetent" value="comité de gestion (de l'hôpital)"> comité de gestion (de l'hôpital)</label>
+<label><input type="checkbox" class="filter" data-field="OrganeCompetent" value="comité de gestion (intercommunale)"> comité de gestion (intercommunale)</label>
+<label><input type="checkbox" class="filter" data-field="OrganeCompetent" value="comité de rémunération (de l'intercommunale)"> comité de rémunération (de l'intercommunale)</label>
+<label><input type="checkbox" class="filter" data-field="OrganeCompetent" value="comité spécial"> comité spécial</label>
+<label><input type="checkbox" class="filter" data-field="OrganeCompetent" value="comité spécial du service social"> comité spécial du service social</label>
+<label><input type="checkbox" class="filter" data-field="OrganeCompetent" value="conseil communal"> conseil communal</label>
+<label><input type="checkbox" class="filter" data-field="OrganeCompetent" value="conseil d'administration (association chapitre XII)"> conseil d'administration (association chapitre XII)</label>
+<label><input type="checkbox" class="filter" data-field="OrganeCompetent" value="conseil d'administration (de l'intercommunale)"> conseil d'administration (de l'intercommunale)</label>
+<label><input type="checkbox" class="filter" data-field="OrganeCompetent" value="conseil d'administration (régie communale autonome)"> conseil d'administration (régie communale autonome)</label>
+<label><input type="checkbox" class="filter" data-field="OrganeCompetent" value="conseil de l'action sociale"> conseil de l'action sociale</label>
+<label><input type="checkbox" class="filter" data-field="OrganeCompetent" value="conseiller communal (désigné par la commune pour la représenter)"> conseiller communal (désigné par la commune pour la représenter)</label>
+<label><input type="checkbox" class="filter" data-field="OrganeCompetent" value="conseiller de l'action sociale"> conseiller de l'action sociale</label>
+<label><input type="checkbox" class="filter" data-field="OrganeCompetent" value="directeur (de l'hôpital)"> directeur (de l'hôpital)</label>
+<label><input type="checkbox" class="filter" data-field="OrganeCompetent" value="directeur financier"> directeur financier</label>
+<label><input type="checkbox" class="filter" data-field="OrganeCompetent" value="directeur financier (CPAS)"> directeur financier (CPAS)</label>
+<label><input type="checkbox" class="filter" data-field="OrganeCompetent" value="directeur financier (de l'intercommunale)"> directeur financier (de l'intercommunale)</label>
+<label><input type="checkbox" class="filter" data-field="OrganeCompetent" value="directeur général"> directeur général</label>
+<label><input type="checkbox" class="filter" data-field="OrganeCompetent" value="directeur général (CPAS)"> directeur général (CPAS)</label>
+<label><input type="checkbox" class="filter" data-field="OrganeCompetent" value="directeur général adjoint"> directeur général adjoint</label>
+<label><input type="checkbox" class="filter" data-field="OrganeCompetent" value="directeur général adjoint (CPAS)"> directeur général adjoint (CPAS)</label>
+<label><input type="checkbox" class="filter" data-field="OrganeCompetent" value="échevin"> échevin</label>
+<label><input type="checkbox" class="filter" data-field="OrganeCompetent" value="échevin chargé de remplir les fonctions d'officier de l'état civil"> échevin chargé de remplir les fonctions d'officier de l'état civil</label>
+<label><input type="checkbox" class="filter" data-field="OrganeCompetent" value="fonction dirigeante locale"> fonction dirigeante locale</label>
+<label><input type="checkbox" class="filter" data-field="OrganeCompetent" value="fonction dirigeante locale (association chapitre XII)"> fonction dirigeante locale (association chapitre XII)</label>
+<label><input type="checkbox" class="filter" data-field="OrganeCompetent" value="fonction dirigeante locale (de l'intercommunale)"> fonction dirigeante locale (de l'intercommunale)</label>
+<label><input type="checkbox" class="filter" data-field="OrganeCompetent" value="officier de l'état civil"> officier de l'état civil</label>
+<label><input type="checkbox" class="filter" data-field="OrganeCompetent" value="président du conseil communal"> président du conseil communal</label>
+<label><input type="checkbox" class="filter" data-field="OrganeCompetent" value="président du conseil de l'action sociale"> président du conseil de l'action sociale</label>
+<label><input type="checkbox" class="filter" data-field="OrganeCompetent" value="référent intégrité"> référent intégrité</label>
+<label><input type="checkbox" class="filter" data-field="OrganeCompetent" value="référent intégrité (association chapitre XII)"> référent intégrité (association chapitre XII)</label>
+<label><input type="checkbox" class="filter" data-field="OrganeCompetent" value="référent intégrité (CPAS)"> référent intégrité (CPAS)</label>
+<label><input type="checkbox" class="filter" data-field="OrganeCompetent" value="travailleur social"> travailleur social</label>
+<label><input type="checkbox" class="filter" data-field="OrganeCompetent" value="trésorier (de l'hôpital)"> trésorier (de l'hôpital)</label>
             </div>
         </div>
     </div>
     <div class="filter-group">
-        <label for="sujet-filter">Sujet :</label>
+        <label for="sujet-filter">Catégorie(s) :</label>
         <div class="dropdown">
             <button id="sujet-filter" class="filter-button" onclick="toggleDropdown(this)">Sélectionner une catégorie  ▼</button>
             <div class="dropdown-content">
-                <label><input type="checkbox" class="advanced-filter" data-field="Sujet" value="Généralité"> Généralité</label>
-                <label><input type="checkbox" class="advanced-filter" data-field="Sujet" value="Action sociale"> Action sociale</label>
-                <label><input type="checkbox" class="advanced-filter" data-field="Sujet" value="Juridique"> Juridique</label>
+<label><input type="checkbox" class="filter" data-field="Sujet" value="mission, stratégie et synergie"> Mission, stratégie et synergie</label>
+<label><input type="checkbox" class="filter" data-field="Sujet" value="organes politiques, mandataires et représentation"> Organes politiques, mandataires et représentation</label>
+<label><input type="checkbox" class="filter" data-field="Sujet" value="personnel et organisation"> Personnel et organisation</label>
+<label><input type="checkbox" class="filter" data-field="Sujet" value="finances (et comptabilité)"> Finances (et comptabilité)</label>
+<label><input type="checkbox" class="filter" data-field="Sujet" value="marchés publics et contrats"> Marchés publics et contrats</label>
+<label><input type="checkbox" class="filter" data-field="Sujet" value="biens"> Biens</label>
+<label><input type="checkbox" class="filter" data-field="Sujet" value="juridique"> Juridique</label>
+<label><input type="checkbox" class="filter" data-field="Sujet" value="juridique"> Juridique</label>
+<label><input type="checkbox" class="filter" data-field="Sujet" value="juridique"> Juridique</label>                
+<label><input type="checkbox" class="filter" data-field="Sujet" value="règlements et ordonnances (et arrêtés)"> Règlements et ordonnances (et arrêtés)</label>
+<label><input type="checkbox" class="filter" data-field="Sujet" value="action sociale (aide sociale)"> Action sociale (aide sociale)</label>
+<label><input type="checkbox" class="filter" data-field="Sujet" value="divers"> Divers</label>
             </div>
         </div>
     </div>
@@ -765,10 +816,20 @@
             </div>
         </div>
         <div class="filter-group">
-            <button class="filter-button" onclick="toggleDropdown(this)">Index</button>
+            <button class="filter-button" onclick="toggleDropdown(this)">Catégorie</button>
             <div class="dropdown-content">
-                <label><input type="checkbox" class="filter" data-field="IndexObjet" value="élections"> Élections</label>
-                <label><input type="checkbox" class="filter" data-field="IndexObjet" value="budget"> Budget</label>
+<label><input type="checkbox" class="filter" data-field="Sujet" value="mission, stratégie et synergie"> Mission, stratégie et synergie</label>
+<label><input type="checkbox" class="filter" data-field="Sujet" value="organes politiques, mandataires et représentation"> Organes politiques, mandataires et représentation</label>
+<label><input type="checkbox" class="filter" data-field="Sujet" value="personnel et organisation"> Personnel et organisation</label>
+<label><input type="checkbox" class="filter" data-field="Sujet" value="finances (et comptabilité)"> Finances (et comptabilité)</label>
+<label><input type="checkbox" class="filter" data-field="Sujet" value="marchés publics et contrats"> Marchés publics et contrats</label>
+<label><input type="checkbox" class="filter" data-field="Sujet" value="biens"> Biens</label>
+<label><input type="checkbox" class="filter" data-field="Sujet" value="juridique"> Juridique</label>
+<label><input type="checkbox" class="filter" data-field="Sujet" value="juridique"> Juridique</label>
+<label><input type="checkbox" class="filter" data-field="Sujet" value="juridique"> Juridique</label>                
+<label><input type="checkbox" class="filter" data-field="Sujet" value="règlements et ordonnances (et arrêtés)"> Règlements et ordonnances (et arrêtés)</label>
+<label><input type="checkbox" class="filter" data-field="Sujet" value="action sociale (aide sociale)"> Action sociale (aide sociale)</label>
+<label><input type="checkbox" class="filter" data-field="Sujet" value="divers"> Divers</label>
             </div>
         </div>
         <div class="filter-group">
@@ -776,6 +837,53 @@
             <div class="dropdown-content">
                 <label><input type="checkbox" class="filter" data-field="OrganeCompetent" value="collège communal"> Collège communal</label>
                 <label><input type="checkbox" class="filter" data-field="OrganeCompetent" value="conseil communal"> Conseil communal</label>
+                <label><input type="checkbox" class="filter" data-field="OrganeCompetent" value="administrateurs (de l'intercommunale)"> administrateurs (de l'intercommunale)</label>
+<label><input type="checkbox" class="filter" data-field="OrganeCompetent" value="assemblée générale (de l'intercommunale)"> assemblée générale (de l'intercommunale)</label>
+<label><input type="checkbox" class="filter" data-field="OrganeCompetent" value="assemblée générale de l'association (association chapitre XII)"> assemblée générale de l'association (association chapitre XII)</label>
+<label><input type="checkbox" class="filter" data-field="OrganeCompetent" value="bourgmestre"> bourgmestre</label>
+<label><input type="checkbox" class="filter" data-field="OrganeCompetent" value="bureau exécutif (régie communale autonome)"> bureau exécutif (régie communale autonome)</label>
+<label><input type="checkbox" class="filter" data-field="OrganeCompetent" value="bureau permanent"> bureau permanent</label>
+<label><input type="checkbox" class="filter" data-field="OrganeCompetent" value="collège (de l'intercommunale)"> collège (de l'intercommunale)</label>
+<label><input type="checkbox" class="filter" data-field="OrganeCompetent" value="collège communal"> collège communal</label>
+<label><input type="checkbox" class="filter" data-field="OrganeCompetent" value="comité de concertation"> comité de concertation</label>
+<label><input type="checkbox" class="filter" data-field="OrganeCompetent" value="comité de direction"> comité de direction</label>
+<label><input type="checkbox" class="filter" data-field="OrganeCompetent" value="comité de direction (association chapitre XII)"> comité de direction (association chapitre XII)</label>
+<label><input type="checkbox" class="filter" data-field="OrganeCompetent" value="comité de direction (CPAS)"> comité de direction (CPAS)</label>
+<label><input type="checkbox" class="filter" data-field="OrganeCompetent" value="comité de direction (de l'intercommunale)"> comité de direction (de l'intercommunale)</label>
+<label><input type="checkbox" class="filter" data-field="OrganeCompetent" value="comité de gestion (association de projet)"> comité de gestion (association de projet)</label>
+<label><input type="checkbox" class="filter" data-field="OrganeCompetent" value="comité de gestion (de l'hôpital)"> comité de gestion (de l'hôpital)</label>
+<label><input type="checkbox" class="filter" data-field="OrganeCompetent" value="comité de gestion (intercommunale)"> comité de gestion (intercommunale)</label>
+<label><input type="checkbox" class="filter" data-field="OrganeCompetent" value="comité de rémunération (de l'intercommunale)"> comité de rémunération (de l'intercommunale)</label>
+<label><input type="checkbox" class="filter" data-field="OrganeCompetent" value="comité spécial"> comité spécial</label>
+<label><input type="checkbox" class="filter" data-field="OrganeCompetent" value="comité spécial du service social"> comité spécial du service social</label>
+<label><input type="checkbox" class="filter" data-field="OrganeCompetent" value="conseil communal"> conseil communal</label>
+<label><input type="checkbox" class="filter" data-field="OrganeCompetent" value="conseil d'administration (association chapitre XII)"> conseil d'administration (association chapitre XII)</label>
+<label><input type="checkbox" class="filter" data-field="OrganeCompetent" value="conseil d'administration (de l'intercommunale)"> conseil d'administration (de l'intercommunale)</label>
+<label><input type="checkbox" class="filter" data-field="OrganeCompetent" value="conseil d'administration (régie communale autonome)"> conseil d'administration (régie communale autonome)</label>
+<label><input type="checkbox" class="filter" data-field="OrganeCompetent" value="conseil de l'action sociale"> conseil de l'action sociale</label>
+<label><input type="checkbox" class="filter" data-field="OrganeCompetent" value="conseiller communal (désigné par la commune pour la représenter)"> conseiller communal (désigné par la commune pour la représenter)</label>
+<label><input type="checkbox" class="filter" data-field="OrganeCompetent" value="conseiller de l'action sociale"> conseiller de l'action sociale</label>
+<label><input type="checkbox" class="filter" data-field="OrganeCompetent" value="directeur (de l'hôpital)"> directeur (de l'hôpital)</label>
+<label><input type="checkbox" class="filter" data-field="OrganeCompetent" value="directeur financier"> directeur financier</label>
+<label><input type="checkbox" class="filter" data-field="OrganeCompetent" value="directeur financier (CPAS)"> directeur financier (CPAS)</label>
+<label><input type="checkbox" class="filter" data-field="OrganeCompetent" value="directeur financier (de l'intercommunale)"> directeur financier (de l'intercommunale)</label>
+<label><input type="checkbox" class="filter" data-field="OrganeCompetent" value="directeur général"> directeur général</label>
+<label><input type="checkbox" class="filter" data-field="OrganeCompetent" value="directeur général (CPAS)"> directeur général (CPAS)</label>
+<label><input type="checkbox" class="filter" data-field="OrganeCompetent" value="directeur général adjoint"> directeur général adjoint</label>
+<label><input type="checkbox" class="filter" data-field="OrganeCompetent" value="directeur général adjoint (CPAS)"> directeur général adjoint (CPAS)</label>
+<label><input type="checkbox" class="filter" data-field="OrganeCompetent" value="échevin"> échevin</label>
+<label><input type="checkbox" class="filter" data-field="OrganeCompetent" value="échevin chargé de remplir les fonctions d'officier de l'état civil"> échevin chargé de remplir les fonctions d'officier de l'état civil</label>
+<label><input type="checkbox" class="filter" data-field="OrganeCompetent" value="fonction dirigeante locale"> fonction dirigeante locale</label>
+<label><input type="checkbox" class="filter" data-field="OrganeCompetent" value="fonction dirigeante locale (association chapitre XII)"> fonction dirigeante locale (association chapitre XII)</label>
+<label><input type="checkbox" class="filter" data-field="OrganeCompetent" value="fonction dirigeante locale (de l'intercommunale)"> fonction dirigeante locale (de l'intercommunale)</label>
+<label><input type="checkbox" class="filter" data-field="OrganeCompetent" value="officier de l'état civil"> officier de l'état civil</label>
+<label><input type="checkbox" class="filter" data-field="OrganeCompetent" value="président du conseil communal"> président du conseil communal</label>
+<label><input type="checkbox" class="filter" data-field="OrganeCompetent" value="président du conseil de l'action sociale"> président du conseil de l'action sociale</label>
+<label><input type="checkbox" class="filter" data-field="OrganeCompetent" value="référent intégrité"> référent intégrité</label>
+<label><input type="checkbox" class="filter" data-field="OrganeCompetent" value="référent intégrité (association chapitre XII)"> référent intégrité (association chapitre XII)</label>
+<label><input type="checkbox" class="filter" data-field="OrganeCompetent" value="référent intégrité (CPAS)"> référent intégrité (CPAS)</label>
+<label><input type="checkbox" class="filter" data-field="OrganeCompetent" value="travailleur social"> travailleur social</label>
+<label><input type="checkbox" class="filter" data-field="OrganeCompetent" value="trésorier (de l'hôpital)"> trésorier (de l'hôpital)</label>
             </div>
         </div>
         <button class="apply-filters-button" onclick="applyFilters()">Appliquer</button>
@@ -838,15 +946,45 @@ function toggleFilterVisibility(show) {
 }
 function executeSimpleSearch() {
     const query = document.getElementById('simple-search').value.toLowerCase();
-    currentResults = data.filter(item => (
-        item.Competence.toLowerCase().includes(query) ||
-        item.BaseLegale.toLowerCase().includes(query) ||
-        item.EntiteFocus.some(focus => focus.toLowerCase().includes(query))
-    ));
+    currentResults = data.filter(item => {
+        // Parcours des cases de filtre sélectionnées
+        const indexFilters = Array.from(document.querySelectorAll('.filter:checked')).map(input => {
+            const field = input.getAttribute('data-field');
+            const value = input.value.toLowerCase();
+            return { field, value };
+        });
+
+        // Si aucun filtre n'est sélectionné, on fait une recherche simple
+        if (indexFilters.length === 0) {
+            return (
+                (item.Competence && item.Competence.toLowerCase().includes(query)) ||
+                (item.BaseLegale && item.BaseLegale.toLowerCase().includes(query)) ||
+                (item.EntiteFocus && (Array.isArray(item.EntiteFocus)
+                    ? item.EntiteFocus.some(focus => focus.toLowerCase().includes(query))
+                    : String(item.EntiteFocus || '').toLowerCase().includes(query))
+                )
+            );
+        }
+
+        // Recherche dans les champs spécifiques comme Sujet, Sujet_2, Sujet_3 (ou autres)
+        return indexFilters.every(filter => {
+            // Recherche dans les champs spécifiques
+            const fieldValues = [
+                item[filter.field]
+            ]; // Ajout de _2 et _3 _xx pour vérifier dans plusieurs champs
+            return fieldValues.some(fieldValue => {
+                if (Array.isArray(fieldValue)) {
+                    return fieldValue.some(value => value.toLowerCase().includes(filter.value));
+                } else if (typeof fieldValue === 'string') {
+                    return fieldValue.toLowerCase().includes(filter.value);
+                }
+                return false;
+            });
+        });
+    });
 
     currentPage = 1; // Réinitialise la page actuelle
     displayResults(currentResults);
-
     // Fermer la recherche avancée
     const advancedSearch = document.getElementById('search-advanced');
     if (advancedSearch) {
@@ -917,7 +1055,7 @@ function resetAdvancedSearch() {
     const organeCompetent = document.getElementById('advanced-organe-competent');
 
     // Réinitialiser les champs de sélection, si disponibles
-    if (baseLegale) baseLegale.value = '';
+    if (baseLegale) BaseLegale.value = '';
     if (index) index.value = '';
     if (organeCompetent) organeCompetent.value = '';
 
@@ -937,8 +1075,8 @@ function resetAdvancedSearch() {
     displayResults(data);
 }
 
-let currentPage = 1;
-const resultsPerPage = 25;
+let currentPage = 1;  // Page actuelle
+const resultsPerPage = 25;  // Résultats par page
 
 function displayResults(results) {
     const resultsContainer = document.getElementById('results');
@@ -950,57 +1088,111 @@ function displayResults(results) {
         return;
     }
 
+    // Réinitialisation du conteneur avant d'ajouter de nouveaux résultats pour éviter les duplications
+    resultsContainer.innerHTML = '';  
+
     // Si aucun résultat trouvé
     if (results.length === 0) {
         resultsContainer.style.display = 'none'; // Masque le conteneur des résultats
-        resultsContainer.innerHTML = ''; // Vide le contenu
-        if (paginationContainer) paginationContainer.style.display = 'none'; // Masque la pagination
-        if (filterColumn) filterColumn.style.display = 'block'; // Garde les filtres visibles
         return;
     }
 
     // Affiche le conteneur des résultats
     resultsContainer.style.display = 'block';
 
-    // Pagination et calcul des limites
-    const totalPages = Math.ceil(results.length / resultsPerPage);
+    // Calculer les indices de pagination
     const startIndex = (currentPage - 1) * resultsPerPage;
     const endIndex = Math.min(startIndex + resultsPerPage, results.length);
-
-    // Générer les résultats pour la page actuelle
     const pageResults = results.slice(startIndex, endIndex);
 
-    resultsContainer.innerHTML = pageResults.map(item => {
-        const fields = [
-            `<h3>
-                <span class="competence">${item.Competence}</span> -
-                <a href="${item.LienConnect}" class="base-legale" target="_blank">${item.BaseLegale}</a>
-            </h3>`,
-            item.EntiteFocus && item.EntiteFocus.length > 0
-                ? `<p><strong>Entité Focus :</strong> ${item.EntiteFocus.join(', ')}</p>`
-                : '',
-            item.Sujet && item.Sujet !== 'N/A'
-                ? `<p><strong>Sujet :</strong> <a href="#" onclick="filterBySubject('${item.Sujet}')">${item.Sujet}</a></p>`
-                : '',
-            item.IndexObjet && item.IndexObjet.length > 0
-                ? `<p><strong>Index Objet :</strong> ${item.IndexObjet.join(', ')}</p>`
-                : '',
-            item.OrganeCompetent && item.OrganeCompetent.length > 0
-                ? `<p><strong>Organe Compétent :</strong> <span class="organe-competent">${item.OrganeCompetent.join(', ')}</span></p>`
-                : '',
-            item.Commentaire && item.Commentaire !== 'N/A'
-                ? `<p><strong>Commentaire(s) :</strong> ${item.Commentaire}</p>`
-                : '',
-            item.Delegation && item.Delegation !== 'N/A'
-                ? `<p><strong>Délégation :</strong> ${item.Delegation}</p>`
-                : '',
-            item.BaseDelegation && item.BaseDelegation !== 'N/A'
-                ? `<p><strong>Base légale (délégation) :</strong> ${item.BaseDelegation}</p>`
-                : ''
-        ];
+    // Générer les résultats pour chaque élément et ajouter au conteneur des résultats
+    pageResults.forEach(item => {
+    const fields = [
+        // Affichage de la compétence et du lien vers la base légale
+        `<div class="result-item">
+            <h3>
+                <span class="competence">${item.Competence || 'Non défini'}</span> - 
+                <a href="${item.LienConnect || '#'}" class="base-legale" target="_blank">${item.BaseLegale_1 || 'N/A'}</a>
+            </h3>`, 
 
-        return `<div class="result-item">${fields.filter(Boolean).join('')}</div>`;
-    }).join('');
+        // Affichage de EntiteFocus, si disponible
+        item.EntiteFocus && (Array.isArray(item.EntiteFocus) || typeof item.EntiteFocus === 'string') 
+            ? `<p><strong>Entité Focus :</strong> ${Array.isArray(item.EntiteFocus) ? item.EntiteFocus.join(', ') : item.EntiteFocus}</p>`
+            : '',
+
+        // Affichage des sujets (Sujet_1, Sujet_2, Sujet_3) séparés par une virgule
+        (() => {
+            const sujets = [];
+            if (item.Sujet_1 && item.Sujet_1 !== 'N/A') sujets.push(item.Sujet_1);
+            if (item.Sujet_2 && item.Sujet_2 !== 'N/A') sujets.push(item.Sujet_2);
+            if (item.Sujet_3 && item.Sujet_3 !== 'N/A') sujets.push(item.Sujet_3);
+            return sujets.length > 0 ? `<p><strong>Sujet :</strong> ${sujets.join(', ')}</p>` : '';
+        })(),
+
+        // Affichage de IndexObjet_1, si disponible
+        item.IndexObjet && item.IndexObjet !== 'N/A'
+            ? `<p><strong>Index Objet :</strong> ${item.IndexObjet}</p>`
+            : '',
+
+        // Affichage de OrganeCompetent, si disponible
+        item.OrganeCompetent && (Array.isArray(item.OrganeCompetent) || typeof item.OrganeCompetent === 'string') 
+            ? `<p><strong>Organe Compétent :</strong> ${Array.isArray(item.OrganeCompetent) ? item.OrganeCompetent.join(', ') : item.OrganeCompetent}</p>`
+            : '',
+
+        // Commentaire
+        item.Commentaire && item.Commentaire !== 'N/A'
+            ? `<p><strong>Commentaire(s) :</strong> ${item.Commentaire}</p>`
+            : '',
+
+        // Délégation
+        item.Delegation && item.Delegation !== 'N/A'
+            ? `<p><strong>Délégation :</strong> ${item.Delegation}</p>`
+            : '',
+
+        // Base légale (délégation)
+        item.BaseDelegation && item.BaseDelegation !== 'N/A'
+            ? `<p><strong>Base légale (délégation) :</strong> ${item.BaseDelegation}</p>`
+            : ''
+    ];
+
+    // Ajouter chaque result-item directement au conteneur
+    const resultHTML = `<div class="result-item">${fields.filter(Boolean).join('')}</div>`;
+    resultsContainer.insertAdjacentHTML('beforeend', resultHTML);
+});
+
+// Fonction pour filtrer par tag cliqué
+function filterByTag(tag) {
+    // Met à jour les résultats avec ce tag
+    const filteredResults = data.filter(item => {
+        const indexObjects = [
+        ];
+        // Cherche le tag dans les IndexObjet
+        return indexObjects.some(index => index && index.includes(tag));
+    });
+
+    // Mettre à jour l'affichage des résultats en fonction du tag
+    displayResults(filteredResults);
+}
+
+// Affichage des résultats filtrés
+function displayResults(results) {
+    const resultsContainer = document.getElementById('results');
+    if (!resultsContainer) {
+        console.error("L'élément #results est introuvable dans le DOM.");
+        return;
+    }
+
+    // Réinitialiser les résultats avant d'afficher les nouveaux
+    resultsContainer.innerHTML = '';
+
+    // Afficher les résultats
+    results.forEach(item => {
+        const resultHTML = `<div class="result-item">${item.Competence} - <a href="${item.LienConnect}" target="_blank">${item.BaseLegale}</a></div>`;
+        resultsContainer.insertAdjacentHTML('beforeend', resultHTML);
+    });
+}
+    // Calculer le nombre total de pages
+    const totalPages = Math.ceil(results.length / resultsPerPage);
 
     // Mettre à jour la pagination
     if (paginationContainer) {
@@ -1013,6 +1205,7 @@ function displayResults(results) {
     // Assurer que les filtres restent visibles
     if (filterColumn) filterColumn.style.display = 'block';
 }
+
 function changePage(direction) {
     const totalPages = Math.ceil(currentResults.length / resultsPerPage);
 
