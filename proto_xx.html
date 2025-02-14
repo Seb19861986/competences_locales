@@ -1205,12 +1205,16 @@ function displayResults(results) {
 function changePage(direction) {
     const totalPages = Math.ceil(currentResults.length / resultsPerPage);
 
-    // Mettre à jour la page actuelle
+    // Met à jour la page actuelle
     currentPage += direction;
 
     // Empêche de dépasser les limites
     if (currentPage < 1) currentPage = 1;
     if (currentPage > totalPages) currentPage = totalPages;
+
+    // Réinitialiser le conteneur avant d'afficher les nouveaux résultats pour éviter la duplication
+    const resultsContainer = document.getElementById('results');
+    resultsContainer.innerHTML = '';  // Vide le conteneur avant chaque nouvelle page
 
     // Affiche les résultats pour la nouvelle page
     displayResults(currentResults);
