@@ -1283,6 +1283,9 @@ function applyFilters() {
 
     // Met à jour les résultats affichés
     displayResults(filteredResults);
+    
+    currentResults = filteredResults; // Mettre à jour avec les résultats filtrés
+    displayResults(currentResults); // Mettre à jour l'affichage
 }
 
 function displayAppliedFilters(filters) {
