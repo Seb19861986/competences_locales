@@ -1112,7 +1112,7 @@ function displayResults(results) {
         `<div class="result-item">
             <h3>
                 <span class="competence">${item.Competence || 'Non défini'}</span> - 
-                <a href="${item.LienConnect || '#'}" class="base-legale" target="_blank">${item.BaseLegale_1 || 'N/A'}</a>
+                <a href="${item.LienConnect || '#'}" class="base-legale" target="_blank">${item.BaseLegale || 'N/A'}</a>
             </h3>`, 
 
         // Affichage de EntiteFocus, si disponible
@@ -1121,13 +1121,9 @@ function displayResults(results) {
             : '',
 
         // Affichage des sujets (Sujet_1, Sujet_2, Sujet_3) séparés par une virgule
-        (() => {
-            const sujets = [];
-            if (item.Sujet_1 && item.Sujet_1 !== 'N/A') sujets.push(item.Sujet_1);
-            if (item.Sujet_2 && item.Sujet_2 !== 'N/A') sujets.push(item.Sujet_2);
-            if (item.Sujet_3 && item.Sujet_3 !== 'N/A') sujets.push(item.Sujet_3);
-            return sujets.length > 0 ? `<p><strong>Sujet :</strong> ${sujets.join(', ')}</p>` : '';
-        })(),
+        item.Sujet && item.Sujet !== 'N/A'
+            ? `<p><strong>Sujet :</strong> ${item.Sujet}</p>`
+            : '',
 
         // Affichage de IndexObjet_1, si disponible
         item.IndexObjet && item.IndexObjet !== 'N/A'
