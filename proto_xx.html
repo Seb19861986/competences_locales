@@ -1101,7 +1101,7 @@ function displayResults(results) {
     const endIndex = Math.min(startIndex + resultsPerPage, results.length);
     const pageResults = results.slice(startIndex, endIndex);
 
-window.onload = function() {
+    window.onload = function() {
     // Fonction pour filtrer par tag cliqué
     function filterByTag(tag) {
         // Met à jour les résultats avec ce tag
@@ -1114,59 +1114,57 @@ window.onload = function() {
         // Mettre à jour l'affichage des résultats en fonction du tag
         displayResults(filteredResults);
     }
-
     // Générer les résultats pour chaque élément et ajouter au conteneur des résultats
-    pageResults.forEach(item => {
-        const fields = [
-            // Affichage de la compétence et du lien vers la base légale
-            `<div class="result-item">
-                <h3>
-                    <span class="competence">${item.Competence || 'Non défini'}</span> - 
-                    <a href="${item.LienConnect || '#'}" class="base-legale" target="_blank">${item.BaseLegale || 'N/A'}</a>
-                </h3>`, 
+  pageResults.forEach(item => {
+    const fields = [
+        // Affichage de la compétence et du lien vers la base légale
+        `<div class="result-item">
+            <h3>
+                <span class="competence">${item.Competence || 'Non défini'}</span> - 
+                <a href="${item.LienConnect || '#'}" class="base-legale" target="_blank">${item.BaseLegale || 'N/A'}</a>
+            </h3>`, 
 
-            // Affichage de EntiteFocus, si disponible
-            item.EntiteFocus && (Array.isArray(item.EntiteFocus) || typeof item.EntiteFocus === 'string') 
-                ? `<p><strong>Entité Focus :</strong> ${Array.isArray(item.EntiteFocus) ? item.EntiteFocus.join(', ') : item.EntiteFocus}</p>`
-                : '',
+        // Affichage de EntiteFocus, si disponible
+        item.EntiteFocus && (Array.isArray(item.EntiteFocus) || typeof item.EntiteFocus === 'string') 
+            ? `<p><strong>Entité Focus :</strong> ${Array.isArray(item.EntiteFocus) ? item.EntiteFocus.join(', ') : item.EntiteFocus}</p>`
+            : '',
 
-            // Affichage des sujets avec chaque élément comme hyperlien
-            item.Sujet && item.Sujet !== 'N/A'
-                ? `<p><strong>Sujet :</strong> ${item.Sujet.split(',').map(tag => 
-                    `<a href="#" onclick="filterByTag('${tag.trim()}')">${tag.trim()}</a>`).join(', ')}</p>`
-                : '',
+        // Affichage des sujets avec chaque élément comme hyperlien
+        item.Sujet && item.Sujet !== 'N/A'
+            ? `<p><strong>Sujet :</strong> ${item.Sujet.split(',').map(tag => 
+                `<a href="#" onclick="filterByTag('${tag.trim()}')">${tag.trim()}</a>`).join(', ')}</p>`
+            : '',
 
-            // Affichage de IndexObjet_1, si disponible
-            item.IndexObjet && item.IndexObjet !== 'N/A'
-                ? `<p><strong>Index Objet :</strong> ${item.IndexObjet}</p>`
-                : '',
+        // Affichage de IndexObjet_1, si disponible
+        item.IndexObjet && item.IndexObjet !== 'N/A'
+            ? `<p><strong>Index Objet :</strong> ${item.IndexObjet}</p>`
+            : '',
 
-            // Affichage de OrganeCompetent, si disponible
-            item.OrganeCompetent && (Array.isArray(item.OrganeCompetent) || typeof item.OrganeCompetent === 'string') 
-                ? `<p><strong>Organe Compétent :</strong> ${Array.isArray(item.OrganeCompetent) ? item.OrganeCompetent.join(', ') : item.OrganeCompetent}</p>`
-                : '',
+        // Affichage de OrganeCompetent, si disponible
+        item.OrganeCompetent && (Array.isArray(item.OrganeCompetent) || typeof item.OrganeCompetent === 'string') 
+            ? `<p><strong>Organe Compétent :</strong> ${Array.isArray(item.OrganeCompetent) ? item.OrganeCompetent.join(', ') : item.OrganeCompetent}</p>`
+            : '',
 
-            // Commentaire
-            item.Commentaire && item.Commentaire !== 'N/A'
-                ? `<p><strong>Commentaire(s) :</strong> ${item.Commentaire}</p>`
-                : '',
+        // Commentaire
+        item.Commentaire && item.Commentaire !== 'N/A'
+            ? `<p><strong>Commentaire(s) :</strong> ${item.Commentaire}</p>`
+            : '',
 
-            // Délégation
-            item.Delegation && item.Delegation !== 'N/A'
-                ? `<p><strong>Délégation :</strong> ${item.Delegation}</p>`
-                : '',
+        // Délégation
+        item.Delegation && item.Delegation !== 'N/A'
+            ? `<p><strong>Délégation :</strong> ${item.Delegation}</p>`
+            : '',
 
-            // Base légale (délégation)
-            item.BaseDelegation && item.BaseDelegation !== 'N/A'
-                ? `<p><strong>Base légale (délégation) :</strong> ${item.BaseDelegation}</p>`
-                : ''
-        ];
+        // Base légale (délégation)
+        item.BaseDelegation && item.BaseDelegation !== 'N/A'
+            ? `<p><strong>Base légale (délégation) :</strong> ${item.BaseDelegation}</p>`
+            : ''
+    ];
 
-        // Ajouter chaque result-item directement au conteneur
-        const resultHTML = `<div class="result-item">${fields.filter(Boolean).join('')}</div>`;
-        resultsContainer.insertAdjacentHTML('beforeend', resultHTML);
-    });
-};
+    // Ajouter chaque result-item directement au conteneur
+    const resultHTML = `<div class="result-item">${fields.filter(Boolean).join('')}</div>`;
+    resultsContainer.insertAdjacentHTML('beforeend', resultHTML);
+});
 
 // Fonction pour filtrer par tag cliqué
 function filterByTag(tag) {
