@@ -1101,6 +1101,19 @@ function displayResults(results) {
     const endIndex = Math.min(startIndex + resultsPerPage, results.length);
     const pageResults = results.slice(startIndex, endIndex);
 
+    window.onload = function() {
+    // Fonction pour filtrer par tag cliqué
+    function filterByTag(tag) {
+        // Met à jour les résultats avec ce tag
+        const filteredResults = data.filter(item => {
+            // Recherche du tag dans le champ Sujet ou IndexObjet
+            return item.Sujet && item.Sujet.split(',').some(sujet => sujet.trim() === tag) ||
+                item.IndexObjet && item.IndexObjet.split(',').some(index => index.trim() === tag);
+        });
+
+        // Mettre à jour l'affichage des résultats en fonction du tag
+        displayResults(filteredResults);
+    }
     // Générer les résultats pour chaque élément et ajouter au conteneur des résultats
   pageResults.forEach(item => {
     const fields = [
