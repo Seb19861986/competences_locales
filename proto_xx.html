@@ -715,8 +715,6 @@
 <label><input type="checkbox" class="filter" data-field="Sujet" value="marchés publics et contrats"> Marchés publics et contrats</label>
 <label><input type="checkbox" class="filter" data-field="Sujet" value="biens"> Biens</label>
 <label><input type="checkbox" class="filter" data-field="Sujet" value="juridique"> Juridique</label>
-<label><input type="checkbox" class="filter" data-field="Sujet" value="juridique"> Juridique</label>
-<label><input type="checkbox" class="filter" data-field="Sujet" value="juridique"> Juridique</label>
 <label><input type="checkbox" class="filter" data-field="Sujet" value="règlements et ordonnances (et arrêtés)"> Règlements et ordonnances (et arrêtés)</label>
 <label><input type="checkbox" class="filter" data-field="Sujet" value="action sociale (aide sociale)"> Action sociale (aide sociale)</label>
 <label><input type="checkbox" class="filter" data-field="Sujet" value="divers"> Divers</label>
@@ -791,9 +789,7 @@
 <label><input type="checkbox" class="filter" data-field="Sujet" value="finances (et comptabilité)"> Finances (et comptabilité)</label>
 <label><input type="checkbox" class="filter" data-field="Sujet" value="marchés publics et contrats"> Marchés publics et contrats</label>
 <label><input type="checkbox" class="filter" data-field="Sujet" value="biens"> Biens</label>
-<label><input type="checkbox" class="filter" data-field="Sujet" value="juridique"> Juridique</label>
-<label><input type="checkbox" class="filter" data-field="Sujet" value="juridique"> Juridique</label>
-<label><input type="checkbox" class="filter" data-field="Sujet" value="juridique"> Juridique</label>                
+<label><input type="checkbox" class="filter" data-field="Sujet" value="juridique"> Juridique</label>             
 <label><input type="checkbox" class="filter" data-field="Sujet" value="règlements et ordonnances (et arrêtés)"> Règlements et ordonnances (et arrêtés)</label>
 <label><input type="checkbox" class="filter" data-field="Sujet" value="action sociale (aide sociale)"> Action sociale (aide sociale)</label>
 <label><input type="checkbox" class="filter" data-field="Sujet" value="divers"> Divers</label>
@@ -826,9 +822,7 @@
 <label><input type="checkbox" class="filter" data-field="Sujet" value="finances (et comptabilité)"> Finances (et comptabilité)</label>
 <label><input type="checkbox" class="filter" data-field="Sujet" value="marchés publics et contrats"> Marchés publics et contrats</label>
 <label><input type="checkbox" class="filter" data-field="Sujet" value="biens"> Biens</label>
-<label><input type="checkbox" class="filter" data-field="Sujet" value="juridique"> Juridique</label>
-<label><input type="checkbox" class="filter" data-field="Sujet" value="juridique"> Juridique</label>
-<label><input type="checkbox" class="filter" data-field="Sujet" value="juridique"> Juridique</label>                
+<label><input type="checkbox" class="filter" data-field="Sujet" value="juridique"> Juridique</label>              
 <label><input type="checkbox" class="filter" data-field="Sujet" value="règlements et ordonnances (et arrêtés)"> Règlements et ordonnances (et arrêtés)</label>
 <label><input type="checkbox" class="filter" data-field="Sujet" value="action sociale (aide sociale)"> Action sociale (aide sociale)</label>
 <label><input type="checkbox" class="filter" data-field="Sujet" value="divers"> Divers</label>
@@ -1108,7 +1102,7 @@ function displayResults(results) {
     const pageResults = results.slice(startIndex, endIndex);
 
     // Générer les résultats pour chaque élément et ajouter au conteneur des résultats
-    pageResults.forEach(item => {
+  pageResults.forEach(item => {
     const fields = [
         // Affichage de la compétence et du lien vers la base légale
         `<div class="result-item">
@@ -1127,9 +1121,10 @@ function displayResults(results) {
             ? `<p><strong>Sujet :</strong> ${item.Sujet}</p>`
             : '',
 
-        // Affichage de IndexObjet_1, si disponible
+        // Affichage des IndexObjet avec des liens cliquables
         item.IndexObjet && item.IndexObjet !== 'N/A'
-            ? `<p><strong>Index Objet :</strong> ${item.IndexObjet}</p>`
+            ? `<p><strong>Index Objet :</strong> ${item.IndexObjet.split(',').map(tag => 
+                `<a href="#" onclick="filterByTag('${tag.trim()}')">${tag.trim()}</a>`).join(', ')}</p>`
             : '',
 
         // Affichage de OrganeCompetent, si disponible
@@ -1162,10 +1157,7 @@ function displayResults(results) {
 function filterByTag(tag) {
     // Met à jour les résultats avec ce tag
     const filteredResults = data.filter(item => {
-        const indexObjects = [
-        ];
-        // Cherche le tag dans les IndexObjet
-        return indexObjects.some(index => index && index.includes(tag));
+        return item.IndexObjet && item.IndexObjet.split(',').some(index => index.trim() === tag);
     });
 
     // Mettre à jour l'affichage des résultats en fonction du tag
