@@ -1116,15 +1116,15 @@ function displayResults(results) {
             ? `<p><strong>Entité Focus :</strong> ${Array.isArray(item.EntiteFocus) ? item.EntiteFocus.join(', ') : item.EntiteFocus}</p>`
             : '',
 
-        // Affichage des sujets (Sujet_1, Sujet_2, Sujet_3) séparés par une virgule
+        // Affichage des sujets avec chaque élément comme hyperlien
         item.Sujet && item.Sujet !== 'N/A'
-            ? `<p><strong>Sujet :</strong> ${item.Sujet}</p>`
+            ? `<p><strong>Sujet :</strong> ${item.Sujet.split(',').map(tag => 
+                `<a href="#" onclick="filterByTag('${tag.trim()}')">${tag.trim()}</a>`).join(', ')}</p>`
             : '',
 
-        // Affichage des IndexObjet avec des liens cliquables
+        // Affichage de IndexObjet_1, si disponible
         item.IndexObjet && item.IndexObjet !== 'N/A'
-            ? `<p><strong>Index Objet :</strong> ${item.IndexObjet.split(',').map(tag => 
-                `<a href="#" onclick="filterByTag('${tag.trim()}')">${tag.trim()}</a>`).join(', ')}</p>`
+            ? `<p><strong>Index Objet :</strong> ${item.IndexObjet}</p>`
             : '',
 
         // Affichage de OrganeCompetent, si disponible
@@ -1157,13 +1157,14 @@ function displayResults(results) {
 function filterByTag(tag) {
     // Met à jour les résultats avec ce tag
     const filteredResults = data.filter(item => {
-        return item.IndexObjet && item.IndexObjet.split(',').some(index => index.trim() === tag);
+        // Recherche du tag dans le champ Sujet ou IndexObjet
+        return item.Sujet && item.Sujet.split(',').some(sujet => sujet.trim() === tag) ||
+               item.IndexObjet && item.IndexObjet.split(',').some(index => index.trim() === tag);
     });
 
     // Mettre à jour l'affichage des résultats en fonction du tag
     displayResults(filteredResults);
 }
-
 // Affichage des résultats filtrés
 function displayResults(results) {
     const resultsContainer = document.getElementById('results');
