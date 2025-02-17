@@ -216,13 +216,9 @@
     z-index: 1000;
     transition: all 0.3s ease;
 }
-/* Ajuster les étiquettes des filtres pour mieux les afficher */
-.filter-group .dropdown-content label {
-    display: block;
-    padding: 5px 0;
-}
+
 .filter-group.active .dropdown-content {
-    display: contents; /* Affiche les options quand la classe "active" est ajoutée */
+    display: block; /* Affiche les options quand la classe "active" est ajoutée */
     width: auto;  /* Ajuster la largeur en fonction du contenu */
     max-width: 300px; /* Limite la largeur pour éviter qu'elle devienne trop grande */
 }
