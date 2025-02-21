@@ -1329,7 +1329,7 @@ function displayAppliedFilters(filters) {
 }
 
 function removeFilter(field, value) {
-    // Vérifie que le champ existe dans `selectedFilters`
+    console.log(`Suppression du filtre: ${field} = ${value}`); // Vérifie les arguments
     if (selectedFilters[field]) {
         // Supprime la valeur spécifique du filtre
         selectedFilters[field] = selectedFilters[field].filter(filterValue => filterValue !== value);
@@ -1337,28 +1337,34 @@ function removeFilter(field, value) {
         // Si le champ n'a plus de filtres appliqués, supprime la clé
         if (selectedFilters[field].length === 0) {
             delete selectedFilters[field];
+            console.log(`Filtre supprimé de selectedFilters: ${field}`);
         }
     }
 
     // Décoche le filtre dans l'interface
     document.querySelectorAll(`.filter[data-field="${field}"][value="${value}"]`).forEach(filter => {
         filter.checked = false;
+        console.log(`Filtre décoché dans l'interface: ${field} = ${value}`);
     });
 
     // Réapplique les filtres restants
     applyFilters();
 }
+
 function removeAdvancedFilter(field, value) {
+    console.log(`Suppression du filtre avancé: ${field} = ${value}`); // Vérifie les arguments
     if (selectedFilters[field]) {
         selectedFilters[field] = selectedFilters[field].filter(filterValue => filterValue !== value);
 
         if (selectedFilters[field].length === 0) {
             delete selectedFilters[field];
+            console.log(`Filtre avancé supprimé de selectedFilters: ${field}`);
         }
     }
 
     document.querySelectorAll(`.advanced-filter[data-field="${field}"][value="${value}"]`).forEach(filter => {
         filter.checked = false;
+        console.log(`Filtre avancé décoché dans l'interface: ${field} = ${value}`);
     });
 
     // Réapplique les filtres restants
