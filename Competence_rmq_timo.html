@@ -1311,9 +1311,6 @@ function displayAppliedFilters(filters) {
     appliedFiltersContainer.style.display = Object.keys(filters).length > 0 ? 'block' : 'none';
 }
 
-// Déclaration globale des filtres appliqués
-let selectedFilters = {}; // contient les filtres appliqués sous forme de clé: valeur
-
 // Fonction de suppression d'un filtre
 function removeFilter(field, value) {
     console.log(`Suppression du filtre: ${field} = ${value}`);
