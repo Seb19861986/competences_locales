@@ -1259,19 +1259,10 @@ function filterBySubject(subject) {
     }
 }
 function applyFilters() {
-    // Parcours des filtres sélectionnés
-    document.querySelectorAll('.filter:checked').forEach(input => {
-        const field = input.getAttribute('data-field');
-        if (!selectedFilters[field]) {
-            selectedFilters[field] = [];
-        }
-        if (!selectedFilters[field].includes(input.value.toLowerCase())) {
-            selectedFilters[field].push(input.value.toLowerCase());
-        }
-    });
+    console.log('Réapplication des filtres:', JSON.stringify(selectedFilters));
 
-    // Filtrage des résultats
-    const filteredResults = data.filter(item => {
+    // Réapplique les filtres
+    currentResults = data.filter(item => {
         return Object.keys(selectedFilters).every(field => {
             if (!selectedFilters[field].length) return true;
 
@@ -1300,16 +1291,9 @@ function applyFilters() {
         });
     });
 
-    // Affiche les filtres appliqués
-    displayAppliedFilters(selectedFilters);
-
-    // Met à jour les résultats affichés
-    displayResults(filteredResults);
-    
-    currentResults = filteredResults; // Mettre à jour avec les résultats filtrés
-    displayResults(currentResults); // Mettre à jour l'affichage
+    // Affiche les résultats filtrés
+    displayResults(currentResults); // Affiche les résultats avec les filtres appliqués
 }
-
 function displayAppliedFilters(filters) {
     const appliedFiltersContainer = document.getElementById('applied-filters');
     appliedFiltersContainer.innerHTML = ''; // Réinitialise le contenu
@@ -1368,7 +1352,7 @@ function removeFilter(field, value) {
         console.log(`Filtre décoché dans l'interface: ${field} = ${cleanedValue}`);
     });
 
-    // Réinitialiser les filtres appliqués dans l'interface
+    // Réinitialiser l'affichage des filtres appliqués
     updateFiltersUI();
 
     // Vérifie l'état des filtres après suppression
@@ -1376,6 +1360,37 @@ function removeFilter(field, value) {
 
     // Réapplique les filtres restants
     applyFilters(); // Cette fonction réaffiche les résultats avec les filtres mis à jour
+}
+
+// Fonction pour réinitialiser et mettre à jour l'affichage des filtres après suppression
+function updateFiltersUI() {
+    const appliedFiltersContainer = document.getElementById('applied-filters');
+    appliedFiltersContainer.innerHTML = '';  // Vide le conteneur avant de redessiner
+
+    // Réaffiche les filtres restants
+    Object.keys(selectedFilters).forEach(field => {
+        selectedFilters[field].forEach(value => {
+            const tag = document.createElement('span');
+            tag.className = 'filter-tag';
+            
+            // Crée le bouton pour supprimer un filtre
+            const button = document.createElement('button');
+            button.textContent = '×';
+            button.onclick = function() {
+                removeFilter(field, value); // Appel sécurisé
+            };
+
+            // Ajoute le texte du filtre et le bouton de suppression
+            tag.textContent = value;
+            tag.appendChild(button);
+
+            // Ajoute le tag au conteneur
+            appliedFiltersContainer.appendChild(tag);
+        });
+    });
+
+    // Affiche ou masque la section des filtres appliqués
+    appliedFiltersContainer.style.display = Object.keys(selectedFilters).length > 0 ? 'block' : 'none';
 }
 
 // Fonction pour réinitialiser et mettre à jour l'affichage des filtres après suppression
