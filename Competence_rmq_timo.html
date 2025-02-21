@@ -1345,12 +1345,15 @@ function removeFilter(field, value) {
     const cleanedValue = value.trim();  // Enlève les espaces au début et à la fin
     console.log(`Valeur nettoyée pour suppression: ${cleanedValue}`);
 
-    // Vérifie si le champ existe dans selectedFilters
+    // Vérifie si le filtre existe dans selectedFilters
     if (selectedFilters[field]) {
         console.log(`Filtres avant suppression: ${JSON.stringify(selectedFilters)}`);
 
         // Supprime la valeur spécifique du filtre
-        selectedFilters[field] = selectedFilters[field].filter(filterValue => filterValue.trim() !== cleanedValue);
+        selectedFilters[field] = selectedFilters[field].filter(filterValue => filterValue !== cleanedValue);
+        
+        // Vérifie l'état après suppression
+        console.log(`Filtres après suppression du filtre spécifique: ${JSON.stringify(selectedFilters)}`);
 
         // Si le champ n'a plus de filtres appliqués, on supprime la clé
         if (selectedFilters[field].length === 0) {
@@ -1365,6 +1368,9 @@ function removeFilter(field, value) {
         console.log(`Filtre décoché dans l'interface: ${field} = ${cleanedValue}`);
     });
 
+    // Réinitialiser les filtres appliqués dans l'interface
+    updateFiltersUI();
+
     // Vérifie l'état des filtres après suppression
     console.log(`Filtres après suppression complète: ${JSON.stringify(selectedFilters)}`);
 
@@ -1372,14 +1378,36 @@ function removeFilter(field, value) {
     applyFilters(); // Cette fonction réaffiche les résultats avec les filtres mis à jour
 }
 
-// Ajout de plus de log dans la fonction applyFilters pour vérifier le fonctionnement
-function applyFilters() {
-    console.log("Réapplication des filtres:", JSON.stringify(selectedFilters));
+// Fonction pour réinitialiser et mettre à jour l'affichage des filtres après suppression
+function updateFiltersUI() {
+    const appliedFiltersContainer = document.getElementById('applied-filters');
+    appliedFiltersContainer.innerHTML = '';  // Vide le conteneur avant de redessiner
 
-    // Réapplique les filtres
-    displayResults(currentResults);  // Assure-toi que displayResults est la fonction pour réafficher les résultats
+    // Réaffiche les filtres restants
+    Object.keys(selectedFilters).forEach(field => {
+        selectedFilters[field].forEach(value => {
+            const tag = document.createElement('span');
+            tag.className = 'filter-tag';
+            
+            // Crée le bouton pour supprimer un filtre
+            const button = document.createElement('button');
+            button.textContent = '×';
+            button.onclick = function() {
+                removeFilter(field, value); // Appel sécurisé
+            };
+
+            // Ajoute le texte du filtre et le bouton de suppression
+            tag.textContent = value;
+            tag.appendChild(button);
+
+            // Ajoute le tag au conteneur
+            appliedFiltersContainer.appendChild(tag);
+        });
+    });
+
+    // Affiche ou masque la section des filtres appliqués
+    appliedFiltersContainer.style.display = Object.keys(selectedFilters).length > 0 ? 'block' : 'none';
 }
-
 function removeAdvancedFilter(field, value) {
     console.log(`Suppression du filtre avancé: ${field} = ${value}`); // Vérifie les arguments
     if (selectedFilters[field]) {
