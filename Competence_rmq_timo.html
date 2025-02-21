@@ -1241,6 +1241,9 @@ function changePage(direction) {
     // Affiche les résultats pour la nouvelle page
     displayResults(currentResults);
 
+    // Faire défiler la page vers le haut
+    window.scrollTo(0, 0); // Scrolle vers le haut de la page
+
     // S'assurer que la recherche avancée reste masquée
     const advancedSearch = document.getElementById('search-advanced');
     if (advancedSearch) {
