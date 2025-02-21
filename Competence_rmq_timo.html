@@ -653,14 +653,13 @@
 </head>
 <body>
     <div class="header-content">
-        <h1>Compétences et responsabilités des pouvoirs locaux</h1>
-        <p>LexIA se veut un inventaire des compétences légales sur base du Code de la démocratie locale et de la décentralisation (CDLD), la Loi du 8 juillet 1976 organique des centres publics d’action sociale (LO) et la Nouvelle Loi communale du 24 juin 1988 (NLC). Ces trois textes constituent le fondement des compétences, auxquelles nous avons ajouté une série de responsabilités.</p>
-
+        <h1>LexIA - cadatrse des compétences locales</h1>
         <!-- Bouton pour afficher/masquer les informations supplémentaires -->
         <button class="collapse-btn" onclick="toggleCollapse()">+ Infos</button>
 
         <!-- Section de texte qui se cache/affiche -->
         <div id="collapse-info" style="display: none; margin-top: 20px;">
+            <p>LexIA se veut un inventaire des compétences légales sur base du Code de la démocratie locale et de la décentralisation (CDLD), la Loi du 8 juillet 1976 organique des centres publics d’action sociale (LO) et la Nouvelle Loi communale du 24 juin 1988 (NLC). Ces trois textes constituent le fondement des compétences, auxquelles nous avons ajouté une série de responsabilités.</p>
             <h3>Ce que l’outil comprend – et ne comprend pas :</h3>
             <ul>
                 <li><strong>Les compétences au niveau local (uniquement)</strong>: Communes, CPAS, régies communales autonomes, intercommunales, associations chapitre XII, …</li>
@@ -1100,8 +1099,9 @@ function resetAdvancedSearch() {
     displayResults(data);
 }
 
-let currentPage = 1;  // Page actuelle
-const resultsPerPage = 25;  // Résultats par page
+let currentPage = 1; // Page actuelle
+const resultsPerPage = 25;  // Nombre de résultats par page
+let currentResults = []; // Stockage des résultats actuels (après filtre ou recherche)
 
 function displayResults(results) {
     const resultsContainer = document.getElementById('results');
