@@ -653,7 +653,7 @@
 </head>
 <body>
     <div class="header-content">
-        <h1>LexIA - cadatrse des compétences locales</h1>
+        <h1>LexIA - Cadatrse des compétences locales</h1>
         <!-- Bouton pour afficher/masquer les informations supplémentaires -->
         <button class="collapse-btn" onclick="toggleCollapse()">+ Infos</button>
 
@@ -910,7 +910,19 @@
 </div>
     <script>
                let data = []; // Variable globale pour stocker les données
-
+ // Fonction pour afficher/masquer les informations supplémentaires
+        function toggleCollapse() {
+            const collapseSection = document.getElementById('collapse-info');
+            const button = document.querySelector('.collapse-btn');
+            
+            if (collapseSection.style.display === 'none') {
+                collapseSection.style.display = 'block';
+                button.textContent = 'Réduire';
+            } else {
+                collapseSection.style.display = 'none';
+                button.textContent = '+ Infos';
+            }
+        }
         // Charger les données depuis le fichier JSON
         fetch('DataTest.json')
             .then(response => response.json())
