@@ -1258,11 +1258,10 @@ function filterBySubject(subject) {
         appliedFiltersContainer.style.display = 'block';
     }
 }
-// Appliquer les filtres
 function applyFilters() {
-    console.log('Filtres appliqués:', selectedFilters);
+    console.log('Réapplication des filtres:', JSON.stringify(selectedFilters));
 
-    // Filtrer les résultats en fonction des filtres dans selectedFilters
+    // Réapplique les filtres
     currentResults = data.filter(item => {
         return Object.keys(selectedFilters).every(field => {
             if (!selectedFilters[field].length) return true;
@@ -1273,16 +1272,28 @@ function applyFilters() {
                     fieldValue.some(value => value.toLowerCase().includes(filterValue))
                 );
             } else if (typeof fieldValue === 'string') {
-                return selectedFilters[field].some(filterValue => fieldValue.toLowerCase().includes(filterValue));
+                return selectedFilters[field].some(filterValue => {
+                    // Gestion des abréviations spécifiques
+                    if (filterValue === 'nouvelle loi communale') {
+                        return fieldValue.toLowerCase().includes('nlc');
+                    }
+                    if (filterValue === 'cdld') {
+                        return fieldValue.toLowerCase().includes('cdld');
+                    }
+                    if (filterValue === 'loi organique') {
+                        return fieldValue.toLowerCase().includes('lo');
+                    }
+                    // Filtrage classique
+                    return fieldValue.toLowerCase().includes(filterValue);
+                });
             }
             return false;
         });
     });
 
-    // Afficher les résultats filtrés
-    displayResults(currentResults);
+    // Affiche les résultats filtrés
+    displayResults(currentResults); // Affiche les résultats avec les filtres appliqués
 }
-
 function displayAppliedFilters(filters) {
     const appliedFiltersContainer = document.getElementById('applied-filters');
     appliedFiltersContainer.innerHTML = ''; // Réinitialise le contenu
@@ -1311,60 +1322,138 @@ function displayAppliedFilters(filters) {
     appliedFiltersContainer.style.display = Object.keys(filters).length > 0 ? 'block' : 'none';
 }
 
-// Fonction de suppression d'un filtre
 function removeFilter(field, value) {
-    console.log(`Suppression du filtre: ${field} = ${value}`);
+    console.log(`Suppression du filtre: ${field} = ${value}`); // Affiche le filtre en cours de suppression
 
-    // Si le champ existe dans selectedFilters
+    // Nettoyage des valeurs (au cas où il y a des espaces avant ou après la valeur)
+    const cleanedValue = value.trim();  // Enlève les espaces au début et à la fin
+    console.log(`Valeur nettoyée pour suppression: ${cleanedValue}`);
+
+    // Vérifie si le filtre existe dans selectedFilters
     if (selectedFilters[field]) {
-        // On filtre la valeur spécifique dans le tableau
-        selectedFilters[field] = selectedFilters[field].filter(filterValue => filterValue !== value);
+        console.log(`Filtres avant suppression: ${JSON.stringify(selectedFilters)}`);
 
-        // Si après suppression, il n'y a plus de filtres dans ce champ, on supprime la clé
+        // Supprime la valeur spécifique du filtre
+        selectedFilters[field] = selectedFilters[field].filter(filterValue => filterValue !== cleanedValue);
+        
+        // Vérifie l'état après suppression
+        console.log(`Filtres après suppression du filtre spécifique: ${JSON.stringify(selectedFilters)}`);
+
+        // Si le champ n'a plus de filtres appliqués, on supprime le champ entier
         if (selectedFilters[field].length === 0) {
             delete selectedFilters[field];
+            console.log(`Aucun filtre restant pour ${field}, suppression de l'entrée.`);
         }
     }
 
-    // Décoche le filtre dans l'interface (en recherchant dans les checkboxes)
-    document.querySelectorAll(`.filter[data-field="${field}"][value="${value}"]`).forEach(filter => {
-        filter.checked = false;
+    // Décoche le filtre dans l'interface
+    document.querySelectorAll(`.filter[data-field="${field}"][value="${cleanedValue}"]`).forEach(filter => {
+        filter.checked = false; // Décoche le filtre de l'interface
+        console.log(`Filtre décoché dans l'interface: ${field} = ${cleanedValue}`);
     });
 
-    // Réappliquer les filtres restants après suppression
-    applyFilters();
+    // Réinitialiser l'affichage des filtres appliqués
+    updateFiltersUI();
+
+    // Vérifie l'état des filtres après suppression
+    console.log(`Filtres après suppression complète: ${JSON.stringify(selectedFilters)}`);
+
+    // Réapplique les filtres restants
+    applyFilters(); // Cette fonction réaffiche les résultats avec les filtres mis à jour
 }
 
+// Fonction pour réinitialiser et mettre à jour l'affichage des filtres après suppression
 function updateFiltersUI() {
     const appliedFiltersContainer = document.getElementById('applied-filters');
-    appliedFiltersContainer.innerHTML = ''; // Vider le conteneur avant de redessiner
+    appliedFiltersContainer.innerHTML = '';  // Vide le conteneur avant de redessiner
 
-    // Réafficher les filtres appliqués dans l'interface
+    // Réaffiche les filtres restants
     Object.keys(selectedFilters).forEach(field => {
         selectedFilters[field].forEach(value => {
             const tag = document.createElement('span');
             tag.className = 'filter-tag';
             
-            // Créer un bouton pour supprimer ce filtre
+            // Crée le bouton pour supprimer un filtre
             const button = document.createElement('button');
             button.textContent = '×';
             button.onclick = function() {
-                removeFilter(field, value);
+                removeFilter(field, value); // Appel sécurisé
             };
 
-            // Ajout du texte du filtre et du bouton de suppression
+            // Ajoute le texte du filtre et le bouton de suppression
             tag.textContent = value;
             tag.appendChild(button);
 
-            // Ajouter le tag au conteneur
+            // Ajoute le tag au conteneur
             appliedFiltersContainer.appendChild(tag);
         });
     });
 
-    // Afficher ou masquer la section des filtres appliqués en fonction de l'état de selectedFilters
+    // Affiche ou masque la section des filtres appliqués
     appliedFiltersContainer.style.display = Object.keys(selectedFilters).length > 0 ? 'block' : 'none';
 }
 
+// Fonction pour réinitialiser et mettre à jour l'affichage des filtres après suppression
+function updateFiltersUI() {
+    const appliedFiltersContainer = document.getElementById('applied-filters');
+    appliedFiltersContainer.innerHTML = '';  // Vide le conteneur avant de redessiner
+
+    // Réaffiche les filtres restants
+    Object.keys(selectedFilters).forEach(field => {
+        selectedFilters[field].forEach(value => {
+            const tag = document.createElement('span');
+            tag.className = 'filter-tag';
+            
+            // Crée le bouton pour supprimer un filtre
+            const button = document.createElement('button');
+            button.textContent = '×';
+            button.onclick = function() {
+                removeFilter(field, value); // Appel sécurisé
+            };
+
+            // Ajoute le texte du filtre et le bouton de suppression
+            tag.textContent = value;
+            tag.appendChild(button);
+
+            // Ajoute le tag au conteneur
+            appliedFiltersContainer.appendChild(tag);
+        });
+    });
+
+    // Affiche ou masque la section des filtres appliqués
+    appliedFiltersContainer.style.display = Object.keys(selectedFilters).length > 0 ? 'block' : 'none';
+}
+
+// Fonction pour réinitialiser et mettre à jour l'affichage des filtres après suppression
+function updateFiltersUI() {
+    const appliedFiltersContainer = document.getElementById('applied-filters');
+    appliedFiltersContainer.innerHTML = '';  // Vide le conteneur avant de redessiner
+
+    // Réaffiche les filtres restants
+    Object.keys(selectedFilters).forEach(field => {
+        selectedFilters[field].forEach(value => {
+            const tag = document.createElement('span');
+            tag.className = 'filter-tag';
+            
+            // Crée le bouton pour supprimer un filtre
+            const button = document.createElement('button');
+            button.textContent = '×';
+            button.onclick = function() {
+                removeFilter(field, value); // Appel sécurisé
+            };
+
+            // Ajoute le texte du filtre et le bouton de suppression
+            tag.textContent = value;
+            tag.appendChild(button);
+
+            // Ajoute le tag au conteneur
+            appliedFiltersContainer.appendChild(tag);
+        });
+    });
+
+    // Affiche ou masque la section des filtres appliqués
+    appliedFiltersContainer.style.display = Object.keys(selectedFilters).length > 0 ? 'block' : 'none';
+}
 function removeAdvancedFilter(field, value) {
     console.log(`Suppression du filtre avancé: ${field} = ${value}`); // Vérifie les arguments
     if (selectedFilters[field]) {
