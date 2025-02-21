@@ -1342,13 +1342,18 @@ function removeFilter(field, value) {
     console.log(`Suppression du filtre: ${field} = ${value}`); // Vérifie les arguments
 
     if (selectedFilters[field]) {
+        console.log(`Filtres avant suppression: ${JSON.stringify(selectedFilters)}`); // Log avant modification
+
         // Supprime la valeur spécifique du filtre
         selectedFilters[field] = selectedFilters[field].filter(filterValue => filterValue !== value);
         
+        // Vérifie l'état après suppression
+        console.log(`Filtres après suppression du filtre spécifique: ${JSON.stringify(selectedFilters)}`);
+
         // Si après la suppression il n'y a plus d'éléments pour ce champ, on supprime le champ entier
         if (selectedFilters[field].length === 0) {
-            console.log(`Aucun filtre restant pour ${field}, suppression de l'entrée.`);
             delete selectedFilters[field];  // Supprime le champ de selectedFilters
+            console.log(`Aucun filtre restant pour ${field}, suppression de l'entrée.`);
         }
     }
 
@@ -1358,12 +1363,13 @@ function removeFilter(field, value) {
         console.log(`Filtre décoché dans l'interface: ${field} = ${value}`);
     });
 
-    // Vérification après suppression
-    console.log(`Filtres après suppression: ${JSON.stringify(selectedFilters)}`);
+    // Vérifie l'état final des filtres
+    console.log(`Filtres après suppression complète: ${JSON.stringify(selectedFilters)}`);
 
     // Réapplique les filtres restants
     applyFilters();  // Cette fonction réaffiche les résultats avec les filtres mis à jour
 }
+
 
 function removeAdvancedFilter(field, value) {
     console.log(`Suppression du filtre avancé: ${field} = ${value}`); // Vérifie les arguments
