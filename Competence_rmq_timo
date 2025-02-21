@@ -1,0 +1,1375 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Recherche des compétences</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.4.0/jspdf.umd.min.js"></script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background: url('https://raw.githubusercontent.com/Seb19861986/competences_locales/main/dgconnect-seo.png.png') no-repeat center center fixed;
+            background-size: cover;
+            background-color: rgba(255, 255, 255, 0.4);
+            background-blend-mode: lighten;
+        }
+        .header-content {
+            background-color: white;
+            border-radius: 10px;
+            padding: 20px;
+            margin: 30px auto;
+            max-width: 60%;
+            text-align: center;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        .header-content h1 {
+            margin: 0 0 10px 0;
+            font-size: 24px;
+            color: #C7352C;
+        }
+        .header-content p {
+            margin: 0;
+            font-size: 16px;
+            color: #333;
+            font-style: italic;
+            font-weight: bold;
+        }
+    .search-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto;
+            max-width: 800px;
+    }
+        .search-simple input {
+            width: 50px;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+        .search-advanced {
+            margin-top: 10px;
+            display: none;
+        }
+        .form-group {
+            margin-bottom: 15px;
+        }
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+        .form-group .dropdown {
+            position: relative;
+            display: inline-block;
+            width: 100%;
+        }
+        .form-group .dropdown button {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            background-color: white;
+            cursor: pointer;
+            text-align: left;
+        }
+        .form-group .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: white;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            width: 100%;
+            z-index: 1;
+            max-height: 150px;
+            overflow-y: auto;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        .main-container {
+    display: flex;
+    flex-direction: row;
+    margin: 20px auto;
+    max-width: 1200px;
+}
+
+.filter-column {
+    width: 450px;
+    background-color: #f9f9f9;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    padding: 15px;
+    margin-right: 10px;
+    max-height: fit-content;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.filter-column h3 {
+    font-size: 18px;
+    margin-bottom: 15px;
+    color: #C7352C;
+    a
+}
+
+.filter-group {
+    margin-bottom: 15px;
+}
+
+.filter-button {
+    width: auto;
+    min-width: 200px; /* Largeur minimale */
+    max-width: 100%; /* Évite le débordement */
+    padding: 10px;
+    background-color: #C7352C;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 14px;
+    cursor: pointer;
+    text-align: left;
+    position: relative;
+}
+ /* Bouton "Appliquer les filtres" */
+.apply-filters-button {
+    background-color: #163E67; /* Vert */
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    font-size: 14px;
+    cursor: pointer;
+    text-align: center;
+    margin-left; 20px;
+    margin-top: 20px;
+    transition: background-color 0.3s ease;
+}
+.apply-filters-button:hover {
+    background-color: #163E67d1; /* Vert plus foncé au survol */
+}
+
+/* Bouton "Réinitialiser les filtres" */
+.reset-filters-button {
+    background-color: #163E67; /* Rouge */
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    font-size: 14px;
+    cursor: pointer;
+    text-align: center;
+    transition: background-color 0.3s ease;
+}
+/* Ajout d'une ombre */
+.apply-filters-button,
+.reset-filters-button {
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Réduction de l'ombre au clic */
+.apply-filters-button:active,
+.reset-filters-button:active {
+    box-shadow: 0 2px 3px rgba(0, 0, 0, 0.2);
+    transform: translateY(2px); /* Animation de clic */
+}
+
+.reset-filters-button:hover {
+    background-color: #163E67d1; /* Rouge plus foncé au survol */
+}
+.filter-button:hover {
+    background-color: #163E67d1;
+}
+
+.dropdown-content {
+    display: none; /* Masqué par défaut */
+    position: absolute;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    padding: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    width: auto; /* Adapte la largeur automatiquement au contenu */
+    min-width: 100%; /* Définit une largeur minimale pour aligner avec le bouton */
+    max-width: none; /* Supprime la limite de largeur */
+    max-height: 300px; /* Limite la hauteur pour éviter un menu trop grand */
+    overflow-y: auto; /* Ajoute un défilement vertical si nécessaire */
+    white-space: nowrap; /* Empêche les lignes de se couper */
+    z-index: 10;
+    transition: all 0.3s ease; /* Animation fluide lors de l'ouverture */
+}
+
+.filter-group .dropdown-content {
+    display: none; /* Masqué par défaut */
+    position: absolute;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    padding: 10px;
+    max-width: 100%; /* S'adapte à la largeur du parent */
+    max-height: 300px; /* Hauteur maximale du menu */
+    overflow-y: auto; /* Ajoute une barre de défilement verticale si nécessaire */
+    word-wrap: break-word; /* Coupe les mots longs pour éviter de déborder */
+    white-space: normal; /* Permet aux mots de revenir à la ligne */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+    transition: all 0.3s ease;
+}
+
+.filter-group.active .dropdown-content {
+    display: block; /* Affiche les options quand la classe "active" est ajoutée */
+    width: auto;  /* Ajuster la largeur en fonction du contenu */
+    max-width: 300px; /* Limite la largeur pour éviter qu'elle devienne trop grande */
+}
+
+.dropdown-content label {
+    display: flex; /* Alignement horizontal */
+    align-items: center; /* Aligne les éléments au centre verticalement */
+    margin: 5px 0; /* Espacement entre les options */
+    padding: 5px;
+    cursor: pointer;
+    font-size: 14px;
+    white-space: nowrap; /* Empêche les retours à la ligne */
+}
+
+
+        .form-group .dropdown-content label {
+            display: block;
+            padding: 10px;
+            cursor: pointer;
+        }
+        .form-group .dropdown-content label:hover {
+            background-color: #f0f0f0;
+        }
+        .form-group .dropdown:hover .dropdown-content {
+            display: block;
+        }
+        select, input[type="text"], button {
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 20px;
+            font-size: 16px;
+            width: 100%;
+            margin-bottom: 10px;
+        }
+        .filter-box {
+            background-color: white;
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            padding: 20px;
+            margin: 20px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            flex: 1;
+            max-height: fit-content;
+        }
+        .filter-box h3 {
+            font-size: 18px;
+            color: #C7352C;
+        }
+        .dropdown {
+            position: relative;
+            margin-bottom: 15px;
+        }
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: #fff;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            width: 200px;
+            max-height: 150px;
+            overflow-y: auto;
+            z-index: 1;
+            padding: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: max-height 0.3s ease, padding 0.3s ease;
+        }
+        .dropdown:focus-within .dropdown-content {
+            display: block;
+            max-height: 150px;
+            padding: 10px;
+        }
+        button {
+            font-size: 16px; /* Taille du texte */
+            padding: 5px 10px; /* Espacement interne */
+            border-radius: 5px; /* Coins arrondis */
+            background-color: #C7352C; /* Couleur de fond */
+            width: auto; /* Ajuste la largeur en fonction du contenu */
+            max-width: 200px; /* Limite la largeur maximale si nécessaire */
+            margin: 0 auto; /* Centre le bouton horizontalement si besoin */
+            color: #fff; /* Couleur du texte */
+            border: none; /* Supprime les bordures */
+            cursor: pointer; /* Change le curseur au survol */
+}
+        button:hover {
+            background-color: #a82a24;
+        }
+        .apply-filters {
+           background-color: #163E67;
+            color: #fff;
+            font-size: 14px;
+            margin-top: 10px;
+            padding: 5px 15px;
+            border-radius: 10px;
+        }
+        .reset-filters {
+            background-color: #163E67;
+            color: #fff;
+            font-size: 14px;
+            margin-top: 10px;
+            padding: 5px 15px;
+            border-radius: 10px;
+        }
+.applied-filters {
+    margin-bottom: 15px; /* Espace entre les filtres appliqués et les résultats */
+    font-size: 14px; /* Taille du texte */
+    color: #333;
+    background-color: #f9f9f9;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+.applied-filters span {
+    background-color: #163E67;
+    color: #fff;
+    padding: 5px 10px;
+    border-radius: 15px;
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    margin-right: 5px;
+    margin-bottom: 5px;
+}
+.applied-filters span button {
+    background: transparent;
+    border: none;
+    color: #fff;
+    font-size: 12px;
+    cursor: pointer;
+}
+.result-card:hover {
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+}
+        .result-card {
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    padding: 15px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    transition: box-shadow 0.3s ease;
+        }
+        .result-card h3 {
+            color: #163E67;
+        }
+        .flex-row {
+            display: flex;
+            flex-direction: row;
+            gap: 20px;
+        }
+        .toggle-advanced {
+            margin-top: 10px;
+            cursor: pointer;
+            text-align: left;
+            color: #C7352C;
+            font-weight: bold;
+        }
+            .dropdown-content label {
+        display: flex; /* Aligner les cases et le texte sur une seule ligne */
+        align-items: center; /* Centrer verticalement */
+        margin: 0; /* Supprimer les marges */
+        padding: 2px 5px; /* Réduire l'espacement interne */
+        line-height: 1.2; /* Réduire l'interligne */
+    }
+    .dropdown-content input[type="checkbox"] {
+        margin-right: 5px; /* Ajouter un petit espacement à droite de la case à cocher */
+    }
+    .dropdown-search {
+        margin-bottom: 10px;
+
+    }
+    .dropdown-search input {
+        width: 100%;
+        padding: 5px;
+        margin-bottom: 5px;
+        border: 1px solid #ddd;
+        border-radius: 5px;
+    }
+        /* Style spécifique pour la box de recherche simple */
+    .search-simple {
+    width: 50%; /* Ajuste la largeur à 50% */
+    margin: 0 auto; /* Centre le bloc horizontalement */
+    background-color: #f9f9f9;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    padding: 20px;
+    margin-bottom: 20px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    text-align: center; /* Centre le texte à l'intérieur */
+}
+
+    .search-simple h2 {
+            font-size: 18px;
+            color: #C7352C;
+            margin-bottom: 15px;
+    }
+
+    .search-simple input[type="text"] {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 14px;
+            margin-bottom: 10px;
+    }
+
+    .search-simple button {
+            background-color: #C7352C;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            padding: 10px 20px;
+            font-size: 14px;
+            cursor: pointer;
+    }
+
+    .search-simple button:hover {
+            background-color: #a82a24;
+    }
+
+    .search-simple .toggle-advanced {
+            background-color: #C7352C;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            padding: 10px 20px;
+            display: inline-block;
+            font-size: 14px;
+            cursor: pointer;
+            text-decoration: underline;
+            margin-top: 10px;
+    }
+
+    .search-simple .toggle-advanced:hover {
+            color: #0056b3;
+    }
+    #results {
+    width: 100%; /* Prend toute la largeur disponible du parent */
+    max-width: 1000px; /* Limite la largeur maximale du conteneur */
+    margin: 0 auto; /* Centre le conteneur */
+    padding: 10px; /* Ajoute un espacement interne */
+    overflow: hidden; /* Empêche les débordements horizontaux */
+    background-color: white; /* Fond neutre pour les résultats */
+    border: 1px solid #ddd; /* Délimite le conteneur avec une bordure */
+    border-radius: 5px; /* Coins arrondis */
+    display: none; /* Masque le conteneur des résultats par défaut */
+}
+    /* Style spécifique pour les blocs de résultats */
+    .results {
+    margin-top: 20px;
+    width: 80%; /* Largeur fixe de 80% par rapport à son conteneur parent */
+    max-width: 1000px; /* Largeur maximale en pixels */
+    min-width: 300px; /* Largeur minimale pour éviter qu'elle devienne trop étroite */
+    word-wrap: break-word; /* Casse les lignes longues pour éviter de déborder */
+    overflow: hidden; /* Cache les débordements horizontaux */
+    padding: 10px; /* Ajoute un espace interne pour l'esthétique */
+    border: 1px solid #ddd; /* Ajoute une bordure pour délimiter clairement la zone */
+    border-radius: 5px; /* Coins arrondis */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    background-color: #f9f9f9; /* Couleur de fond pour une meilleure lisibilité */
+    max-height: 400px; /* Limite la hauteur */
+    overflow-y: auto; /* Ajoute une barre de défilement verticale si nécessaire */
+}
+#pagination {
+    display: none; /* Masque la pagination au démarrage */
+}
+    .result-item {
+            padding: 15px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            font-size: 12px; /* Réduction de la taille de police */
+            color: #333;  display: block; /* Garantit que chaque résultat occupe une nouvelle ligne */
+    width: 100%; /* Adapte chaque résultat à la largeur du conteneur parent */
+    max-width: 100%; /* Empêche les débordements au-delà du conteneur */
+    box-sizing: border-box; /* Inclut les bordures et le padding dans la largeur totale */
+    word-wrap: break-word; /* Casse les mots trop longs pour éviter les débordements */
+    overflow-wrap: break-word; /* Force la cassure des mots pour compatibilité étendue */
+    white-space: normal; /* Permet au texte de s'étendre sur plusieurs lignes */
+    padding: 10px; /* Ajoute un espacement interne */
+    border: 1px solid #ddd; /* Ajoute une bordure pour distinguer les résultats */
+    border-radius: 5px; /* Coins arrondis */
+    margin-bottom: 10px; /* Espacement entre les résultats */
+    background-color: #f9f9f9; /* Couleur de fond pour délimiter visuellement */
+    }
+
+    .result-item h3 {
+            font-size: 16px;
+            margin-bottom: 10px;
+    }
+
+    .result-item .competence {
+            color: #163E67; /* Bleu */
+    }
+
+    .result-item .base-legale {
+            color: #C7352C; /* Rouge */
+            text-decoration: none;
+    }
+    .result-item .organe-competent {
+            background-color: #163e6740; /* Couleur de surlignage */
+            padding: 2px 4px;
+            border-radius: 3px;
+    }
+
+    .result-item .base-legale:hover {
+            text-decoration: underline;
+    }
+
+    .result-item p {
+            margin: 5px 0;
+            line-height: 1.4;
+    }
+
+    .filters {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            margin: 20px auto;
+            max-width: 800px;
+            background-color: #f9f9f9;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            padding: 20px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+    .filters h3 {
+            font-size: 16px;
+            margin-bottom: 15px;
+            color: #C7352C;
+    }
+    #filter-column {
+    display: none; /* Masque les filtres au chargement de la page */
+}
+.search-advanced {
+    display: none;
+    width: 50%; /* Identique au bloc de recherche simple */
+    margin: 0 auto;
+    background-color: #f9f9f9;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    padding: 20px;
+    margin-bottom: 20px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    text-align: left;
+}
+.filter-column, .result-card {
+    flex: 1;
+    min-width: 250px;
+    max-width: 100%;
+    margin-bottom: 20px;
+}
+.search-advanced h2 {
+    font-size: 18px;
+    color: #C7352C;
+    margin-bottom: 15px;
+    text-align: center; /* Aligné au centre comme la recherche simple */
+}
+
+/* Alignement des groupes de boutons */
+.search-advanced .filter-group {
+    display: flex;
+    align-items: center; /* Aligne verticalement les boutons et labels */
+    justify-content: flex-start; /* Alignement des boutons à gauche */
+    margin-bottom: 15px; /* Espacement entre les lignes */
+    gap: 10px; /* Espacement horizontal entre les éléments du groupe */
+}
+
+.search-advanced .filter-group label {
+    font-size: 12px;
+    font-weight: bold;
+    color: #333;
+    margin-right: 10px; /* Espacement entre le label et le bouton */
+    white-space: nowrap; /* Évite que le texte se coupe */
+    width: 150px; /* Largeur fixe pour aligner tous les labels */
+}
+.search-advanced .dropdown-content label {
+    display: flex; /* Alignement horizontal */
+    align-items: center; /* Aligne les éléments au centre verticalement */
+    margin: 5px 0; /* Espacement entre les options */
+    padding: 5px;
+    cursor: pointer;
+    font-size: 14px;
+}
+.search-advanced .dropdown-content label:hover {
+    background-color: #f0f0f0; /* Changement de couleur au survol */
+    border-radius: 3px;
+}
+
+.search-advanced .dropdown-content input[type="checkbox"] {
+    margin-right: 8px; /* Espacement entre la case et le texte */
+}
+
+/* Uniformiser la longueur des boutons dans .search-advanced */
+.search-advanced .filter-button {
+    width: 100%; /* Chaque bouton occupe toute la largeur disponible */
+    max-width: 2000px; /* Largeur maximale des boutons */
+    padding: 10px; /* Espacement interne */
+    font-size: 12px; /* Taille de la police */
+    border-radius: 5px; /* Coins arrondis */
+    text-align: left; /* Texte aligné à gauche */
+    background-color: #163E67; /* Couleur de fond */
+    color: #fff; /* Couleur du texte */
+    border: none; /* Supprime les bordures */
+    cursor: pointer; /* Affiche le curseur au survol */
+    margin-right: 10px; /* Espacement entre les boutons */
+}
+
+/* Ajuster le dropdown pour s'aligner avec le bouton */
+.search-advanced .dropdown-content {
+    display: none; /* Masqué par défaut */
+    position: absolute;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    padding: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    width: auto; /* Adapte la largeur automatiquement au contenu */
+    max-width: 100%; /* Empêche de dépasser la largeur du parent */
+    max-height: 300px; /* Limite la hauteur pour éviter de trop grands menus */
+    overflow-y: auto; /* Ajoute un défilement vertical si nécessaire */
+    z-index: 10;
+    transition: all 0.3s ease; /* Animation fluide lors de l'ouverture */
+}
+
+.search-advanced .filter-group.active .dropdown-content {
+    display: block; /* Affiche le menu déroulant lorsque le groupe est actif */
+}
+/* Ajustement au survol */
+.search-advanced .filter-button:hover {
+    background-color: #163E67d1;
+}
+    </style>
+</head>
+<body>
+    <div class="header-content">
+        <h1>Compétences et responsabilités des pouvoirs locaux</h1>
+        <p>LexIA se veut un inventaire des compétences légales sur base du Code de la démocratie locale et de la décentralisation (CDLD), la Loi du 8 juillet 1976 organique des centres publics d’action sociale (LO) et la Nouvelle Loi communale du 24 juin 1988 (NLC). Ces trois textes constituent le fondement des compétences, auxquelles nous avons ajouté une série de responsabilités.</p>
+
+        <!-- Bouton pour afficher/masquer les informations supplémentaires -->
+        <button class="collapse-btn" onclick="toggleCollapse()">+ Infos</button>
+
+        <!-- Section de texte qui se cache/affiche -->
+        <div id="collapse-info" style="display: none; margin-top: 20px;">
+            <h3>Ce que l’outil comprend – et ne comprend pas :</h3>
+            <ul>
+                <li><strong>Les compétences au niveau local (uniquement)</strong>: Communes, CPAS, régies communales autonomes, intercommunales, associations chapitre XII, …</li>
+                <li><strong>Les compétences des provinces et du Gouvernement wallon</strong>: Non incluses.</li>
+                <li><strong>L’inventaire se limite aux organes et fonctions permanents</strong>: Conseil communal, collège communal, bourgmestre, comité de direction, directeur général, directeur financier, …</li>
+                <li><strong>Les fusions communales et de CPAS</strong>: Non abordées.</li>
+                <li><strong>L’inventaire n’incorpore que les compétences explicites</strong>: Les compétences attribuées à « la commune » ou « au centre public d’action sociale » ne sont pas encore traitées.</li>
+                <li><strong>Les délégations explicites</strong>: Mentionnées avec leur base légale sous-jacente.</li>
+            </ul>
+        </div>
+    </div>  
+
+    <div class="search-simple">
+    <h2>Recherche simple</h2>
+    <input type="text" id="simple-search" placeholder="Rechercher par mots-clés">
+    <button onclick="executeSimpleSearch()">Rechercher</button>
+    <button class="toggle-advanced" onclick="toggleAdvancedSearch()">Recherche Avancée  ▼</button>
+</div>
+<div id="search-advanced" class="search-advanced">
+    <h2>Recherche avancée</h2>
+     <div class="filter-group">
+        <label for="entite-filter">Entité :</label>
+        <div class="dropdown">
+            <button id="entite-filter" class="filter-button" onclick="toggleDropdown(this)">Sélectionner une entité  ▼</button>
+            <div class="dropdown-content">
+                <label><input type="checkbox" value="ASBL communale"> Commune</label>
+                <label><input type="checkbox" value="Association de droit privé"> Province</label>
+                <label><input type="checkbox" value="association de droit public"> Région</label>
+                <label><input type="checkbox" value="Association de projet"> Association de projet</label>
+                <label><input type="checkbox" value="Autre organisme supralocal"> Autre organisme supralocal</label>
+                <label><input type="checkbox" value="Commune"> Commune</label>
+                <label><input type="checkbox" value="cultes reconnus"> Cultes reconnus</label>
+                <label><input type="checkbox" value="Hôpital qui dépend du CPAS"> Hôpital (attaché au CPAS)</label>
+                <label><input type="checkbox" value="intercommunale"> Intercommunale</label>
+                <label><input type="checkbox" value="personne morale ou association de fait associant une ou plusieurs de ces entités"> Personne morale ou association de fait associant une ou plusieurs de ces entités</label>
+                <label><input type="checkbox" value="province"> Province</label>
+                <label><input type="checkbox" value="régie communale autonome"> Régie communale autonome</label>
+                <label><input type="checkbox" value="régie provinciale autonome"> Régie provinciale autonome</label>
+                <label><input type="checkbox" value="société de droit privé"> Société de droit privé</label>
+                <label><input type="checkbox" value="société de droit public"> Société de droit public</label>
+                <label><input type="checkbox" value="société de logement"> Société de logement</label>
+                <label><input type="checkbox" value="société de logement de service public"> Société de logement de service public</label>
+                <label><input type="checkbox" value="société à participation publique locale significative"> Société à participation publique locale significative</label>
+                <label><input type="checkbox" value="tout organisme supralocal autre que l'association chapitre XII"> Tout organisme supralocal autre que l'association chapitre XII</label>
+            </div>
+        </div>
+    </div>
+    <div class="filter-group">
+        <label for="advanced-base-legale">Base légale :</label>
+        <div class="dropdown">
+            <button id="base-legale-filter" class="filter-button" onclick="toggleDropdown(this)">Sélectionner une base Légale  ▼</button>
+            <div class="dropdown-content">
+                <label><input type="checkbox" class="advanced-filter" data-field="BaseLegale" value="CDLD"> CDLD</label>
+                <label><input type="checkbox" class="advanced-filter" data-field="BaseLegale" value="Loi organique"> Loi organique</label>
+                <label><input type="checkbox" class="advanced-filter" data-field="BaseLegale" value="Nouvelle Loi communale"> Nouvelle Loi communale</label>
+            </div>
+        </div>
+    </div>
+    <div class="filter-group">
+        <label for="index-filter">Catégorie(s) :</label>
+        <div class="dropdown">
+            <button id="index-filter" class="filter-button" onclick="toggleDropdown(this)">Sélectionner un mot clé   ▼</button>
+            <div class="dropdown-content">
+               <label><input type="checkbox" class="filter" data-field="Sujet" value="mission, stratégie et synergie"> Mission, stratégie et synergie</label>
+<label><input type="checkbox" class="filter" data-field="Sujet" value="organes politiques, mandataires et représentation"> Organes politiques, mandataires et représentation</label>
+<label><input type="checkbox" class="filter" data-field="Sujet" value="personnel et organisation"> Personnel et organisation</label>
+<label><input type="checkbox" class="filter" data-field="Sujet" value="finances (et comptabilité)"> Finances (et comptabilité)</label>
+<label><input type="checkbox" class="filter" data-field="Sujet" value="marchés publics et contrats"> Marchés publics et contrats</label>
+<label><input type="checkbox" class="filter" data-field="Sujet" value="biens"> Biens</label>
+<label><input type="checkbox" class="filter" data-field="Sujet" value="juridique"> Juridique</label>
+<label><input type="checkbox" class="filter" data-field="Sujet" value="règlements et ordonnances (et arrêtés)"> Règlements et ordonnances (et arrêtés)</label>
+<label><input type="checkbox" class="filter" data-field="Sujet" value="action sociale (aide sociale)"> Action sociale (aide sociale)</label>
+<label><input type="checkbox" class="filter" data-field="Sujet" value="divers"> Divers</label>
+            </div>
+        </div>
+    </div>
+    <div class="filter-group">
+        <label for="organe-competent-filter">Organe compétent :</label>
+        <div class="dropdown">
+            <button id="organe-competent-filter" class="filter-button" onclick="toggleDropdown(this)">Sélectionner un organe compétent  ▼</button>
+            <div class="dropdown-content">
+                <label><input type="checkbox" class="filter" data-field="OrganeCompetent" value="collège communal"> Collège communal</label>
+                <label><input type="checkbox" class="filter" data-field="OrganeCompetent" value="conseil communal"> Conseil communal</label>
+                <label><input type="checkbox" class="filter" data-field="OrganeCompetent" value="administrateurs (de l'intercommunale)"> administrateurs (de l'intercommunale)</label>
+<label><input type="checkbox" class="filter" data-field="OrganeCompetent" value="assemblée générale (de l'intercommunale)"> assemblée générale (de l'intercommunale)</label>
+<label><input type="checkbox" class="filter" data-field="OrganeCompetent" value="assemblée générale de l'association (association chapitre XII)"> assemblée générale de l'association (association chapitre XII)</label>
+<label><input type="checkbox" class="filter" data-field="OrganeCompetent" value="bourgmestre"> bourgmestre</label>
+<label><input type="checkbox" class="filter" data-field="OrganeCompetent" value="bureau exécutif (régie communale autonome)"> bureau exécutif (régie communale autonome)</label>
+<label><input type="checkbox" class="filter" data-field="OrganeCompetent" value="bureau permanent"> bureau permanent</label>
+<label><input type="checkbox" class="filter" data-field="OrganeCompetent" value="collège (de l'intercommunale)"> collège (de l'intercommunale)</label>
+<label><input type="checkbox" class="filter" data-field="OrganeCompetent" value="collège communal"> collège communal</label>
+<label><input type="checkbox" class="filter" data-field="OrganeCompetent" value="comité de concertation"> comité de concertation</label>
+<label><input type="checkbox" class="filter" data-field="OrganeCompetent" value="comité de direction"> comité de direction</label>
+<label><input type="checkbox" class="filter" data-field="OrganeCompetent" value="comité de direction (association chapitre XII)"> comité de direction (association chapitre XII)</label>
+<label><input type="checkbox" class="filter" data-field="OrganeCompetent" value="comité de direction (CPAS)"> comité de direction (CPAS)</label>
+<label><input type="checkbox" class="filter" data-field="OrganeCompetent" value="comité de direction (de l'intercommunale)"> comité de direction (de l'intercommunale)</label>
+<label><input type="checkbox" class="filter" data-field="OrganeCompetent" value="comité de gestion (association de projet)"> comité de gestion (association de projet)</label>
+<label><input type="checkbox" class="filter" data-field="OrganeCompetent" value="comité de gestion (de l'hôpital)"> comité de gestion (de l'hôpital)</label>
+<label><input type="checkbox" class="filter" data-field="OrganeCompetent" value="comité de gestion (intercommunale)"> comité de gestion (intercommunale)</label>
+<label><input type="checkbox" class="filter" data-field="OrganeCompetent" value="comité de rémunération (de l'intercommunale)"> comité de rémunération (de l'intercommunale)</label>
+<label><input type="checkbox" class="filter" data-field="OrganeCompetent" value="comité spécial"> comité spécial</label>
+<label><input type="checkbox" class="filter" data-field="OrganeCompetent" value="comité spécial du service social"> comité spécial du service social</label>
+<label><input type="checkbox" class="filter" data-field="OrganeCompetent" value="conseil communal"> conseil communal</label>
+<label><input type="checkbox" class="filter" data-field="OrganeCompetent" value="conseil d'administration (association chapitre XII)"> conseil d'administration (association chapitre XII)</label>
+<label><input type="checkbox" class="filter" data-field="OrganeCompetent" value="conseil d'administration (de l'intercommunale)"> conseil d'administration (de l'intercommunale)</label>
+<label><input type="checkbox" class="filter" data-field="OrganeCompetent" value="conseil d'administration (régie communale autonome)"> conseil d'administration (régie communale autonome)</label>
+<label><input type="checkbox" class="filter" data-field="OrganeCompetent" value="conseil de l'action sociale"> conseil de l'action sociale</label>
+<label><input type="checkbox" class="filter" data-field="OrganeCompetent" value="conseiller communal (désigné par la commune pour la représenter)"> conseiller communal (désigné par la commune pour la représenter)</label>
+<label><input type="checkbox" class="filter" data-field="OrganeCompetent" value="conseiller de l'action sociale"> conseiller de l'action sociale</label>
+<label><input type="checkbox" class="filter" data-field="OrganeCompetent" value="directeur (de l'hôpital)"> directeur (de l'hôpital)</label>
+<label><input type="checkbox" class="filter" data-field="OrganeCompetent" value="directeur financier"> directeur financier</label>
+<label><input type="checkbox" class="filter" data-field="OrganeCompetent" value="directeur financier (CPAS)"> directeur financier (CPAS)</label>
+<label><input type="checkbox" class="filter" data-field="OrganeCompetent" value="directeur financier (de l'intercommunale)"> directeur financier (de l'intercommunale)</label>
+<label><input type="checkbox" class="filter" data-field="OrganeCompetent" value="directeur général"> directeur général</label>
+<label><input type="checkbox" class="filter" data-field="OrganeCompetent" value="directeur général (CPAS)"> directeur général (CPAS)</label>
+<label><input type="checkbox" class="filter" data-field="OrganeCompetent" value="directeur général adjoint"> directeur général adjoint</label>
+<label><input type="checkbox" class="filter" data-field="OrganeCompetent" value="directeur général adjoint (CPAS)"> directeur général adjoint (CPAS)</label>
+<label><input type="checkbox" class="filter" data-field="OrganeCompetent" value="échevin"> échevin</label>
+<label><input type="checkbox" class="filter" data-field="OrganeCompetent" value="échevin chargé de remplir les fonctions d'officier de l'état civil"> échevin chargé de remplir les fonctions d'officier de l'état civil</label>
+<label><input type="checkbox" class="filter" data-field="OrganeCompetent" value="fonction dirigeante locale"> fonction dirigeante locale</label>
+<label><input type="checkbox" class="filter" data-field="OrganeCompetent" value="fonction dirigeante locale (association chapitre XII)"> fonction dirigeante locale (association chapitre XII)</label>
+<label><input type="checkbox" class="filter" data-field="OrganeCompetent" value="fonction dirigeante locale (de l'intercommunale)"> fonction dirigeante locale (de l'intercommunale)</label>
+<label><input type="checkbox" class="filter" data-field="OrganeCompetent" value="officier de l'état civil"> officier de l'état civil</label>
+<label><input type="checkbox" class="filter" data-field="OrganeCompetent" value="président du conseil communal"> président du conseil communal</label>
+<label><input type="checkbox" class="filter" data-field="OrganeCompetent" value="président du conseil de l'action sociale"> président du conseil de l'action sociale</label>
+<label><input type="checkbox" class="filter" data-field="OrganeCompetent" value="référent intégrité"> référent intégrité</label>
+<label><input type="checkbox" class="filter" data-field="OrganeCompetent" value="référent intégrité (association chapitre XII)"> référent intégrité (association chapitre XII)</label>
+<label><input type="checkbox" class="filter" data-field="OrganeCompetent" value="référent intégrité (CPAS)"> référent intégrité (CPAS)</label>
+<label><input type="checkbox" class="filter" data-field="OrganeCompetent" value="travailleur social"> travailleur social</label>
+<label><input type="checkbox" class="filter" data-field="OrganeCompetent" value="trésorier (de l'hôpital)"> trésorier (de l'hôpital)</label>
+            </div>
+        </div>
+    </div>
+    <div class="filter-group">
+        <label for="sujet-filter">Catégorie(s) :</label>
+        <div class="dropdown">
+            <button id="sujet-filter" class="filter-button" onclick="toggleDropdown(this)">Sélectionner une catégorie  ▼</button>
+            <div class="dropdown-content">
+<label><input type="checkbox" class="filter" data-field="Sujet" value="mission, stratégie et synergie"> Mission, stratégie et synergie</label>
+<label><input type="checkbox" class="filter" data-field="Sujet" value="organes politiques, mandataires et représentation"> Organes politiques, mandataires et représentation</label>
+<label><input type="checkbox" class="filter" data-field="Sujet" value="personnel et organisation"> Personnel et organisation</label>
+<label><input type="checkbox" class="filter" data-field="Sujet" value="finances (et comptabilité)"> Finances (et comptabilité)</label>
+<label><input type="checkbox" class="filter" data-field="Sujet" value="marchés publics et contrats"> Marchés publics et contrats</label>
+<label><input type="checkbox" class="filter" data-field="Sujet" value="biens"> Biens</label>
+<label><input type="checkbox" class="filter" data-field="Sujet" value="juridique"> Juridique</label>             
+<label><input type="checkbox" class="filter" data-field="Sujet" value="règlements et ordonnances (et arrêtés)"> Règlements et ordonnances (et arrêtés)</label>
+<label><input type="checkbox" class="filter" data-field="Sujet" value="action sociale (aide sociale)"> Action sociale (aide sociale)</label>
+<label><input type="checkbox" class="filter" data-field="Sujet" value="divers"> Divers</label>
+            </div>
+        </div>
+    </div>
+    <div class="filter-group" style="justify-content: center; gap: 10px;">
+        <button onclick="executeAdvancedSearch()">Appliquer</button>
+        <button onclick="resetAdvancedSearch()">Réinitialiser</button>
+    </div>
+</div>
+<div id="applied-filters" class="applied-filters" style="display:none;"></div>
+<div class="main-container">
+<div id="filter-column" class="filter-column">
+        <h3>Filtres</h3>
+        <div class="filter-group">
+            <button class="filter-button" onclick="toggleDropdown(this)">Base légale</button>
+            <div class="dropdown-content">
+                <label><input type="checkbox" class="filter" data-field="BaseLegale" value="CDLD"> CDLD</label>
+                <label><input type="checkbox" class="filter" data-field="BaseLegale" value="Loi organique"> Loi organique</label>
+                <label><input type="checkbox" class="filter" data-field="BaseLegale" value="Nouvelle Loi communale"> Nouvelle Loi communale</label>
+            </div>
+        </div>
+        <div class="filter-group">
+            <button class="filter-button" onclick="toggleDropdown(this)">Catégorie</button>
+            <div class="dropdown-content">
+<label><input type="checkbox" class="filter" data-field="Sujet" value="mission, stratégie et synergie"> Mission, stratégie et synergie</label>
+<label><input type="checkbox" class="filter" data-field="Sujet" value="organes politiques, mandataires et représentation"> Organes politiques, mandataires et représentation</label>
+<label><input type="checkbox" class="filter" data-field="Sujet" value="personnel et organisation"> Personnel et organisation</label>
+<label><input type="checkbox" class="filter" data-field="Sujet" value="finances (et comptabilité)"> Finances (et comptabilité)</label>
+<label><input type="checkbox" class="filter" data-field="Sujet" value="marchés publics et contrats"> Marchés publics et contrats</label>
+<label><input type="checkbox" class="filter" data-field="Sujet" value="biens"> Biens</label>
+<label><input type="checkbox" class="filter" data-field="Sujet" value="juridique"> Juridique</label>              
+<label><input type="checkbox" class="filter" data-field="Sujet" value="règlements et ordonnances (et arrêtés)"> Règlements et ordonnances (et arrêtés)</label>
+<label><input type="checkbox" class="filter" data-field="Sujet" value="action sociale (aide sociale)"> Action sociale (aide sociale)</label>
+<label><input type="checkbox" class="filter" data-field="Sujet" value="divers"> Divers</label>
+            </div>
+        </div>
+        <div class="filter-group">
+            <button class="filter-button" onclick="toggleDropdown(this)">Organe compétent</button>
+            <div class="dropdown-content">
+                <label><input type="checkbox" class="filter" data-field="OrganeCompetent" value="collège communal"> Collège communal</label>
+                <label><input type="checkbox" class="filter" data-field="OrganeCompetent" value="conseil communal"> Conseil communal</label>
+                <label><input type="checkbox" class="filter" data-field="OrganeCompetent" value="administrateurs (de l'intercommunale)"> administrateurs (de l'intercommunale)</label>
+<label><input type="checkbox" class="filter" data-field="OrganeCompetent" value="assemblée générale (de l'intercommunale)"> assemblée générale (de l'intercommunale)</label>
+<label><input type="checkbox" class="filter" data-field="OrganeCompetent" value="assemblée générale de l'association (association chapitre XII)"> assemblée générale de l'association (association chapitre XII)</label>
+<label><input type="checkbox" class="filter" data-field="OrganeCompetent" value="bourgmestre"> bourgmestre</label>
+<label><input type="checkbox" class="filter" data-field="OrganeCompetent" value="bureau exécutif (régie communale autonome)"> bureau exécutif (régie communale autonome)</label>
+<label><input type="checkbox" class="filter" data-field="OrganeCompetent" value="bureau permanent"> bureau permanent</label>
+<label><input type="checkbox" class="filter" data-field="OrganeCompetent" value="collège (de l'intercommunale)"> collège (de l'intercommunale)</label>
+<label><input type="checkbox" class="filter" data-field="OrganeCompetent" value="collège communal"> collège communal</label>
+<label><input type="checkbox" class="filter" data-field="OrganeCompetent" value="comité de concertation"> comité de concertation</label>
+<label><input type="checkbox" class="filter" data-field="OrganeCompetent" value="comité de direction"> comité de direction</label>
+<label><input type="checkbox" class="filter" data-field="OrganeCompetent" value="comité de direction (association chapitre XII)"> comité de direction (association chapitre XII)</label>
+<label><input type="checkbox" class="filter" data-field="OrganeCompetent" value="comité de direction (CPAS)"> comité de direction (CPAS)</label>
+<label><input type="checkbox" class="filter" data-field="OrganeCompetent" value="comité de direction (de l'intercommunale)"> comité de direction (de l'intercommunale)</label>
+<label><input type="checkbox" class="filter" data-field="OrganeCompetent" value="comité de gestion (association de projet)"> comité de gestion (association de projet)</label>
+<label><input type="checkbox" class="filter" data-field="OrganeCompetent" value="comité de gestion (de l'hôpital)"> comité de gestion (de l'hôpital)</label>
+<label><input type="checkbox" class="filter" data-field="OrganeCompetent" value="comité de gestion (intercommunale)"> comité de gestion (intercommunale)</label>
+<label><input type="checkbox" class="filter" data-field="OrganeCompetent" value="comité de rémunération (de l'intercommunale)"> comité de rémunération (de l'intercommunale)</label>
+<label><input type="checkbox" class="filter" data-field="OrganeCompetent" value="comité spécial"> comité spécial</label>
+<label><input type="checkbox" class="filter" data-field="OrganeCompetent" value="comité spécial du service social"> comité spécial du service social</label>
+<label><input type="checkbox" class="filter" data-field="OrganeCompetent" value="conseil communal"> conseil communal</label>
+<label><input type="checkbox" class="filter" data-field="OrganeCompetent" value="conseil d'administration (association chapitre XII)"> conseil d'administration (association chapitre XII)</label>
+<label><input type="checkbox" class="filter" data-field="OrganeCompetent" value="conseil d'administration (de l'intercommunale)"> conseil d'administration (de l'intercommunale)</label>
+<label><input type="checkbox" class="filter" data-field="OrganeCompetent" value="conseil d'administration (régie communale autonome)"> conseil d'administration (régie communale autonome)</label>
+<label><input type="checkbox" class="filter" data-field="OrganeCompetent" value="conseil de l'action sociale"> conseil de l'action sociale</label>
+<label><input type="checkbox" class="filter" data-field="OrganeCompetent" value="conseiller communal (désigné par la commune pour la représenter)"> conseiller communal (désigné par la commune pour la représenter)</label>
+<label><input type="checkbox" class="filter" data-field="OrganeCompetent" value="conseiller de l'action sociale"> conseiller de l'action sociale</label>
+<label><input type="checkbox" class="filter" data-field="OrganeCompetent" value="directeur (de l'hôpital)"> directeur (de l'hôpital)</label>
+<label><input type="checkbox" class="filter" data-field="OrganeCompetent" value="directeur financier"> directeur financier</label>
+<label><input type="checkbox" class="filter" data-field="OrganeCompetent" value="directeur financier (CPAS)"> directeur financier (CPAS)</label>
+<label><input type="checkbox" class="filter" data-field="OrganeCompetent" value="directeur financier (de l'intercommunale)"> directeur financier (de l'intercommunale)</label>
+<label><input type="checkbox" class="filter" data-field="OrganeCompetent" value="directeur général"> directeur général</label>
+<label><input type="checkbox" class="filter" data-field="OrganeCompetent" value="directeur général (CPAS)"> directeur général (CPAS)</label>
+<label><input type="checkbox" class="filter" data-field="OrganeCompetent" value="directeur général adjoint"> directeur général adjoint</label>
+<label><input type="checkbox" class="filter" data-field="OrganeCompetent" value="directeur général adjoint (CPAS)"> directeur général adjoint (CPAS)</label>
+<label><input type="checkbox" class="filter" data-field="OrganeCompetent" value="échevin"> échevin</label>
+<label><input type="checkbox" class="filter" data-field="OrganeCompetent" value="échevin chargé de remplir les fonctions d'officier de l'état civil"> échevin chargé de remplir les fonctions d'officier de l'état civil</label>
+<label><input type="checkbox" class="filter" data-field="OrganeCompetent" value="fonction dirigeante locale"> fonction dirigeante locale</label>
+<label><input type="checkbox" class="filter" data-field="OrganeCompetent" value="fonction dirigeante locale (association chapitre XII)"> fonction dirigeante locale (association chapitre XII)</label>
+<label><input type="checkbox" class="filter" data-field="OrganeCompetent" value="fonction dirigeante locale (de l'intercommunale)"> fonction dirigeante locale (de l'intercommunale)</label>
+<label><input type="checkbox" class="filter" data-field="OrganeCompetent" value="officier de l'état civil"> officier de l'état civil</label>
+<label><input type="checkbox" class="filter" data-field="OrganeCompetent" value="président du conseil communal"> président du conseil communal</label>
+<label><input type="checkbox" class="filter" data-field="OrganeCompetent" value="président du conseil de l'action sociale"> président du conseil de l'action sociale</label>
+<label><input type="checkbox" class="filter" data-field="OrganeCompetent" value="référent intégrité"> référent intégrité</label>
+<label><input type="checkbox" class="filter" data-field="OrganeCompetent" value="référent intégrité (association chapitre XII)"> référent intégrité (association chapitre XII)</label>
+<label><input type="checkbox" class="filter" data-field="OrganeCompetent" value="référent intégrité (CPAS)"> référent intégrité (CPAS)</label>
+<label><input type="checkbox" class="filter" data-field="OrganeCompetent" value="travailleur social"> travailleur social</label>
+<label><input type="checkbox" class="filter" data-field="OrganeCompetent" value="trésorier (de l'hôpital)"> trésorier (de l'hôpital)</label>
+            </div>
+        </div>
+        <button class="apply-filters-button" onclick="applyFilters()">Appliquer</button>
+        <button class="reset-filters-button" onclick="resetFilters()">Réinitialiser</button>
+    </div>
+<div id="results"></div>
+            <div id="results-info" style="text-align: right; margin: 10px; font-size: 14px; color: #555;"></div>
+    </div>
+           <div id="pagination" style="text-align: center; margin-top: 20px;">
+    <button id="prevPage" onclick="changePage(-1)" disabled>Précédent</button>
+    <span id="pageInfo">Page 1 sur 1</span>
+    <button id="nextPage" onclick="changePage(1)" disabled>Suivant</button>
+</div>
+    <script>
+               let data = []; // Variable globale pour stocker les données
+
+        // Charger les données depuis le fichier JSON
+        fetch('DataTest.json')
+            .then(response => response.json())
+            .then(jsonData => {
+                data = jsonData; // Stocker les données dans la variable globale
+                displayResults(data); // Afficher les données initialement
+            })
+            .catch(error => {
+                console.error("Erreur lors du chargement des données :", error);
+            });
+let currentResults = []; // Stocke les résultats actuels à afficher
+let selectedFilters = {}; // Stocke les filtres appliqués de manière globale
+
+function toggleDropdown(button) {
+    const filterGroup = button.parentElement;
+    const isActive = filterGroup.classList.contains('active');
+
+    // Ferme tous les autres menus
+    document.querySelectorAll('.filter-group').forEach(group => {
+        group.classList.remove('active');
+    });
+
+    // Active/désactive le menu cliqué
+    if (!isActive) {
+        filterGroup.classList.add('active');
+    }
+}
+document.addEventListener('click', function(event) {
+    const isClickInside = event.target.closest('.filter-group');
+    if (!isClickInside) {
+        document.querySelectorAll('.filter-group').forEach(group => {
+            group.classList.remove('active');
+        });
+    }
+});
+
+function toggleFilterVisibility(show) {
+    const filterColumn = document.getElementById('filter-column');
+    if (show) {
+        filterColumn.style.display = 'block'; // Affiche les filtres
+    } else {
+        filterColumn.style.display = 'none'; // Masque les filtres
+    }
+}
+function executeSimpleSearch() {
+    const query = document.getElementById('simple-search').value.toLowerCase();
+    currentResults = data.filter(item => {
+        // Parcours des cases de filtre sélectionnées
+        const indexFilters = Array.from(document.querySelectorAll('.filter:checked')).map(input => {
+            const field = input.getAttribute('data-field');
+            const value = input.value.toLowerCase();
+            return { field, value };
+        });
+
+        // Si aucun filtre n'est sélectionné, on fait une recherche simple
+        if (indexFilters.length === 0) {
+            return (
+                (item.Competence && item.Competence.toLowerCase().includes(query)) ||
+                (item.BaseLegale && item.BaseLegale.toLowerCase().includes(query)) ||
+                (item.EntiteFocus && (Array.isArray(item.EntiteFocus)
+                    ? item.EntiteFocus.some(focus => focus.toLowerCase().includes(query))
+                    : String(item.EntiteFocus || '').toLowerCase().includes(query))
+                )
+            );
+        }
+
+        // Recherche dans les champs spécifiques comme Sujet, Sujet_2, Sujet_3 (ou autres)
+        return indexFilters.every(filter => {
+            // Recherche dans les champs spécifiques
+            const fieldValues = [
+                item[filter.field]
+            ]; // Ajout de _2 et _3 _xx pour vérifier dans plusieurs champs
+            return fieldValues.some(fieldValue => {
+                if (Array.isArray(fieldValue)) {
+                    return fieldValue.some(value => value.toLowerCase().includes(filter.value));
+                } else if (typeof fieldValue === 'string') {
+                    return fieldValue.toLowerCase().includes(filter.value);
+                }
+                return false;
+            });
+        });
+    });
+
+    currentPage = 1; // Réinitialise la page actuelle
+    displayResults(currentResults);
+    // Fermer la recherche avancée
+    const advancedSearch = document.getElementById('search-advanced');
+    if (advancedSearch) {
+        advancedSearch.style.display = 'none';
+    }
+}
+
+function toggleAdvancedSearch() {
+    const advancedSearch = document.getElementById('search-advanced');
+    const isVisible = advancedSearch.style.display === 'block';
+
+    // Basculer l'affichage uniquement pour la recherche avancée
+    advancedSearch.style.display = isVisible ? 'none' : 'block';
+}
+
+function executeAdvancedSearch() {
+    // Parcours des cases cochées
+    document.querySelectorAll('.advanced-filter:checked').forEach(input => {
+        const field = input.getAttribute('data-field');
+        if (!selectedFilters[field]) {
+            selectedFilters[field] = [];
+        }
+        if (!selectedFilters[field].includes(input.value.toLowerCase())) {
+            selectedFilters[field].push(input.value.toLowerCase());
+        }
+    });
+
+    // Filtrage des résultats
+    const filteredResults = data.filter(item => {
+        return Object.keys(selectedFilters).every(field => {
+            if (!selectedFilters[field].length) return true;
+
+            const fieldValue = item[field];
+            if (Array.isArray(fieldValue)) {
+                return selectedFilters[field].some(filterValue =>
+                    fieldValue.some(value => value.toLowerCase().includes(filterValue))
+                );
+            } else if (typeof fieldValue === 'string') {
+                return selectedFilters[field].some(filterValue => {
+                    // Gestion des abréviations spécifiques
+                    if (filterValue === 'nouvelle loi communale') {
+                        return fieldValue.toLowerCase().includes('nlc');
+                    }
+                    if (filterValue === 'cdld') {
+                        return fieldValue.toLowerCase().includes('cdld');
+                    }
+                    if (filterValue === 'loi organique') {
+                        return fieldValue.toLowerCase().includes('lo');
+                    }
+                    // Filtrage classique
+                    return fieldValue.toLowerCase().includes(filterValue);
+                });
+            }
+            return false;
+        });
+    });
+
+    // Affiche les filtres appliqués
+    displayAppliedFilters(selectedFilters);
+
+    // Met à jour les résultats affichés
+    displayResults(filteredResults);
+}
+
+function resetAdvancedSearch() {
+    const baseLegale = document.getElementById('advanced-base-legale');
+    const index = document.getElementById('advanced-index');
+    const organeCompetent = document.getElementById('advanced-organe-competent');
+
+    // Réinitialiser les champs de sélection, si disponibles
+    if (baseLegale) BaseLegale.value = '';
+    if (index) index.value = '';
+    if (organeCompetent) organeCompetent.value = '';
+
+    // Décoche toutes les cases à cocher
+    document.querySelectorAll('.advanced-filter').forEach(filter => {
+        filter.checked = false;
+    });
+
+    // Efface les filtres appliqués
+    const appliedFiltersContainer = document.getElementById('applied-filters');
+    if (appliedFiltersContainer) {
+        appliedFiltersContainer.innerHTML = '';
+        appliedFiltersContainer.style.display = 'none'; // Masque le conteneur des filtres
+    }
+
+    // Réaffiche tous les résultats (supposant que `data` contient tous les éléments initiaux)
+    displayResults(data);
+}
+
+let currentPage = 1;  // Page actuelle
+const resultsPerPage = 25;  // Résultats par page
+
+function displayResults(results) {
+    const resultsContainer = document.getElementById('results');
+    const paginationContainer = document.getElementById('pagination');
+    const filterColumn = document.getElementById('filter-column');
+
+    if (!resultsContainer) {
+        console.error("L'élément #results est introuvable dans le DOM.");
+        return;
+    }
+
+    // Réinitialisation du conteneur avant d'ajouter de nouveaux résultats pour éviter les duplications
+    resultsContainer.innerHTML = '';  
+
+    // Si aucun résultat trouvé
+    if (results.length === 0) {
+        resultsContainer.style.display = 'none'; // Masque le conteneur des résultats
+        return;
+    }
+
+    // Affiche le conteneur des résultats
+    resultsContainer.style.display = 'block';
+
+    // Calculer les indices de pagination
+    const startIndex = (currentPage - 1) * resultsPerPage;
+    const endIndex = Math.min(startIndex + resultsPerPage, results.length);
+    const pageResults = results.slice(startIndex, endIndex);
+
+    // Générer les résultats pour chaque élément et ajouter au conteneur des résultats
+  pageResults.forEach(item => {
+    const fields = [
+        // Affichage de la compétence et du lien vers la base légale
+        `<div class="result-item">
+            <h3>
+                <span class="competence">${item.Competence || 'Non défini'}</span> - 
+                <a href="${item.LienConnect || '#'}" class="base-legale" target="_blank">${item.BaseLegale || 'N/A'}</a>
+            </h3>`, 
+
+        // Affichage de EntiteFocus, si disponible
+        item.EntiteFocus && (Array.isArray(item.EntiteFocus) || typeof item.EntiteFocus === 'string') 
+            ? `<p><strong>Entité Focus :</strong> ${Array.isArray(item.EntiteFocus) ? item.EntiteFocus.join(', ') : item.EntiteFocus}</p>`
+            : '',
+
+        // Affichage des sujets avec chaque élément comme hyperlien
+        item.Sujet && item.Sujet !== 'N/A'
+            ? `<p><strong>Sujet :</strong> ${item.Sujet.split(',').map(tag => 
+                `<a href="#" onclick="filterByTag('${tag.trim()}')">${tag.trim()}</a>`).join(', ')}</p>`
+            : '',
+
+        // Affichage de IndexObjet_1, si disponible
+        item.IndexObjet && item.IndexObjet !== 'N/A'
+            ? `<p><strong>Index Objet :</strong> ${item.IndexObjet}</p>`
+            : '',
+
+        // Affichage de OrganeCompetent, si disponible
+        item.OrganeCompetent && (Array.isArray(item.OrganeCompetent) || typeof item.OrganeCompetent === 'string') 
+            ? `<p><strong>Organe Compétent :</strong> ${Array.isArray(item.OrganeCompetent) ? item.OrganeCompetent.join(', ') : item.OrganeCompetent}</p>`
+            : '',
+
+        // Commentaire
+        item.Commentaire && item.Commentaire !== 'N/A'
+            ? `<p><strong>Commentaire(s) :</strong> ${item.Commentaire}</p>`
+            : '',
+
+        // Délégation
+        item.Delegation && item.Delegation !== 'N/A'
+            ? `<p><strong>Délégation :</strong> ${item.Delegation}</p>`
+            : '',
+
+        // Base légale (délégation)
+        item.BaseDelegation && item.BaseDelegation !== 'N/A'
+            ? `<p><strong>Base légale (délégation) :</strong> ${item.BaseDelegation}</p>`
+            : ''
+    ];
+
+    // Ajouter chaque result-item directement au conteneur
+    const resultHTML = `<div class="result-item">${fields.filter(Boolean).join('')}</div>`;
+    resultsContainer.insertAdjacentHTML('beforeend', resultHTML);
+});
+
+// Fonction pour filtrer par tag cliqué
+function filterByTag(tag) {
+    // Met à jour les résultats avec ce tag
+    const filteredResults = data.filter(item => {
+        // Recherche du tag dans le champ Sujet ou IndexObjet
+        return item.Sujet && item.Sujet.split(',').some(sujet => sujet.trim() === tag) ||
+               item.IndexObjet && item.IndexObjet.split(',').some(index => index.trim() === tag);
+    });
+
+    // Mettre à jour l'affichage des résultats en fonction du tag
+    displayResults(filteredResults);
+}
+// Affichage des résultats filtrés
+function displayResults(results) {
+    const resultsContainer = document.getElementById('results');
+    if (!resultsContainer) {
+        console.error("L'élément #results est introuvable dans le DOM.");
+        return;
+    }
+
+    // Réinitialiser les résultats avant d'afficher les nouveaux
+    resultsContainer.innerHTML = '';
+
+    // Afficher les résultats
+    results.forEach(item => {
+        const resultHTML = `<div class="result-item">${item.Competence} - <a href="${item.LienConnect}" target="_blank">${item.BaseLegale}</a></div>`;
+        resultsContainer.insertAdjacentHTML('beforeend', resultHTML);
+    });
+}
+    // Calculer le nombre total de pages
+    const totalPages = Math.ceil(results.length / resultsPerPage);
+
+    // Mettre à jour la pagination
+    if (paginationContainer) {
+        paginationContainer.style.display = 'block';
+        document.getElementById('pageInfo').textContent = `Page ${currentPage} sur ${totalPages}`;
+        document.getElementById('prevPage').disabled = currentPage === 1;
+        document.getElementById('nextPage').disabled = currentPage === totalPages;
+    }
+
+    // Assurer que les filtres restent visibles
+    if (filterColumn) filterColumn.style.display = 'block';
+}
+
+function changePage(direction) {
+    const totalPages = Math.ceil(currentResults.length / resultsPerPage);
+
+    // Met à jour la page actuelle
+    currentPage += direction;
+
+    // Empêche de dépasser les limites
+    if (currentPage < 1) currentPage = 1;
+    if (currentPage > totalPages) currentPage = totalPages;
+
+    // Réinitialiser le conteneur avant d'afficher les nouveaux résultats pour éviter la duplication
+    const resultsContainer = document.getElementById('results');
+    resultsContainer.innerHTML = '';  // Vide le conteneur avant chaque nouvelle page
+
+    // Affiche les résultats pour la nouvelle page
+    displayResults(currentResults);
+
+    // S'assurer que la recherche avancée reste masquée
+    const advancedSearch = document.getElementById('search-advanced');
+    if (advancedSearch) {
+        advancedSearch.style.display = 'none';
+    }
+}
+function filterBySubject(subject) {
+    const filteredResults = data.filter(item => item.Sujet === subject);
+    displayResults(filteredResults);
+
+    // Optionnel : Mettre à jour les filtres appliqués
+    const appliedFiltersContainer = document.getElementById('applied-filters');
+    if (appliedFiltersContainer) {
+        appliedFiltersContainer.innerHTML = `<span>${subject} <button onclick="resetFilters()">×</button></span>`;
+        appliedFiltersContainer.style.display = 'block';
+    }
+}
+function applyFilters() {
+    // Parcours des filtres sélectionnés
+    document.querySelectorAll('.filter:checked').forEach(input => {
+        const field = input.getAttribute('data-field');
+        if (!selectedFilters[field]) {
+            selectedFilters[field] = [];
+        }
+        if (!selectedFilters[field].includes(input.value.toLowerCase())) {
+            selectedFilters[field].push(input.value.toLowerCase());
+        }
+    });
+
+    // Filtrage des résultats
+    const filteredResults = data.filter(item => {
+        return Object.keys(selectedFilters).every(field => {
+            if (!selectedFilters[field].length) return true;
+
+            const fieldValue = item[field];
+            if (Array.isArray(fieldValue)) {
+                return selectedFilters[field].some(filterValue =>
+                    fieldValue.some(value => value.toLowerCase().includes(filterValue))
+                );
+            } else if (typeof fieldValue === 'string') {
+                return selectedFilters[field].some(filterValue => {
+                    // Gestion des abréviations spécifiques
+                    if (filterValue === 'nouvelle loi communale') {
+                        return fieldValue.toLowerCase().includes('nlc');
+                    }
+                    if (filterValue === 'cdld') {
+                        return fieldValue.toLowerCase().includes('cdld');
+                    }
+                    if (filterValue === 'loi organique') {
+                        return fieldValue.toLowerCase().includes('lo');
+                    }
+                    // Filtrage classique
+                    return fieldValue.toLowerCase().includes(filterValue);
+                });
+            }
+            return false;
+        });
+    });
+
+    // Affiche les filtres appliqués
+    displayAppliedFilters(selectedFilters);
+
+    // Met à jour les résultats affichés
+    displayResults(filteredResults);
+    
+    currentResults = filteredResults; // Mettre à jour avec les résultats filtrés
+    displayResults(currentResults); // Mettre à jour l'affichage
+}
+
+function displayAppliedFilters(filters) {
+    const appliedFiltersContainer = document.getElementById('applied-filters');
+    appliedFiltersContainer.innerHTML = ''; // Réinitialise le contenu
+
+    // Crée des tags pour chaque filtre appliqué
+    Object.keys(filters).forEach(field => {
+        filters[field].forEach(value => {
+            const tag = document.createElement('span');
+            tag.className = 'filter-tag';
+            tag.innerHTML = `${value} <button onclick="removeFilter('${field}', '${value}')">×</button>`;
+            appliedFiltersContainer.appendChild(tag);
+        });
+    });
+
+    // Affiche ou masque la section en fonction des filtres actifs
+    appliedFiltersContainer.style.display = Object.keys(filters).length > 0 ? 'block' : 'none';
+}
+
+function removeFilter(field, value) {
+    // Vérifie que le champ existe dans `selectedFilters`
+    if (selectedFilters[field]) {
+        // Supprime la valeur spécifique du filtre
+        selectedFilters[field] = selectedFilters[field].filter(filterValue => filterValue !== value);
+
+        // Si le champ n'a plus de filtres appliqués, supprime la clé
+        if (selectedFilters[field].length === 0) {
+            delete selectedFilters[field];
+        }
+    }
+
+    // Décoche le filtre dans l'interface
+    document.querySelectorAll(`.filter[data-field="${field}"][value="${value}"]`).forEach(filter => {
+        filter.checked = false;
+    });
+
+    // Réapplique les filtres restants
+    applyFilters();
+}
+function removeAdvancedFilter(field, value) {
+    if (selectedFilters[field]) {
+        selectedFilters[field] = selectedFilters[field].filter(filterValue => filterValue !== value);
+
+        if (selectedFilters[field].length === 0) {
+            delete selectedFilters[field];
+        }
+    }
+
+    document.querySelectorAll(`.advanced-filter[data-field="${field}"][value="${value}"]`).forEach(filter => {
+        filter.checked = false;
+    });
+
+    // Réapplique les filtres restants
+    executeAdvancedSearch();
+}
+
+function resetFilters() {
+    selectedFilters = {}; // Réinitialise tous les filtres
+
+    // Décoche toutes les cases
+    document.querySelectorAll('.filter').forEach(filter => {
+        filter.checked = false;
+    });
+
+    // Réaffiche tous les résultats
+    currentPage = 1;
+    displayResults(data);
+
+    // Masque la section des filtres appliqués
+    const appliedFiltersContainer = document.getElementById('applied-filters');
+    appliedFiltersContainer.style.display = 'none';
+}
+    </script>
+</body>
+</html>
