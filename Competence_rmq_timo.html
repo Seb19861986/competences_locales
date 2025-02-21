@@ -1355,7 +1355,7 @@ function removeFilter(field, value) {
         // Vérifie l'état après suppression
         console.log(`Filtres après suppression du filtre spécifique: ${JSON.stringify(selectedFilters)}`);
 
-        // Si le champ n'a plus de filtres appliqués, on supprime la clé
+        // Si le champ n'a plus de filtres appliqués, on supprime le champ entier
         if (selectedFilters[field].length === 0) {
             delete selectedFilters[field];
             console.log(`Aucun filtre restant pour ${field}, suppression de l'entrée.`);
@@ -1376,6 +1376,37 @@ function removeFilter(field, value) {
 
     // Réapplique les filtres restants
     applyFilters(); // Cette fonction réaffiche les résultats avec les filtres mis à jour
+}
+
+// Fonction pour réinitialiser et mettre à jour l'affichage des filtres après suppression
+function updateFiltersUI() {
+    const appliedFiltersContainer = document.getElementById('applied-filters');
+    appliedFiltersContainer.innerHTML = '';  // Vide le conteneur avant de redessiner
+
+    // Réaffiche les filtres restants
+    Object.keys(selectedFilters).forEach(field => {
+        selectedFilters[field].forEach(value => {
+            const tag = document.createElement('span');
+            tag.className = 'filter-tag';
+            
+            // Crée le bouton pour supprimer un filtre
+            const button = document.createElement('button');
+            button.textContent = '×';
+            button.onclick = function() {
+                removeFilter(field, value); // Appel sécurisé
+            };
+
+            // Ajoute le texte du filtre et le bouton de suppression
+            tag.textContent = value;
+            tag.appendChild(button);
+
+            // Ajoute le tag au conteneur
+            appliedFiltersContainer.appendChild(tag);
+        });
+    });
+
+    // Affiche ou masque la section des filtres appliqués
+    appliedFiltersContainer.style.display = Object.keys(selectedFilters).length > 0 ? 'block' : 'none';
 }
 
 // Fonction pour réinitialiser et mettre à jour l'affichage des filtres après suppression
