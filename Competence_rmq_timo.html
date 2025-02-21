@@ -1319,7 +1319,17 @@ function displayAppliedFilters(filters) {
         filters[field].forEach(value => {
             const tag = document.createElement('span');
             tag.className = 'filter-tag';
-            tag.innerHTML = `${value} <button onclick="removeFilter('${field}', '${value}')">×</button>`;
+            
+            // Utilisation de textContent et gestion sécurisée des arguments
+            tag.textContent = value;
+            const button = document.createElement('button');
+            button.textContent = '×';
+            button.onclick = function() {
+                removeFilter(field, value); // Appel sécurisé
+            };
+            
+            // Ajouter le bouton au tag
+            tag.appendChild(button);
             appliedFiltersContainer.appendChild(tag);
         });
     });
@@ -1370,7 +1380,6 @@ function removeAdvancedFilter(field, value) {
     // Réapplique les filtres restants
     executeAdvancedSearch();
 }
-
 function resetFilters() {
     selectedFilters = {}; // Réinitialise tous les filtres
 
