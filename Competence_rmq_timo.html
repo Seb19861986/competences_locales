@@ -934,7 +934,7 @@
             .catch(error => {
                 console.error("Erreur lors du chargement des données :", error);
             });
-let currentResults = []; // Stocke les résultats actuels à afficher
+
 let selectedFilters = {}; // Stocke les filtres appliqués de manière globale
 
 function toggleDropdown(button) {
@@ -1133,7 +1133,6 @@ function displayResults(results) {
     // Générer les résultats pour chaque élément et ajouter au conteneur des résultats
 let currentPage = 1; // Page actuelle
 const resultsPerPage = 25;  // Nombre de résultats par page
-let currentResults = []; // Stockage des résultats actuels (après filtre ou recherche)
 
 function displayResults(results) {
     const resultsContainer = document.getElementById('results');
