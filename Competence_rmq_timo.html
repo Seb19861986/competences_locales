@@ -1311,29 +1311,18 @@ function displayAppliedFilters(filters) {
     const appliedFiltersContainer = document.getElementById('applied-filters');
     appliedFiltersContainer.innerHTML = ''; // Réinitialise le contenu
 
-    // Crée des tags pour chaque filtre appliqué
     Object.keys(filters).forEach(field => {
         filters[field].forEach(value => {
             const tag = document.createElement('span');
             tag.className = 'filter-tag';
-            
-            // Utilisation de textContent et gestion sécurisée des arguments
             tag.textContent = value;
-            const button = document.createElement('button');
-            button.textContent = '×';
-            button.onclick = function() {
-                removeFilter(field, value); // Appel sécurisé
-            };
-            
-            // Ajouter le bouton au tag
-            tag.appendChild(button);
             appliedFiltersContainer.appendChild(tag);
         });
     });
 
-    // Affiche ou masque la section en fonction des filtres actifs
     appliedFiltersContainer.style.display = Object.keys(filters).length > 0 ? 'block' : 'none';
 }
+
 
 function removeFilter(field, value) {
     console.log(`Suppression du filtre: ${field} = ${value}`); // Vérifie les arguments
