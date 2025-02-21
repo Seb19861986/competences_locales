@@ -653,18 +653,33 @@
 </head>
 <body>
     <div class="header-content">
-        <h1>LexIA - Cadastre des compétences locales</h1>
-        <p>Répertoire des compétences au sein des pouvoirs locaux sur base du CDLD, la Loi organique des CPAS et la Nouvelle Loi Communale</p>
-    </div>
+        <h1>LexIA - Cadatrse des compétences locales</h1>
+        <!-- Bouton pour afficher/masquer les informations supplémentaires -->
+        <button class="collapse-btn" onclick="toggleCollapse()">+ Infos</button>
+
+        <!-- Section de texte qui se cache/affiche -->
+        <div id="collapse-info" style="display: none; margin-top: 20px;">
+            <p>LexIA se veut un inventaire des compétences légales sur base du Code de la démocratie locale et de la décentralisation (CDLD), la Loi du 8 juillet 1976 organique des centres publics d’action sociale (LO) et la Nouvelle Loi communale du 24 juin 1988 (NLC). Ces trois textes constituent le fondement des compétences, auxquelles nous avons ajouté une série de responsabilités.</p>
+            <h3>Ce que l’outil comprend – et ne comprend pas :</h3>
+            <ul>
+                <li><strong>Les compétences au niveau local (uniquement)</strong>: Communes, CPAS, régies communales autonomes, intercommunales, associations chapitre XII, …</li>
+                <li><strong>Les compétences des provinces et du Gouvernement wallon</strong>: Non incluses.</li>
+                <li><strong>L’inventaire se limite aux organes et fonctions permanents</strong>: Conseil communal, collège communal, bourgmestre, comité de direction, directeur général, directeur financier, …</li>
+                <li><strong>Les fusions communales et de CPAS</strong>: Non abordées.</li>
+                <li><strong>L’inventaire n’incorpore que les compétences explicites</strong>: Les compétences attribuées à « la commune » ou « au centre public d’action sociale » ne sont pas encore traitées.</li>
+                <li><strong>Les délégations explicites</strong>: Mentionnées avec leur base légale sous-jacente.</li>
+            </ul>
+        </div>
+    </div>  
 
     <div class="search-simple">
-    <h2>Recherche Simple</h2>
-    <input type="text" id="simple-search" placeholder="Rechercher par mots-clés (Compétence, Base Légale, Entité Focus)">
+    <h2>Recherche simple</h2>
+    <input type="text" id="simple-search" placeholder="Rechercher par mots-clés">
     <button onclick="executeSimpleSearch()">Rechercher</button>
     <button class="toggle-advanced" onclick="toggleAdvancedSearch()">Recherche Avancée  ▼</button>
 </div>
 <div id="search-advanced" class="search-advanced">
-    <h2>Recherche Avancée</h2>
+    <h2>Recherche avancée</h2>
      <div class="filter-group">
         <label for="entite-filter">Entité :</label>
         <div class="dropdown">
@@ -693,7 +708,7 @@
         </div>
     </div>
     <div class="filter-group">
-        <label for="advanced-base-legale">Base Légale :</label>
+        <label for="advanced-base-legale">Base légale :</label>
         <div class="dropdown">
             <button id="base-legale-filter" class="filter-button" onclick="toggleDropdown(this)">Sélectionner une base Légale  ▼</button>
             <div class="dropdown-content">
@@ -722,7 +737,7 @@
         </div>
     </div>
     <div class="filter-group">
-        <label for="organe-competent-filter">Organe Compétent :</label>
+        <label for="organe-competent-filter">Organe compétent :</label>
         <div class="dropdown">
             <button id="organe-competent-filter" class="filter-button" onclick="toggleDropdown(this)">Sélectionner un organe compétent  ▼</button>
             <div class="dropdown-content">
@@ -806,7 +821,7 @@
 <div id="filter-column" class="filter-column">
         <h3>Filtres</h3>
         <div class="filter-group">
-            <button class="filter-button" onclick="toggleDropdown(this)">Base Légale</button>
+            <button class="filter-button" onclick="toggleDropdown(this)">Base légale</button>
             <div class="dropdown-content">
                 <label><input type="checkbox" class="filter" data-field="BaseLegale" value="CDLD"> CDLD</label>
                 <label><input type="checkbox" class="filter" data-field="BaseLegale" value="Loi organique"> Loi organique</label>
@@ -895,7 +910,19 @@
 </div>
     <script>
                let data = []; // Variable globale pour stocker les données
-
+ // Fonction pour afficher/masquer les informations supplémentaires
+        function toggleCollapse() {
+            const collapseSection = document.getElementById('collapse-info');
+            const button = document.querySelector('.collapse-btn');
+            
+            if (collapseSection.style.display === 'none') {
+                collapseSection.style.display = 'block';
+                button.textContent = 'Réduire';
+            } else {
+                collapseSection.style.display = 'none';
+                button.textContent = '+ Infos';
+            }
+        }
         // Charger les données depuis le fichier JSON
         fetch('DataTest.json')
             .then(response => response.json())
@@ -1292,7 +1319,17 @@ function displayAppliedFilters(filters) {
         filters[field].forEach(value => {
             const tag = document.createElement('span');
             tag.className = 'filter-tag';
-            tag.innerHTML = `${value} <button onclick="removeFilter('${field}', '${value}')">×</button>`;
+            
+            // Utilisation de textContent et gestion sécurisée des arguments
+            tag.textContent = value;
+            const button = document.createElement('button');
+            button.textContent = '×';
+            button.onclick = function() {
+                removeFilter(field, value); // Appel sécurisé
+            };
+            
+            // Ajoute le bouton au tag
+            tag.appendChild(button);
             appliedFiltersContainer.appendChild(tag);
         });
     });
@@ -1302,42 +1339,125 @@ function displayAppliedFilters(filters) {
 }
 
 function removeFilter(field, value) {
-    // Vérifie que le champ existe dans `selectedFilters`
-    if (selectedFilters[field]) {
-        // Supprime la valeur spécifique du filtre
-        selectedFilters[field] = selectedFilters[field].filter(filterValue => filterValue !== value);
+    console.log(`Suppression du filtre: ${field} = ${value}`); // Affiche le filtre en cours de suppression
 
-        // Si le champ n'a plus de filtres appliqués, supprime la clé
+    // Nettoyage des valeurs (au cas où il y a des espaces avant ou après la valeur)
+    const cleanedValue = value.trim();  // Enlève les espaces au début et à la fin
+    console.log(`Valeur nettoyée pour suppression: ${cleanedValue}`);
+
+    // Vérifie si le filtre existe dans selectedFilters
+    if (selectedFilters[field]) {
+        console.log(`Filtres avant suppression: ${JSON.stringify(selectedFilters)}`);
+
+        // Supprime la valeur spécifique du filtre
+        selectedFilters[field] = selectedFilters[field].filter(filterValue => filterValue !== cleanedValue);
+        
+        // Vérifie l'état après suppression
+        console.log(`Filtres après suppression du filtre spécifique: ${JSON.stringify(selectedFilters)}`);
+
+        // Si le champ n'a plus de filtres appliqués, on supprime le champ entier
         if (selectedFilters[field].length === 0) {
             delete selectedFilters[field];
+            console.log(`Aucun filtre restant pour ${field}, suppression de l'entrée.`);
         }
     }
 
     // Décoche le filtre dans l'interface
-    document.querySelectorAll(`.filter[data-field="${field}"][value="${value}"]`).forEach(filter => {
-        filter.checked = false;
+    document.querySelectorAll(`.filter[data-field="${field}"][value="${cleanedValue}"]`).forEach(filter => {
+        filter.checked = false; // Décoche le filtre de l'interface
+        console.log(`Filtre décoché dans l'interface: ${field} = ${cleanedValue}`);
     });
 
+    // Réinitialiser les filtres appliqués dans l'interface
+    updateFiltersUI();
+
+    // Vérifie l'état des filtres après suppression
+    console.log(`Filtres après suppression complète: ${JSON.stringify(selectedFilters)}`);
+
     // Réapplique les filtres restants
-    applyFilters();
+    applyFilters(); // Cette fonction réaffiche les résultats avec les filtres mis à jour
+}
+
+// Fonction pour réinitialiser et mettre à jour l'affichage des filtres après suppression
+function updateFiltersUI() {
+    const appliedFiltersContainer = document.getElementById('applied-filters');
+    appliedFiltersContainer.innerHTML = '';  // Vide le conteneur avant de redessiner
+
+    // Réaffiche les filtres restants
+    Object.keys(selectedFilters).forEach(field => {
+        selectedFilters[field].forEach(value => {
+            const tag = document.createElement('span');
+            tag.className = 'filter-tag';
+            
+            // Crée le bouton pour supprimer un filtre
+            const button = document.createElement('button');
+            button.textContent = '×';
+            button.onclick = function() {
+                removeFilter(field, value); // Appel sécurisé
+            };
+
+            // Ajoute le texte du filtre et le bouton de suppression
+            tag.textContent = value;
+            tag.appendChild(button);
+
+            // Ajoute le tag au conteneur
+            appliedFiltersContainer.appendChild(tag);
+        });
+    });
+
+    // Affiche ou masque la section des filtres appliqués
+    appliedFiltersContainer.style.display = Object.keys(selectedFilters).length > 0 ? 'block' : 'none';
+}
+
+// Fonction pour réinitialiser et mettre à jour l'affichage des filtres après suppression
+function updateFiltersUI() {
+    const appliedFiltersContainer = document.getElementById('applied-filters');
+    appliedFiltersContainer.innerHTML = '';  // Vide le conteneur avant de redessiner
+
+    // Réaffiche les filtres restants
+    Object.keys(selectedFilters).forEach(field => {
+        selectedFilters[field].forEach(value => {
+            const tag = document.createElement('span');
+            tag.className = 'filter-tag';
+            
+            // Crée le bouton pour supprimer un filtre
+            const button = document.createElement('button');
+            button.textContent = '×';
+            button.onclick = function() {
+                removeFilter(field, value); // Appel sécurisé
+            };
+
+            // Ajoute le texte du filtre et le bouton de suppression
+            tag.textContent = value;
+            tag.appendChild(button);
+
+            // Ajoute le tag au conteneur
+            appliedFiltersContainer.appendChild(tag);
+        });
+    });
+
+    // Affiche ou masque la section des filtres appliqués
+    appliedFiltersContainer.style.display = Object.keys(selectedFilters).length > 0 ? 'block' : 'none';
 }
 function removeAdvancedFilter(field, value) {
+    console.log(`Suppression du filtre avancé: ${field} = ${value}`); // Vérifie les arguments
     if (selectedFilters[field]) {
         selectedFilters[field] = selectedFilters[field].filter(filterValue => filterValue !== value);
 
         if (selectedFilters[field].length === 0) {
             delete selectedFilters[field];
+            console.log(`Filtre avancé supprimé de selectedFilters: ${field}`);
         }
     }
 
     document.querySelectorAll(`.advanced-filter[data-field="${field}"][value="${value}"]`).forEach(filter => {
         filter.checked = false;
+        console.log(`Filtre avancé décoché dans l'interface: ${field} = ${value}`);
     });
 
     // Réapplique les filtres restants
     executeAdvancedSearch();
 }
-
 function resetFilters() {
     selectedFilters = {}; // Réinitialise tous les filtres
 
