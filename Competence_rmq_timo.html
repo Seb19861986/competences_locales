@@ -1131,56 +1131,113 @@ function displayResults(results) {
     const pageResults = results.slice(startIndex, endIndex);
 
     // Générer les résultats pour chaque élément et ajouter au conteneur des résultats
-  pageResults.forEach(item => {
-    const fields = [
-        // Affichage de la compétence et du lien vers la base légale
-        `<div class="result-item">
-            <h3>
-                <span class="competence">${item.Competence || 'Non défini'}</span> - 
-                <a href="${item.LienConnect || '#'}" class="base-legale" target="_blank">${item.BaseLegale || 'N/A'}</a>
-            </h3>`, 
+let currentPage = 1; // Page actuelle
+const resultsPerPage = 25;  // Nombre de résultats par page
+let currentResults = []; // Stockage des résultats actuels (après filtre ou recherche)
 
-        // Affichage de EntiteFocus, si disponible
-        item.EntiteFocus && (Array.isArray(item.EntiteFocus) || typeof item.EntiteFocus === 'string') 
-            ? `<p><strong>Entité Focus :</strong> ${Array.isArray(item.EntiteFocus) ? item.EntiteFocus.join(', ') : item.EntiteFocus}</p>`
-            : '',
+function displayResults(results) {
+    const resultsContainer = document.getElementById('results');
+    const paginationContainer = document.getElementById('pagination');
+    const filterColumn = document.getElementById('filter-column');
 
-        // Affichage des sujets avec chaque élément comme hyperlien
-        item.Sujet && item.Sujet !== 'N/A'
-            ? `<p><strong>Sujet :</strong> ${item.Sujet.split(',').map(tag => 
-                `<a href="#" onclick="filterByTag('${tag.trim()}')">${tag.trim()}</a>`).join(', ')}</p>`
-            : '',
+    if (!resultsContainer) {
+        console.error("L'élément #results est introuvable dans le DOM.");
+        return;
+    }
 
-        // Affichage de IndexObjet_1, si disponible
-        item.IndexObjet && item.IndexObjet !== 'N/A'
-            ? `<p><strong>Index Objet :</strong> ${item.IndexObjet}</p>`
-            : '',
+    // Réinitialisation du conteneur avant d'ajouter de nouveaux résultats pour éviter les duplications
+    resultsContainer.innerHTML = '';  
 
-        // Affichage de OrganeCompetent, si disponible
-        item.OrganeCompetent && (Array.isArray(item.OrganeCompetent) || typeof item.OrganeCompetent === 'string') 
-            ? `<p><strong>Organe Compétent :</strong> ${Array.isArray(item.OrganeCompetent) ? item.OrganeCompetent.join(', ') : item.OrganeCompetent}</p>`
-            : '',
+    // Si aucun résultat trouvé
+    if (results.length === 0) {
+        resultsContainer.style.display = 'none'; // Masque le conteneur des résultats
+        return;
+    }
 
-        // Commentaire
-        item.Commentaire && item.Commentaire !== 'N/A'
-            ? `<p><strong>Commentaire(s) :</strong> ${item.Commentaire}</p>`
-            : '',
+    // Affiche le conteneur des résultats
+    resultsContainer.style.display = 'block';
 
-        // Délégation
-        item.Delegation && item.Delegation !== 'N/A'
-            ? `<p><strong>Délégation :</strong> ${item.Delegation}</p>`
-            : '',
+    // Calculer les indices de pagination
+    const startIndex = (currentPage - 1) * resultsPerPage;
+    const endIndex = Math.min(startIndex + resultsPerPage, results.length);
+    const pageResults = results.slice(startIndex, endIndex);
 
-        // Base légale (délégation)
-        item.BaseDelegation && item.BaseDelegation !== 'N/A'
-            ? `<p><strong>Base légale (délégation) :</strong> ${item.BaseDelegation}</p>`
-            : ''
-    ];
+    // Générer les résultats pour chaque élément et ajouter au conteneur des résultats
+    pageResults.forEach(item => {
+        const fields = [
+            // Affichage de la compétence et du lien vers la base légale
+            `<div class="result-item">
+                <h3>
+                    <span class="competence">${item.Competence || 'Non défini'}</span> - 
+                    <a href="${item.LienConnect || '#'}" class="base-legale" target="_blank">${item.BaseLegale || 'N/A'}</a>
+                </h3>`, 
 
-    // Ajouter chaque result-item directement au conteneur
-    const resultHTML = `<div class="result-item">${fields.filter(Boolean).join('')}</div>`;
-    resultsContainer.insertAdjacentHTML('beforeend', resultHTML);
-});
+            // Affichage de EntiteFocus, si disponible
+            item.EntiteFocus && (Array.isArray(item.EntiteFocus) || typeof item.EntiteFocus === 'string') 
+                ? `<p><strong>Entité Focus :</strong> ${Array.isArray(item.EntiteFocus) ? item.EntiteFocus.join(', ') : item.EntiteFocus}</p>`
+                : '',
+
+            // Affichage des sujets avec chaque élément comme hyperlien
+            item.Sujet && item.Sujet !== 'N/A'
+                ? `<p><strong>Sujet :</strong> ${item.Sujet.split(',').map(tag => 
+                    `<a href="#" onclick="filterByTag('${tag.trim()}')">${tag.trim()}</a>`).join(', ')}</p>`
+                : '',
+
+            // Affichage de IndexObjet_1, si disponible
+            item.IndexObjet && item.IndexObjet !== 'N/A'
+                ? `<p><strong>Index Objet :</strong> ${item.IndexObjet}</p>`
+                : '',
+
+            // Affichage de OrganeCompetent, si disponible
+            item.OrganeCompetent && (Array.isArray(item.OrganeCompetent) || typeof item.OrganeCompetent === 'string') 
+                ? `<p><strong>Organe Compétent :</strong> ${Array.isArray(item.OrganeCompetent) ? item.OrganeCompetent.join(', ') : item.OrganeCompetent}</p>`
+                : '',
+
+            // Commentaire
+            item.Commentaire && item.Commentaire !== 'N/A'
+                ? `<p><strong>Commentaire(s) :</strong> ${item.Commentaire}</p>`
+                : '',
+
+            // Délégation
+            item.Delegation && item.Delegation !== 'N/A'
+                ? `<p><strong>Délégation :</strong> ${item.Delegation}</p>`
+                : '',
+
+            // Base légale (délégation)
+            item.BaseDelegation && item.BaseDelegation !== 'N/A'
+                ? `<p><strong>Base légale (délégation) :</strong> ${item.BaseDelegation}</p>`
+                : ''
+        ];
+
+        // Ajouter chaque result-item directement au conteneur
+        const resultHTML = `<div class="result-item">${fields.filter(Boolean).join('')}</div>`;
+        resultsContainer.insertAdjacentHTML('beforeend', resultHTML);
+    });
+
+    // Mise à jour de la pagination
+    const totalPages = Math.ceil(results.length / resultsPerPage);
+    paginationContainer.style.display = 'block'; // Affiche la pagination
+    document.getElementById('pageInfo').textContent = `Page ${currentPage} sur ${totalPages}`;
+    document.getElementById('prevPage').disabled = currentPage === 1;
+    document.getElementById('nextPage').disabled = currentPage === totalPages;
+
+    // Assure que les filtres restent visibles
+    if (filterColumn) filterColumn.style.display = 'block';
+}
+
+function changePage(direction) {
+    const totalPages = Math.ceil(currentResults.length / resultsPerPage);
+
+    // Met à jour la page actuelle
+    currentPage += direction;
+
+    // Empêche de dépasser les limites
+    if (currentPage < 1) currentPage = 1;
+    if (currentPage > totalPages) currentPage = totalPages;
+
+    // Affiche les résultats pour la nouvelle page
+    displayResults(currentResults);  // Utilise `currentResults` pour la pagination
+}
 
 // Fonction pour filtrer par tag cliqué
 function filterByTag(tag) {
