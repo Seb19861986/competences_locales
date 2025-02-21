@@ -911,32 +911,39 @@
     <script>
                let data = []; // Variable globale pour stocker les données
 
-        // Fonction pour afficher/masquer les informations supplémentaires
-        function toggleCollapse() {
-            const collapseSection = document.getElementById('collapse-info');
-            const button = document.querySelector('.collapse-btn');
-            
-            if (collapseSection.style.display === 'none') {
-                collapseSection.style.display = 'block';
-                button.textContent = 'Réduire';
-            } else {
-                collapseSection.style.display = 'none';
-                button.textContent = '+ Infos';
-            }
-        }
-        // Charger les données depuis le fichier JSON
-        fetch('DataTest.json')
-            .then(response => response.json())
-            .then(jsonData => {
-                data = jsonData; // Stocker les données dans la variable globale
-                displayResults(data); // Afficher les données initialement
-            })
-            .catch(error => {
-                console.error("Erreur lors du chargement des données :", error);
-            });
+// Déclarez `currentPage` en haut du script pour éviter toute redéclaration
+let currentPage = 1; // Page actuelle
+const resultsPerPage = 25; // Nombre de résultats par page
+let currentResults = []; // Stockage des résultats actuels (après filtre ou recherche)
+
+// Fonction pour afficher/masquer les informations supplémentaires
+function toggleCollapse() {
+    const collapseSection = document.getElementById('collapse-info');
+    const button = document.querySelector('.collapse-btn');
+    
+    if (collapseSection.style.display === 'none') {
+        collapseSection.style.display = 'block';
+        button.textContent = 'Réduire';
+    } else {
+        collapseSection.style.display = 'none';
+        button.textContent = '+ Infos';
+    }
+}
+
+// Charger les données depuis le fichier JSON
+fetch('DataTest.json')
+    .then(response => response.json())
+    .then(jsonData => {
+        data = jsonData; // Stocker les données dans la variable globale
+        displayResults(data); // Afficher les données initialement
+    })
+    .catch(error => {
+        console.error("Erreur lors du chargement des données :", error);
+    });
 
 let selectedFilters = {}; // Stocke les filtres appliqués de manière globale
 
+// Afficher ou masquer les menus déroulants des filtres
 function toggleDropdown(button) {
     const filterGroup = button.parentElement;
     const isActive = filterGroup.classList.contains('active');
@@ -951,6 +958,7 @@ function toggleDropdown(button) {
         filterGroup.classList.add('active');
     }
 }
+
 document.addEventListener('click', function(event) {
     const isClickInside = event.target.closest('.filter-group');
     if (!isClickInside) {
@@ -960,18 +968,10 @@ document.addEventListener('click', function(event) {
     }
 });
 
-function toggleFilterVisibility(show) {
-    const filterColumn = document.getElementById('filter-column');
-    if (show) {
-        filterColumn.style.display = 'block'; // Affiche les filtres
-    } else {
-        filterColumn.style.display = 'none'; // Masque les filtres
-    }
-}
+// Fonction de recherche simple
 function executeSimpleSearch() {
     const query = document.getElementById('simple-search').value.toLowerCase();
     currentResults = data.filter(item => {
-        // Parcours des cases de filtre sélectionnées
         const indexFilters = Array.from(document.querySelectorAll('.filter:checked')).map(input => {
             const field = input.getAttribute('data-field');
             const value = input.value.toLowerCase();
@@ -990,12 +990,8 @@ function executeSimpleSearch() {
             );
         }
 
-        // Recherche dans les champs spécifiques comme Sujet, Sujet_2, Sujet_3 (ou autres)
         return indexFilters.every(filter => {
-            // Recherche dans les champs spécifiques
-            const fieldValues = [
-                item[filter.field]
-            ]; // Ajout de _2 et _3 _xx pour vérifier dans plusieurs champs
+            const fieldValues = [item[filter.field]]; 
             return fieldValues.some(fieldValue => {
                 if (Array.isArray(fieldValue)) {
                     return fieldValue.some(value => value.toLowerCase().includes(filter.value));
@@ -1008,7 +1004,7 @@ function executeSimpleSearch() {
     });
 
     currentPage = 1; // Réinitialise la page actuelle
-    displayResults(currentResults);
+    displayResults(currentResults); // Afficher les résultats filtrés
     // Fermer la recherche avancée
     const advancedSearch = document.getElementById('search-advanced');
     if (advancedSearch) {
@@ -1016,16 +1012,15 @@ function executeSimpleSearch() {
     }
 }
 
+// Afficher ou masquer la recherche avancée
 function toggleAdvancedSearch() {
     const advancedSearch = document.getElementById('search-advanced');
     const isVisible = advancedSearch.style.display === 'block';
-
-    // Basculer l'affichage uniquement pour la recherche avancée
     advancedSearch.style.display = isVisible ? 'none' : 'block';
 }
 
+// Fonction de recherche avancée
 function executeAdvancedSearch() {
-    // Parcours des cases cochées
     document.querySelectorAll('.advanced-filter:checked').forEach(input => {
         const field = input.getAttribute('data-field');
         if (!selectedFilters[field]) {
@@ -1036,7 +1031,6 @@ function executeAdvancedSearch() {
         }
     });
 
-    // Filtrage des résultats
     const filteredResults = data.filter(item => {
         return Object.keys(selectedFilters).every(field => {
             if (!selectedFilters[field].length) return true;
@@ -1048,7 +1042,6 @@ function executeAdvancedSearch() {
                 );
             } else if (typeof fieldValue === 'string') {
                 return selectedFilters[field].some(filterValue => {
-                    // Gestion des abréviations spécifiques
                     if (filterValue === 'nouvelle loi communale') {
                         return fieldValue.toLowerCase().includes('nlc');
                     }
@@ -1058,7 +1051,6 @@ function executeAdvancedSearch() {
                     if (filterValue === 'loi organique') {
                         return fieldValue.toLowerCase().includes('lo');
                     }
-                    // Filtrage classique
                     return fieldValue.toLowerCase().includes(filterValue);
                 });
             }
@@ -1066,43 +1058,37 @@ function executeAdvancedSearch() {
         });
     });
 
-    // Affiche les filtres appliqués
     displayAppliedFilters(selectedFilters);
-
-    // Met à jour les résultats affichés
     displayResults(filteredResults);
 }
 
+// Réinitialiser la recherche avancée
 function resetAdvancedSearch() {
-    const baseLegale = document.getElementById('advanced-base-legale');
-    const index = document.getElementById('advanced-index');
-    const organeCompetent = document.getElementById('advanced-organe-competent');
-
-    // Réinitialiser les champs de sélection, si disponibles
-    if (baseLegale) BaseLegale.value = '';
-    if (index) index.value = '';
-    if (organeCompetent) organeCompetent.value = '';
-
-    // Décoche toutes les cases à cocher
     document.querySelectorAll('.advanced-filter').forEach(filter => {
         filter.checked = false;
     });
 
-    // Efface les filtres appliqués
     const appliedFiltersContainer = document.getElementById('applied-filters');
     if (appliedFiltersContainer) {
         appliedFiltersContainer.innerHTML = '';
-        appliedFiltersContainer.style.display = 'none'; // Masque le conteneur des filtres
+        appliedFiltersContainer.style.display = 'none';
     }
 
-    // Réaffiche tous les résultats (supposant que `data` contient tous les éléments initiaux)
     displayResults(data);
 }
 
-let currentPage = 1; // Page actuelle
-const resultsPerPage = 25;  // Nombre de résultats par page
-let currentResults = []; // Stockage des résultats actuels (après filtre ou recherche)
+// Fonction de pagination
+function changePage(direction) {
+    const totalPages = Math.ceil(currentResults.length / resultsPerPage);
+    currentPage += direction;
 
+    if (currentPage < 1) currentPage = 1;
+    if (currentPage > totalPages) currentPage = totalPages;
+
+    displayResults(currentResults); // Afficher les résultats pour la page actuelle
+}
+
+// Afficher les résultats de recherche
 function displayResults(results) {
     const resultsContainer = document.getElementById('results');
     const paginationContainer = document.getElementById('pagination');
@@ -1113,211 +1099,41 @@ function displayResults(results) {
         return;
     }
 
-    // Réinitialisation du conteneur avant d'ajouter de nouveaux résultats pour éviter les duplications
-    resultsContainer.innerHTML = '';  
+    resultsContainer.innerHTML = ''; // Réinitialiser les résultats
 
-    // Si aucun résultat trouvé
     if (results.length === 0) {
-        resultsContainer.style.display = 'none'; // Masque le conteneur des résultats
+        resultsContainer.style.display = 'none'; // Masquer si aucun résultat
         return;
     }
 
-    // Affiche le conteneur des résultats
     resultsContainer.style.display = 'block';
 
-    // Calculer les indices de pagination
     const startIndex = (currentPage - 1) * resultsPerPage;
     const endIndex = Math.min(startIndex + resultsPerPage, results.length);
     const pageResults = results.slice(startIndex, endIndex);
 
-    // Générer les résultats pour chaque élément et ajouter au conteneur des résultats
-let currentPage = 1; // Page actuelle
-const resultsPerPage = 25;  // Nombre de résultats par page
-
-function displayResults(results) {
-    const resultsContainer = document.getElementById('results');
-    const paginationContainer = document.getElementById('pagination');
-    const filterColumn = document.getElementById('filter-column');
-
-    if (!resultsContainer) {
-        console.error("L'élément #results est introuvable dans le DOM.");
-        return;
-    }
-
-    // Réinitialisation du conteneur avant d'ajouter de nouveaux résultats pour éviter les duplications
-    resultsContainer.innerHTML = '';  
-
-    // Si aucun résultat trouvé
-    if (results.length === 0) {
-        resultsContainer.style.display = 'none'; // Masque le conteneur des résultats
-        return;
-    }
-
-    // Affiche le conteneur des résultats
-    resultsContainer.style.display = 'block';
-
-    // Calculer les indices de pagination
-    const startIndex = (currentPage - 1) * resultsPerPage;
-    const endIndex = Math.min(startIndex + resultsPerPage, results.length);
-    const pageResults = results.slice(startIndex, endIndex);
-
-    // Générer les résultats pour chaque élément et ajouter au conteneur des résultats
     pageResults.forEach(item => {
         const fields = [
-            // Affichage de la compétence et du lien vers la base légale
             `<div class="result-item">
-                <h3>
-                    <span class="competence">${item.Competence || 'Non défini'}</span> - 
-                    <a href="${item.LienConnect || '#'}" class="base-legale" target="_blank">${item.BaseLegale || 'N/A'}</a>
-                </h3>`, 
-
-            // Affichage de EntiteFocus, si disponible
-            item.EntiteFocus && (Array.isArray(item.EntiteFocus) || typeof item.EntiteFocus === 'string') 
-                ? `<p><strong>Entité Focus :</strong> ${Array.isArray(item.EntiteFocus) ? item.EntiteFocus.join(', ') : item.EntiteFocus}</p>`
-                : '',
-
-            // Affichage des sujets avec chaque élément comme hyperlien
-            item.Sujet && item.Sujet !== 'N/A'
-                ? `<p><strong>Sujet :</strong> ${item.Sujet.split(',').map(tag => 
-                    `<a href="#" onclick="filterByTag('${tag.trim()}')">${tag.trim()}</a>`).join(', ')}</p>`
-                : '',
-
-            // Affichage de IndexObjet_1, si disponible
-            item.IndexObjet && item.IndexObjet !== 'N/A'
-                ? `<p><strong>Index Objet :</strong> ${item.IndexObjet}</p>`
-                : '',
-
-            // Affichage de OrganeCompetent, si disponible
-            item.OrganeCompetent && (Array.isArray(item.OrganeCompetent) || typeof item.OrganeCompetent === 'string') 
-                ? `<p><strong>Organe Compétent :</strong> ${Array.isArray(item.OrganeCompetent) ? item.OrganeCompetent.join(', ') : item.OrganeCompetent}</p>`
-                : '',
-
-            // Commentaire
-            item.Commentaire && item.Commentaire !== 'N/A'
-                ? `<p><strong>Commentaire(s) :</strong> ${item.Commentaire}</p>`
-                : '',
-
-            // Délégation
-            item.Delegation && item.Delegation !== 'N/A'
-                ? `<p><strong>Délégation :</strong> ${item.Delegation}</p>`
-                : '',
-
-            // Base légale (délégation)
-            item.BaseDelegation && item.BaseDelegation !== 'N/A'
-                ? `<p><strong>Base légale (délégation) :</strong> ${item.BaseDelegation}</p>`
-                : ''
+                <h3><span class="competence">${item.Competence || 'Non défini'}</span></h3>
+                <a href="${item.LienConnect || '#'}" class="base-legale" target="_blank">${item.BaseLegale || 'N/A'}</a>
+            </div>`
         ];
 
-        // Ajouter chaque result-item directement au conteneur
-        const resultHTML = `<div class="result-item">${fields.filter(Boolean).join('')}</div>`;
-        resultsContainer.insertAdjacentHTML('beforeend', resultHTML);
+        resultsContainer.insertAdjacentHTML('beforeend', fields.join(''));
     });
 
-    // Mise à jour de la pagination
     const totalPages = Math.ceil(results.length / resultsPerPage);
-    paginationContainer.style.display = 'block'; // Affiche la pagination
+    paginationContainer.style.display = 'block';
     document.getElementById('pageInfo').textContent = `Page ${currentPage} sur ${totalPages}`;
     document.getElementById('prevPage').disabled = currentPage === 1;
     document.getElementById('nextPage').disabled = currentPage === totalPages;
 
-    // Assure que les filtres restent visibles
     if (filterColumn) filterColumn.style.display = 'block';
 }
 
-function changePage(direction) {
-    const totalPages = Math.ceil(currentResults.length / resultsPerPage);
-
-    // Met à jour la page actuelle
-    currentPage += direction;
-
-    // Empêche de dépasser les limites
-    if (currentPage < 1) currentPage = 1;
-    if (currentPage > totalPages) currentPage = totalPages;
-
-    // Affiche les résultats pour la nouvelle page
-    displayResults(currentResults);  // Utilise `currentResults` pour la pagination
-}
-
-// Fonction pour filtrer par tag cliqué
-function filterByTag(tag) {
-    // Met à jour les résultats avec ce tag
-    const filteredResults = data.filter(item => {
-        // Recherche du tag dans le champ Sujet ou IndexObjet
-        return item.Sujet && item.Sujet.split(',').some(sujet => sujet.trim() === tag) ||
-               item.IndexObjet && item.IndexObjet.split(',').some(index => index.trim() === tag);
-    });
-
-    // Mettre à jour l'affichage des résultats en fonction du tag
-    displayResults(filteredResults);
-}
-// Affichage des résultats filtrés
-function displayResults(results) {
-    const resultsContainer = document.getElementById('results');
-    if (!resultsContainer) {
-        console.error("L'élément #results est introuvable dans le DOM.");
-        return;
-    }
-
-    // Réinitialiser les résultats avant d'afficher les nouveaux
-    resultsContainer.innerHTML = '';
-
-    // Afficher les résultats
-    results.forEach(item => {
-        const resultHTML = `<div class="result-item">${item.Competence} - <a href="${item.LienConnect}" target="_blank">${item.BaseLegale}</a></div>`;
-        resultsContainer.insertAdjacentHTML('beforeend', resultHTML);
-    });
-}
-    // Calculer le nombre total de pages
-    const totalPages = Math.ceil(results.length / resultsPerPage);
-
-    // Mettre à jour la pagination
-    if (paginationContainer) {
-        paginationContainer.style.display = 'block';
-        document.getElementById('pageInfo').textContent = `Page ${currentPage} sur ${totalPages}`;
-        document.getElementById('prevPage').disabled = currentPage === 1;
-        document.getElementById('nextPage').disabled = currentPage === totalPages;
-    }
-
-    // Assurer que les filtres restent visibles
-    if (filterColumn) filterColumn.style.display = 'block';
-}
-
-function changePage(direction) {
-    const totalPages = Math.ceil(currentResults.length / resultsPerPage);
-
-    // Met à jour la page actuelle
-    currentPage += direction;
-
-    // Empêche de dépasser les limites
-    if (currentPage < 1) currentPage = 1;
-    if (currentPage > totalPages) currentPage = totalPages;
-
-    // Réinitialiser le conteneur avant d'afficher les nouveaux résultats pour éviter la duplication
-    const resultsContainer = document.getElementById('results');
-    resultsContainer.innerHTML = '';  // Vide le conteneur avant chaque nouvelle page
-
-    // Affiche les résultats pour la nouvelle page
-    displayResults(currentResults);
-
-    // S'assurer que la recherche avancée reste masquée
-    const advancedSearch = document.getElementById('search-advanced');
-    if (advancedSearch) {
-        advancedSearch.style.display = 'none';
-    }
-}
-function filterBySubject(subject) {
-    const filteredResults = data.filter(item => item.Sujet === subject);
-    displayResults(filteredResults);
-
-    // Optionnel : Mettre à jour les filtres appliqués
-    const appliedFiltersContainer = document.getElementById('applied-filters');
-    if (appliedFiltersContainer) {
-        appliedFiltersContainer.innerHTML = `<span>${subject} <button onclick="resetFilters()">×</button></span>`;
-        appliedFiltersContainer.style.display = 'block';
-    }
-}
+// Appliquer les filtres
 function applyFilters() {
-    // Parcours des filtres sélectionnés
     document.querySelectorAll('.filter:checked').forEach(input => {
         const field = input.getAttribute('data-field');
         if (!selectedFilters[field]) {
@@ -1328,7 +1144,6 @@ function applyFilters() {
         }
     });
 
-    // Filtrage des résultats
     const filteredResults = data.filter(item => {
         return Object.keys(selectedFilters).every(field => {
             if (!selectedFilters[field].length) return true;
@@ -1340,7 +1155,6 @@ function applyFilters() {
                 );
             } else if (typeof fieldValue === 'string') {
                 return selectedFilters[field].some(filterValue => {
-                    // Gestion des abréviations spécifiques
                     if (filterValue === 'nouvelle loi communale') {
                         return fieldValue.toLowerCase().includes('nlc');
                     }
@@ -1350,7 +1164,6 @@ function applyFilters() {
                     if (filterValue === 'loi organique') {
                         return fieldValue.toLowerCase().includes('lo');
                     }
-                    // Filtrage classique
                     return fieldValue.toLowerCase().includes(filterValue);
                 });
             }
@@ -1358,21 +1171,17 @@ function applyFilters() {
         });
     });
 
-    // Affiche les filtres appliqués
     displayAppliedFilters(selectedFilters);
-
-    // Met à jour les résultats affichés
     displayResults(filteredResults);
-    
-    currentResults = filteredResults; // Mettre à jour avec les résultats filtrés
-    displayResults(currentResults); // Mettre à jour l'affichage
+    currentResults = filteredResults;
+    displayResults(currentResults);
 }
 
+// Fonction pour afficher les filtres appliqués
 function displayAppliedFilters(filters) {
     const appliedFiltersContainer = document.getElementById('applied-filters');
-    appliedFiltersContainer.innerHTML = ''; // Réinitialise le contenu
+    appliedFiltersContainer.innerHTML = '';
 
-    // Crée des tags pour chaque filtre appliqué
     Object.keys(filters).forEach(field => {
         filters[field].forEach(value => {
             const tag = document.createElement('span');
@@ -1382,30 +1191,27 @@ function displayAppliedFilters(filters) {
         });
     });
 
-    // Affiche ou masque la section en fonction des filtres actifs
     appliedFiltersContainer.style.display = Object.keys(filters).length > 0 ? 'block' : 'none';
 }
 
+// Réinitialiser les filtres
 function removeFilter(field, value) {
-    // Vérifie que le champ existe dans `selectedFilters`
     if (selectedFilters[field]) {
-        // Supprime la valeur spécifique du filtre
         selectedFilters[field] = selectedFilters[field].filter(filterValue => filterValue !== value);
 
-        // Si le champ n'a plus de filtres appliqués, supprime la clé
         if (selectedFilters[field].length === 0) {
             delete selectedFilters[field];
         }
     }
 
-    // Décoche le filtre dans l'interface
     document.querySelectorAll(`.filter[data-field="${field}"][value="${value}"]`).forEach(filter => {
         filter.checked = false;
     });
 
-    // Réapplique les filtres restants
     applyFilters();
 }
+
+// Réinitialiser les filtres avancés
 function removeAdvancedFilter(field, value) {
     if (selectedFilters[field]) {
         selectedFilters[field] = selectedFilters[field].filter(filterValue => filterValue !== value);
@@ -1419,23 +1225,19 @@ function removeAdvancedFilter(field, value) {
         filter.checked = false;
     });
 
-    // Réapplique les filtres restants
     executeAdvancedSearch();
 }
 
+// Réinitialiser tous les filtres
 function resetFilters() {
-    selectedFilters = {}; // Réinitialise tous les filtres
-
-    // Décoche toutes les cases
+    selectedFilters = {};
     document.querySelectorAll('.filter').forEach(filter => {
         filter.checked = false;
     });
 
-    // Réaffiche tous les résultats
     currentPage = 1;
     displayResults(data);
 
-    // Masque la section des filtres appliqués
     const appliedFiltersContainer = document.getElementById('applied-filters');
     appliedFiltersContainer.style.display = 'none';
 }
