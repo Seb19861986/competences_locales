@@ -221,24 +221,24 @@
                 </div>
             </div>
             <div class="dropdown">
-                <button>Entité Focus</button>
+                <button>Entité focus</button>
                 <div class="dropdown-content">
                     <label><input type="checkbox" value="commune" class="filter" data-field="EntiteFocus"> Commune</label>
                     <label><input type="checkbox" value="CPAS" class="filter" data-field="EntiteFocus"> CPAS</label>
                 </div>
             </div>
             <div class="dropdown">
-                <button>Index Objet</button>
+                <button>Index objet</button>
                 <div class="dropdown-content">
                     <label><input type="checkbox" value="élections" class="filter" data-field="IndexObjet"> Élections</label>
                     <label><input type="checkbox" value="budget" class="filter" data-field="IndexObjet"> Budget</label>
                 </div>
             </div>
             <div class="dropdown">
-                <button>Organe Compétent</button>
+                <button>Organe compétent</button>
                 <div class="dropdown-content">
-                    <label><input type="checkbox" value="conseil communal" class="filter" data-field="OrganeCompetent"> Conseil Communal</label>
-                    <label><input type="checkbox" value="collège communal" class="filter" data-field="OrganeCompetent"> Collège Communal</label>
+                    <label><input type="checkbox" value="conseil communal" class="filter" data-field="OrganeCompetent"> Conseil communal</label>
+                    <label><input type="checkbox" value="collège communal" class="filter" data-field="OrganeCompetent"> Collège communal</label>
                 </div>
             </div>
             <button class="apply-filters" onclick="applyFilters()">Appliquer les filtres</button>
@@ -329,7 +329,7 @@ function displayResults(filteredResults) {
         card.innerHTML = `
             <div>
                 <h3>${item.Competence || 'Na'}</h3>
-                <p><strong>Base Légale :</strong> ${item.BaseLegale || 'Na'}</p>
+                <p><strong>Base légale :</strong> ${item.BaseLegale || 'Na'}</p>
                 <p><strong>Entité(s) :</strong> ${item.EntiteFocus.join(', ') || 'Na'}</p>
                 <p><strong>Index :</strong> ${item.IndexObjet.join(', ') || 'Na'}</p>
                 <p><strong>Organe(s) compétent(s) :</strong> ${item.OrganeCompetent.join(', ') || 'Na'}</p>
