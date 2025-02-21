@@ -1024,18 +1024,29 @@ function toggleAdvancedSearch() {
 }
 
 function executeAdvancedSearch() {
-    // Parcours des cases cochées
+    // Réinitialise selectedFilters avant de l'appliquer
+    selectedFilters = {};
+
+    // Parcours toutes les cases à cocher pour la recherche avancée
     document.querySelectorAll('.advanced-filter:checked').forEach(input => {
-        const field = input.getAttribute('data-field');
+        const field = input.getAttribute('data-field');  // Récupère le champ auquel le filtre appartient
+        const value = input.value.toLowerCase();  // Récupère la valeur sélectionnée et la met en minuscules pour uniformité
+
+        // Ajoute le filtre à selectedFilters si ce n'est pas déjà fait
         if (!selectedFilters[field]) {
             selectedFilters[field] = [];
         }
-        if (!selectedFilters[field].includes(input.value.toLowerCase())) {
-            selectedFilters[field].push(input.value.toLowerCase());
+
+        // Ajoute la valeur dans le tableau du filtre
+        if (!selectedFilters[field].includes(value)) {
+            selectedFilters[field].push(value);
         }
     });
 
-    // Filtrage des résultats
+    // Affiche les filtres appliqués dans l'interface
+    displayAppliedFilters(selectedFilters);
+
+    // Filtrage des résultats en fonction des filtres appliqués
     const filteredResults = data.filter(item => {
         return Object.keys(selectedFilters).every(field => {
             if (!selectedFilters[field].length) return true;
@@ -1046,32 +1057,15 @@ function executeAdvancedSearch() {
                     fieldValue.some(value => value.toLowerCase().includes(filterValue))
                 );
             } else if (typeof fieldValue === 'string') {
-                return selectedFilters[field].some(filterValue => {
-                    // Gestion des abréviations spécifiques
-                    if (filterValue === 'nouvelle loi communale') {
-                        return fieldValue.toLowerCase().includes('nlc');
-                    }
-                    if (filterValue === 'cdld') {
-                        return fieldValue.toLowerCase().includes('cdld');
-                    }
-                    if (filterValue === 'loi organique') {
-                        return fieldValue.toLowerCase().includes('lo');
-                    }
-                    // Filtrage classique
-                    return fieldValue.toLowerCase().includes(filterValue);
-                });
+                return selectedFilters[field].some(filterValue => fieldValue.toLowerCase().includes(filterValue));
             }
             return false;
         });
     });
 
-    // Affiche les filtres appliqués
-    displayAppliedFilters(selectedFilters);
-
-    // Met à jour les résultats affichés
+    // Met à jour les résultats affichés après filtrage
     displayResults(filteredResults);
 }
-
 function resetAdvancedSearch() {
     const baseLegale = document.getElementById('advanced-base-legale');
     const index = document.getElementById('advanced-index');
