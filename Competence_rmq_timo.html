@@ -911,17 +911,18 @@
 </div>
     <script>
                let data = []; // Variable globale pour stocker les données
- // Fonction pour afficher/masquer les informations supplémentaires
+
+        // Fonction pour afficher/masquer les informations supplémentaires
         function toggleCollapse() {
             const collapseSection = document.getElementById('collapse-info');
             const button = document.querySelector('.collapse-btn');
             
             if (collapseSection.style.display === 'none') {
                 collapseSection.style.display = 'block';
-                button.textContent = '− Moins d\'informations';
+                button.textContent = 'Réduire';
             } else {
                 collapseSection.style.display = 'none';
-                button.textContent = '+ Informations';
+                button.textContent = '+ Infos';
             }
         }
         // Charger les données depuis le fichier JSON
