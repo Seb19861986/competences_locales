@@ -1258,10 +1258,11 @@ function filterBySubject(subject) {
         appliedFiltersContainer.style.display = 'block';
     }
 }
+// Appliquer les filtres
 function applyFilters() {
-    console.log('Réapplication des filtres:', JSON.stringify(selectedFilters));
+    console.log('Filtres appliqués:', selectedFilters);
 
-    // Réapplique les filtres
+    // Filtrer les résultats en fonction des filtres dans selectedFilters
     currentResults = data.filter(item => {
         return Object.keys(selectedFilters).every(field => {
             if (!selectedFilters[field].length) return true;
@@ -1272,16 +1273,14 @@ function applyFilters() {
                     fieldValue.some(value => value.toLowerCase().includes(filterValue))
                 );
             } else if (typeof fieldValue === 'string') {
-                return selectedFilters[field].some(filterValue => {
-                    return fieldValue.toLowerCase().includes(filterValue);
-                });
+                return selectedFilters[field].some(filterValue => fieldValue.toLowerCase().includes(filterValue));
             }
             return false;
         });
     });
 
-    // Affiche les résultats filtrés
-    displayResults(currentResults); // Assurez-vous que displayResults fonctionne comme prévu
+    // Afficher les résultats filtrés
+    displayResults(currentResults);
 }
 
 function displayAppliedFilters(filters) {
@@ -1312,60 +1311,60 @@ function displayAppliedFilters(filters) {
     appliedFiltersContainer.style.display = Object.keys(filters).length > 0 ? 'block' : 'none';
 }
 
+// Déclaration globale des filtres appliqués
+let selectedFilters = {}; // contient les filtres appliqués sous forme de clé: valeur
+
+// Fonction de suppression d'un filtre
 function removeFilter(field, value) {
     console.log(`Suppression du filtre: ${field} = ${value}`);
 
-    // Vérifie si le filtre existe dans selectedFilters
+    // Si le champ existe dans selectedFilters
     if (selectedFilters[field]) {
-        // Supprime la valeur spécifique du filtre
+        // On filtre la valeur spécifique dans le tableau
         selectedFilters[field] = selectedFilters[field].filter(filterValue => filterValue !== value);
-        
-        // Si le champ n'a plus de filtres appliqués, on supprime la clé
+
+        // Si après suppression, il n'y a plus de filtres dans ce champ, on supprime la clé
         if (selectedFilters[field].length === 0) {
             delete selectedFilters[field];
         }
     }
 
-    // Décoche le filtre dans l'interface
+    // Décoche le filtre dans l'interface (en recherchant dans les checkboxes)
     document.querySelectorAll(`.filter[data-field="${field}"][value="${value}"]`).forEach(filter => {
         filter.checked = false;
     });
 
-    // Mise à jour de l'interface avec les filtres restants
-    updateFiltersUI();
-
-    // Réapplique les filtres restants
+    // Réappliquer les filtres restants après suppression
     applyFilters();
 }
 
-// Fonction pour réinitialiser et mettre à jour l'affichage des filtres après suppression
 function updateFiltersUI() {
     const appliedFiltersContainer = document.getElementById('applied-filters');
-    appliedFiltersContainer.innerHTML = '';  // Vide le conteneur avant de redessiner
+    appliedFiltersContainer.innerHTML = ''; // Vider le conteneur avant de redessiner
 
-    // Réaffiche les filtres restants
+    // Réafficher les filtres appliqués dans l'interface
     Object.keys(selectedFilters).forEach(field => {
         selectedFilters[field].forEach(value => {
             const tag = document.createElement('span');
             tag.className = 'filter-tag';
             
-            // Crée le bouton pour supprimer un filtre
+            // Créer un bouton pour supprimer ce filtre
             const button = document.createElement('button');
             button.textContent = '×';
             button.onclick = function() {
-                removeFilter(field, value); // Appel sécurisé
+                removeFilter(field, value);
             };
 
-            // Ajoute le texte du filtre et le bouton de suppression
+            // Ajout du texte du filtre et du bouton de suppression
             tag.textContent = value;
             tag.appendChild(button);
 
-            // Ajoute le tag au conteneur
+            // Ajouter le tag au conteneur
             appliedFiltersContainer.appendChild(tag);
         });
     });
 
-    // Affiche ou masque la section des filtres appliqués
+    // Afficher ou masquer la section des filtres appliqués en fonction de l'état de selectedFilters
     appliedFiltersContainer.style.display = Object.keys(selectedFilters).length > 0 ? 'block' : 'none';
 }
 
