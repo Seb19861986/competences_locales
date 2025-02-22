@@ -1112,6 +1112,7 @@ function applyFilters() {
     displayResults(currentResults); // Mettre à jour l'affichage
 }
 
+
 function displayAppliedFilters(filters) {
     const appliedFiltersContainer = document.getElementById('applied-filters');
     appliedFiltersContainer.innerHTML = ''; // Réinitialise le contenu
@@ -1138,30 +1139,32 @@ function displayAppliedFilters(filters) {
     // Affiche ou masque la section des filtres appliqués en fonction du nombre de filtres
     appliedFiltersContainer.style.display = Object.keys(filters).length > 0 ? 'block' : 'none';
 }
+
 function removeFilter(field, value) {
-    console.log(`Suppression du filtre: ${field} = ${value}`); // Vérifie les arguments
+    console.log(`Suppression du filtre: ${field} = ${value}`);
 
-    // Supprime le filtre de selectedFilters
     if (selectedFilters[field]) {
-        // Filtrer les valeurs dans selectedFilters
-        selectedFilters[field] = selectedFilters[field].filter(filterValue => filterValue.toLowerCase() !== value.toLowerCase());
+        // Supprimer la valeur spécifique du filtre
+        selectedFilters[field] = selectedFilters[field].filter(filterValue => filterValue !== value);
 
-        // Si le champ n'a plus de filtres appliqués, supprimer la clé
+        // Si le champ n'a plus de filtres appliqués, supprime la clé
         if (selectedFilters[field].length === 0) {
             delete selectedFilters[field];
             console.log(`Filtre supprimé de selectedFilters: ${field}`);
         }
     }
 
-    // Décoche le filtre dans l'interface utilisateur en s'assurant de comparer les valeurs de manière uniforme
+    // Décoche le filtre dans l'interface
     document.querySelectorAll(`.filter[data-field="${field}"][value="${value}"]`).forEach(filter => {
         filter.checked = false;
         console.log(`Filtre décoché dans l'interface: ${field} = ${value}`);
     });
 
-    // Réapplique les filtres restants et met à jour les résultats
+    // Réapplique les filtres restants
     applyFilters();
-    displayAppliedFilters(selectedFilters); // Met à jour l'affichage des filtres appliqués
+    
+    // Met à jour l'affichage des filtres appliqués
+    displayAppliedFilters(selectedFilters);
 }
 
 function removeAdvancedFilter(field, value) {
