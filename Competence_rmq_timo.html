@@ -1061,14 +1061,18 @@ function filterBySubject(subject) {
     }
 }
 function applyFilters() {
+    selectedFilters = {}; // Réinitialise les filtres avant de les appliquer
+
     // Parcours des filtres sélectionnés
     document.querySelectorAll('.filter:checked').forEach(input => {
         const field = input.getAttribute('data-field');
+        const value = input.value.toLowerCase(); // Normalisation de la valeur
+
         if (!selectedFilters[field]) {
             selectedFilters[field] = [];
         }
-        if (!selectedFilters[field].includes(input.value.toLowerCase())) {
-            selectedFilters[field].push(input.value.toLowerCase());
+        if (!selectedFilters[field].includes(value)) {
+            selectedFilters[field].push(value);
         }
     });
 
@@ -1083,20 +1087,7 @@ function applyFilters() {
                     fieldValue.some(value => value.toLowerCase().includes(filterValue))
                 );
             } else if (typeof fieldValue === 'string') {
-                return selectedFilters[field].some(filterValue => {
-                    // Gestion des abréviations spécifiques
-                    if (filterValue === 'nouvelle loi communale') {
-                        return fieldValue.toLowerCase().includes('nlc');
-                    }
-                    if (filterValue === 'cdld') {
-                        return fieldValue.toLowerCase().includes('cdld');
-                    }
-                    if (filterValue === 'loi organique') {
-                        return fieldValue.toLowerCase().includes('lo');
-                    }
-                    // Filtrage classique
-                    return fieldValue.toLowerCase().includes(filterValue);
-                });
+                return selectedFilters[field].some(filterValue => fieldValue.toLowerCase().includes(filterValue));
             }
             return false;
         });
@@ -1112,44 +1103,41 @@ function applyFilters() {
     displayResults(currentResults); // Mettre à jour l'affichage
 }
 function removeFilter(field, value) {
-    console.log(`Suppression du filtre: ${field} = ${value}`);
+    console.log(`Suppression du filtre: ${field} = ${value}`); // Vérifie les arguments
 
-    // 1. Supprimer la valeur du filtre de la liste des filtres sélectionnés
+    // Normalisation des valeurs pour la comparaison
+    const normalizedValue = value.toLowerCase();
+
+    // Supprime le filtre de selectedFilters
     if (selectedFilters[field]) {
-        selectedFilters[field] = selectedFilters[field].filter(filterValue => filterValue !== value);
+        // Filtrer les valeurs dans selectedFilters en ignorant la casse
+        selectedFilters[field] = selectedFilters[field].filter(filterValue => filterValue.toLowerCase() !== normalizedValue);
 
         // Si le champ n'a plus de filtres appliqués, supprimer la clé
         if (selectedFilters[field].length === 0) {
             delete selectedFilters[field];
+            console.log(`Filtre supprimé de selectedFilters: ${field}`);
         }
     }
 
-    // 2. Décoche le filtre dans l'interface (la case à cocher)
-    document.querySelectorAll(`.filter[data-field="${field}"][value="${value}"]`).forEach(filter => {
-        filter.checked = false;
-        console.log(`Filtre décoché dans l'interface: ${field} = ${value}`);
+    // Décoche le filtre dans l'interface utilisateur en s'assurant de comparer les valeurs de manière uniforme
+    document.querySelectorAll(`.filter[data-field="${field}"]`).forEach(filter => {
+        if (filter.value.toLowerCase() === normalizedValue) {
+            filter.checked = false;
+            console.log(`Filtre décoché dans l'interface: ${field} = ${value}`);
+        }
     });
 
-    // 3. Supprimer le tag visuellement dans le DOM
-    const appliedFiltersContainer = document.getElementById('applied-filters');
-    const tags = Array.from(appliedFiltersContainer.children);
-    const tagToRemove = tags.find(tag => tag.textContent.includes(value));
-    if (tagToRemove) {
-        console.log('Tag trouvé et supprimé:', tagToRemove);
-        tagToRemove.remove();  // Supprimer le tag visuellement du DOM
-    } else {
-        console.log('Tag non trouvé pour suppression');
-    }
-
-    // 4. Réapplique les filtres restants et actualise les résultats
+    // Réapplique les filtres restants et met à jour les résultats
     applyFilters();
+    displayAppliedFilters(selectedFilters); // Met à jour l'affichage des filtres appliqués
 }
 
 function displayAppliedFilters(filters) {
     const appliedFiltersContainer = document.getElementById('applied-filters');
-    appliedFiltersContainer.innerHTML = '';  // Réinitialise le contenu des tags
+    appliedFiltersContainer.innerHTML = ''; // Réinitialise le contenu
 
-    // 1. Crée des tags pour chaque filtre appliqué
+    // Crée des tags pour chaque filtre appliqué
     Object.keys(filters).forEach(field => {
         filters[field].forEach(value => {
             const tag = document.createElement('span');
@@ -1168,7 +1156,7 @@ function displayAppliedFilters(filters) {
         });
     });
 
-    // 2. Afficher ou masquer la section des filtres appliqués en fonction du nombre de filtres
+    // Affiche ou masque la section des filtres appliqués en fonction du nombre de filtres
     appliedFiltersContainer.style.display = Object.keys(filters).length > 0 ? 'block' : 'none';
 }
 
