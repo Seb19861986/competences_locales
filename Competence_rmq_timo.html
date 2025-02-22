@@ -1374,19 +1374,28 @@ function displayAppliedFilters(filters) {
     const appliedFiltersContainer = document.getElementById('applied-filters');
     appliedFiltersContainer.innerHTML = ''; // Réinitialise le contenu
 
+    // Crée des tags pour chaque filtre appliqué
     Object.keys(filters).forEach(field => {
         filters[field].forEach(value => {
             const tag = document.createElement('span');
             tag.className = 'filter-tag';
             tag.textContent = value;
-            appliedFiltersContainer.appendChild(tag);
+
+            // Créer un bouton de suppression pour chaque filtre
+            const button = document.createElement('button');
+            button.textContent = '×';
+            button.onclick = function() {
+                removeFilter(field, value);  // Appel à removeFilter pour supprimer un filtre
+            };
+
+            tag.appendChild(button); // Ajouter le bouton à chaque tag
+            appliedFiltersContainer.appendChild(tag); // Ajouter le tag au conteneur
         });
     });
 
+    // Affiche ou masque la section des filtres appliqués en fonction du nombre de filtres
     appliedFiltersContainer.style.display = Object.keys(filters).length > 0 ? 'block' : 'none';
 }
-
-
 function removeFilter(field, value) {
     console.log(`Suppression du filtre: ${field} = ${value}`); // Vérifie les arguments
     if (selectedFilters[field]) {
