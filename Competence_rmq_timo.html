@@ -1225,9 +1225,10 @@ function displayAppliedFilters(filters) {
 function removeFilter(field, value) {
     console.log(`Suppression du filtre: ${field} = ${value}`); // Vérifie les arguments
 
-    // Supprimer le filtre de selectedFilters
+    // Supprime le filtre de selectedFilters
     if (selectedFilters[field]) {
-        selectedFilters[field] = selectedFilters[field].filter(filterValue => filterValue !== value);
+        // Filtrer les valeurs dans selectedFilters
+        selectedFilters[field] = selectedFilters[field].filter(filterValue => filterValue.toLowerCase() !== value.toLowerCase());
 
         // Si le champ n'a plus de filtres appliqués, supprimer la clé
         if (selectedFilters[field].length === 0) {
@@ -1236,7 +1237,7 @@ function removeFilter(field, value) {
         }
     }
 
-    // Décoche le filtre dans l'interface utilisateur
+    // Décoche le filtre dans l'interface utilisateur en s'assurant de comparer les valeurs de manière uniforme
     document.querySelectorAll(`.filter[data-field="${field}"][value="${value}"]`).forEach(filter => {
         filter.checked = false;
         console.log(`Filtre décoché dans l'interface: ${field} = ${value}`);
