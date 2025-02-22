@@ -1115,32 +1115,7 @@ function applyFilters() {
 
 function displayAppliedFilters(filters) {
     const appliedFiltersContainer = document.getElementById('applied-filters');
-    appliedFiltersContainer.innerHTML = ''; // Réinitialise le contenu
-
-    // Crée des tags pour chaque filtre appliqué
-    Object.keys(filters).forEach(field => {
-        filters[field].forEach(value => {
-            const tag = document.createElement('span');
-            tag.className = 'filter-tag';
-            tag.textContent = value;
-
-            // Créer un bouton de suppression pour chaque filtre
-            const button = document.createElement('button');
-            button.textContent = '×';
-            button.onclick = function() {
-                removeFilter(field, value);  // Appel à removeFilter pour supprimer un filtre
-            };
-
-            tag.appendChild(button); // Ajouter le bouton à chaque tag
-            appliedFiltersContainer.appendChild(tag); // Ajouter le tag au conteneur
-        });
-    });
-
-    // Affiche ou masque la section des filtres appliqués en fonction du nombre de filtres
-    appliedFiltersContainer.style.display = Object.keys(filters).length > 0 ? 'block' : 'none';
-}function displayAppliedFilters(filters) {
-    const appliedFiltersContainer = document.getElementById('applied-filters');
-    appliedFiltersContainer.innerHTML = '';  // Réinitialise le contenu
+    appliedFiltersContainer.innerHTML = '';  // Réinitialise le contenu des tags
 
     Object.keys(filters).forEach(field => {
         filters[field].forEach(value => {
@@ -1160,6 +1135,7 @@ function displayAppliedFilters(filters) {
         });
     });
 
+    // Afficher ou masquer la section des filtres appliqués en fonction du nombre de filtres
     appliedFiltersContainer.style.display = Object.keys(filters).length > 0 ? 'block' : 'none';
 }
 
@@ -1181,16 +1157,15 @@ function removeFilter(field, value) {
         filter.checked = false;
     });
 
-    // Supprimer le tag visuellement du DOM
+    // Suppression du tag visuellement dans le DOM
     const appliedFiltersContainer = document.getElementById('applied-filters');
     const tagToRemove = Array.from(appliedFiltersContainer.children).find(tag => tag.textContent.includes(value));
     if (tagToRemove) {
-        tagToRemove.remove();  // Supprimer le tag visuellement
+        tagToRemove.remove();  // Supprimer le tag visuellement du DOM
     }
 
     // Réapplique les filtres restants et actualise les résultats
     applyFilters();
-    console.log("Filtres après suppression : ", selectedFilters);
 }
 function removeAdvancedFilter(field, value) {
     console.log(`Suppression du filtre avancé: ${field} = ${value}`); // Vérifie les arguments
