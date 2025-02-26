@@ -653,24 +653,15 @@
 </head>
 <body>
     <div class="header-content">
-        <h1>LexIA - Cadatrse des compétences locales</h1>
-        <!-- Bouton pour afficher/masquer les informations supplémentaires -->
-        <button class="collapse-btn" onclick="toggleCollapse()">+ Infos</button>
-
-        <!-- Section de texte qui se cache/affiche -->
-        <div id="collapse-info" style="display: none; margin-top: 20px;">
-            <p>LexIA se veut un inventaire des compétences légales sur base du Code de la démocratie locale et de la décentralisation (CDLD), la Loi du 8 juillet 1976 organique des centres publics d’action sociale (LO) et la Nouvelle Loi communale du 24 juin 1988 (NLC). Ces trois textes constituent le fondement des compétences, auxquelles nous avons ajouté une série de responsabilités.</p>
-            <h3>Ce que l’outil comprend – et ne comprend pas :</h3>
-            <ul>
-                <li><strong>Les compétences au niveau local (uniquement)</strong>: Communes, CPAS, régies communales autonomes, intercommunales, associations chapitre XII, …</li>
-                <li><strong>Les compétences des provinces et du Gouvernement wallon</strong>: Non incluses.</li>
-                <li><strong>L’inventaire se limite aux organes et fonctions permanents</strong>: Conseil communal, collège communal, bourgmestre, comité de direction, directeur général, directeur financier, …</li>
-                <li><strong>Les fusions communales et de CPAS</strong>: Non abordées.</li>
-                <li><strong>L’inventaire n’incorpore que les compétences explicites</strong>: Les compétences attribuées à « la commune » ou « au centre public d’action sociale » ne sont pas encore traitées.</li>
-                <li><strong>Les délégations explicites</strong>: Mentionnées avec leur base légale sous-jacente.</li>
-            </ul>
-        </div>
-    </div>  
+        <h1>
+            LexIA - Cadastre des compétences locales
+            <a href="https://exemple.com/en-savoir-plus" target="_blank" rel="noopener noreferrer"
+               style="font-size: 14px; margin-left: 10px; padding: 4px 8px; background-color: #053f7c; color: white; 
+                      text-decoration: none; border-radius: 5px; font-weight: normal; font-size: 12px;">
+                En savoir plus
+            </a>
+        </h1>
+    </div>    
 
     <div class="search-simple">
     <h2>Recherche simple</h2>
@@ -799,7 +790,8 @@
 </div>
     <script>
                let data = []; // Variable globale pour stocker les données
- // Fonction pour afficher/masquer les informations supplémentaires
+
+               // Fonction pour afficher/masquer les informations supplémentaires
         function toggleCollapse() {
             const collapseSection = document.getElementById('collapse-info');
             const button = document.querySelector('.collapse-btn');
@@ -849,6 +841,13 @@ function toggleFilterVisibility(show) {
         filterColumn.style.display = 'none'; // Masque les filtres
     }
 }
+// Détection de la touche "Enter" sur le champ de recherche
+document.getElementById("simple-search").addEventListener("keypress", function(event) {
+    if (event.key === "Enter") {
+        event.preventDefault(); // Empêche le rechargement de la page
+        executeSimpleSearch();  // Exécute la recherche
+    }
+});
 function executeSimpleSearch() {
     const query = document.getElementById('simple-search').value.toLowerCase();
     currentResults = data.filter(item => {
