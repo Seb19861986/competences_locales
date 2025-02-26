@@ -930,12 +930,12 @@ function displayResults(results) {
     // Générer les résultats pour chaque élément et ajouter au conteneur des résultats
   pageResults.forEach(item => {
     const fields = [
-// Affichage de la compétence et de la base légale sans lien hypertexte
+// Affichage de la compétence et du lien vers la base légale
         `<div class="result-item">
             <h3>
                 <span class="competence">${item.Competence || 'Non défini'}</span> - 
-                <span class="base-legale">${item.BaseLegale || 'N/A'}</span>
-            </h3>`,
+                <a href="${item.Hyperlien || '#'}" class="base-legale" target="_blank">${item.BaseLegale || 'N/A'}</a>
+            </h3>`, 
 
         // Affichage de EntiteFocus, si disponible
         item.EntiteFocus && (Array.isArray(item.EntiteFocus) || typeof item.EntiteFocus === 'string') 
@@ -1004,7 +1004,7 @@ function displayResults(results) {
 
     // Afficher les résultats
     results.forEach(item => {
-        const resultHTML = `<div class="result-item">${item.Competence} - <a href="${item.LienConnect}" target="_blank">${item.BaseLegale}</a></div>`;
+        const resultHTML = `<div class="result-item">${item.Competence} - <a href="${item.Hyperlien}" target="_blank">${item.BaseLegale}</a></div>`;
         resultsContainer.insertAdjacentHTML('beforeend', resultHTML);
     });
 }
