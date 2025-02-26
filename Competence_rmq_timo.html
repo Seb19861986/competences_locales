@@ -899,10 +899,14 @@ function executeSimpleSearch() {
 
 let currentPage = 1;  // Page actuelle
 const resultsPerPage = 25;  // Résultats par page
+
 function formatBaseLegale(baseLegaleStr) {
     if (!baseLegaleStr) return "N/A";
 
-    // Expression régulière pour capturer "Article X (https://lien.com)" sans casser les virgules dans le texte
+    // Remplacement de "juncto" et des ";" par un séparateur propre
+    baseLegaleStr = baseLegaleStr.replace(/(;|juncto)/g, ' juncto ');
+
+    // Expression régulière améliorée pour capturer "Texte (https://lien.com)" sans casser les virgules
     const regex = /(.*?\([^)]+\))|([^,]+)/g;
     
     // Trouver toutes les correspondances
@@ -917,8 +921,9 @@ function formatBaseLegale(baseLegaleStr) {
             return `<a href="${url}" class="base-legale" target="_blank">${text}</a>`;
         }
         return ref; // Retourne la référence seule si elle ne contient pas de lien
-    }).join(', ');
+    }).join(' '); // Séparer par un espace plutôt qu'une virgule
 }
+
 function displayResults(results) {
     const resultsContainer = document.getElementById('results');
     const paginationContainer = document.getElementById('pagination');
