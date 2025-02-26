@@ -653,174 +653,54 @@
 </head>
 <body>
     <div class="header-content">
-        <h1>LexIA - Cadatrse des compétences locales</h1>
-        <!-- Bouton pour afficher/masquer les informations supplémentaires -->
-        <button class="collapse-btn" onclick="toggleCollapse()">+ Infos</button>
-
-        <!-- Section de texte qui se cache/affiche -->
-        <div id="collapse-info" style="display: none; margin-top: 20px;">
-            <p>LexIA se veut un inventaire des compétences légales sur base du Code de la démocratie locale et de la décentralisation (CDLD), la Loi du 8 juillet 1976 organique des centres publics d’action sociale (LO) et la Nouvelle Loi communale du 24 juin 1988 (NLC). Ces trois textes constituent le fondement des compétences, auxquelles nous avons ajouté une série de responsabilités.</p>
-            <h3>Ce que l’outil comprend – et ne comprend pas :</h3>
-            <ul>
-                <li><strong>Les compétences au niveau local (uniquement)</strong>: Communes, CPAS, régies communales autonomes, intercommunales, associations chapitre XII, …</li>
-                <li><strong>Les compétences des provinces et du Gouvernement wallon</strong>: Non incluses.</li>
-                <li><strong>L’inventaire se limite aux organes et fonctions permanents</strong>: Conseil communal, collège communal, bourgmestre, comité de direction, directeur général, directeur financier, …</li>
-                <li><strong>Les fusions communales et de CPAS</strong>: Non abordées.</li>
-                <li><strong>L’inventaire n’incorpore que les compétences explicites</strong>: Les compétences attribuées à « la commune » ou « au centre public d’action sociale » ne sont pas encore traitées.</li>
-                <li><strong>Les délégations explicites</strong>: Mentionnées avec leur base légale sous-jacente.</li>
-            </ul>
-        </div>
-    </div>  
+        <h1>
+            LexIA - Cadastre des compétences locales
+            <a href="https://exemple.com/en-savoir-plus" target="_blank" rel="noopener noreferrer"
+               style="font-size: 14px; margin-left: 10px; padding: 4px 8px; background-color: #053f7c; color: white; 
+                      text-decoration: none; border-radius: 5px; font-weight: normal; font-size: 12px;">
+                En savoir plus
+            </a>
+        </h1>
+    </div>    
 
     <div class="search-simple">
     <h2>Recherche simple</h2>
     <input type="text" id="simple-search" placeholder="Rechercher par mots-clés">
     <button onclick="executeSimpleSearch()">Rechercher</button>
-    <button class="toggle-advanced" onclick="toggleAdvancedSearch()">Recherche Avancée  ▼</button>
-</div>
-<div id="search-advanced" class="search-advanced">
-    <h2>Recherche avancée</h2>
-     <div class="filter-group">
-        <label for="entite-filter">Entité :</label>
-        <div class="dropdown">
-            <button id="entite-filter" class="filter-button" onclick="toggleDropdown(this)">Sélectionner une entité  ▼</button>
-            <div class="dropdown-content">
-                <label><input type="checkbox" value="ASBL communale"> Commune</label>
-                <label><input type="checkbox" value="Association de droit privé"> Province</label>
-                <label><input type="checkbox" value="association de droit public"> Région</label>
-                <label><input type="checkbox" value="Association de projet"> Association de projet</label>
-                <label><input type="checkbox" value="Autre organisme supralocal"> Autre organisme supralocal</label>
-                <label><input type="checkbox" value="Commune"> Commune</label>
-                <label><input type="checkbox" value="cultes reconnus"> Cultes reconnus</label>
-                <label><input type="checkbox" value="Hôpital qui dépend du CPAS"> Hôpital (attaché au CPAS)</label>
-                <label><input type="checkbox" value="intercommunale"> Intercommunale</label>
-                <label><input type="checkbox" value="personne morale ou association de fait associant une ou plusieurs de ces entités"> Personne morale ou association de fait associant une ou plusieurs de ces entités</label>
-                <label><input type="checkbox" value="province"> Province</label>
-                <label><input type="checkbox" value="régie communale autonome"> Régie communale autonome</label>
-                <label><input type="checkbox" value="régie provinciale autonome"> Régie provinciale autonome</label>
-                <label><input type="checkbox" value="société de droit privé"> Société de droit privé</label>
-                <label><input type="checkbox" value="société de droit public"> Société de droit public</label>
-                <label><input type="checkbox" value="société de logement"> Société de logement</label>
-                <label><input type="checkbox" value="société de logement de service public"> Société de logement de service public</label>
-                <label><input type="checkbox" value="société à participation publique locale significative"> Société à participation publique locale significative</label>
-                <label><input type="checkbox" value="tout organisme supralocal autre que l'association chapitre XII"> Tout organisme supralocal autre que l'association chapitre XII</label>
-            </div>
-        </div>
-    </div>
-    <div class="filter-group">
-        <label for="advanced-base-legale">Base légale :</label>
-        <div class="dropdown">
-            <button id="base-legale-filter" class="filter-button" onclick="toggleDropdown(this)">Sélectionner une base Légale  ▼</button>
-            <div class="dropdown-content">
-                <label><input type="checkbox" class="advanced-filter" data-field="BaseLegale" value="CDLD"> CDLD</label>
-                <label><input type="checkbox" class="advanced-filter" data-field="BaseLegale" value="Loi organique"> Loi organique</label>
-                <label><input type="checkbox" class="advanced-filter" data-field="BaseLegale" value="Nouvelle Loi communale"> Nouvelle Loi communale</label>
-            </div>
-        </div>
-    </div>
-    <div class="filter-group">
-        <label for="index-filter">Catégorie(s) :</label>
-        <div class="dropdown">
-            <button id="index-filter" class="filter-button" onclick="toggleDropdown(this)">Sélectionner un mot clé   ▼</button>
-            <div class="dropdown-content">
-               <label><input type="checkbox" class="filter" data-field="Sujet" value="mission, stratégie et synergie"> Mission, stratégie et synergie</label>
-<label><input type="checkbox" class="filter" data-field="Sujet" value="organes politiques, mandataires et représentation"> Organes politiques, mandataires et représentation</label>
-<label><input type="checkbox" class="filter" data-field="Sujet" value="personnel et organisation"> Personnel et organisation</label>
-<label><input type="checkbox" class="filter" data-field="Sujet" value="finances (et comptabilité)"> Finances (et comptabilité)</label>
-<label><input type="checkbox" class="filter" data-field="Sujet" value="marchés publics et contrats"> Marchés publics et contrats</label>
-<label><input type="checkbox" class="filter" data-field="Sujet" value="biens"> Biens</label>
-<label><input type="checkbox" class="filter" data-field="Sujet" value="juridique"> Juridique</label>
-<label><input type="checkbox" class="filter" data-field="Sujet" value="règlements et ordonnances (et arrêtés)"> Règlements et ordonnances (et arrêtés)</label>
-<label><input type="checkbox" class="filter" data-field="Sujet" value="action sociale (aide sociale)"> Action sociale (aide sociale)</label>
-<label><input type="checkbox" class="filter" data-field="Sujet" value="divers"> Divers</label>
-            </div>
-        </div>
-    </div>
-    <div class="filter-group">
-        <label for="organe-competent-filter">Organe compétent :</label>
-        <div class="dropdown">
-            <button id="organe-competent-filter" class="filter-button" onclick="toggleDropdown(this)">Sélectionner un organe compétent  ▼</button>
-            <div class="dropdown-content">
-                <label><input type="checkbox" class="filter" data-field="OrganeCompetent" value="collège communal"> Collège communal</label>
-                <label><input type="checkbox" class="filter" data-field="OrganeCompetent" value="conseil communal"> Conseil communal</label>
-                <label><input type="checkbox" class="filter" data-field="OrganeCompetent" value="administrateurs (de l'intercommunale)"> administrateurs (de l'intercommunale)</label>
-<label><input type="checkbox" class="filter" data-field="OrganeCompetent" value="assemblée générale (de l'intercommunale)"> assemblée générale (de l'intercommunale)</label>
-<label><input type="checkbox" class="filter" data-field="OrganeCompetent" value="assemblée générale de l'association (association chapitre XII)"> assemblée générale de l'association (association chapitre XII)</label>
-<label><input type="checkbox" class="filter" data-field="OrganeCompetent" value="bourgmestre"> bourgmestre</label>
-<label><input type="checkbox" class="filter" data-field="OrganeCompetent" value="bureau exécutif (régie communale autonome)"> bureau exécutif (régie communale autonome)</label>
-<label><input type="checkbox" class="filter" data-field="OrganeCompetent" value="bureau permanent"> bureau permanent</label>
-<label><input type="checkbox" class="filter" data-field="OrganeCompetent" value="collège (de l'intercommunale)"> collège (de l'intercommunale)</label>
-<label><input type="checkbox" class="filter" data-field="OrganeCompetent" value="collège communal"> collège communal</label>
-<label><input type="checkbox" class="filter" data-field="OrganeCompetent" value="comité de concertation"> comité de concertation</label>
-<label><input type="checkbox" class="filter" data-field="OrganeCompetent" value="comité de direction"> comité de direction</label>
-<label><input type="checkbox" class="filter" data-field="OrganeCompetent" value="comité de direction (association chapitre XII)"> comité de direction (association chapitre XII)</label>
-<label><input type="checkbox" class="filter" data-field="OrganeCompetent" value="comité de direction (CPAS)"> comité de direction (CPAS)</label>
-<label><input type="checkbox" class="filter" data-field="OrganeCompetent" value="comité de direction (de l'intercommunale)"> comité de direction (de l'intercommunale)</label>
-<label><input type="checkbox" class="filter" data-field="OrganeCompetent" value="comité de gestion (association de projet)"> comité de gestion (association de projet)</label>
-<label><input type="checkbox" class="filter" data-field="OrganeCompetent" value="comité de gestion (de l'hôpital)"> comité de gestion (de l'hôpital)</label>
-<label><input type="checkbox" class="filter" data-field="OrganeCompetent" value="comité de gestion (intercommunale)"> comité de gestion (intercommunale)</label>
-<label><input type="checkbox" class="filter" data-field="OrganeCompetent" value="comité de rémunération (de l'intercommunale)"> comité de rémunération (de l'intercommunale)</label>
-<label><input type="checkbox" class="filter" data-field="OrganeCompetent" value="comité spécial"> comité spécial</label>
-<label><input type="checkbox" class="filter" data-field="OrganeCompetent" value="comité spécial du service social"> comité spécial du service social</label>
-<label><input type="checkbox" class="filter" data-field="OrganeCompetent" value="conseil communal"> conseil communal</label>
-<label><input type="checkbox" class="filter" data-field="OrganeCompetent" value="conseil d'administration (association chapitre XII)"> conseil d'administration (association chapitre XII)</label>
-<label><input type="checkbox" class="filter" data-field="OrganeCompetent" value="conseil d'administration (de l'intercommunale)"> conseil d'administration (de l'intercommunale)</label>
-<label><input type="checkbox" class="filter" data-field="OrganeCompetent" value="conseil d'administration (régie communale autonome)"> conseil d'administration (régie communale autonome)</label>
-<label><input type="checkbox" class="filter" data-field="OrganeCompetent" value="conseil de l'action sociale"> conseil de l'action sociale</label>
-<label><input type="checkbox" class="filter" data-field="OrganeCompetent" value="conseiller communal (désigné par la commune pour la représenter)"> conseiller communal (désigné par la commune pour la représenter)</label>
-<label><input type="checkbox" class="filter" data-field="OrganeCompetent" value="conseiller de l'action sociale"> conseiller de l'action sociale</label>
-<label><input type="checkbox" class="filter" data-field="OrganeCompetent" value="directeur (de l'hôpital)"> directeur (de l'hôpital)</label>
-<label><input type="checkbox" class="filter" data-field="OrganeCompetent" value="directeur financier"> directeur financier</label>
-<label><input type="checkbox" class="filter" data-field="OrganeCompetent" value="directeur financier (CPAS)"> directeur financier (CPAS)</label>
-<label><input type="checkbox" class="filter" data-field="OrganeCompetent" value="directeur financier (de l'intercommunale)"> directeur financier (de l'intercommunale)</label>
-<label><input type="checkbox" class="filter" data-field="OrganeCompetent" value="directeur général"> directeur général</label>
-<label><input type="checkbox" class="filter" data-field="OrganeCompetent" value="directeur général (CPAS)"> directeur général (CPAS)</label>
-<label><input type="checkbox" class="filter" data-field="OrganeCompetent" value="directeur général adjoint"> directeur général adjoint</label>
-<label><input type="checkbox" class="filter" data-field="OrganeCompetent" value="directeur général adjoint (CPAS)"> directeur général adjoint (CPAS)</label>
-<label><input type="checkbox" class="filter" data-field="OrganeCompetent" value="échevin"> échevin</label>
-<label><input type="checkbox" class="filter" data-field="OrganeCompetent" value="échevin chargé de remplir les fonctions d'officier de l'état civil"> échevin chargé de remplir les fonctions d'officier de l'état civil</label>
-<label><input type="checkbox" class="filter" data-field="OrganeCompetent" value="fonction dirigeante locale"> fonction dirigeante locale</label>
-<label><input type="checkbox" class="filter" data-field="OrganeCompetent" value="fonction dirigeante locale (association chapitre XII)"> fonction dirigeante locale (association chapitre XII)</label>
-<label><input type="checkbox" class="filter" data-field="OrganeCompetent" value="fonction dirigeante locale (de l'intercommunale)"> fonction dirigeante locale (de l'intercommunale)</label>
-<label><input type="checkbox" class="filter" data-field="OrganeCompetent" value="officier de l'état civil"> officier de l'état civil</label>
-<label><input type="checkbox" class="filter" data-field="OrganeCompetent" value="président du conseil communal"> président du conseil communal</label>
-<label><input type="checkbox" class="filter" data-field="OrganeCompetent" value="président du conseil de l'action sociale"> président du conseil de l'action sociale</label>
-<label><input type="checkbox" class="filter" data-field="OrganeCompetent" value="référent intégrité"> référent intégrité</label>
-<label><input type="checkbox" class="filter" data-field="OrganeCompetent" value="référent intégrité (association chapitre XII)"> référent intégrité (association chapitre XII)</label>
-<label><input type="checkbox" class="filter" data-field="OrganeCompetent" value="référent intégrité (CPAS)"> référent intégrité (CPAS)</label>
-<label><input type="checkbox" class="filter" data-field="OrganeCompetent" value="travailleur social"> travailleur social</label>
-<label><input type="checkbox" class="filter" data-field="OrganeCompetent" value="trésorier (de l'hôpital)"> trésorier (de l'hôpital)</label>
-            </div>
-        </div>
-    </div>
-    <div class="filter-group">
-        <label for="sujet-filter">Catégorie(s) :</label>
-        <div class="dropdown">
-            <button id="sujet-filter" class="filter-button" onclick="toggleDropdown(this)">Sélectionner une catégorie  ▼</button>
-            <div class="dropdown-content">
-<label><input type="checkbox" class="filter" data-field="Sujet" value="mission, stratégie et synergie"> Mission, stratégie et synergie</label>
-<label><input type="checkbox" class="filter" data-field="Sujet" value="organes politiques, mandataires et représentation"> Organes politiques, mandataires et représentation</label>
-<label><input type="checkbox" class="filter" data-field="Sujet" value="personnel et organisation"> Personnel et organisation</label>
-<label><input type="checkbox" class="filter" data-field="Sujet" value="finances (et comptabilité)"> Finances (et comptabilité)</label>
-<label><input type="checkbox" class="filter" data-field="Sujet" value="marchés publics et contrats"> Marchés publics et contrats</label>
-<label><input type="checkbox" class="filter" data-field="Sujet" value="biens"> Biens</label>
-<label><input type="checkbox" class="filter" data-field="Sujet" value="juridique"> Juridique</label>             
-<label><input type="checkbox" class="filter" data-field="Sujet" value="règlements et ordonnances (et arrêtés)"> Règlements et ordonnances (et arrêtés)</label>
-<label><input type="checkbox" class="filter" data-field="Sujet" value="action sociale (aide sociale)"> Action sociale (aide sociale)</label>
-<label><input type="checkbox" class="filter" data-field="Sujet" value="divers"> Divers</label>
-            </div>
-        </div>
-    </div>
-    <div class="filter-group" style="justify-content: center; gap: 10px;">
-        <button onclick="executeAdvancedSearch()">Appliquer</button>
-        <button onclick="resetAdvancedSearch()">Réinitialiser</button>
-    </div>
 </div>
 <div id="applied-filters" class="applied-filters" style="display:none;"></div>
 <div class="main-container">
 <div id="filter-column" class="filter-column">
         <h3>Filtres</h3>
         <div class="filter-group">
+            <button class="filter-button" onclick="toggleDropdown(this)">Entité(s)</button>
+            <div class="dropdown-content">
+                <label><input type="checkbox" class="filter" data-field="EntiteFocus" value="ASBL communale"> ASBL Communale</label>
+                <label><input type="checkbox" class="filter" data-field="EntiteFocus" value="ASBL auxquelles participe le CPAS"> ASBL auxquelles participe le CPAS</label>
+                <label><input type="checkbox" class="filter" data-field="EntiteFocus" value="association de droit privé"> Province</label>
+                <label><input type="checkbox" class="filter" data-field="EntiteFocus" value="association chapitre XII"> Association chapitre XII</label>
+                <label><input type="checkbox" class="filter" data-field="EntiteFocus" value="association de droit public"> Région</label>
+                <label><input type="checkbox" class="filter" data-field="EntiteFocus" value="association de projet"> Association de projet</label>
+                <label><input type="checkbox" class="filter" data-field="EntiteFocus" value="Autre organisme supralocal"> Autre organisme supralocal</label>
+                <label><input type="checkbox" class="filter" data-field="EntiteFocus" value="commune"> Commune</label>
+                <label><input type="checkbox" class="filter" data-field="EntiteFocus" value="CPAS"> CPAS</label>
+                <label><input type="checkbox" class="filter" data-field="EntiteFocus" value="cultes reconnus"> Cultes reconnus</label>
+                <label><input type="checkbox" class="filter" data-field="EntiteFocus" value="hôpital qui dépend du CPAS"> Hôpital (attaché au CPAS)</label>
+                <label><input type="checkbox" class="filter" data-field="EntiteFocus" value="intercommunale"> Intercommunale</label>
+                <label><input type="checkbox" class="filter" data-field="EntiteFocus" value="personne morale ou association de fait associant une ou plusieurs de ces entités"> Personne morale ou association de fait associant une ou plusieurs de ces entités</label>
+                <label><input type="checkbox" class="filter" data-field="EntiteFocus" value="province"> Province</label>
+                <label><input type="checkbox" class="filter" data-field="EntiteFocus" value="régie communale autonome"> Régie communale autonome</label>
+                <label><input type="checkbox" class="filter" data-field="EntiteFocus" value="régie provinciale autonome"> Régie provinciale autonome</label>
+                <label><input type="checkbox" class="filter" data-field="EntiteFocus" value="société de droit privé"> Société de droit privé</label>
+                <label><input type="checkbox" class="filter" data-field="EntiteFocus" value="société de droit public"> Société de droit public</label>
+                <label><input type="checkbox" class="filter" data-field="EntiteFocus" value="société de logement"> Société de logement</label>
+                <label><input type="checkbox" class="filter" data-field="EntiteFocus" value="société de logement de service public"> Société de logement de service public</label>
+                <label><input type="checkbox" class="filter" data-field="EntiteFocus" value="société à participation publique locale significative"> Société à participation publique locale significative</label>
+                <label><input type="checkbox" class="filter" data-field="EntiteFocus" value="autre organisme supralocal"> Autre organisme supralocal</label>
+                <label><input type="checkbox" class="filter" data-field="EntiteFocus" value="organisme supralocal autre que l'association chapitre XII"> Organisme supralocal autre que l'association chapitre XI</label>
+            </div>
+        </div>
+    <div class="filter-group">
             <button class="filter-button" onclick="toggleDropdown(this)">Base légale</button>
             <div class="dropdown-content">
                 <label><input type="checkbox" class="filter" data-field="BaseLegale" value="CDLD"> CDLD</label>
@@ -910,7 +790,8 @@
 </div>
     <script>
                let data = []; // Variable globale pour stocker les données
- // Fonction pour afficher/masquer les informations supplémentaires
+
+               // Fonction pour afficher/masquer les informations supplémentaires
         function toggleCollapse() {
             const collapseSection = document.getElementById('collapse-info');
             const button = document.querySelector('.collapse-btn');
@@ -937,6 +818,7 @@ let currentResults = []; // Stocke les résultats actuels à afficher
 let selectedFilters = {}; // Stocke les filtres appliqués de manière globale
 
 function toggleDropdown(button) {
+    console.log('Bouton cliqué pour afficher les options du filtre');
     const filterGroup = button.parentElement;
     const isActive = filterGroup.classList.contains('active');
 
@@ -950,14 +832,6 @@ function toggleDropdown(button) {
         filterGroup.classList.add('active');
     }
 }
-document.addEventListener('click', function(event) {
-    const isClickInside = event.target.closest('.filter-group');
-    if (!isClickInside) {
-        document.querySelectorAll('.filter-group').forEach(group => {
-            group.classList.remove('active');
-        });
-    }
-});
 
 function toggleFilterVisibility(show) {
     const filterColumn = document.getElementById('filter-column');
@@ -967,6 +841,13 @@ function toggleFilterVisibility(show) {
         filterColumn.style.display = 'none'; // Masque les filtres
     }
 }
+// Détection de la touche "Enter" sur le champ de recherche
+document.getElementById("simple-search").addEventListener("keypress", function(event) {
+    if (event.key === "Enter") {
+        event.preventDefault(); // Empêche le rechargement de la page
+        executeSimpleSearch();  // Exécute la recherche
+    }
+});
 function executeSimpleSearch() {
     const query = document.getElementById('simple-search').value.toLowerCase();
     currentResults = data.filter(item => {
@@ -1015,91 +896,32 @@ function executeSimpleSearch() {
     }
 }
 
-function toggleAdvancedSearch() {
-    const advancedSearch = document.getElementById('search-advanced');
-    const isVisible = advancedSearch.style.display === 'block';
-
-    // Basculer l'affichage uniquement pour la recherche avancée
-    advancedSearch.style.display = isVisible ? 'none' : 'block';
-}
-
-function executeAdvancedSearch() {
-    // Parcours des cases cochées
-    document.querySelectorAll('.advanced-filter:checked').forEach(input => {
-        const field = input.getAttribute('data-field');
-        if (!selectedFilters[field]) {
-            selectedFilters[field] = [];
-        }
-        if (!selectedFilters[field].includes(input.value.toLowerCase())) {
-            selectedFilters[field].push(input.value.toLowerCase());
-        }
-    });
-
-    // Filtrage des résultats
-    const filteredResults = data.filter(item => {
-        return Object.keys(selectedFilters).every(field => {
-            if (!selectedFilters[field].length) return true;
-
-            const fieldValue = item[field];
-            if (Array.isArray(fieldValue)) {
-                return selectedFilters[field].some(filterValue =>
-                    fieldValue.some(value => value.toLowerCase().includes(filterValue))
-                );
-            } else if (typeof fieldValue === 'string') {
-                return selectedFilters[field].some(filterValue => {
-                    // Gestion des abréviations spécifiques
-                    if (filterValue === 'nouvelle loi communale') {
-                        return fieldValue.toLowerCase().includes('nlc');
-                    }
-                    if (filterValue === 'cdld') {
-                        return fieldValue.toLowerCase().includes('cdld');
-                    }
-                    if (filterValue === 'loi organique') {
-                        return fieldValue.toLowerCase().includes('lo');
-                    }
-                    // Filtrage classique
-                    return fieldValue.toLowerCase().includes(filterValue);
-                });
-            }
-            return false;
-        });
-    });
-
-    // Affiche les filtres appliqués
-    displayAppliedFilters(selectedFilters);
-
-    // Met à jour les résultats affichés
-    displayResults(filteredResults);
-}
-
-function resetAdvancedSearch() {
-    const baseLegale = document.getElementById('advanced-base-legale');
-    const index = document.getElementById('advanced-index');
-    const organeCompetent = document.getElementById('advanced-organe-competent');
-
-    // Réinitialiser les champs de sélection, si disponibles
-    if (baseLegale) BaseLegale.value = '';
-    if (index) index.value = '';
-    if (organeCompetent) organeCompetent.value = '';
-
-    // Décoche toutes les cases à cocher
-    document.querySelectorAll('.advanced-filter').forEach(filter => {
-        filter.checked = false;
-    });
-
-    // Efface les filtres appliqués
-    const appliedFiltersContainer = document.getElementById('applied-filters');
-    if (appliedFiltersContainer) {
-        appliedFiltersContainer.innerHTML = '';
-        appliedFiltersContainer.style.display = 'none'; // Masque le conteneur des filtres
-    }
-
-    // Réaffiche tous les résultats (supposant que `data` contient tous les éléments initiaux)
-    displayResults(data);
-}
-
 let currentPage = 1;  // Page actuelle
 const resultsPerPage = 25;  // Résultats par page
+
+function formatBaseLegale(baseLegaleStr) {
+    if (!baseLegaleStr) return "N/A";
+
+    // Remplacement de "juncto" et des ";" par un séparateur propre
+    baseLegaleStr = baseLegaleStr.replace(/(;|juncto)/g, ' juncto ');
+
+    // Expression régulière améliorée pour capturer "Texte (https://lien.com)" sans casser les virgules
+    const regex = /(.*?\([^)]+\))|([^,]+)/g;
+    
+    // Trouver toutes les correspondances
+    const references = baseLegaleStr.match(regex).map(ref => ref.trim());
+
+    // Transformer chaque référence en lien cliquable si elle contient une URL
+    return references.map(ref => {
+        const match = ref.match(/(.*)\((https?:\/\/[^)]+)\)/); // Capture "Texte (URL)"
+        if (match) {
+            const text = match[1].trim();
+            const url = match[2].trim();
+            return `<a href="${url}" class="base-legale" target="_blank">${text}</a>`;
+        }
+        return ref; // Retourne la référence seule si elle ne contient pas de lien
+    }).join(' '); // Séparer par un espace plutôt qu'une virgule
+}
 
 function displayResults(results) {
     const resultsContainer = document.getElementById('results');
@@ -1131,11 +953,11 @@ function displayResults(results) {
     // Générer les résultats pour chaque élément et ajouter au conteneur des résultats
   pageResults.forEach(item => {
     const fields = [
-        // Affichage de la compétence et du lien vers la base légale
+// Affichage de la compétence et du lien vers la base légale
         `<div class="result-item">
             <h3>
                 <span class="competence">${item.Competence || 'Non défini'}</span> - 
-                <a href="${item.LienConnect || '#'}" class="base-legale" target="_blank">${item.BaseLegale || 'N/A'}</a>
+                ${formatBaseLegale(item.BaseLegale)}
             </h3>`, 
 
         // Affichage de EntiteFocus, si disponible
@@ -1205,7 +1027,7 @@ function displayResults(results) {
 
     // Afficher les résultats
     results.forEach(item => {
-        const resultHTML = `<div class="result-item">${item.Competence} - <a href="${item.LienConnect}" target="_blank">${item.BaseLegale}</a></div>`;
+        const resultHTML = `<div class="result-item">${item.Competence} - <a href="${item.Hyperlien}" target="_blank">${item.BaseLegale}</a></div>`;
         resultsContainer.insertAdjacentHTML('beforeend', resultHTML);
     });
 }
@@ -1241,6 +1063,9 @@ function changePage(direction) {
     // Affiche les résultats pour la nouvelle page
     displayResults(currentResults);
 
+    // Faire défiler la page vers le haut
+    window.scrollTo(0, 0); // Scrolle vers le haut de la page
+
     // S'assurer que la recherche avancée reste masquée
     const advancedSearch = document.getElementById('search-advanced');
     if (advancedSearch) {
@@ -1259,14 +1084,18 @@ function filterBySubject(subject) {
     }
 }
 function applyFilters() {
+    selectedFilters = {}; // Réinitialise les filtres avant de les appliquer
+
     // Parcours des filtres sélectionnés
     document.querySelectorAll('.filter:checked').forEach(input => {
         const field = input.getAttribute('data-field');
+        const value = input.value.toLowerCase(); // Normalisation de la valeur
+
         if (!selectedFilters[field]) {
             selectedFilters[field] = [];
         }
-        if (!selectedFilters[field].includes(input.value.toLowerCase())) {
-            selectedFilters[field].push(input.value.toLowerCase());
+        if (!selectedFilters[field].includes(value)) {
+            selectedFilters[field].push(value);
         }
     });
 
@@ -1281,20 +1110,7 @@ function applyFilters() {
                     fieldValue.some(value => value.toLowerCase().includes(filterValue))
                 );
             } else if (typeof fieldValue === 'string') {
-                return selectedFilters[field].some(filterValue => {
-                    // Gestion des abréviations spécifiques
-                    if (filterValue === 'nouvelle loi communale') {
-                        return fieldValue.toLowerCase().includes('nlc');
-                    }
-                    if (filterValue === 'cdld') {
-                        return fieldValue.toLowerCase().includes('cdld');
-                    }
-                    if (filterValue === 'loi organique') {
-                        return fieldValue.toLowerCase().includes('lo');
-                    }
-                    // Filtrage classique
-                    return fieldValue.toLowerCase().includes(filterValue);
-                });
+                return selectedFilters[field].some(filterValue => fieldValue.toLowerCase().includes(filterValue));
             }
             return false;
         });
@@ -1309,6 +1125,36 @@ function applyFilters() {
     currentResults = filteredResults; // Mettre à jour avec les résultats filtrés
     displayResults(currentResults); // Mettre à jour l'affichage
 }
+function removeFilter(field, value) {
+    console.log(`Suppression du filtre: ${field} = ${value}`); // Vérifie les arguments
+
+    // Normalisation des valeurs pour la comparaison
+    const normalizedValue = value.toLowerCase();
+
+    // Supprime le filtre de selectedFilters
+    if (selectedFilters[field]) {
+        // Filtrer les valeurs dans selectedFilters en ignorant la casse
+        selectedFilters[field] = selectedFilters[field].filter(filterValue => filterValue.toLowerCase() !== normalizedValue);
+
+        // Si le champ n'a plus de filtres appliqués, supprimer la clé
+        if (selectedFilters[field].length === 0) {
+            delete selectedFilters[field];
+            console.log(`Filtre supprimé de selectedFilters: ${field}`);
+        }
+    }
+
+    // Décoche le filtre dans l'interface utilisateur en s'assurant de comparer les valeurs de manière uniforme
+    document.querySelectorAll(`.filter[data-field="${field}"]`).forEach(filter => {
+        if (filter.value.toLowerCase() === normalizedValue) {
+            filter.checked = false;
+            console.log(`Filtre décoché dans l'interface: ${field} = ${value}`);
+        }
+    });
+
+    // Réapplique les filtres restants et met à jour les résultats
+    applyFilters();
+    displayAppliedFilters(selectedFilters); // Met à jour l'affichage des filtres appliqués
+}
 
 function displayAppliedFilters(filters) {
     const appliedFiltersContainer = document.getElementById('applied-filters');
@@ -1319,126 +1165,24 @@ function displayAppliedFilters(filters) {
         filters[field].forEach(value => {
             const tag = document.createElement('span');
             tag.className = 'filter-tag';
-            
-            // Utilisation de textContent et gestion sécurisée des arguments
             tag.textContent = value;
+
+            // Créer un bouton de suppression pour chaque filtre
             const button = document.createElement('button');
             button.textContent = '×';
             button.onclick = function() {
-                removeFilter(field, value); // Appel sécurisé
+                removeFilter(field, value);  // Appel à removeFilter pour supprimer un filtre
             };
-            
-            // Ajoute le bouton au tag
-            tag.appendChild(button);
-            appliedFiltersContainer.appendChild(tag);
+
+            tag.appendChild(button); // Ajouter le bouton à chaque tag
+            appliedFiltersContainer.appendChild(tag); // Ajouter le tag au conteneur
         });
     });
 
-    // Affiche ou masque la section en fonction des filtres actifs
+    // Affiche ou masque la section des filtres appliqués en fonction du nombre de filtres
     appliedFiltersContainer.style.display = Object.keys(filters).length > 0 ? 'block' : 'none';
 }
 
-function removeFilter(field, value) {
-    console.log(`Suppression du filtre: ${field} = ${value}`); // Affiche le filtre en cours de suppression
-
-    // Nettoyage des valeurs (au cas où il y a des espaces avant ou après la valeur)
-    const cleanedValue = value.trim();  // Enlève les espaces au début et à la fin
-    console.log(`Valeur nettoyée pour suppression: ${cleanedValue}`);
-
-    // Vérifie si le filtre existe dans selectedFilters
-    if (selectedFilters[field]) {
-        console.log(`Filtres avant suppression: ${JSON.stringify(selectedFilters)}`);
-
-        // Supprime la valeur spécifique du filtre
-        selectedFilters[field] = selectedFilters[field].filter(filterValue => filterValue !== cleanedValue);
-        
-        // Vérifie l'état après suppression
-        console.log(`Filtres après suppression du filtre spécifique: ${JSON.stringify(selectedFilters)}`);
-
-        // Si le champ n'a plus de filtres appliqués, on supprime le champ entier
-        if (selectedFilters[field].length === 0) {
-            delete selectedFilters[field];
-            console.log(`Aucun filtre restant pour ${field}, suppression de l'entrée.`);
-        }
-    }
-
-    // Décoche le filtre dans l'interface
-    document.querySelectorAll(`.filter[data-field="${field}"][value="${cleanedValue}"]`).forEach(filter => {
-        filter.checked = false; // Décoche le filtre de l'interface
-        console.log(`Filtre décoché dans l'interface: ${field} = ${cleanedValue}`);
-    });
-
-    // Réinitialiser les filtres appliqués dans l'interface
-    updateFiltersUI();
-
-    // Vérifie l'état des filtres après suppression
-    console.log(`Filtres après suppression complète: ${JSON.stringify(selectedFilters)}`);
-
-    // Réapplique les filtres restants
-    applyFilters(); // Cette fonction réaffiche les résultats avec les filtres mis à jour
-}
-
-// Fonction pour réinitialiser et mettre à jour l'affichage des filtres après suppression
-function updateFiltersUI() {
-    const appliedFiltersContainer = document.getElementById('applied-filters');
-    appliedFiltersContainer.innerHTML = '';  // Vide le conteneur avant de redessiner
-
-    // Réaffiche les filtres restants
-    Object.keys(selectedFilters).forEach(field => {
-        selectedFilters[field].forEach(value => {
-            const tag = document.createElement('span');
-            tag.className = 'filter-tag';
-            
-            // Crée le bouton pour supprimer un filtre
-            const button = document.createElement('button');
-            button.textContent = '×';
-            button.onclick = function() {
-                removeFilter(field, value); // Appel sécurisé
-            };
-
-            // Ajoute le texte du filtre et le bouton de suppression
-            tag.textContent = value;
-            tag.appendChild(button);
-
-            // Ajoute le tag au conteneur
-            appliedFiltersContainer.appendChild(tag);
-        });
-    });
-
-    // Affiche ou masque la section des filtres appliqués
-    appliedFiltersContainer.style.display = Object.keys(selectedFilters).length > 0 ? 'block' : 'none';
-}
-
-// Fonction pour réinitialiser et mettre à jour l'affichage des filtres après suppression
-function updateFiltersUI() {
-    const appliedFiltersContainer = document.getElementById('applied-filters');
-    appliedFiltersContainer.innerHTML = '';  // Vide le conteneur avant de redessiner
-
-    // Réaffiche les filtres restants
-    Object.keys(selectedFilters).forEach(field => {
-        selectedFilters[field].forEach(value => {
-            const tag = document.createElement('span');
-            tag.className = 'filter-tag';
-            
-            // Crée le bouton pour supprimer un filtre
-            const button = document.createElement('button');
-            button.textContent = '×';
-            button.onclick = function() {
-                removeFilter(field, value); // Appel sécurisé
-            };
-
-            // Ajoute le texte du filtre et le bouton de suppression
-            tag.textContent = value;
-            tag.appendChild(button);
-
-            // Ajoute le tag au conteneur
-            appliedFiltersContainer.appendChild(tag);
-        });
-    });
-
-    // Affiche ou masque la section des filtres appliqués
-    appliedFiltersContainer.style.display = Object.keys(selectedFilters).length > 0 ? 'block' : 'none';
-}
 function removeAdvancedFilter(field, value) {
     console.log(`Suppression du filtre avancé: ${field} = ${value}`); // Vérifie les arguments
     if (selectedFilters[field]) {
