@@ -899,7 +899,23 @@ function executeSimpleSearch() {
 
 let currentPage = 1;  // Page actuelle
 const resultsPerPage = 25;  // Résultats par page
+function formatBaseLegale(baseLegaleStr) {
+    if (!baseLegaleStr) return "N/A";
 
+    // Séparer les références qui sont séparées par des virgules
+    const references = baseLegaleStr.split(',').map(ref => ref.trim());
+
+    // Transformer chaque référence en lien
+    return references.map(ref => {
+        const match = ref.match(/(.*)\((https?:\/\/[^)]+)\)/); // Capture "Texte (URL)"
+        if (match) {
+            const text = match[1].trim();
+            const url = match[2].trim();
+            return `<a href="${url}" class="base-legale" target="_blank">${text}</a>`;
+        }
+        return ref; // Retourne la référence seule si elle ne contient pas de lien
+    }).join(', ');
+}
 function displayResults(results) {
     const resultsContainer = document.getElementById('results');
     const paginationContainer = document.getElementById('pagination');
@@ -934,7 +950,7 @@ function displayResults(results) {
         `<div class="result-item">
             <h3>
                 <span class="competence">${item.Competence || 'Non défini'}</span> - 
-                <a href="${item.Hyperlien || '#'}" class="base-legale" target="_blank">${item.BaseLegale || 'N/A'}</a>
+                ${formatBaseLegale(item.BaseLegale)}
             </h3>`, 
 
         // Affichage de EntiteFocus, si disponible
