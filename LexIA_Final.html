@@ -209,11 +209,13 @@
     padding: 10px;
     max-width: 250px; /* Limite la largeur de la boîte des options */
     width: auto; /* S'adapte au contenu mais ne prend pas toute la largeur */
-    max-height: 300px; /* Limite la hauteur pour éviter que le menu ne devienne trop grand */
+    max-height: 300px; /* Limite la hauteur pour éviter des menus trop grands */
     overflow-y: auto; /* Ajoute un défilement vertical si nécessaire */
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     z-index: 10;
     transition: all 0.3s ease;
+    word-wrap: break-word; /* Permet de couper le texte qui dépasse pour qu'il revienne à la ligne */
+    white-space: normal; /* Permet aux éléments de texte de revenir à la ligne automatiquement */
 }
 
 /* Optionnel : Pour ajuster les éléments à l'intérieur du menu (les cases à cocher) */
@@ -222,7 +224,7 @@
     padding: 8px 10px; /* Ajoute un peu d'espace autour des options */
     cursor: pointer;
     font-size: 14px;
-    white-space: nowrap; /* Empêche le texte de se couper si trop long */
+    white-space: normal; /* Permet aux textes longs de revenir à la ligne */
 }
 
 /* Pour gérer les éléments déroulants au survol */
