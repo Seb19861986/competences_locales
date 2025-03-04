@@ -1218,7 +1218,7 @@ function resetFilters() {
     const appliedFiltersContainer = document.getElementById('applied-filters');
     appliedFiltersContainer.style.display = 'none';
 }
-        // Ajoutez cette fonction à la fin de votre script
+// Ajoutez cette fonction à la fin de votre script
 document.addEventListener('click', function(event) {
     const filterGroups = document.querySelectorAll('.filter-group');
     
@@ -1231,6 +1231,25 @@ document.addEventListener('click', function(event) {
         }
     });
 });
+
+// Cette fonction est déclenchée lorsque vous cliquez sur un bouton de filtre
+function toggleDropdown(button) {
+    const filterGroup = button.parentElement;
+    const dropdown = filterGroup.querySelector('.dropdown-content');
+    const isActive = filterGroup.classList.contains('active');
+
+    // Ferme tous les autres menus
+    document.querySelectorAll('.filter-group').forEach(group => {
+        group.classList.remove('active');
+        group.querySelector('.dropdown-content').style.display = 'none';
+    });
+
+    // Si ce n'est pas déjà actif, active ce groupe et affiche le menu
+    if (!isActive) {
+        filterGroup.classList.add('active');
+        dropdown.style.display = 'block'; // Affiche le menu déroulant
+    }
+}
     </script>
 </body>
 </html>
