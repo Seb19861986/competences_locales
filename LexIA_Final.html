@@ -207,13 +207,27 @@
     border: 1px solid #ddd;
     border-radius: 5px;
     padding: 10px;
-    max-width: 250px; /* Limiter la largeur de la boîte des options à 250px */
-    width: auto; /* S'adapte à la largeur du contenu */
-    max-height: 300px; /* Limite la hauteur pour éviter des menus trop grands */
-    overflow-y: auto; /* Ajouter un défilement vertical si nécessaire */
+    max-width: 250px; /* Limite la largeur de la boîte des options */
+    width: auto; /* S'adapte au contenu mais ne prend pas toute la largeur */
+    max-height: 300px; /* Limite la hauteur pour éviter que le menu ne devienne trop grand */
+    overflow-y: auto; /* Ajoute un défilement vertical si nécessaire */
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     z-index: 10;
     transition: all 0.3s ease;
+}
+
+/* Optionnel : Pour ajuster les éléments à l'intérieur du menu (les cases à cocher) */
+.filter-group .dropdown-content label {
+    display: block; /* Aligne chaque élément de la liste sur une nouvelle ligne */
+    padding: 8px 10px; /* Ajoute un peu d'espace autour des options */
+    cursor: pointer;
+    font-size: 14px;
+    white-space: nowrap; /* Empêche le texte de se couper si trop long */
+}
+
+/* Pour gérer les éléments déroulants au survol */
+.filter-group .dropdown-content label:hover {
+    background-color: #f0f0f0; /* Changement de couleur au survol pour les options */
 }
 
 .filter-group.active .dropdown-content {
