@@ -1218,6 +1218,19 @@ function resetFilters() {
     const appliedFiltersContainer = document.getElementById('applied-filters');
     appliedFiltersContainer.style.display = 'none';
 }
+        // Ajoutez cette fonction à la fin de votre script
+document.addEventListener('click', function(event) {
+    const filterGroups = document.querySelectorAll('.filter-group');
+    
+    filterGroups.forEach(group => {
+        const dropdown = group.querySelector('.dropdown-content');
+        
+        // Si le clic est en dehors du groupe de filtres et du menu déroulant, fermez-le
+        if (!group.contains(event.target)) {
+            dropdown.style.display = 'none'; // Masque le menu déroulant
+        }
+    });
+});
     </script>
 </body>
 </html>
