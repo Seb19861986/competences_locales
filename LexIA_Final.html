@@ -207,37 +207,33 @@
     border: 1px solid #ddd;
     border-radius: 5px;
     padding: 10px;
-    max-width: 250px; /* Limite la largeur de la boîte des options */
-    width: auto; /* S'adapte au contenu mais ne prend pas toute la largeur */
-    max-height: 300px; /* Limite la hauteur pour éviter des menus trop grands */
+    width: auto; /* La largeur s'ajuste en fonction du contenu */
+    max-width: 250px; /* Largeur maximale pour éviter une trop grande largeur */
+    max-height: 300px; /* Limite la hauteur pour éviter de trop grands menus */
     overflow-y: auto; /* Ajoute un défilement vertical si nécessaire */
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     z-index: 10;
     transition: all 0.3s ease;
-    word-wrap: break-word; /* Permet de couper le texte qui dépasse pour qu'il revienne à la ligne */
-    white-space: normal; /* Permet aux éléments de texte de revenir à la ligne automatiquement */
+    word-wrap: break-word; /* Permet de couper les mots qui dépassent */
+    white-space: normal; /* Permet aux éléments de texte de revenir à la ligne */
 }
 
-/* Optionnel : Pour ajuster les éléments à l'intérieur du menu (les cases à cocher) */
 .filter-group .dropdown-content label {
-    display: block; /* Aligne chaque élément de la liste sur une nouvelle ligne */
+    display: block; /* Chaque élément de la liste occupe une nouvelle ligne */
     padding: 8px 10px; /* Ajoute un peu d'espace autour des options */
     cursor: pointer;
     font-size: 14px;
     white-space: normal; /* Permet aux textes longs de revenir à la ligne */
 }
 
-/* Pour gérer les éléments déroulants au survol */
+/* Pour les éléments déroulants au survol */
 .filter-group .dropdown-content label:hover {
     background-color: #f0f0f0; /* Changement de couleur au survol pour les options */
 }
 
 .filter-group.active .dropdown-content {
     display: block; /* Affiche les options quand la classe "active" est ajoutée */
-    width: auto;  /* Ajuster la largeur en fonction du contenu */
-    max-width: 300px; /* Limite la largeur pour éviter qu'elle devienne trop grande */
 }
-
 .dropdown-content label {
     display: flex; /* Alignement horizontal */
     align-items: center; /* Aligne les éléments au centre verticalement */
