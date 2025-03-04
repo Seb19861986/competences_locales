@@ -816,19 +816,24 @@
 let currentResults = []; // Stocke les résultats actuels à afficher
 let selectedFilters = {}; // Stocke les filtres appliqués de manière globale
 
+// Fonction de bascule des menus déroulants
 function toggleDropdown(button) {
-    console.log('Bouton cliqué pour afficher les options du filtre');
     const filterGroup = button.parentElement;
+    const dropdown = filterGroup.querySelector('.dropdown-content');
     const isActive = filterGroup.classList.contains('active');
 
-    // Ferme tous les autres menus
+    // Ferme tous les autres menus déroulants
     document.querySelectorAll('.filter-group').forEach(group => {
         group.classList.remove('active');
+        group.querySelector('.dropdown-content').style.display = 'none'; // Masque les autres menus
     });
 
-    // Active/désactive le menu cliqué
+    // Active le menu du bouton cliqué
     if (!isActive) {
         filterGroup.classList.add('active');
+        dropdown.style.display = 'block'; // Affiche le menu déroulant du filtre cliqué
+    } else {
+        dropdown.style.display = 'none'; // Si le menu était déjà ouvert, on le ferme
     }
 }
 
@@ -1217,16 +1222,16 @@ function resetFilters() {
     const appliedFiltersContainer = document.getElementById('applied-filters');
     appliedFiltersContainer.style.display = 'none';
 }
-// Ajoutez cette fonction à la fin de votre script
+// Empêche que les menus soient fermés de manière intempestive
 document.addEventListener('click', function(event) {
     const filterGroups = document.querySelectorAll('.filter-group');
     
     filterGroups.forEach(group => {
         const dropdown = group.querySelector('.dropdown-content');
         
-        // Si le clic est en dehors du groupe de filtres et du menu déroulant, fermez-le
+        // Si le clic se fait à l'extérieur du groupe ou du menu déroulant, on ferme le menu
         if (!group.contains(event.target)) {
-            dropdown.style.display = 'none'; // Masque le menu déroulant
+            dropdown.style.display = 'none'; // Ferme le menu
         }
     });
 });
