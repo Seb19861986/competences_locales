@@ -220,7 +220,7 @@
 
 /* Optionnel : Pour ajuster les éléments à l'intérieur du menu (les cases à cocher) */
 .filter-group .dropdown-content label {
-    display: contents; /* Aligne chaque élément de la liste sur une nouvelle ligne */
+    display: block; /* Aligne chaque élément de la liste sur une nouvelle ligne */
     padding: 8px 10px; /* Ajoute un peu d'espace autour des options */
     cursor: pointer;
     font-size: 14px;
@@ -233,7 +233,7 @@
 }
 
 .filter-group.active .dropdown-content {
-    display: contents; /* Affiche les options quand la classe "active" est ajoutée */
+    display: block; /* Affiche les options quand la classe "active" est ajoutée */
     width: auto;  /* Ajuster la largeur en fonction du contenu */
     max-width: 300px; /* Limite la largeur pour éviter qu'elle devienne trop grande */
 }
@@ -276,7 +276,7 @@
         }
         
         .dropdown:focus-within .dropdown-content {
-            display: contents;
+            display: block;
             max-height: 150px;
             padding: 10px;
         }
