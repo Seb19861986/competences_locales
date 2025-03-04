@@ -207,13 +207,12 @@
     border: 1px solid #ddd;
     border-radius: 5px;
     padding: 10px;
-    max-width: 100%; /* S'adapte à la largeur du parent */
-    max-height: 300px; /* Hauteur maximale du menu */
-    overflow-y: auto; /* Ajoute une barre de défilement verticale si nécessaire */
-    word-wrap: break-word; /* Coupe les mots longs pour éviter de déborder */
-    white-space: normal; /* Permet aux mots de revenir à la ligne */
+    max-width: 250px; /* Limiter la largeur de la boîte des options à 250px */
+    width: auto; /* S'adapte à la largeur du contenu */
+    max-height: 300px; /* Limite la hauteur pour éviter des menus trop grands */
+    overflow-y: auto; /* Ajouter un défilement vertical si nécessaire */
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    z-index: 1000;
+    z-index: 10;
     transition: all 0.3s ease;
 }
 
