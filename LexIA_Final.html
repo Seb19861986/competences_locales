@@ -912,7 +912,29 @@ function formatBaseLegale(baseLegaleStr) {
         return ref; // Retourne la référence seule si elle ne contient pas de lien
     }).join(' '); // Séparer par un espace plutôt qu'une virgule
 }
+function formatBaseDelegation(baseDelegationStr) {
+    if (!baseDelegationStr) return "N/A";
 
+    // Remplacement de "juncto" et des ";" par un séparateur propre
+    baseDelegationStr = baseDelegationStr.replace(/(;|juncto)/g, ' juncto ');
+
+    // Expression régulière pour capturer "Texte (https://lien.com)"
+    const regex = /(.*?\([^)]+\))|([^,]+)/g;
+
+    // Trouver toutes les correspondances
+    const references = baseDelegationStr.match(regex).map(ref => ref.trim());
+
+    // Transformer chaque référence en lien cliquable si elle contient une URL
+    return references.map(ref => {
+        const match = ref.match(/(.*)\((https?:\/\/[^)]+)\)/); // Capture "Texte (URL)"
+        if (match) {
+            const text = match[1].trim();
+            const url = match[2].trim();
+            return `<a href="${url}" class="base-delegation" target="_blank">${text}</a>`;
+        }
+        return ref; // Retourne la référence seule si elle ne contient pas de lien
+    }).join(' '); // Séparer par un espace plutôt qu'une virgule
+}
 function displayResults(results) {
     const resultsContainer = document.getElementById('results');
     const paginationContainer = document.getElementById('pagination');
@@ -941,56 +963,57 @@ function displayResults(results) {
     const pageResults = results.slice(startIndex, endIndex);
 
     // Générer les résultats pour chaque élément et ajouter au conteneur des résultats
-  pageResults.forEach(item => {
-    const fields = [
-// Affichage de la compétence et du lien vers la base légale
-        `<div class="result-item">
-            <h3>
-                <span class="competence">${item.Competence || 'Non défini'}</span> - 
-                ${formatBaseLegale(item.BaseLegale)}
-            </h3>`, 
+    pageResults.forEach(item => {
+        const fields = [
+            // Affichage de la compétence et du lien vers la base légale
+            `<div class="result-item">
+                <h3>
+                    <span class="competence">${item.Competence || 'Non défini'}</span> - 
+                    ${formatBaseLegale(item.BaseLegale)} - 
+                    ${formatBaseDelegation(item.BaseLegaleDelegation)} <!-- Afficher les liens de la base de délégation -->
+                </h3>`, 
 
-        // Affichage de EntiteFocus, si disponible
-        item.EntiteFocus && (Array.isArray(item.EntiteFocus) || typeof item.EntiteFocus === 'string') 
-            ? `<p><strong>Entité Focus :</strong> ${Array.isArray(item.EntiteFocus) ? item.EntiteFocus.join(', ') : item.EntiteFocus}</p>`
-            : '',
+            // Affichage de EntiteFocus, si disponible
+            item.EntiteFocus && (Array.isArray(item.EntiteFocus) || typeof item.EntiteFocus === 'string') 
+                ? `<p><strong>Entité Focus :</strong> ${Array.isArray(item.EntiteFocus) ? item.EntiteFocus.join(', ') : item.EntiteFocus}</p>`
+                : '',
 
-        // Affichage des sujets avec chaque élément comme hyperlien
-        item.Sujet && item.Sujet !== 'N/A'
-            ? `<p><strong>Sujet :</strong> ${item.Sujet.split(',').map(tag => 
-                `<a href="#" onclick="filterByTag('${tag.trim()}')">${tag.trim()}</a>`).join(', ')}</p>`
-            : '',
+            // Affichage des autres informations comme Sujet, OrganeCompetent, etc.
+            item.Sujet && item.Sujet !== 'N/A'
+                ? `<p><strong>Sujet :</strong> ${item.Sujet.split(',').map(tag => 
+                    `<a href="#" onclick="filterByTag('${tag.trim()}')">${tag.trim()}</a>`).join(', ')}</p>`
+                : '',
 
-        // Affichage de IndexObjet_1, si disponible
-        item.IndexObjet && item.IndexObjet !== 'N/A'
-            ? `<p><strong>Index Objet :</strong> ${item.IndexObjet}</p>`
-            : '',
+            // Commentaire, Délégation, Base de légale (délégation), etc.
+            item.Commentaire && item.Commentaire !== 'N/A'
+                ? `<p><strong>Commentaire(s) :</strong> ${item.Commentaire}</p>`
+                : '',
 
-        // Affichage de OrganeCompetent, si disponible
-        item.OrganeCompetent && (Array.isArray(item.OrganeCompetent) || typeof item.OrganeCompetent === 'string') 
-            ? `<p><strong>Organe Compétent :</strong> ${Array.isArray(item.OrganeCompetent) ? item.OrganeCompetent.join(', ') : item.OrganeCompetent}</p>`
-            : '',
+            // Base légale (délégation)
+            item.BaseDelegation && item.BaseDelegation !== 'N/A'
+                ? `<p><strong>Base légale (délégation) :</strong> ${item.BaseDelegation}</p>`
+                : ''
+        ];
 
-        // Commentaire
-        item.Commentaire && item.Commentaire !== 'N/A'
-            ? `<p><strong>Commentaire(s) :</strong> ${item.Commentaire}</p>`
-            : '',
+        // Ajouter chaque result-item directement au conteneur
+        const resultHTML = `<div class="result-item">${fields.filter(Boolean).join('')}</div>`;
+        resultsContainer.insertAdjacentHTML('beforeend', resultHTML);
+    });
 
-        // Délégation
-        item.Delegation && item.Delegation !== 'N/A'
-            ? `<p><strong>Délégation :</strong> ${item.Delegation}</p>`
-            : '',
+    // Calculer le nombre total de pages
+    const totalPages = Math.ceil(results.length / resultsPerPage);
 
-        // Base légale (délégation)
-        item.BaseDelegation && item.BaseDelegation !== 'N/A'
-            ? `<p><strong>Base légale (délégation) :</strong> ${item.BaseDelegation}</p>`
-            : ''
-    ];
+    // Mettre à jour la pagination
+    if (paginationContainer) {
+        paginationContainer.style.display = 'block';
+        document.getElementById('pageInfo').textContent = `Page ${currentPage} sur ${totalPages}`;
+        document.getElementById('prevPage').disabled = currentPage === 1;
+        document.getElementById('nextPage').disabled = currentPage === totalPages;
+    }
 
-    // Ajouter chaque result-item directement au conteneur
-    const resultHTML = `<div class="result-item">${fields.filter(Boolean).join('')}</div>`;
-    resultsContainer.insertAdjacentHTML('beforeend', resultHTML);
-});
+    // Assurer que les filtres restent visibles
+    if (filterColumn) filterColumn.style.display = 'block';
+}
 
 // Fonction pour filtrer par tag cliqué
 function filterByTag(tag) {
