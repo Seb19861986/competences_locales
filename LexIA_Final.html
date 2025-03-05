@@ -1072,12 +1072,10 @@ function displayResults(results) {
         // Affichage de la compétence et du lien vers la base légale
         if (item.Competence) {
             fields.push(`
-                <div class="result-item">
                     <h3>
                         <span class="competence">${item.Competence || 'Non défini'}</span> - 
                         ${formatBaseLegale(item.BaseLegale)}
                     </h3>
-                </div>
             `);
         }
 
