@@ -1066,42 +1066,70 @@ function displayResults(results) {
 
     // Générer les résultats pour chaque élément et ajouter au conteneur des résultats
     pageResults.forEach(item => {
-        const fields = [
-            // Affichage de la compétence et du lien vers la base légale
-            `<div class="result-item">
-                <h3>
-                    <span class="competence">${item.Competence || 'Non défini'}</span> - 
-                    ${formatBaseLegale(item.BaseLegale)} 
-                    <br>
-                    ${formatBaseDelegation(item.BaseLegaleDelegation)} <!-- Afficher le lien BaseLegaleDelegation -->
-                </h3>`, 
+        // Créer un tableau pour les champs qui seront affichés
+        const fields = [];
 
-            // Affichage de EntiteFocus, si disponible
-            item.EntiteFocus && (Array.isArray(item.EntiteFocus) || typeof item.EntiteFocus === 'string') 
-                ? `<p><strong>Entité Focus :</strong> ${Array.isArray(item.EntiteFocus) ? item.EntiteFocus.join(', ') : item.EntiteFocus}</p>`
-                : '',
+        // Affichage de la compétence et du lien vers la base légale
+        if (item.Competence) {
+            fields.push(`
+                <div class="result-item">
+                    <h3>
+                        <span class="competence">${item.Competence || 'Non défini'}</span> - 
+                        ${formatBaseLegale(item.BaseLegale)}
+                    </h3>
+                </div>
+            `);
+        }
 
-            // Affichage des autres informations comme Sujet, OrganeCompetent, etc.
-            item.Sujet && item.Sujet !== 'N/A'
-                ? `<p><strong>Sujet :</strong> ${item.Sujet.split(',').map(tag => 
-                    `<a href="#" onclick="filterByTag('${tag.trim()}')">${tag.trim()}</a>`).join(', ')}</p>`
-                : '',
+        // Affichage de EntiteFocus, si disponible
+        if (item.EntiteFocus && (Array.isArray(item.EntiteFocus) || typeof item.EntiteFocus === 'string')) {
+            fields.push(`
+                <p><strong>Entité Focus :</strong> ${Array.isArray(item.EntiteFocus) ? item.EntiteFocus.join(', ') : item.EntiteFocus}</p>
+            `);
+        }
 
-            // Commentaire
-            item.Commentaire && item.Commentaire !== 'N/A'
-                ? `<p><strong>Commentaire(s) :</strong> ${item.Commentaire}</p>`
-                : '',
+        // Affichage des sujets avec chaque élément comme hyperlien
+        if (item.Sujet && item.Sujet !== 'N/A') {
+            fields.push(`
+                <p><strong>Sujet :</strong> ${item.Sujet.split(',').map(tag => 
+                    `<a href="#" onclick="filterByTag('${tag.trim()}')">${tag.trim()}</a>`).join(', ')}</p>
+            `);
+        }
 
-            // Délégation
-            item.Delegation && item.Delegation !== 'N/A'
-                ? `<p><strong>Délégation :</strong> ${item.Delegation}</p>` // Affichage du champ Délégation
-                : '',
+        // Affichage de IndexObjet_1, si disponible
+        if (item.IndexObjet && item.IndexObjet !== 'N/A') {
+            fields.push(`
+                <p><strong>Index Objet :</strong> ${item.IndexObjet}</p>
+            `);
+        }
 
-            // Affichage de BaseLégaleDelegation
-            item.BaseLegaleDelegation && item.BaseLegaleDelegation !== 'N/A'
-                ? `<p><strong>Base légale de la délégation :</strong> ${formatBaseDelegation(item.BaseLegaleDelegation)}</p>`  // Affichage du lien de BaseLégaleDelegation
-                : ''
-        ];
+        // Affichage de OrganeCompetent, si disponible
+        if (item.OrganeCompetent && (Array.isArray(item.OrganeCompetent) || typeof item.OrganeCompetent === 'string')) {
+            fields.push(`
+                <p><strong>Organe Compétent :</strong> ${Array.isArray(item.OrganeCompetent) ? item.OrganeCompetent.join(', ') : item.OrganeCompetent}</p>
+            `);
+        }
+
+        // Commentaire
+        if (item.Commentaire && item.Commentaire !== 'N/A') {
+            fields.push(`
+                <p><strong>Commentaire(s) :</strong> ${item.Commentaire}</p>
+            `);
+        }
+
+        // Délégation
+        if (item.Delegation && item.Delegation !== 'N/A') {
+            fields.push(`
+                <p><strong>Délégation :</strong> ${item.Delegation}</p>
+            `);
+        }
+
+        // Base légale (délégation) affiché en dernier
+        if (item.BaseLegaleDelegation && item.BaseLegaleDelegation !== 'N/A') {
+            fields.push(`
+                <p><strong>Base légale de la délégation :</strong> ${formatBaseDelegation(item.BaseLegaleDelegation)}</p>
+            `);
+        }
 
         // Ajouter chaque result-item directement au conteneur
         const resultHTML = `<div class="result-item">${fields.filter(Boolean).join('')}</div>`;
