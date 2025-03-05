@@ -903,11 +903,14 @@ function formatBaseLegale(baseLegaleStr) {
 
     // Transformer chaque référence en lien cliquable si elle contient une URL
     return references.map(ref => {
-        const match = ref.match(/(.*)\((https?:\/\/[^)]+)\)/); // Capture "Texte (URL)"
+        const match = ref.match(/(.*?)(\s*\((https?:\/\/[^)]+)\))?/); // Capture "Texte (URL)"
         if (match) {
             const text = match[1].trim();
-            const url = match[2].trim();
-            return `<a href="${url}" class="base-legale" target="_blank">${text}</a>`;
+            const url = match[3] ? match[3].trim() : null; // Seulement l'URL est capturée
+            if (url) {
+                return `<a href="${url}" class="base-legale" target="_blank">${text}</a>`;
+            }
+            return text; // Retourne simplement le texte si aucune URL
         }
         return ref; // Retourne la référence seule si elle ne contient pas de lien
     }).join(' '); // Séparer les références par un espace
