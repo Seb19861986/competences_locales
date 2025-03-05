@@ -892,8 +892,8 @@ const resultsPerPage = 25;  // Résultats par page
 function formatBaseLegale(baseLegaleStr) {
     if (!baseLegaleStr) return "N/A";
 
-    // Remplacement de "juncto" et des ";" par un séparateur propre
-    baseLegaleStr = baseLegaleStr.replace(/(;|juncto)/g, ' juncto ');
+    // Remplacer les points-virgules et "juncto" par un séparateur propre
+    baseLegaleStr = baseLegaleStr.replace(/(;|juncto)/g, ' ');  // Remplace "juncto" par un espace
 
     // Expression régulière améliorée pour capturer "Texte (https://lien.com)" sans casser les virgules
     const regex = /(.*?\([^)]+\))|([^,]+)/g;
@@ -903,6 +903,7 @@ function formatBaseLegale(baseLegaleStr) {
 
     // Transformer chaque référence en lien cliquable si elle contient une URL
     return references.map(ref => {
+        // Assurez-vous que "juncto" ne fait pas partie de l'hyperlien
         const match = ref.match(/(.*)\((https?:\/\/[^)]+)\)/); // Capture "Texte (URL)"
         if (match) {
             const text = match[1].trim();
@@ -910,8 +911,9 @@ function formatBaseLegale(baseLegaleStr) {
             return `<a href="${url}" class="base-legale" target="_blank">${text}</a>`;
         }
         return ref; // Retourne la référence seule si elle ne contient pas de lien
-    }).join(' '); // Séparer par un espace plutôt qu'une virgule
+    }).join(' '); // Séparer les références par un espace
 }
+
 function formatBaseDelegation(baseDelegationStr) {
     if (!baseDelegationStr) return "N/A";
 
