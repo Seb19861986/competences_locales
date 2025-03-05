@@ -1039,20 +1039,75 @@ function filterByTag(tag) {
 // Affichage des résultats filtrés
 function displayResults(results) {
     const resultsContainer = document.getElementById('results');
+    const paginationContainer = document.getElementById('pagination');
+    const filterColumn = document.getElementById('filter-column');
+
     if (!resultsContainer) {
         console.error("L'élément #results est introuvable dans le DOM.");
         return;
     }
 
-    // Réinitialiser les résultats avant d'afficher les nouveaux
-    resultsContainer.innerHTML = '';
+    // Réinitialisation du conteneur avant d'ajouter de nouveaux résultats pour éviter les duplications
+    resultsContainer.innerHTML = '';  
 
-    // Afficher les résultats
-    results.forEach(item => {
-        const resultHTML = `<div class="result-item">${item.Competence} - <a href="${item.Hyperlien}" target="_blank">${item.BaseLegale}</a></div>`;
+    // Si aucun résultat trouvé
+    if (results.length === 0) {
+        resultsContainer.style.display = 'none'; // Masque le conteneur des résultats
+        return;
+    }
+
+    // Affiche le conteneur des résultats
+    resultsContainer.style.display = 'block';
+
+    // Calculer les indices de pagination
+    const startIndex = (currentPage - 1) * resultsPerPage;
+    const endIndex = Math.min(startIndex + resultsPerPage, results.length);
+    const pageResults = results.slice(startIndex, endIndex);
+
+    // Générer les résultats pour chaque élément et ajouter au conteneur des résultats
+    pageResults.forEach(item => {
+        const fields = [
+            // Affichage de la compétence et du lien vers la base légale
+            `<div class="result-item">
+                <h3>
+                    <span class="competence">${item.Competence || 'Non défini'}</span> - 
+                    ${formatBaseLegale(item.BaseLegale)} 
+                    <br>
+                    ${formatBaseDelegation(item.BaseLegaleDelegation)} <!-- Afficher le lien BaseLegaleDelegation -->
+                </h3>`, 
+
+            // Affichage de EntiteFocus, si disponible
+            item.EntiteFocus && (Array.isArray(item.EntiteFocus) || typeof item.EntiteFocus === 'string') 
+                ? `<p><strong>Entité Focus :</strong> ${Array.isArray(item.EntiteFocus) ? item.EntiteFocus.join(', ') : item.EntiteFocus}</p>`
+                : '',
+
+            // Affichage des autres informations comme Sujet, OrganeCompetent, etc.
+            item.Sujet && item.Sujet !== 'N/A'
+                ? `<p><strong>Sujet :</strong> ${item.Sujet.split(',').map(tag => 
+                    `<a href="#" onclick="filterByTag('${tag.trim()}')">${tag.trim()}</a>`).join(', ')}</p>`
+                : '',
+
+            // Commentaire
+            item.Commentaire && item.Commentaire !== 'N/A'
+                ? `<p><strong>Commentaire(s) :</strong> ${item.Commentaire}</p>`
+                : '',
+
+            // Délégation
+            item.Delegation && item.Delegation !== 'N/A'
+                ? `<p><strong>Délégation :</strong> ${item.Delegation}</p>` // Affichage du champ Délégation
+                : '',
+
+            // Affichage de BaseLégaleDelegation
+            item.BaseLegaleDelegation && item.BaseLegaleDelegation !== 'N/A'
+                ? `<p><strong>Base légale de la délégation :</strong> ${formatBaseDelegation(item.BaseLegaleDelegation)}</p>`  // Affichage du lien de BaseLégaleDelegation
+                : ''
+        ];
+
+        // Ajouter chaque result-item directement au conteneur
+        const resultHTML = `<div class="result-item">${fields.filter(Boolean).join('')}</div>`;
         resultsContainer.insertAdjacentHTML('beforeend', resultHTML);
     });
-}
+
     // Calculer le nombre total de pages
     const totalPages = Math.ceil(results.length / resultsPerPage);
 
