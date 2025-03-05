@@ -892,19 +892,18 @@ const resultsPerPage = 25;  // Résultats par page
 function formatBaseLegale(baseLegaleStr) {
     if (!baseLegaleStr) return "N/A";
 
-    // Remplacer "juncto" par un séparateur propre (espace) et gérer les virgules
-    baseLegaleStr = baseLegaleStr.replace(/(;|juncto)/g, ' juncto ');  // "juncto" devient un séparateur propre
-    baseLegaleStr = baseLegaleStr.replace(/, ,/g, ' juncto ');  // Remplacer la virgule double par " juncto "
+    // Remplacer "juncto" par un espace, tout en s'assurant qu'il reste un séparateur simple
+    baseLegaleStr = baseLegaleStr.replace(/\s*juncto\s*/g, ' juncto ');  // "juncto" reste un séparateur simple
 
-    // Expression régulière améliorée pour capturer "Texte (https://lien.com)" sans casser les virgules
+    // Expression régulière pour capturer "Texte (https://lien.com)"
     const regex = /(.*?\([^)]+\))|([^,]+)/g;
-    
+
     // Trouver toutes les correspondances
     const references = baseLegaleStr.match(regex).map(ref => ref.trim());
 
     // Transformer chaque référence en lien cliquable si elle contient une URL
     return references.map(ref => {
-        // Assurez-vous que "juncto" ne fait pas partie de l'hyperlien
+        // Si la référence contient une URL, on transforme en lien cliquable
         const match = ref.match(/(.*)\((https?:\/\/[^)]+)\)/); // Capture "Texte (URL)"
         if (match) {
             const text = match[1].trim();
