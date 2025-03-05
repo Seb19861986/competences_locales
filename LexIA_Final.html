@@ -892,8 +892,9 @@ const resultsPerPage = 25;  // Résultats par page
 function formatBaseLegale(baseLegaleStr) {
     if (!baseLegaleStr) return "N/A";
 
-    // Remplacer les points-virgules et "juncto" par un séparateur propre
-    baseLegaleStr = baseLegaleStr.replace(/(;|juncto)/g, ' ');  // Remplace "juncto" par un espace
+    // Remplacer "juncto" par un séparateur propre (espace) et gérer les virgules
+    baseLegaleStr = baseLegaleStr.replace(/(;|juncto)/g, ' juncto ');  // "juncto" devient un séparateur propre
+    baseLegaleStr = baseLegaleStr.replace(/, ,/g, ' juncto ');  // Remplacer la virgule double par " juncto "
 
     // Expression régulière améliorée pour capturer "Texte (https://lien.com)" sans casser les virgules
     const regex = /(.*?\([^)]+\))|([^,]+)/g;
