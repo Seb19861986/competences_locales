@@ -918,6 +918,9 @@ function formatBaseDelegation(baseDelegationStr) {
     // Remplacement de "juncto" et des ";" par un séparateur propre
     baseDelegationStr = baseDelegationStr.replace(/(;|juncto)/g, ' juncto ');
 
+    // Convertir les slashes échappés (\) en normal
+    baseDelegationStr = baseDelegationStr.replace(/\\\//g, '/'); // Remplacer \/ par /
+
     // Expression régulière pour capturer "Texte (https://lien.com)"
     const regex = /(.*?\([^)]+\))|([^,]+)/g;
 
@@ -967,10 +970,11 @@ function displayResults(results) {
     const fields = [
 // Affichage de la compétence et du lien vers la base légale
         `<div class="result-item">
-            <h3>
-                <span class="competence">${item.Competence || 'Non défini'}</span> - 
-                ${formatBaseLegale(item.BaseLegale)}
-            </h3>`, 
+                <h3>
+                    <span class="competence">${item.Competence || 'Non défini'}</span> - 
+                    ${formatBaseLegale(item.BaseLegale)} - 
+                    ${formatBaseDelegation(item.BaseLegaleDelegation)} <!-- Afficher les liens de la base de délégation -->
+                </h3>`, 
 
         // Affichage de EntiteFocus, si disponible
         item.EntiteFocus && (Array.isArray(item.EntiteFocus) || typeof item.EntiteFocus === 'string') 
@@ -1005,7 +1009,7 @@ function displayResults(results) {
 
             // Base légale (délégation)
             item.BaseDelegation && item.BaseDelegation !== 'N/A'
-                ? `<p><strong>Base légale (délégation) :</strong> ${item.BaseDelegation}</p>`
+                ? `<p><strong>Base légale (délégation) :</strong> ${formatBaseDelegation(item.BaseLegaleDelegation)}</p>`  // Utilisation de formatBaseDelegation ici
                 : ''
         ];
 
