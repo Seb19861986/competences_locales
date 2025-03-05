@@ -892,10 +892,10 @@ const resultsPerPage = 25;  // Résultats par page
 function formatBaseLegale(baseLegaleStr) {
     if (!baseLegaleStr) return "N/A";
 
-    // Remplacer "juncto" par un espace, tout en s'assurant qu'il reste un séparateur simple
-    baseLegaleStr = baseLegaleStr.replace(/\s*juncto\s*/g, ' juncto ');  // "juncto" reste un séparateur simple
+    // Remplacer "juncto" par un séparateur propre, en le traitant comme un espace
+    baseLegaleStr = baseLegaleStr.replace(/\s*juncto\s*/g, ' juncto '); // Assure que "juncto" reste un séparateur
 
-    // Expression régulière pour capturer "Texte (https://lien.com)"
+    // Expression régulière pour capturer les références légales et les URLs entre parenthèses
     const regex = /(.*?\([^)]+\))|([^,]+)/g;
 
     // Trouver toutes les correspondances
@@ -903,7 +903,7 @@ function formatBaseLegale(baseLegaleStr) {
 
     // Transformer chaque référence en lien cliquable si elle contient une URL
     return references.map(ref => {
-        // Si la référence contient une URL, on transforme en lien cliquable
+        // Si la référence contient une URL, la transformer en lien cliquable
         const match = ref.match(/(.*)\((https?:\/\/[^)]+)\)/); // Capture "Texte (URL)"
         if (match) {
             const text = match[1].trim();
