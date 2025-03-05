@@ -1003,11 +1003,11 @@ function displayResults(results) {
             ? `<p><strong>Délégation :</strong> ${item.Delegation}</p>`
             : '',
 
-        // Base légale (délégation)
-        item.BaseDelegation && item.BaseDelegation !== 'N/A'
-            ? `<p><strong>Base légale (délégation) :</strong> ${item.BaseDelegation}</p>`
-            : ''
-    ];
+            // Base légale (délégation)
+            item.BaseDelegation && item.BaseDelegation !== 'N/A'
+                ? `<p><strong>Base légale (délégation) :</strong> ${item.BaseDelegation}</p>`
+                : ''
+        ];
 
     // Ajouter chaque result-item directement au conteneur
     const resultHTML = `<div class="result-item">${fields.filter(Boolean).join('')}</div>`;
