@@ -1223,7 +1223,9 @@ function applyFilters() {
             return false;
         });
     });
-
+// Mettre à jour l'affichage des résultats filtrés
+    displayResults(filteredItems);
+}
     // Filtrage des résultats
     const filteredResults = data.filter(item => {
         return Object.keys(selectedFilters).every(field => {
