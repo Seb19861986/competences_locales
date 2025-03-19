@@ -1091,7 +1091,7 @@ function displayResults(results) {
         // Affichage de EntiteFocus, si disponible
         if (item.EntiteFocus && (Array.isArray(item.EntiteFocus) || typeof item.EntiteFocus === 'string')) {
             fields.push(`
-                <p><strong>Entité Focus :</strong> ${Array.isArray(item.EntiteFocus) ? item.EntiteFocus.join(', ') : item.EntiteFocus}</p>
+                <p><strong>Entité :</strong> ${Array.isArray(item.EntiteFocus) ? item.EntiteFocus.join(', ') : item.EntiteFocus}</p>
             `);
         }
 
@@ -1106,17 +1106,18 @@ function displayResults(results) {
         // Affichage de IndexObjet_1, si disponible
         if (item.IndexObjet && item.IndexObjet !== 'N/A') {
             fields.push(`
-                <p><strong>Index Objet :</strong> ${item.IndexObjet}</p>
+                <p><strong>Index :</strong> ${item.IndexObjet}</p>
             `);
         }
 
-        // Affichage de OrganeCompetent, si disponible
-        if (item.OrganeCompetent && (Array.isArray(item.OrganeCompetent) || typeof item.OrganeCompetent === 'string')) {
-            fields.push(`
-                <p><strong>Organe Compétent :</strong> ${Array.isArray(item.OrganeCompetent) ? item.OrganeCompetent.join(', ') : item.OrganeCompetent}</p>
-            `);
-        }
-
+// Affichage de OrganeCompetent, si disponible avec un style amélioré
+if (item.OrganeCompetent && (Array.isArray(item.OrganeCompetent) || typeof item.OrganeCompetent === 'string')) {
+    fields.push(`
+        <p style="font-size: 16px; color: #0056b3; background-color: #e6f7ff; padding: 8px; border-radius: 5px; font-weight: bold; border: 2px solid #007bff;">
+            <strong>Organe compétent :</strong> ${Array.isArray(item.OrganeCompetent) ? item.OrganeCompetent.join(', ') : item.OrganeCompetent}
+        </p>
+    `);
+}
         // Commentaire
         if (item.Commentaire && item.Commentaire !== 'N/A') {
             fields.push(`
