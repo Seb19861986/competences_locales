@@ -638,16 +638,16 @@
     </style>
 </head>
 <body>
-   <body>
+<body>
     <!-- Conteneur principal en Flexbox pour aligner le logo, la barre de recherche et le bouton -->
-    <div class="header-content" style="display: flex; align-items: center; justify-content: space-between; padding: 20px;">
-        <!-- Logo -->
-        <img src="https://github.com/Seb19861986/competences_locales/raw/main/logolexia.png" alt="Logo LexIA" style="max-width: 200px;">
+    <div class="header-content" style="display: flex; align-items: center; justify-content: space-between; padding: 20px; background: none; border: none;">
+        <!-- Logo sans cadre, fond ou bordure -->
+        <img src="https://github.com/Seb19861986/competences_locales/raw/main/logolexia.png" alt="Logo LexIA" style="max-width: 200px; border: none; background: none; margin: 0; padding: 0;">
 
-        <!-- Recherche simple avec Flexbox pour aligner l'icône, le champ et le bouton sur la même ligne -->
-        <div class="search-simple" style="display: flex; align-items: center; gap: 10px;">
-            <img src="https://github.com/Seb19861986/competences_locales/raw/main/simple_search.png" alt="Search" style="max-width: 20px;">
-            <input type="text" id="simple-search" placeholder="Rechercher par mots-clés" style="padding: 8px; font-size: 14px;">
+        <!-- Recherche simple sans fond blanc ni bordure -->
+        <div class="search-simple" style="display: flex; align-items: center; gap: 10px; background: none; border: none; padding: 0; margin: 0;">
+            <img src="https://github.com/Seb19861986/competences_locales/raw/main/simple_search.png" alt="Search" style="max-width: 20px; border: none;">
+            <input type="text" id="simple-search" placeholder="Rechercher par mots-clés" style="padding: 8px; font-size: 14px; border: none; background: none; outline: none;">
             <button onclick="executeSimpleSearch()" style="padding: 8px 15px; background-color: #053f7cbd; color: white; border: none; cursor: pointer;">Rechercher</button>
         </div>
     </div>
