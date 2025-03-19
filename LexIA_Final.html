@@ -1121,8 +1121,11 @@ function displayResults(results) {
 // Affichage de OrganeCompetent, si disponible avec un style amélioré
 if (item.OrganeCompetent && (Array.isArray(item.OrganeCompetent) || typeof item.OrganeCompetent === 'string')) {
     fields.push(`
-        <p style="font-size: 16px; color: #0056b3; background-color: #e6f7ff; padding: 8px; border-radius: 5px; font-weight: bold; border: 2px solid #007bff;">
-            <strong>Organe compétent :</strong> ${Array.isArray(item.OrganeCompetent) ? item.OrganeCompetent.join(', ') : item.OrganeCompetent}
+        <p style="font-size: 16px; color: #333; padding: 8px; font-weight: normal;">
+            <strong>Organe Compétent :</strong>
+            <span style="font-size: 16px; color: #ffffff; background-color: #007bff; padding: 4px 8px; border-radius: 5px; font-weight: bold;">
+                ${Array.isArray(item.OrganeCompetent) ? item.OrganeCompetent.join(', ') : item.OrganeCompetent}
+            </span>
         </p>
     `);
 }
