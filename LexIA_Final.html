@@ -719,7 +719,7 @@
 <label><input type="checkbox" class="filter" data-field="Sujet" value="juridique"> juridique</label>              
 <label><input type="checkbox" class="filter" data-field="Sujet" value="règlements et ordonnances (et arrêtés)"> règlements et ordonnances (et arrêtés)</label>
 <label><input type="checkbox" class="filter" data-field="Sujet" value="action sociale (aide sociale)"> action sociale (aide sociale)</label>
-<label><input type="checkbox" class="filter" data-field="Sujet" value="divers"> Divers</label>
+<label><input type="checkbox" class="filter" data-field="Sujet" value="divers"> divers</label>
             </div>
         </div>
         <div class="filter-group">
@@ -1208,19 +1208,20 @@ function filterBySubject(subject) {
     }
 }
 function applyFilters() {
-    selectedFilters = {}; // Réinitialise les filtres avant de les appliquer
+    // Récupérer tous les filtres activés
+    const selectedFilters = Array.from(document.querySelectorAll('.filter:checked')).map(input => input.value);
 
-    // Parcours des filtres sélectionnés
-    document.querySelectorAll('.filter:checked').forEach(input => {
-        const field = input.getAttribute('data-field');
-        const value = input.value.toLowerCase(); // Normalisation de la valeur
-
-        if (!selectedFilters[field]) {
-            selectedFilters[field] = [];
-        }
-        if (!selectedFilters[field].includes(value)) {
-            selectedFilters[field].push(value);
-        }
+    // Filtrer les éléments
+    const filteredItems = items.filter(item => {
+        // Vérifier que l'élément correspond à tous les filtres activés
+        return selectedFilters.every(filterValue => {
+            // Comparaison stricte pour OrganeCompetent (égalité exacte)
+            if (item.OrganeCompetent) {
+                const organeCompetentValues = Array.isArray(item.OrganeCompetent) ? item.OrganeCompetent : [item.OrganeCompetent];
+                return organeCompetentValues.some(value => value === filterValue);  // Utilisation de === pour une correspondance exacte
+            }
+            return false;
+        });
     });
 
     // Filtrage des résultats
