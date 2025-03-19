@@ -1208,36 +1208,38 @@ function filterBySubject(subject) {
     }
 }
 function applyFilters() {
-    // Récupérer tous les filtres activés
-    const selectedFilters = Array.from(document.querySelectorAll('.filter:checked')).map(input => input.value);
+    selectedFilters = {}; // Réinitialise les filtres avant de les appliquer
 
-    // Filtrer les éléments
-    const filteredItems = items.filter(item => {
-        // Vérifier que l'élément correspond à tous les filtres activés
-        return selectedFilters.every(filterValue => {
-            // Comparaison stricte pour OrganeCompetent (égalité exacte)
-            if (item.OrganeCompetent) {
-                const organeCompetentValues = Array.isArray(item.OrganeCompetent) ? item.OrganeCompetent : [item.OrganeCompetent];
-                return organeCompetentValues.some(value => value === filterValue);  // Utilisation de === pour une correspondance exacte
-            }
-            return false;
-        });
+    // Parcours des filtres sélectionnés
+    document.querySelectorAll('.filter:checked').forEach(input => {
+        const field = input.getAttribute('data-field');
+        const value = input.value.toLowerCase(); // Normalisation de la valeur
+
+        if (!selectedFilters[field]) {
+            selectedFilters[field] = [];
+        }
+        if (!selectedFilters[field].includes(value)) {
+            selectedFilters[field].push(value);
+        }
     });
-// Mettre à jour l'affichage des résultats filtrés
-    displayResults(filteredItems);
-}
+
     // Filtrage des résultats
     const filteredResults = data.filter(item => {
         return Object.keys(selectedFilters).every(field => {
             if (!selectedFilters[field].length) return true;
 
             const fieldValue = item[field];
+
             if (Array.isArray(fieldValue)) {
                 return selectedFilters[field].some(filterValue =>
-                    fieldValue.some(value => value.toLowerCase().includes(filterValue))
+                    fieldValue.some(value => {
+                        // Comparaison stricte pour chaque valeur (valeur exacte)
+                        return value.toLowerCase() === filterValue;
+                    })
                 );
             } else if (typeof fieldValue === 'string') {
-                return selectedFilters[field].some(filterValue => fieldValue.toLowerCase().includes(filterValue));
+                // Comparaison stricte pour une seule valeur (valeur exacte)
+                return selectedFilters[field].some(filterValue => fieldValue.toLowerCase() === filterValue);
             }
             return false;
         });
