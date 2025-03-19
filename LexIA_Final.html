@@ -638,22 +638,23 @@
     </style>
 </head>
 <body>
-    <!-- Conteneur principal en Flexbox pour aligner le logo et la recherche -->
+   <body>
+    <!-- Conteneur principal en Flexbox pour aligner le logo, la barre de recherche et le bouton -->
     <div class="header-content" style="display: flex; align-items: center; justify-content: space-between; padding: 20px;">
         <!-- Logo -->
         <img src="https://github.com/Seb19861986/competences_locales/raw/main/logolexia.png" alt="Logo LexIA" style="max-width: 200px;">
 
-        <!-- Recherche simple -->
-        <div class="search-simple" style="display: flex; align-items: center;">
+        <!-- Recherche simple avec Flexbox pour aligner l'icône, le champ et le bouton sur la même ligne -->
+        <div class="search-simple" style="display: flex; align-items: center; gap: 10px;">
             <img src="https://github.com/Seb19861986/competences_locales/raw/main/simple_search.png" alt="Search" style="max-width: 20px;">
-            <input type="text" id="simple-search" placeholder="Rechercher par mots-clés" style="padding: 8px; font-size: 14px; margin-right: 10px;">
+            <input type="text" id="simple-search" placeholder="Rechercher par mots-clés" style="padding: 8px; font-size: 14px;">
             <button onclick="executeSimpleSearch()" style="padding: 8px 15px; background-color: #053f7cbd; color: white; border: none; cursor: pointer;">Rechercher</button>
         </div>
     </div>
 
     <!-- Bouton "En savoir plus" -->
     <a href="https://myportal.vandenbroeleconnect.be/contenu/elearning/detail/83317692617981999/lexia-cadastre-des-competences-locales#83317692617981999" target="_blank" rel="noopener noreferrer"
-       style="font-size: 16px; padding: 12px 15px; background-color: #053f7cbd; color: white; text-decoration: none; border-radius: 50%; font-weight: normal; font-size: 16px; position: fixed; top: 10px; right: 10px; display: flex; justify-content: center; align-items: center; width: 15px; height: 20px;">
+       style="font-size: 16px; padding: 12px 15px; background-color: #053f7cbd; color: white; text-decoration: none; border-radius: 50%; font-weight: normal; font-size: 16px; position: fixed; top: 10px; right: 10px; display: flex; justify-content: center; align-items: center; width: 50px; height: 50px;">
         ?
     </a>
 <div id="applied-filters" class="applied-filters" style="display:none;"></div>
