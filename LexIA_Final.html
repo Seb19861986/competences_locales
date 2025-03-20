@@ -1121,7 +1121,6 @@ function displayResults(results) {
 // Affichage de OrganeCompetent, si disponible avec un style amélioré
 if (item.OrganeCompetent && (Array.isArray(item.OrganeCompetent) || typeof item.OrganeCompetent === 'string')) {
     fields.push(`
-        <p style="font-size: 12px; color: #333; padding: 8px; font-weight: normal;">
             <strong>Organe Compétent :</strong>
             <span style="font-size: 14px; color: #ffffff; background-color: #3172b7; padding: 4px 8px; border-radius: 5px; font-weight: bold;">
                 ${Array.isArray(item.OrganeCompetent) ? item.OrganeCompetent.join(', ') : item.OrganeCompetent}
