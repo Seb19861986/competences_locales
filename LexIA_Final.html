@@ -1185,7 +1185,7 @@ function changePage(direction) {
     resultsContainer.innerHTML = '';  
 
 // Affiche le nombre de résultats
-document.getElementById('results-info').textContent = `${currentResults.length} résultat${currentResults.length > 1 ? 's' : ''} trouvé${currentResults.length > 1 ? 's' : ''}`;
+document.getElementById('results-info').textContent = `${results.length} résultat${results.length > 1 ? 's' : ''} trouvé${results.length > 1 ? 's' : ''}`;
 
     // Affiche les résultats pour la nouvelle page
     displayResults(currentResults);
@@ -1199,19 +1199,21 @@ document.getElementById('results-info').textContent = `${currentResults.length} 
         advancedSearch.style.display = 'none';
     }
 }
-// Déclare le fieldMap avant d'utiliser applyFilters()
-const fieldMap = {
-    "Base légale": "Base légale",   // Correspondance pour Base légale
-    "Entité(s)": "Entité(s)",       // Correspondance pour Entité(s)
-    "Catégorie": "Catégorie",       // Correspondance pour Catégorie
-    "Organe compétent": "Organe compétent" // Correspondance pour Organe compétent
-};
+function filterBySubject(subject) {
+    const filteredResults = data.filter(item => item.Sujet === subject);
+    displayResults(filteredResults);
 
-// Fonction de filtrage
+    // Optionnel : Mettre à jour les filtres appliqués
+    const appliedFiltersContainer = document.getElementById('applied-filters');
+    if (appliedFiltersContainer) {
+        appliedFiltersContainer.innerHTML = `<span>${subject} <button onclick="resetFilters()">×</button></span>`;
+        appliedFiltersContainer.style.display = 'block';
+    }
+}
 function applyFilters() {
-    selectedFilters = {}; // Réinitialise les filtres
+    selectedFilters = {}; // Réinitialise les filtres avant de les appliquer
 
-    // Récupère les filtres sélectionnés
+    // Parcours des filtres sélectionnés
     document.querySelectorAll('.filter:checked').forEach(input => {
         const field = input.getAttribute('data-field');
         const value = input.value.toLowerCase(); // Normalisation de la valeur
@@ -1219,104 +1221,40 @@ function applyFilters() {
         if (!selectedFilters[field]) {
             selectedFilters[field] = [];
         }
-
         if (!selectedFilters[field].includes(value)) {
             selectedFilters[field].push(value);
         }
     });
-
-// Fonction de filtrage
-function applyFilters() {
-    selectedFilters = {}; // Réinitialise les filtres
-
-    // Récupère les filtres sélectionnés
-    document.querySelectorAll('.filter:checked').forEach(input => {
-        const field = input.getAttribute('data-field');
-        const value = input.value.toLowerCase(); // Normalisation de la valeur
-
-        if (!selectedFilters[field]) {
-            selectedFilters[field] = [];
-        }
-
-        if (!selectedFilters[field].includes(value)) {
-            selectedFilters[field].push(value);
-        }
-    });
-
-    // Met à jour l'affichage des filtres appliqués
-    displayAppliedFilters(selectedFilters); // Mettre à jour l'affichage des filtres
 
     // Filtrage des résultats
     const filteredResults = data.filter(item => {
-        return Object.keys(selectedFilters).every(field => {
-            const filterValues = selectedFilters[field].map(v => v.toLowerCase()); // Assure que tout est en minuscule
-            const jsonFieldName = fieldMap[field] || field; // Correspondance avec le nom du champ dans JSON
+    return Object.keys(selectedFilters).every(field => {
+        const filterValues = selectedFilters[field]; // ex: ["commune", "CPAS"]
+        const itemField = item[field];
 
-            // Vérifie si 'properties' existe avant d'y accéder
-            if (!item.properties || !item.properties[jsonFieldName]) {
-                return false;
-            }
+        if (!itemField) return false;
 
-            const itemField = item.properties[jsonFieldName]; // Récupère la propriété du JSON
+        if (Array.isArray(itemField)) {
+            return itemField.some(val => 
+                filterValues.includes(val.toLowerCase())
+            );
+        } else if (typeof itemField === 'string') {
+            return filterValues.includes(itemField.toLowerCase());
+        }
 
-            // Si c’est un tableau (par exemple "Entité(s)")
-            if (Array.isArray(itemField)) {
-                return itemField
-                    .map(v => v.toLowerCase()) // Assure la casse des données
-                    .every(val => filterValues.includes(val)); // Logique "ET" : Tous les filtres doivent être présents
-            }
-
-            // Si c’est une chaîne de texte (par exemple "Base légale")
-            if (typeof itemField === 'string') {
-                return filterValues.every(v => itemField.toLowerCase().includes(v)); // Logique "ET" : Tous les filtres doivent correspondre partiellement
-            }
-
-            return false;
-        });
+        return false;
     });
+});
 
-    // Met à jour l'affichage des résultats
+    // Affiche les filtres appliqués
+    displayAppliedFilters(selectedFilters);
+
+    // Met à jour les résultats affichés
     displayResults(filteredResults);
-} // <-- Fermeture de la fonction applyFilters()
-// Fonction de réinitialisation des filtres
-function resetFilters() {
-    selectedFilters = {}; // Réinitialise tous les filtres
-
-    // Décoche toutes les cases
-    document.querySelectorAll('.filter').forEach(filter => {
-        filter.checked = false;
-    });
-
-    // Réaffiche tous les résultats
-    currentPage = 1;
-    displayResults(data);
-
-    // Masque la section des filtres appliqués
-    const appliedFiltersContainer = document.getElementById('applied-filters');
-    appliedFiltersContainer.style.display = 'none';
+    
+    currentResults = filteredResults; // Mettre à jour avec les résultats filtrés
+    displayResults(currentResults); // Mettre à jour l'affichage
 }
-
-// Déclare filteredResults globalement
-let filteredResults = [];
-
-// ✅ Affichage sécurisé du nombre de résultats
-const resultInfoElement = document.getElementById('results-info');
-if (resultInfoElement) {
-    if (Array.isArray(filteredResults)) {
-        resultInfoElement.textContent = `${filteredResults.length} résultat${filteredResults.length > 1 ? 's' : ''} trouvé${filteredResults.length > 1 ? 's' : ''}`;
-    } else {
-        resultInfoElement.textContent = '';
-    }
-}
-
-// Affiche les filtres appliqués
-displayAppliedFilters(selectedFilters);
-
-// Met à jour l'affichage
-currentResults = filteredResults;
-displayResults(currentResults);
-
-// Fonction de suppression d'un filtre
 function removeFilter(field, value) {
     console.log(`Suppression du filtre: ${field} = ${value}`); // Vérifie les arguments
 
@@ -1346,9 +1284,35 @@ function removeFilter(field, value) {
     // Réapplique les filtres restants et met à jour les résultats
     applyFilters();
     displayAppliedFilters(selectedFilters); // Met à jour l'affichage des filtres appliqués
-} // <-- Fermeture de la fonction removeFilter()
+}
 
-// Fonction de suppression d'un filtre avancé
+function displayAppliedFilters(filters) {
+    const appliedFiltersContainer = document.getElementById('applied-filters');
+    appliedFiltersContainer.innerHTML = ''; // Réinitialise le contenu
+
+    // Crée des tags pour chaque filtre appliqué
+    Object.keys(filters).forEach(field => {
+        filters[field].forEach(value => {
+            const tag = document.createElement('span');
+            tag.className = 'filter-tag';
+            tag.textContent = value;
+
+            // Créer un bouton de suppression pour chaque filtre
+            const button = document.createElement('button');
+            button.textContent = '×';
+            button.onclick = function() {
+                removeFilter(field, value);  // Appel à removeFilter pour supprimer un filtre
+            };
+
+            tag.appendChild(button); // Ajouter le bouton à chaque tag
+            appliedFiltersContainer.appendChild(tag); // Ajouter le tag au conteneur
+        });
+    });
+
+    // Affiche ou masque la section des filtres appliqués en fonction du nombre de filtres
+    appliedFiltersContainer.style.display = Object.keys(filters).length > 0 ? 'block' : 'none';
+}
+
 function removeAdvancedFilter(field, value) {
     console.log(`Suppression du filtre avancé: ${field} = ${value}`); // Vérifie les arguments
     if (selectedFilters[field]) {
@@ -1367,8 +1331,36 @@ function removeAdvancedFilter(field, value) {
 
     // Réapplique les filtres restants
     executeAdvancedSearch();
-} // <-- Fermeture de la fonction removeAdvancedFilter()
-};
+}
+function resetFilters() {
+    selectedFilters = {}; // Réinitialise tous les filtres
+
+    // Décoche toutes les cases
+    document.querySelectorAll('.filter').forEach(filter => {
+        filter.checked = false;
+    });
+
+    // Réaffiche tous les résultats
+    currentPage = 1;
+    displayResults(data);
+
+    // Masque la section des filtres appliqués
+    const appliedFiltersContainer = document.getElementById('applied-filters');
+    appliedFiltersContainer.style.display = 'none';
+}
+// Empêche que les menus soient fermés de manière intempestive
+document.addEventListener('click', function(event) {
+    const filterGroups = document.querySelectorAll('.filter-group');
+    
+    filterGroups.forEach(group => {
+        const dropdown = group.querySelector('.dropdown-content');
+        
+        // Si le clic se fait à l'extérieur du groupe ou du menu déroulant, on ferme le menu
+        if (!group.contains(event.target)) {
+            dropdown.style.display = 'none'; // Ferme le menu
+        }
+    });
+});
     </script>
 </body>
 </html>
