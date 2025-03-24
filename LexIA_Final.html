@@ -1219,19 +1219,19 @@ function applyFilters() {
     // Filtrage des résultats
     const filteredResults = data.filter(item => {
     return Object.keys(selectedFilters).every(field => {
-        const filterValues = selectedFilters[field]; // ["cpas", "commune"]
+        const filterValues = selectedFilters[field]; // ["cdld", "commune"]
         const itemValue = item[field];
 
         if (!itemValue) return false;
 
-        // Si c'est un tableau dans la donnée
+        // Si tableau dans la donnée (ex : EntiteFocus)
         if (Array.isArray(itemValue)) {
-            return itemValue.some(val =>
-                filterValues.includes(val.toLowerCase())
-            );
+            return itemValue
+                .map(v => typeof v === 'string' ? v.toLowerCase() : '')
+                .some(v => filterValues.includes(v));
         }
 
-        // Si c'est une chaîne simple
+        // Si string dans la donnée (ex : BaseLegale)
         if (typeof itemValue === 'string') {
             return filterValues.includes(itemValue.toLowerCase());
         }
