@@ -1185,7 +1185,7 @@ function changePage(direction) {
     resultsContainer.innerHTML = '';  
 
 // Affiche le nombre de résultats
-document.getElementById('results-info').textContent = `${results.length} résultat${results.length > 1 ? 's' : ''} trouvé${results.length > 1 ? 's' : ''}`;
+document.getElementById('results-info').textContent = `${currentResults.length} résultat${currentResults.length > 1 ? 's' : ''} trouvé${currentResults.length > 1 ? 's' : ''}`;
 
     // Affiche les résultats pour la nouvelle page
     displayResults(currentResults);
