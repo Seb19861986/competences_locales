@@ -1199,28 +1199,18 @@ document.getElementById('results-info').textContent = `${results.length} résult
         advancedSearch.style.display = 'none';
     }
 }
-function filterBySubject(subject) {
-    const filteredResults = data.filter(item => item.Sujet === subject);
-    displayResults(filteredResults);
-
-    // Optionnel : Mettre à jour les filtres appliqués
-    const appliedFiltersContainer = document.getElementById('applied-filters');
-    if (appliedFiltersContainer) {
-        appliedFiltersContainer.innerHTML = `<span>${subject} <button onclick="resetFilters()">×</button></span>`;
-        appliedFiltersContainer.style.display = 'block';
-    }
-}
 function applyFilters() {
-    selectedFilters = {}; // Réinitialise les filtres avant de les appliquer
+    selectedFilters = {}; // Réinitialise les filtres
 
-    // Parcours des filtres sélectionnés
+    // Récupère les filtres cochés
     document.querySelectorAll('.filter:checked').forEach(input => {
         const field = input.getAttribute('data-field');
-        const value = input.value.toLowerCase(); // Normalisation de la valeur
+        const value = input.value.toLowerCase();
 
         if (!selectedFilters[field]) {
             selectedFilters[field] = [];
         }
+
         if (!selectedFilters[field].includes(value)) {
             selectedFilters[field].push(value);
         }
@@ -1228,33 +1218,43 @@ function applyFilters() {
 
     // Filtrage des résultats
     const filteredResults = data.filter(item => {
-    return Object.keys(selectedFilters).every(field => {
-        const filterValues = selectedFilters[field]; // ex: ["commune", "CPAS"]
-        const itemField = item[field];
+        return Object.keys(selectedFilters).every(field => {
+            const filterValues = selectedFilters[field];
+            const itemField = item[field];
 
-        if (!itemField) return false;
+            if (!itemField) return false;
 
-        if (Array.isArray(itemField)) {
-            return itemField.some(val => 
-                filterValues.includes(val.toLowerCase())
-            );
-        } else if (typeof itemField === 'string') {
-            return filterValues.includes(itemField.toLowerCase());
-        }
+            if (Array.isArray(itemField)) {
+                return itemField.some(val => {
+                    if (typeof val !== 'string') return false;
+                    return filterValues.includes(val.toLowerCase());
+                });
+            } else if (typeof itemField === 'string') {
+                return filterValues.includes(itemField.toLowerCase());
+            }
 
-        return false;
+            return false;
+        });
     });
-});
+
+    // ✅ Affichage sécurisé du nombre de résultats
+    const resultInfoElement = document.getElementById('results-info');
+    if (resultInfoElement) {
+        if (Array.isArray(filteredResults)) {
+            resultInfoElement.textContent = `${filteredResults.length} résultat${filteredResults.length > 1 ? 's' : ''} trouvé${filteredResults.length > 1 ? 's' : ''}`;
+        } else {
+            resultInfoElement.textContent = '';
+        }
+    }
 
     // Affiche les filtres appliqués
     displayAppliedFilters(selectedFilters);
 
-    // Met à jour les résultats affichés
-    displayResults(filteredResults);
-    
-    currentResults = filteredResults; // Mettre à jour avec les résultats filtrés
-    displayResults(currentResults); // Mettre à jour l'affichage
+    // Met à jour l'affichage
+    currentResults = filteredResults;
+    displayResults(currentResults);
 }
+
 function removeFilter(field, value) {
     console.log(`Suppression du filtre: ${field} = ${value}`); // Vérifie les arguments
 
