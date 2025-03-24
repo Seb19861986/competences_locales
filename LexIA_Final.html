@@ -1216,7 +1216,7 @@ function applyFilters() {
     // Parcours des filtres sélectionnés
     document.querySelectorAll('.filter:checked').forEach(input => {
         const field = input.getAttribute('data-field');
-        const value = input.value.toLowerCase(); // Normalisation de la valeur
+        const value = input.value;
 
         if (!selectedFilters[field]) {
             selectedFilters[field] = [];
@@ -1228,88 +1228,77 @@ function applyFilters() {
 
     // Filtrage des résultats
     const filteredResults = data.filter(item => {
-    return Object.keys(selectedFilters).every(field => {
-        const filterValues = selectedFilters[field]; // ex: ["commune", "CPAS"]
-        const itemField = item[field];
+        return Object.keys(selectedFilters).every(field => {
+            const filterValues = selectedFilters[field];
+            const itemField = item[field];
+            
+            if (!itemField) return false;
 
-        if (!itemField) return false;
-
-        if (Array.isArray(itemField)) {
-            return itemField.some(val => 
-                filterValues.includes(val.toLowerCase())
-            );
-        } else if (typeof itemField === 'string') {
-            return filterValues.includes(itemField.toLowerCase());
-        }
-
-        return false;
+            // Si le champ est un tableau
+            if (Array.isArray(itemField)) {
+                return itemField.some(val => 
+                    filterValues.some(filterVal => 
+                        val.toLowerCase().includes(filterVal.toLowerCase())
+                    )
+                );
+            } 
+            // Si le champ est une chaîne
+            else if (typeof itemField === 'string') {
+                return filterValues.some(filterVal => 
+                    itemField.toLowerCase().includes(filterVal.toLowerCase())
+                );
+            }
+            
+            return false;
+        });
     });
-});
 
     // Affiche les filtres appliqués
     displayAppliedFilters(selectedFilters);
 
     // Met à jour les résultats affichés
-    displayResults(filteredResults);
-    
-    currentResults = filteredResults; // Mettre à jour avec les résultats filtrés
-    displayResults(currentResults); // Mettre à jour l'affichage
+    currentResults = filteredResults;
+    currentPage = 1;
+    displayResults(currentResults);
 }
 function removeFilter(field, value) {
-    console.log(`Suppression du filtre: ${field} = ${value}`); // Vérifie les arguments
-
-    // Normalisation des valeurs pour la comparaison
-    const normalizedValue = value.toLowerCase();
-
     // Supprime le filtre de selectedFilters
     if (selectedFilters[field]) {
-        // Filtrer les valeurs dans selectedFilters en ignorant la casse
-        selectedFilters[field] = selectedFilters[field].filter(filterValue => filterValue.toLowerCase() !== normalizedValue);
+        selectedFilters[field] = selectedFilters[field].filter(
+            filterValue => filterValue.toLowerCase() !== value.toLowerCase()
+        );
 
         // Si le champ n'a plus de filtres appliqués, supprimer la clé
         if (selectedFilters[field].length === 0) {
             delete selectedFilters[field];
-            console.log(`Filtre supprimé de selectedFilters: ${field}`);
         }
     }
 
-    // Décoche le filtre dans l'interface utilisateur en s'assurant de comparer les valeurs de manière uniforme
+    // Décoche le filtre correspondant dans l'interface
     document.querySelectorAll(`.filter[data-field="${field}"]`).forEach(filter => {
-        if (filter.value.toLowerCase() === normalizedValue) {
+        if (filter.value.toLowerCase() === value.toLowerCase()) {
             filter.checked = false;
-            console.log(`Filtre décoché dans l'interface: ${field} = ${value}`);
         }
     });
 
-    // Réapplique les filtres restants et met à jour les résultats
+    // Réapplique les filtres restants
     applyFilters();
-    displayAppliedFilters(selectedFilters); // Met à jour l'affichage des filtres appliqués
 }
-
 function displayAppliedFilters(filters) {
     const appliedFiltersContainer = document.getElementById('applied-filters');
-    appliedFiltersContainer.innerHTML = ''; // Réinitialise le contenu
+    appliedFiltersContainer.innerHTML = '';
 
-    // Crée des tags pour chaque filtre appliqué
     Object.keys(filters).forEach(field => {
         filters[field].forEach(value => {
             const tag = document.createElement('span');
-            tag.className = 'filter-tag';
-            tag.textContent = value;
-
-            // Créer un bouton de suppression pour chaque filtre
-            const button = document.createElement('button');
-            button.textContent = '×';
-            button.onclick = function() {
-                removeFilter(field, value);  // Appel à removeFilter pour supprimer un filtre
-            };
-
-            tag.appendChild(button); // Ajouter le bouton à chaque tag
-            appliedFiltersContainer.appendChild(tag); // Ajouter le tag au conteneur
+            tag.innerHTML = `
+                <span>${field}: ${value}</span>
+                <button onclick="removeFilter('${field}', '${value.replace(/'/g, "\\'")}')">×</button>
+            `;
+            appliedFiltersContainer.appendChild(tag);
         });
     });
 
-    // Affiche ou masque la section des filtres appliqués en fonction du nombre de filtres
     appliedFiltersContainer.style.display = Object.keys(filters).length > 0 ? 'block' : 'none';
 }
 
