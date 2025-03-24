@@ -1277,28 +1277,9 @@ function applyFilters() {
 
     // Met à jour l'affichage des résultats
     displayResults(filteredResults);
-}
-        
-// Déclare filteredResults globalement
-let filteredResults = [];
-        
-    // ✅ Affichage sécurisé du nombre de résultats
-    const resultInfoElement = document.getElementById('results-info');
-    if (resultInfoElement) {
-        if (Array.isArray(filteredResults)) {
-            resultInfoElement.textContent = `${filteredResults.length} résultat${filteredResults.length > 1 ? 's' : ''} trouvé${filteredResults.length > 1 ? 's' : ''}`;
-        } else {
-            resultInfoElement.textContent = '';
-        }
-    }
+} // <-- Fermeture de la fonction applyFilters()
 
-    // Affiche les filtres appliqués
-    displayAppliedFilters(selectedFilters);
-
-    // Met à jour l'affichage
-    currentResults = filteredResults;
-    displayResults(currentResults);
-        
+// Fonction de suppression d'un filtre
 function removeFilter(field, value) {
     console.log(`Suppression du filtre: ${field} = ${value}`); // Vérifie les arguments
 
@@ -1328,36 +1309,9 @@ function removeFilter(field, value) {
     // Réapplique les filtres restants et met à jour les résultats
     applyFilters();
     displayAppliedFilters(selectedFilters); // Met à jour l'affichage des filtres appliqués
-}
+} // <-- Fermeture de la fonction removeFilter()
 
-// Affiche les filtres appliqués
-function displayAppliedFilters(filters) {
-    const appliedFiltersContainer = document.getElementById('applied-filters');
-    appliedFiltersContainer.innerHTML = ''; // Réinitialise le contenu
-
-    // Crée des tags pour chaque filtre appliqué
-    Object.keys(filters).forEach(field => {
-        filters[field].forEach(value => {
-            const tag = document.createElement('span');
-            tag.className = 'filter-tag';
-            tag.textContent = value;
-
-            // Créer un bouton de suppression pour chaque filtre
-            const button = document.createElement('button');
-            button.textContent = '×';
-            button.onclick = function() {
-                removeFilter(field, value);  // Appel à removeFilter pour supprimer un filtre
-            };
-
-            tag.appendChild(button); // Ajouter le bouton à chaque tag
-            appliedFiltersContainer.appendChild(tag); // Ajouter le tag au conteneur
-        });
-    });
-
-    // Affiche ou masque la section des filtres appliqués en fonction du nombre de filtres
-    appliedFiltersContainer.style.display = Object.keys(filters).length > 0 ? 'block' : 'none';
-}
-
+// Fonction de suppression d'un filtre avancé
 function removeAdvancedFilter(field, value) {
     console.log(`Suppression du filtre avancé: ${field} = ${value}`); // Vérifie les arguments
     if (selectedFilters[field]) {
@@ -1376,7 +1330,9 @@ function removeAdvancedFilter(field, value) {
 
     // Réapplique les filtres restants
     executeAdvancedSearch();
-}
+} // <-- Fermeture de la fonction removeAdvancedFilter()
+
+// Réinitialiser les filtres
 function resetFilters() {
     selectedFilters = {}; // Réinitialise tous les filtres
 
@@ -1393,17 +1349,6 @@ function resetFilters() {
     const appliedFiltersContainer = document.getElementById('applied-filters');
     appliedFiltersContainer.style.display = 'none';
 }
-// Empêche que les menus soient fermés de manière intempestive
-document.addEventListener('click', function(event) {
-    const filterGroups = document.querySelectorAll('.filter-group');
-    
-    filterGroups.forEach(group => {
-        const dropdown = group.querySelector('.dropdown-content');
-        
-        // Si le clic se fait à l'extérieur du groupe ou du menu déroulant, on ferme le menu
-        if (!group.contains(event.target)) {
-            dropdown.style.display = 'none'; // Ferme le menu
-        }
     });
 });
     </script>
