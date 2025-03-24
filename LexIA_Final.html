@@ -1278,6 +1278,43 @@ function applyFilters() {
     // Met à jour l'affichage des résultats
     displayResults(filteredResults);
 } // <-- Fermeture de la fonction applyFilters()
+// Fonction de réinitialisation des filtres
+function resetFilters() {
+    selectedFilters = {}; // Réinitialise tous les filtres
+
+    // Décoche toutes les cases
+    document.querySelectorAll('.filter').forEach(filter => {
+        filter.checked = false;
+    });
+
+    // Réaffiche tous les résultats
+    currentPage = 1;
+    displayResults(data);
+
+    // Masque la section des filtres appliqués
+    const appliedFiltersContainer = document.getElementById('applied-filters');
+    appliedFiltersContainer.style.display = 'none';
+}
+
+// Déclare filteredResults globalement
+let filteredResults = [];
+
+// ✅ Affichage sécurisé du nombre de résultats
+const resultInfoElement = document.getElementById('results-info');
+if (resultInfoElement) {
+    if (Array.isArray(filteredResults)) {
+        resultInfoElement.textContent = `${filteredResults.length} résultat${filteredResults.length > 1 ? 's' : ''} trouvé${filteredResults.length > 1 ? 's' : ''}`;
+    } else {
+        resultInfoElement.textContent = '';
+    }
+}
+
+// Affiche les filtres appliqués
+displayAppliedFilters(selectedFilters);
+
+// Met à jour l'affichage
+currentResults = filteredResults;
+displayResults(currentResults);
 
 // Fonction de suppression d'un filtre
 function removeFilter(field, value) {
@@ -1331,24 +1368,6 @@ function removeAdvancedFilter(field, value) {
     // Réapplique les filtres restants
     executeAdvancedSearch();
 } // <-- Fermeture de la fonction removeAdvancedFilter()
-
-// Réinitialiser les filtres
-function resetFilters() {
-    selectedFilters = {}; // Réinitialise tous les filtres
-
-    // Décoche toutes les cases
-    document.querySelectorAll('.filter').forEach(filter => {
-        filter.checked = false;
-    });
-
-    // Réaffiche tous les résultats
-    currentPage = 1;
-    displayResults(data);
-
-    // Masque la section des filtres appliqués
-    const appliedFiltersContainer = document.getElementById('applied-filters');
-    appliedFiltersContainer.style.display = 'none';
-}
 };
     </script>
 </body>
