@@ -1199,13 +1199,22 @@ document.getElementById('results-info').textContent = `${results.length} résult
         advancedSearch.style.display = 'none';
     }
 }
+// Déclare le fieldMap avant d'utiliser applyFilters()
+const fieldMap = {
+    "Base légale": "Base légale",   // Correspondance pour Base légale
+    "Entité(s)": "Entité(s)",       // Correspondance pour Entité(s)
+    "Catégorie": "Catégorie",       // Correspondance pour Catégorie
+    "Organe compétent": "Organe compétent" // Correspondance pour Organe compétent
+};
+
+// Fonction de filtrage
 function applyFilters() {
     selectedFilters = {}; // Réinitialise les filtres
 
-    // Récupère les filtres cochés
+    // Récupère les filtres sélectionnés
     document.querySelectorAll('.filter:checked').forEach(input => {
         const field = input.getAttribute('data-field');
-        const value = input.value.toLowerCase();
+        const value = input.value.toLowerCase(); // Normalisation de la valeur
 
         if (!selectedFilters[field]) {
             selectedFilters[field] = [];
@@ -1218,28 +1227,32 @@ function applyFilters() {
 
     // Filtrage des résultats
     const filteredResults = data.filter(item => {
-    return Object.keys(selectedFilters).every(field => {
-        const filterValues = selectedFilters[field].map(v => v.toLowerCase()); // Assurer que tout est en minuscule
-        const jsonFieldName = fieldMap[field] || field; // Correspondance avec le nom du champ dans JSON
-        const itemField = item.properties[jsonFieldName]; // Récupère la propriété du JSON
+        return Object.keys(selectedFilters).every(field => {
+            const filterValues = selectedFilters[field].map(v => v.toLowerCase()); // Assure que tout est en minuscule
+            const jsonFieldName = fieldMap[field] || field; // Correspondance avec le nom du champ dans JSON
+            const itemField = item.properties[jsonFieldName]; // Récupère la propriété du JSON
 
-        if (!itemField) return false; // Si la propriété n'existe pas, on exclut
+            if (!itemField) return false; // Si la propriété n'existe pas, on exclut
 
-        // Si c’est un tableau (par exemple "Entité(s)")
-        if (Array.isArray(itemField)) {
-            return itemField
-                .map(v => v.toLowerCase()) // Assure la casse des données
-                .every(val => filterValues.includes(val)); // Logique "ET" : Tous les filtres doivent être présents
-        }
+            // Si c’est un tableau (par exemple "Entité(s)")
+            if (Array.isArray(itemField)) {
+                return itemField
+                    .map(v => v.toLowerCase()) // Assure la casse des données
+                    .every(val => filterValues.includes(val)); // Logique "ET" : Tous les filtres doivent être présents
+            }
 
-        // Si c’est une chaîne de texte (par exemple "Base légale")
-        if (typeof itemField === 'string') {
-            return filterValues.every(v => itemField.toLowerCase().includes(v)); // Logique "ET" : Tous les filtres doivent correspondre partiellement
-        }
+            // Si c’est une chaîne de texte (par exemple "Base légale")
+            if (typeof itemField === 'string') {
+                return filterValues.every(v => itemField.toLowerCase().includes(v)); // Logique "ET" : Tous les filtres doivent correspondre partiellement
+            }
 
-        return false;
+            return false;
+        });
     });
-});
+
+    // Met à jour l'affichage des résultats
+    displayResults(filteredResults);
+}
 
     // ✅ Affichage sécurisé du nombre de résultats
     const resultInfoElement = document.getElementById('results-info');
