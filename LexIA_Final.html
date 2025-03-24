@@ -1225,6 +1225,27 @@ function applyFilters() {
         }
     });
 
+// Fonction de filtrage
+function applyFilters() {
+    selectedFilters = {}; // Réinitialise les filtres
+
+    // Récupère les filtres sélectionnés
+    document.querySelectorAll('.filter:checked').forEach(input => {
+        const field = input.getAttribute('data-field');
+        const value = input.value.toLowerCase(); // Normalisation de la valeur
+
+        if (!selectedFilters[field]) {
+            selectedFilters[field] = [];
+        }
+
+        if (!selectedFilters[field].includes(value)) {
+            selectedFilters[field].push(value);
+        }
+    });
+
+    // Met à jour l'affichage des filtres appliqués
+    displayAppliedFilters(selectedFilters); // Mettre à jour l'affichage des filtres
+
     // Filtrage des résultats
     const filteredResults = data.filter(item => {
         return Object.keys(selectedFilters).every(field => {
@@ -1237,11 +1258,6 @@ function applyFilters() {
             }
 
             const itemField = item.properties[jsonFieldName]; // Récupère la propriété du JSON
-
-            // Vérification spécifique pour "EntiteFocus"
-            if (jsonFieldName === 'EntiteFocus' && !item.properties['EntiteFocus']) {
-                return false; // Si la propriété EntiteFocus n'existe pas, on l'exclut
-            }
 
             // Si c’est un tableau (par exemple "Entité(s)")
             if (Array.isArray(itemField)) {
@@ -1314,6 +1330,7 @@ function removeFilter(field, value) {
     displayAppliedFilters(selectedFilters); // Met à jour l'affichage des filtres appliqués
 }
 
+// Affiche les filtres appliqués
 function displayAppliedFilters(filters) {
     const appliedFiltersContainer = document.getElementById('applied-filters');
     appliedFiltersContainer.innerHTML = ''; // Réinitialise le contenu
