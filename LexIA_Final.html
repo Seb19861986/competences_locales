@@ -1218,24 +1218,27 @@ function applyFilters() {
 
     // Filtrage des résultats
     const filteredResults = data.filter(item => {
-        return Object.keys(selectedFilters).every(field => {
-            const filterValues = selectedFilters[field];
-            const itemField = item[field];
+    return Object.keys(selectedFilters).every(field => {
+        const filterValues = selectedFilters[field]; // ["cpas", "commune"]
+        const itemValue = item[field];
 
-            if (!itemField) return false;
+        if (!itemValue) return false;
 
-            if (Array.isArray(itemField)) {
-                return itemField.some(val => {
-                    if (typeof val !== 'string') return false;
-                    return filterValues.includes(val.toLowerCase());
-                });
-            } else if (typeof itemField === 'string') {
-                return filterValues.includes(itemField.toLowerCase());
-            }
+        // Si c'est un tableau dans la donnée
+        if (Array.isArray(itemValue)) {
+            return itemValue.some(val =>
+                filterValues.includes(val.toLowerCase())
+            );
+        }
 
-            return false;
-        });
+        // Si c'est une chaîne simple
+        if (typeof itemValue === 'string') {
+            return filterValues.includes(itemValue.toLowerCase());
+        }
+
+        return false;
     });
+});
 
     // ✅ Affichage sécurisé du nombre de résultats
     const resultInfoElement = document.getElementById('results-info');
