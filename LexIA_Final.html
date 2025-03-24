@@ -967,6 +967,9 @@ function displayResults(results) {
     // Réinitialisation du conteneur avant d'ajouter de nouveaux résultats pour éviter les duplications
     resultsContainer.innerHTML = '';  
 
+// Affiche le nombre de résultats
+document.getElementById('results-info').textContent = `${results.length} résultat${results.length > 1 ? 's' : ''} trouvé${results.length > 1 ? 's' : ''}`;
+
     // Si aucun résultat trouvé
     if (results.length === 0) {
         resultsContainer.style.display = 'none'; // Masque le conteneur des résultats
