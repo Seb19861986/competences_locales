@@ -1228,25 +1228,23 @@ function applyFilters() {
 
     // Filtrage des résultats
     const filteredResults = data.filter(item => {
-        return Object.keys(selectedFilters).every(field => {
-            if (!selectedFilters[field].length) return true;
+    return Object.keys(selectedFilters).every(field => {
+        const filterValues = selectedFilters[field]; // ex: ["commune", "CPAS"]
+        const itemField = item[field];
 
-            const fieldValue = item[field];
+        if (!itemField) return false;
 
-            if (Array.isArray(fieldValue)) {
-                return selectedFilters[field].some(filterValue =>
-                    fieldValue.some(value => {
-                        // Comparaison stricte pour chaque valeur (valeur exacte)
-                        return value.toLowerCase() === filterValue;
-                    })
-                );
-            } else if (typeof fieldValue === 'string') {
-                // Comparaison stricte pour une seule valeur (valeur exacte)
-                return selectedFilters[field].some(filterValue => fieldValue.toLowerCase() === filterValue);
-            }
-            return false;
-        });
+        if (Array.isArray(itemField)) {
+            return itemField.some(val => 
+                filterValues.includes(val.toLowerCase())
+            );
+        } else if (typeof itemField === 'string') {
+            return filterValues.includes(itemField.toLowerCase());
+        }
+
+        return false;
     });
+});
 
     // Affiche les filtres appliqués
     displayAppliedFilters(selectedFilters);
