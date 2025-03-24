@@ -1208,7 +1208,6 @@ const fieldMap = {
 };
 
 // Fonction de filtrage
-// Fonction de filtrage
 function applyFilters() {
     selectedFilters = {}; // Réinitialise les filtres
 
@@ -1231,13 +1230,17 @@ function applyFilters() {
         return Object.keys(selectedFilters).every(field => {
             const filterValues = selectedFilters[field].map(v => v.toLowerCase()); // Assure que tout est en minuscule
             const jsonFieldName = fieldMap[field] || field; // Correspondance avec le nom du champ dans JSON
+
+            // Vérifie si 'properties' existe avant d'y accéder
+            if (!item.properties || !item.properties[jsonFieldName]) {
+                return false;
+            }
+
             const itemField = item.properties[jsonFieldName]; // Récupère la propriété du JSON
 
-            if (!itemField) return false; // Si la propriété n'existe pas, on exclut
-
-            // Si la propriété est EntiteFocus, vérifie si elle existe avant d'y accéder
+            // Vérification spécifique pour "EntiteFocus"
             if (jsonFieldName === 'EntiteFocus' && !item.properties['EntiteFocus']) {
-                return false; // Si la propriété n'existe pas, on l'exclut
+                return false; // Si la propriété EntiteFocus n'existe pas, on l'exclut
             }
 
             // Si c’est un tableau (par exemple "Entité(s)")
